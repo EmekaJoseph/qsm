@@ -42,6 +42,6 @@
 <style scoped>
 @import '@/assets/template/style.css';
 @import '@/assets/template/responsive.css';
-@import '@/assets/template/default.css';
 @import '@/assets/template/ui-kit.css';
+@import '@/assets/template/default.css';
 </style>

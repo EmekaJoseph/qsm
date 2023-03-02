@@ -56,8 +56,4 @@
 @import '@/assets/template/responsive.css';
 @import '@/assets/template/default.css';
 @import '@/assets/template/ui-kit.css';
-
-.case-study-single-item {
-    height: 300px;
-}
 </style>

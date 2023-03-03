@@ -74,11 +74,6 @@
 </script>
 
 <style scoped>
-@import '@/assets/template/style.css';
-@import '@/assets/template/responsive.css';
-@import '@/assets/template/ui-kit.css';
-@import '@/assets/template/default.css';
-
 .header-top-left-single-item a {
     color: #fff !important;
     font-size: 15px;

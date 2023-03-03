@@ -40,8 +40,9 @@
 </script>
 
 <style scoped>
-@import '@/assets/template/style.css';
-@import '@/assets/template/responsive.css';
-@import '@/assets/template/ui-kit.css';
-@import '@/assets/template/default.css';
+/* @media (max-width: 991px) {
+    .hero-section {
+        margin-top: 50px;
+    }
+} */
 </style>

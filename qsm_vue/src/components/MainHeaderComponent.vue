@@ -1,6 +1,5 @@
 <template>
-    <div id="sticky-header" class="sticky-top itsoft_nav_manu d-md-none d-lg-block d-sm-none d-none"
-        :class="{ 'bg-theme': y > 50 }">
+    <div id="sticky-header" class="itsoft_nav_manu d-md-none d-lg-block d-sm-none d-none" :class="{ 'fixed-top': y > 50 }">
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
@@ -13,11 +12,11 @@
                 <div class="col-md-9">
                     <nav class="itsoft_menu">
                         <ul class="nav_scroll">
-                            <li v-if="y > 50"><a href="#">Back to Top</a></li>
-                            <li v-else><a href="#">Home</a></li>
+                            <li v-if="y > 50"><a href="#" class="a-text">Back to Top</a></li>
+                            <li v-else><a href="#" class="a-text">Home</a></li>
 
                             <li>
-                                <a href="#">Company<i class="bi bi-chevron-down"></i><span><i
+                                <a href="#" class="a-text">Company<i class="bi bi-chevron-down"></i><span><i
                                             class="fas fa-angle-right"></i></span></a>
                                 <ul class="sub-menu">
                                     <li><a href="#">About Us</a></li>
@@ -29,7 +28,7 @@
                             </li>
 
                             <li>
-                                <a href="#">Services<i class="bi bi-chevron-down"></i><span><i
+                                <a href="#" class="a-text">Services<i class="bi bi-chevron-down"></i><span><i
                                             class="fas fa-angle-right"></i></span></a>
                                 <ul class="sub-menu">
                                     <li><a href="#">Trainings</a></li>
@@ -39,7 +38,7 @@
                                 </ul>
                             </li>
 
-                            <li><a href="#">Blog</a></li>
+                            <li><a href="#" class="a-text">Blog</a></li>
                         </ul>
                         <div class="nav-btn  d-sm-none d-md-none d-lg-inline-block">
                             <a href="#">Get Consultant</a>
@@ -58,11 +57,6 @@ const { y } = useWindowScroll()
 </script>
 
 <style scoped>
-@import '@/assets/template/responsive.css';
-@import '@/assets/template/style.css';
-@import '@/assets/template/ui-kit.css';
-@import '@/assets/template/default.css';
-
 a {
     text-decoration: none;
 }
@@ -74,23 +68,25 @@ a {
 }
 
 .itsoft_nav_manu nav ul li a {
-    margin: 30px 22px;
+    margin: 30px 15px;
 
 }
 
-.bg-theme {
+.fixed-top {
     background-color: #FF3C00 !important;
 }
 
-.bg-theme nav ul li,
-.bg-theme nav ul li a,
-.bg-theme nav ul li .bi {
+.fixed-top nav ul li,
+.fixed-top nav .a-text,
+.fixed-top nav ul li .bi {
     color: #fff !important;
 }
 
-.bg-theme .nav-btn a {
-    background: #fff;
-    border: 1px solid #FF3C00;
-    color: #FF3C00;
+.fixed-top nav .sub-menu li a {
+    color: #111 !important;
+}
+
+.fixed-top .nav-btn a {
+    border-color: #fff;
 }
 </style>

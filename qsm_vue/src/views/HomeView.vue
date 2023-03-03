@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import ContactHeadComponent from '@/components/ContactHeadComponent.vue';
 import MainHeaderComponent from '@/components/MainHeaderComponent.vue';
+import MainHeaderMobileComponent from '@/components/MainHeaderMobileComponent.vue';
 import HeroComponent from '@/components/HeroComponent.vue';
 import AboutComponent from '@/components/AboutComponent.vue'
 import ServicesComponent from '@/components/ServicesComponent.vue'
@@ -17,6 +18,7 @@ import AppointmentComponent from '@/components/AppointmentComponent.vue'
   <section class="page-body">
     <ContactHeadComponent />
     <MainHeaderComponent />
+    <MainHeaderMobileComponent />
     <HeroComponent />
     <AboutComponent />
     <ServicesComponent />

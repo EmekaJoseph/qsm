@@ -10,6 +10,13 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
 
+
+import './assets/template/style.css';
+import './assets/template/responsive.css';
+import './assets/template/ui-kit.css';
+import './assets/template/default.css'
+
+
 import './assets/main.css'
 import 'animate.css';
 import 'vue3-carousel/dist/carousel.css';

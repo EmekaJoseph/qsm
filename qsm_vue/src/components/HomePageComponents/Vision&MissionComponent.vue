@@ -3,12 +3,12 @@
         <div class="container">
             <div class="section-head pb-65">
                 <div class="section-head">
-                    <h5>// How It Works</h5>
-                    <h2 class="text-white"> Check Out Our <span> Work Process </span></h2>
+                    <h5>// Vission &amp; Mission</h5>
+                    <h2 class="text-white"> We have passion <span> for Delivering </span></h2>
                     <span class="section-head-bar-2"></span>
                 </div>
             </div>
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-sm-12 col-md-6 col-lg-3">
                     <div class="process-single-item">
                         <div class="process-single-thumb">
@@ -19,9 +19,9 @@
                         </div>
                         <div class="process-content">
                             <div class="process-content-title">
-                                <h4>Choose a Service</h4>
+                                <h4>Vision</h4>
                             </div>
-                            <p>Aute irure dolor reprehenderit velit esse cillum dolore fugiat</p>
+                            <p>We envision in delivering, sustainable Human Capital for the Future through training </p>
                         </div>
                     </div>
                 </div>
@@ -35,9 +35,9 @@
                         </div>
                         <div class="process-content">
                             <div class="process-content-title">
-                                <h4>Request a Meeting</h4>
+                                <h4>Mission</h4>
                             </div>
-                            <p>Aute irure dolor reprehenderit velit esse cillum dolore fugiat</p>
+                            <p>Our mission is to partner with organization in providing human capital development</p>
                         </div>
                     </div>
                 </div>
@@ -51,13 +51,14 @@
                         </div>
                         <div class="process-content">
                             <div class="process-content-title">
-                                <h4>Receive Custom Plan</h4>
+                                <h4>Goal</h4>
                             </div>
-                            <p>Aute irure dolor reprehenderit velit esse cillum dolore fugiat</p>
+                            <p>To develop skills and increase productivity of your personnel.
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-3">
+                <!-- <div class="col-sm-12 col-md-6 col-lg-3">
                     <div class="process-single-item">
                         <div class="process-single-thumb">
                             <img src="@/assets/images/process/pcs4.jpg" alt="Work-Process">
@@ -72,7 +73,7 @@
                             <p>Aute irure dolor reprehenderit velit esse cillum dolore fugiat</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

@@ -12,11 +12,11 @@
                         <div class="section-head-container">
                             <div class="section-head">
                                 <h5>// Why Choose Us</h5>
-                                <h3 class="text-white">Some Of Reason For Choose </h3>
-                                <h2 class="text-white">Our <span>IT Solutions</span></h2>
+                                <h3 class="text-white">Some Of the Reasons you </h3>
+                                <h2 class="text-white">Should <span> ChooseUs</span></h2>
                                 <span class="section-head-bar"></span>
-                                <p> We provide immigration service in all over country and universities. orem semper sede
-                                    tellus in ultrices. Nam hendrerit elit vel urna.</p>
+                                <p> We have a Proffessional body membership with <b>Nigeria Institute of Training and
+                                        Development (NITAD)</b></p>
                             </div>
                         </div>
                         <div class="choose-us-content-container">
@@ -25,8 +25,10 @@
                                     <i class="flaticon-process"></i>
                                 </div>
                                 <div class="single-content-inner">
-                                    <h5 class="inner-content-title pb-15 text-white">Product Designs</h5>
-                                    <p>Skilled professionals are always ready to provide reliable services to our clients!
+                                    <h5 class="inner-content-title pb-15 text-white">Experience</h5>
+                                    <p>For 18 years, we have sustained integrity and proficiency in designing trainings,
+                                        seminar,
+                                        workshop and facility audits.
                                     </p>
                                 </div>
                             </div>
@@ -35,8 +37,9 @@
                                     <i class="flaticon-system"></i>
                                 </div>
                                 <div class="single-content-inner">
-                                    <h5 class="inner-content-title pb-15 text-white">Big Data &amp; Analytics</h5>
-                                    <p>Branches are situated in major metro cities and overseas, always open for you!</p>
+                                    <h5 class="inner-content-title pb-15 text-white">Quality</h5>
+                                    <p>Our reputation for quality service is attested to by participants who
+                                        attend our trainings. </p>
                                 </div>
                             </div>
                             <div class="single-content  pb-25 d-flex">
@@ -44,8 +47,9 @@
                                     <i class="flaticon-next-1"></i>
                                 </div>
                                 <div class="single-content-inner">
-                                    <h5 class="inner-content-title pb-15 text-white">Maintain App Data</h5>
-                                    <p>Skilled professionals are always ready to provide reliable services to our clients!
+                                    <h5 class="inner-content-title pb-15 text-white">Our Faculty</h5>
+                                    <p>We are equipped with reputable hands. <a href="#">see our list of falculty
+                                            members</a>
                                     </p>
                                 </div>
                             </div>

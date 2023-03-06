@@ -2,34 +2,38 @@
   <div>
     <div class="footer">
       <div class="container">
-        <div class="row footer-hr">
-          <div class="col-md-6 col-lg-3">
+        <!-- <div class="row footer-hr"> -->
+        <div class="row footer-hr justify-content-center">
+
+          <!-- <div class="col-md-6 col-lg-3"> -->
+          <div class="col-md-4">
             <div class="widget">
               <div class="about-company">
                 <div class="footer-logo">
                   <img src="@/assets/images/footer/logo2.png" alt="Footer-logo">
                 </div>
-                <p>We are the best world Information Technology Company. Providing the highest quality.</p>
+                <p>We train and bring the most current knowledge to your organization. </p>
                 <div class="footer-about-social-icon">
                   <ul>
                     <li>
-                      <a href="#"><i class="fab fa-facebook-f"></i></a>
+                      <a href="#"><i class="bi bi-facebook"></i></a>
                     </li>
                     <li>
-                      <a href="#"><i class="fab fa-twitter"></i></a>
+                      <a href="#"><i class="bi bi-twitter"></i></a>
                     </li>
                     <li>
-                      <a href="#"><i class="fab fa-pinterest"></i></a>
+                      <a href="#"><i class="bi bi-pinterest"></i></a>
                     </li>
                     <li>
-                      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                      <a href="#"><i class="bi bi-linkedin"></i></a>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-3">
+          <!-- <div class="col-md-6 col-lg-3"> -->
+          <div class="col-md-4">
             <div class="widget">
               <div class="footer-quick-link">
                 <div class="footer-widget-title">
@@ -37,29 +41,30 @@
                 </div>
                 <div class="footer-quick-link-list">
                   <ul>
-                    <li><a href="#">Customers Services</a></li>
-                    <li><a href="#">IT Department</a></li>
                     <li><a href="#">About Our Company</a></li>
-                    <li><a href="#">Business Growth</a></li>
-                    <li><a href="#">Make An Appointment</a></li>
+                    <li><a href="#">Course Materials</a></li>
+                    <li><a href="#">Trainings</a></li>
+                    <li><a href="#">Archive</a></li>
+                    <li><a href="#">Admin</a></li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-3">
+          <!-- <div class="col-md-6 col-lg-3"> -->
+          <div class="col-md-4">
             <div class="widget">
               <div class="footer-contact">
                 <div class="footer-widget-title">
                   <h5>Contacts</h5>
                 </div>
-                <p><b>Adress: </b>27 Division St, New York, NY 10002, USA</p>
-                <p><b>Phone: </b> +8 91230 456 789 <br>Fax: +8 91230 456 788</p>
-                <p><b>Email: </b> example@mail.com <br> Website: your website.com</p>
+                <p><b>Adress: </b> 68, Randle Avenue, Surulere, Lagos, Nigeria.</p>
+                <p><b>Phone: </b> +234 802 364 7417; <br>+234 803 584 9127; <br>+234 1 2932940</p>
+                <p><b>Email: </b> qsmtrainingconsulting@gmail.com</p>
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-3">
+          <!-- <div class="col-md-6 col-lg-3">
             <div class="widget">
               <div class="footer-popular-post ">
                 <div class="footer-widget-title">
@@ -93,7 +98,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

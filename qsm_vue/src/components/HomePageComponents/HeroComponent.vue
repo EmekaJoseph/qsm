@@ -4,16 +4,16 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="hero-content-area text-left">
-                        <h4>Secure &amp; IT Services</h4>
-                        <h1>Excellent IT services <br>for your success</h1>
-                        <p>Pellentesque at posuere tellus phasellus scelerisque porem.</p>
+                        <h4>QSM Training &amp; Consulting LTD</h4>
+                        <!-- <h1> Consultancy Services <br>at its Best</h1> -->
+                        <h1> Training &amp; Consultancy <br> Services at its Best</h1>
+                        <!-- <h2>Training &amp; Development, <br> Technical Course
+                            &amp; Consultancy Services </h2> -->
+                        <p>Training &amp; Development, Technical Course
+                            &amp; Consultancy Services</p>
                         <div class="btn-common btn-hero">
                             <a href="#">Learn More <i class="fas fa-angle-right"></i></a>
                         </div>
-                        <!-- <div class="video-icon">
-                            <a class="video-vemo-icon venobox vbox-item" data-vbtype="youtube" data-autoplay="true"
-                                href="https://www.youtube.com/watch?v=Wx48y_fOfiY"><i class="fas fa-play-circle"></i></a>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -40,6 +40,13 @@
 </script>
 
 <style scoped>
+.hero-thumb-inner,
+.hero-thumb-inner img {
+    width: 587px;
+    margin-left: 100px;
+}
+
+
 /* @media (max-width: 991px) {
     .hero-section {
         margin-top: 50px;

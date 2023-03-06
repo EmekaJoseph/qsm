@@ -14,12 +14,13 @@
                         <div class="section-head-container">
                             <div class="section-head">
                                 <h5>// About Company</h5>
-                                <h3>We Deal With The Aspects of</h3>
-                                <h2>Professional <span>IT Services</span></h2>
+                                <h3>We Offer Quality Trainings &amp;</h3>
+                                <h2>Consultancy <span>Services</span></h2>
                                 <span class="section-head-bar"></span>
-                                <p> ITSoft is the partner of choice for many of the world’s leading and enterprises, SMEs
-                                    and technology challengers. We help businesses elevate their value through custom
-                                    software development.</p>
+                                <p> QSM Training &amp; Consulting Ltd Outsourcing Services is amongst the leading provider
+                                    of outsourcing services to multiple clients across a number of sectors in the Nigerian
+                                    economy. Our client base includes multi-nationals, as well as very successful indigenous
+                                    organizations.</p>
                             </div>
                         </div>
                         <div class="about-content">
@@ -28,8 +29,13 @@
                                     <i class="flaticon-next-1"></i>
                                 </div>
                                 <div class="single-content-inner">
-                                    <h5 class="inner-content-title pb-15">User Experience</h5>
-                                    <p>Skilled professionals are always ready to provide reliable services to our clients!
+                                    <h5 class="inner-content-title pb-15">Clients' Experience</h5>
+                                    <p>
+                                        Our over-arching goal is to ensure that our clients achieve and exceed their
+                                        business objectives.
+                                        <!-- Every member of our team is committed to delivering the excellence and
+                                        professionalism
+                                        required to deliver on this promise. -->
                                     </p>
                                 </div>
                             </div>
@@ -39,7 +45,8 @@
                                 </div>
                                 <div class="single-content-inner">
                                     <h5 class="inner-content-title pb-15">Quick Support</h5>
-                                    <p>Branches are situated in major metro cities and overseas, always open for you!</p>
+                                    <p>We have developed, tested and implemented various outsourcing processes and solutions
+                                        uniquely tailored to the Nigerian economy environment. </p>
                                 </div>
                             </div>
                         </div>

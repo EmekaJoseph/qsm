@@ -23,7 +23,7 @@
                 <div class="card border-0">
                     <div class="card-header fw-bold bg-white text-mute pb-1">Company</div>
                     <div class="card-body pt-2">
-                        <ul>
+                        <ul data-bs-dismiss="offcanvas">
                             <li>About us</li>
                             <li>Archive</li>
                             <li>Contact</li>
@@ -35,7 +35,7 @@
                 <div class="card border-0">
                     <div class="card-header fw-bolder bg-white text-mute pb-1">Services</div>
                     <div class="card-body pt-2">
-                        <ul>
+                        <ul data-bs-dismiss="offcanvas">
                             <li>Trainings</li>
                             <li>Materials</li>
                             <li>Contact</li>
@@ -43,7 +43,7 @@
                     </div>
                 </div>
 
-                <div class="card border-0">
+                <div class="card border-0 mt-3" data-bs-dismiss="offcanvas">
                     <div class="card-header fw-bold bg-white mb-0 border-0 ">Blog</div>
                 </div>
             </div>
@@ -75,15 +75,23 @@ onBeforeRouteLeave(() => {
 }
 
 .offcanvas {
-    min-height: 68vh !important;
+    min-height: 60vh !important;
+    /* padding-left: 10px; */
+}
+
+
+.offcanvas-body ul {
+    display: flex;
+    justify-content: space-between;
 }
 
 .offcanvas-body ul li {
-    list-style-type: circle;
-    margin-bottom: 15px;
+    list-style-type: none;
+    /* margin-bottom: 10px; */
 }
 
 .text-mute {
     color: #b1afaf;
+    font-size: small;
 }
 </style>

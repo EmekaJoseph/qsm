@@ -9,27 +9,18 @@
                                 <div class="header-top-left-icon">
                                     <span>
                                         <i class="bi bi-envelope"></i>
-                                        example@example.com
+                                        qsmtrainingconsulting@gmail.com
                                     </span>
                                 </div>
                             </a>
                         </div>
-                        <!-- <div class="header-top-left-single-item">
-                            <a href="#">
-                                <div class="header-top-left-icon">
-                                    <span>
-                                        <i class="bi bi-phone"></i>
-                                        1st Floor New World.
-                                    </span>
-                                </div>
-                            </a>
-                        </div> -->
+
                         <div class="header-top-left-single-item">
                             <a href="#">
                                 <div class="header-top-left-icon">
                                     <span>
                                         <i class="bi bi-phone"></i>
-                                        +880 320 432 242
+                                        +234 816 308 3253
                                     </span>
                                 </div>
                             </a>

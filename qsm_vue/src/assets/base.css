@@ -42,8 +42,8 @@ html * {
   font-weight: normal;
 }
 
-.page-body {
-  margin-bottom: 180px;
+.body-section {
+  margin-bottom: 100px;
 }
 
 /* body {

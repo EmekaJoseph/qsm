@@ -11,9 +11,11 @@
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-8">
                         <div class="section-head-content">
-                            <p class="pt-0 pb-0">Aliquam sodales justo sit amet urna auctor scelerisquinterdum leo anet
-                                tempus enim and esent egetis hendrerit vel nibh vitaeornar sem velit aliquam facilisivitae
-                                finibus risus feslin is hendrerit vel nibh vitae ornar uspendisse consequat quis sem</p>
+                            <p class="pt-0 pb-0">For 18 years, we have sustained integrity and proficiency in designing
+                                trainings, seminar,
+                                workshop and facility audit for the Food, Pharmaceutical, Water and Cosmetic
+                                Manufacturers. Our reputation for quality service is attested to by participants who
+                                attend our trainings.</p>
                         </div>
                     </div>
                 </div>
@@ -23,23 +25,49 @@
                 <div class="col-md-4">
                     <div class="services-carousel-single-item ">
                         <div class="services-carousel-thumb">
-                            <img src="@/assets/images/services/svs3.jpg" alt="carousel-img">
+                            <img src="@/assets/images/services/svs2.jpg" alt="carousel-img">
                         </div>
                         <div class="services-carousel-icon">
-                            <i class="flaticon-system"></i>
+                            <i class=" bi bi-file-earmark-easel"></i>
                         </div>
                         <div class="services-content-section">
                             <div class="services-content-title">
-                                <h2>Cloud Computing</h2>
+                                <h2>Traning</h2>
                             </div>
                             <div class="services-content">
-                                <p>Nullam tincidunt augue eget densis volu tpat, vitae ultri ces lectus and
-                                    posuere. Duis urna lacus.</p>
+                                <p>At QSM Training & Consulting Limited we train and bring the most current knowledge to
+                                    your organization. </p>
                             </div>
                             <div class="services-content-btn">
                                 <a href="#"> Read More
                                     <i class="fas fa-angle-right"></i>
-                                    <span><i class="fas fa-long-arrow-alt-right"></i></span>
+                                    <span><i class="bi fs-5 bi-arrow-right"></i></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="services-carousel-single-item  ">
+                        <div class="services-carousel-thumb">
+                            <img src="@/assets/images/services/svs1.jpg" alt="carousel-img">
+                        </div>
+                        <div class="services-carousel-icon">
+                            <i class="bi bi-person-fill-check"></i>
+                        </div>
+                        <div class="services-content-section">
+                            <div class="services-content-title">
+                                <h2>Consulting</h2>
+                            </div>
+                            <div class="services-content">
+                                <p> We have helped clients design and implement projects, enhance human capacity and build
+                                    great institutions. </p>
+                            </div>
+                            <div class="services-content-btn">
+                                <a href="#"> Read More
+                                    <i class="fas fa-angle-right"></i>
+                                    <span><i class="bi fs-5 bi-arrow-right"></i></span>
                                 </a>
                             </div>
                         </div>
@@ -52,46 +80,20 @@
                             <img src="@/assets/images/services/svs3.jpg" alt="carousel-img">
                         </div>
                         <div class="services-carousel-icon">
-                            <i class="flaticon-system"></i>
+                            <i class="bi bi-journals"></i>
                         </div>
                         <div class="services-content-section">
                             <div class="services-content-title">
-                                <h2>Cloud Computing</h2>
+                                <h2>Materials</h2>
                             </div>
                             <div class="services-content">
-                                <p>Nullam tincidunt augue eget densis volu tpat, vitae ultri ces lectus and
-                                    posuere. Duis urna lacus.</p>
+                                <p>We provide course materials related to the courses we that teach. These materials are
+                                    available for download.</p>
                             </div>
                             <div class="services-content-btn">
                                 <a href="#"> Read More
                                     <i class="fas fa-angle-right"></i>
-                                    <span><i class="fas fa-long-arrow-alt-right"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="services-carousel-single-item  ">
-                        <div class="services-carousel-thumb">
-                            <img src="@/assets/images/services/svs3.jpg" alt="carousel-img">
-                        </div>
-                        <div class="services-carousel-icon">
-                            <i class="flaticon-system"></i>
-                        </div>
-                        <div class="services-content-section">
-                            <div class="services-content-title">
-                                <h2>Cloud Computing</h2>
-                            </div>
-                            <div class="services-content">
-                                <p>Nullam tincidunt augue eget densis volu tpat, vitae ultri ces lectus and
-                                    posuere. Duis urna lacus.</p>
-                            </div>
-                            <div class="services-content-btn">
-                                <a href="#"> Read More
-                                    <i class="fas fa-angle-right"></i>
-                                    <span><i class="fas fa-long-arrow-alt-right"></i></span>
+                                    <span><i class="bi fs-5 bi-arrow-right"></i></span>
                                 </a>
                             </div>
                         </div>
@@ -105,3 +107,16 @@
 <script setup lang="ts">
 
 </script>
+
+<style scoped>
+@media (min-width: 994px) {
+
+    img {
+        filter: grayscale(100%);
+    }
+
+    img:hover {
+        filter: grayscale(0%);
+    }
+}
+</style>

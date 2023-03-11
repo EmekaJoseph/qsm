@@ -3692,7 +3692,7 @@ a.active {
     color: #fff !important;
     background-color: #FF3A00 !important;
     font-weight: 600;
-    font-family: 'Rajdhani';
+    /* font-family: 'Rajdhani'; */
     font-size: 18px;
     border-radius: 5px 5px 0 0;
     transition: .5s;
@@ -3803,7 +3803,7 @@ div#firsttab {
 .dreamit-department-bottom-content-inner ul li span {
     font-size: 17px;
     font-weight: 600;
-    font-family: 'Rajdhani';
+    /* font-family: 'Rajdhani'; */
     color: #1c1c1c;
 }
 
@@ -10328,7 +10328,7 @@ div#firsttab {
 .calls-do-actions .section-title h1 {
     font-size: 55px;
     font-weight: bold;
-    font-family: Rajdhani;
+    /* font-family: Rajdhani; */
     margin-bottom: 15px;
     margin-top: 16px;
     color: #0A2C3D;
@@ -10412,7 +10412,7 @@ div#firsttab {
     border-radius: 3px;
     font-weight: 600;
     text-transform: uppercase;
-    font-family: 'Rajdhani';
+    /* font-family: 'Rajdhani'; */
     position: relative;
     z-index: 1;
     transition: .5s;
@@ -11008,7 +11008,7 @@ div#firsttab {
     font-weight: 600;
     font-size: 25px;
     color: #000000;
-    font-family: 'Rajdhani', sans-serif;
+    /* font-family: 'Rajdhani', sans-serif; */
 }
 
 .details-thumb {

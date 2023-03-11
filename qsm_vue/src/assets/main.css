@@ -10,3 +10,65 @@ button:focus,
   box-shadow: none !important;
   /* background-color: none; */
 }
+
+.body-section {
+  margin-bottom: 100px;
+}
+
+.other-page-hero {
+  background-color: var(--bs-light);
+  padding-block: 60px;
+  border-bottom: 2px solid #f5f5f5;
+  background: url("@/assets/images/hero/hero-bg.jpg") no-repeat center/cover;
+}
+
+.theme-color {
+  color: #FF3C00 !important;
+}
+
+.theme-color-faint {
+  color: #ff3c0079 !important;
+}
+
+.theme-btn {
+  background-color: #FF3C00;
+  color: #fff !important;
+}
+
+.theme-btn:hover {
+  background-color: #d33404;
+}
+
+.btn-custom-light {
+  border: 1px solid #6c757d !important;
+  color: #6c757d;
+  border-color: #c9cdd1 !important;
+}
+
+.btn-custom-light:hover {
+  background-color: #f5f5f5 !important;
+  color: #111 !important;
+}
+
+.btn-custom-secondary {
+  background-color: #f5f5f5 !important;
+  border: 1px solid #6c757d !important;
+  color: #6c757d;
+}
+
+.btn-custom-secondary:hover {
+  background-color: #e2dfdf !important;
+  color: #111 !important;
+}
+
+.btn-danger {
+  border-color: #d8989e !important;
+}
+
+th {
+  font-weight: bold !important;
+}
+
+.text-muted2 {
+  color: #c9cdd1 !important;
+}

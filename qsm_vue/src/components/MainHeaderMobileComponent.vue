@@ -21,30 +21,15 @@
             </div>
             <div class="offcanvas-body">
                 <div class="card border-0">
-                    <div class="card-header fw-bold bg-white text-mute pb-1">Company</div>
                     <div class="card-body pt-2">
                         <ul data-bs-dismiss="offcanvas">
-                            <li>About us</li>
-                            <li>Archive</li>
-                            <li>Contact</li>
-                        </ul>
-
-                    </div>
-                </div>
-
-                <div class="card border-0">
-                    <div class="card-header fw-bolder bg-white text-mute pb-1">Services</div>
-                    <div class="card-body pt-2">
-                        <ul data-bs-dismiss="offcanvas">
-                            <li>Trainings</li>
-                            <li>Materials</li>
-                            <li>Contact</li>
+                            <li> <router-link to="/">Home</router-link> </li>
+                            <li> <router-link to="/about">About us</router-link> </li>
+                            <li><router-link to="/materials">Materials</router-link></li>
+                            <li><router-link to="/trainings">Trainings</router-link></li>
+                            <li><router-link to="/blog">Blog</router-link></li>
                         </ul>
                     </div>
-                </div>
-
-                <div class="card border-0 mt-3" data-bs-dismiss="offcanvas">
-                    <div class="card-header fw-bold bg-white mb-0 border-0 ">Blog</div>
                 </div>
             </div>
         </div>
@@ -75,23 +60,32 @@ onBeforeRouteLeave(() => {
 }
 
 .offcanvas {
-    min-height: 60vh !important;
+    min-height: 50vh !important;
     /* padding-left: 10px; */
 }
 
 
-.offcanvas-body ul {
+/* .offcanvas-body ul {
     display: flex;
     justify-content: space-between;
-}
+} */
 
 .offcanvas-body ul li {
     list-style-type: none;
-    /* margin-bottom: 10px; */
+    list-style-type: circle;
+    margin-bottom: 30px;
 }
 
 .text-mute {
-    color: #b1afaf;
+    color: #cac8c8;
     font-size: small;
+    font-weight: normal;
+}
+
+.active {
+    background-color: transparent !important;
+    color: #111 !important;
+    font-weight: normal;
+    font-size: 16px;
 }
 </style>

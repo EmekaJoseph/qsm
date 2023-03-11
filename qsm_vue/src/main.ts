@@ -34,6 +34,18 @@ import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
 app.component('VueDatePicker', VueDatePicker);
 
+import MainHeaderComponent from '@/components/MainHeaderComponent.vue';
+app.component('MainHeaderComponent', MainHeaderComponent);
+
+import FooterComponent from '@/components/FooterComponent.vue';
+app.component('FooterComponent', FooterComponent);
+
+import EmptyListComponent from '@/components/EmptyListComponent.vue';
+app.component('EmptyListComponent', EmptyListComponent);
+
+import PageLoading from '@/components/PageLoading.vue';
+app.component('PageLoading', PageLoading);
+
 app.use(createPinia())
 app.use(VueSweetalert2);
 // @ts-ignore

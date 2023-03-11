@@ -14,22 +14,22 @@
                     <div class="col-md-9">
                         <nav class="itsoft_menu">
                             <ul class="nav_scroll">
-                                <li v-if="y > 2000"><a href="/#" class="a-text"> <i class="bi bi-arrow-up"></i> Top</a></li>
-                                <li v-else><a href="/#" class="a-text">Home</a></li>
+                                <!-- <li v-if="y > 2000"><a href="/#" class="a-text"> <i class="bi bi-arrow-up"></i> Top</a></li>
+                                <li v-else><a href="/#" class="a-text">Home</a></li> -->
+
+                                <li>
+                                    <router-link class="a-text" :to="{ path: '/', hash: '#' }">Home</router-link>
+                                </li>
 
                                 <li>
                                     <a href="#" class="a-text">Company<i class="bi bi-chevron-down"></i><span><i
                                                 class="fas fa-angle-right"></i></span></a>
                                     <ul class="sub-menu">
 
+                                        <li> <router-link to="/about">About Us</router-link> </li>
                                         <li>
-                                            <router-link to="/about">About Us</router-link>
+                                            <router-link :to="{ path: '/about', hash: '#history' }">History</router-link>
                                         </li>
-
-                                        <li><a href="/about#history">History</a></li>
-                                        <li><a href="#">Archive</a></li>
-                                        <li><a href="#">Contact </a></li>
-
                                     </ul>
                                 </li>
 
@@ -37,17 +37,18 @@
                                     <a href="#" class="a-text">Services<i class="bi bi-chevron-down"></i><span><i
                                                 class="fas fa-angle-right"></i></span></a>
                                     <ul class="sub-menu">
-                                        <li><a href="#">Trainings</a></li>
-                                        <li><a href="#">Materials</a></li>
-                                        <li><a href="#">Products</a></li>
-
+                                        <li><router-link to="/trainings">Trainings</router-link></li>
+                                        <li><router-link to="/materials">Materials</router-link></li>
                                     </ul>
                                 </li>
 
-                                <li><a href="#" class="a-text">Blog</a></li>
+                                <li>
+                                    <router-link class="a-text" to="/blog">Blog</router-link>
+                                </li>
                             </ul>
                             <div class="nav-btn  d-sm-none d-md-none d-lg-inline-block">
-                                <a href="#">Get Consultant</a>
+                                <router-link class="fw-light" :to="{ path: '/', hash: '#instantform' }">Get
+                                    Consultant</router-link>
                             </div>
                         </nav>
 
@@ -71,14 +72,14 @@ a {
 }
 
 .nav-btn a {
-    background: #FF3C00;
-    border: 1px solid #FF3C00;
-    color: #fff;
+    background: #FF3C00 !important;
+    border: 1px solid #FF3C00 !important;
+    color: #fff !important;
 }
 
 .itsoft_nav_manu nav ul li a {
     margin: 30px 15px;
-
+    color: #111 !important;
 }
 
 .fixed-top {
@@ -96,7 +97,7 @@ a {
 }
 
 .fixed-top .nav-btn a {
-    border-color: #fff;
+    border-color: #fff !important;
 }
 
 .active {

@@ -5,7 +5,7 @@
     <section class="body-section">
 
 
-      <div class="bg-light py-5">
+      <div class="other-page-hero">
         <div class="container">
           <div class="row gx-4">
             <div class="col-lg-6 col-sm-10">
@@ -26,7 +26,7 @@
 
       <div class="container py-5 animate__animated animate__fadeIn text-black">
 
-        <section class="section">
+        <section class="section" id="history">
           <div class="title">Who We Are</div>
           QSM Training & Consulting Ltd Outsourcing Services is amongst the leading provider of
           outsourcing services to multiple clients across a number of sectors in the Nigerian economy.
@@ -47,7 +47,7 @@
           </p>
         </section>
 
-        <div class="section" id="history">
+        <section class="section">
           <div class="title">History</div>
           Quality System Management was founded in the year 2001 and was rebranded to QSM
           Training & Consulting Limited in the year 2015 with headquartered in Lagos, Nigeria.
@@ -65,7 +65,7 @@
             efficiency, enhance human capacity and build great institutions.
             At QTC we train and bring the most current knowledge to your organization.
           </p>
-        </div>
+        </section>
 
         <section class="section">
           <div class="title">Vision & Mission</div>
@@ -111,9 +111,9 @@
           </ol>
         </section>
 
-        <section class="section">
+        <section class="section" id="faculty">
           <div class="title">FACULTY:</div>
-          <div class="row mb-4">
+          <div class="row mb-4 faculty-span">
             <div class="col-lg-8 order-2 order-lg-1"><b>Prof. Louis Egwari</b> Chair, Training QSM training and Consulting
               Ltd. He has over
               30 years of work experience in academics and hospital duties and administration.
@@ -131,19 +131,23 @@
               medical microbiology, food microbiology, Pharmaceutical microbiology and
               Water microbiology and chemistry. His expertises are in proposal writing, project
               development, product development and capacity building.</div>
-            <div class="col-lg-4 order-1 order-lg-2">PIC</div>
+            <div class="col-lg-4 order-1 order-lg-2">
+              <div class="pic-span">PHOTO</div>
+            </div>
           </div>
 
-          <div class="row mb-4">
+          <div class="row mb-4 faculty-span">
             <div class="col-lg-8 order-2 order-lg-1"><b>Dr (Mrs) Agnes Yemisi Asagbra - </b> Holds a PhD in Food and
               Industrial Microbiology. She is presently the Director of Production, Analytical and
               Laboratory Management in the Federal Institute of Industrial Research Oshodi
               (FIIRO). She is QMS and FSMS auditor with DQS. She is also an IRCA auditor. She
               is passionate about safety.</div>
-            <div class="col-lg-4 order-1 order-lg-2">PIC</div>
+            <div class="col-lg-4 order-1 order-lg-2">
+              <div class="pic-span">PHOTO</div>
+            </div>
           </div>
 
-          <div class="row mb-4">
+          <div class="row mb-4 faculty-span">
             <div class="col-lg-8 order-2 order-lg-1"><b>Emeka Chukwurah C. - </b> is an experienced Regulatory Affairs,
               cGMP Compliance Professional and ISO 9001:2015 Auditor. He has over 14 years work experience
               that spans the academia, Non-Governmental Organization, government
@@ -151,10 +155,12 @@
               Establishment Inspection Directorate and Food Safety and Applied Nutrition
               Directorate of NAFDAC as a water and food safety auditor. Currently, he consults
               for companies on Regulatory, compliance and quality issues.</div>
-            <div class="col-lg-4 order-1 order-lg-2">PIC</div>
+            <div class="col-lg-4 order-1 order-lg-2">
+              <div class="pic-span">PHOTO</div>
+            </div>
           </div>
 
-          <div class="row mb-4">
+          <div class="row mb-4 faculty-span">
             <div class="col-lg-8 order-2 order-lg-1"><b>Opaleye, Nureni Babatunde – MBA (Master in Business
                 Administration) - </b> University of Lagos, B.Sc (Hons) Microbiology – University of Lagos, OND (Science
               Technology) – The polytechnic Ibadan, Nigeria, Member Nigerian Society for Microbiology (MNSM),
@@ -162,10 +168,12 @@
               Standards Organization of Nigeria (Certified Systems Lead Auditor), Member Nigeria
               Institute of Food Science and Technology (NIFST).
             </div>
-            <div class="col-lg-4 order-1 order-lg-2">PIC</div>
+            <div class="col-lg-4 order-1 order-lg-2">
+              <div class="pic-span">PHOTO</div>
+            </div>
           </div>
 
-          <div class="row mb-4">
+          <div class="row mb-4 faculty-span">
             <div class="col-lg-8 order-2 order-lg-1"><b>James Oyeyipo - (Training Manager) - </b> Accountant by training,
               a highly motivated and result driven young man who has over
               seven years of invaluable experience in leading and developing a successful team, skilled
@@ -176,7 +184,9 @@
               deadlines are set.
 
             </div>
-            <div class="col-lg-4 order-1 order-lg-2">PIC</div>
+            <div class="col-lg-4 order-1 order-lg-2">
+              <div class="pic-span">PHOTO</div>
+            </div>
           </div>
 
         </section>
@@ -191,11 +201,9 @@
 
 
 <script setup lang="ts">
-import MainHeaderComponent from '@/components/MainHeaderComponent.vue';
-import FooterComponent from '@/components/FooterComponent.vue';
-import { useTranings } from '@/store/trainings';
+import { useTraningsHistory } from '@/store/trainingHistory';
 
-const trainings = useTranings();
+const trainings = useTraningsHistory();
 
 </script>
 
@@ -212,6 +220,11 @@ const trainings = useTranings();
   text-align: justify;
 }
 
+.faculty-span {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+}
+
 .section .title {
   font-weight: bold;
   font-size: 1.2rem;
@@ -221,4 +234,9 @@ const trainings = useTranings();
   margin-block: 7px;
   margin-left: 20px;
 } */
+
+.pic-span {
+  height: 200px;
+  background-color: var(--bs-light);
+}
 </style>

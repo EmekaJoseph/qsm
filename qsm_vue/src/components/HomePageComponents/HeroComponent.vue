@@ -3,10 +3,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="hero-content-area text-left">
-                        <h4>QSM Training &amp; Consulting LTD</h4>
+                    <div class="hero-content-area text-left ">
+                        <h4 class="animate__animated animate__slideInLeft">QSM Training &amp; Consulting LTD</h4>
                         <!-- <h1> Consultancy Services <br>at its Best</h1> -->
-                        <h1> Training &amp; Consultancy <br> Services at its Best</h1>
+                        <h1 class="animate__animated animate__slideInLeft"> Training &amp; Consultancy <br> Services at its
+                            Best</h1>
                         <!-- <h2>Training &amp; Development, <br> Technical Course
                             &amp; Consultancy Services </h2> -->
                         <p>Training &amp; Development, Technical Course
@@ -18,7 +19,7 @@
                 </div>
             </div>
             <div class="hero-thumb">
-                <div class="hero-thumb-inner">
+                <div class="hero-thumb-inner  animate__animated animate__slideInUp">
                     <img src="@/assets/images/hero/hero.png" alt="slider-img">
                 </div>
             </div>
@@ -42,8 +43,17 @@
 <style scoped>
 .hero-thumb-inner,
 .hero-thumb-inner img {
-    width: 587px;
+    width: 500px;
     margin-left: 100px;
+    margin-bottom: 100px;
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .hero-section {
+        height: 300px !important;
+    }
+
 }
 
 

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import ContactHeadComponent from '@/components/HomePageComponents/ContactHeadComponent.vue';
-import MainHeaderComponent from '@/components/MainHeaderComponent.vue';
 
 import HeroComponent from '@/components/HomePageComponents/HeroComponent.vue';
 import AboutComponent from '@/components/HomePageComponents/AboutComponent.vue'
@@ -11,7 +10,6 @@ import ChooseUsComponent from '@/components/HomePageComponents/ChooseUsComponent
 import BlogSectionComponent from '@/components/HomePageComponents/BlogSectionComponent.vue'
 import FAQsComponent from '@/components/HomePageComponents/FAQsComponent.vue'
 import AppointmentComponent from '@/components/HomePageComponents/AppointmentComponent.vue'
-import FooterComponent from '@/components/FooterComponent.vue';
 </script>
 
 <template>

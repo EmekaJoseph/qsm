@@ -48,8 +48,8 @@
                                 </div>
                                 <div class="single-content-inner">
                                     <h5 class="inner-content-title pb-15 text-white">Our Faculty</h5>
-                                    <p>We are equipped with reputable hands. <a href="#">see our list of falculty
-                                            members</a>
+                                    <p>We are equipped with reputable hands.
+                                        <router-link :to="{ path: '/about', hash: '#faculty' }">Read More..</router-link>
                                     </p>
                                 </div>
                             </div>

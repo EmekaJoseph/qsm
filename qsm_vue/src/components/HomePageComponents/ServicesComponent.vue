@@ -32,17 +32,16 @@
                         </div>
                         <div class="services-content-section">
                             <div class="services-content-title">
-                                <h2>Traning</h2>
+                                <h2>Training</h2>
                             </div>
                             <div class="services-content">
                                 <p>At QSM Training & Consulting Limited we train and bring the most current knowledge to
                                     your organization. </p>
                             </div>
                             <div class="services-content-btn">
-                                <a href="#"> Read More
-                                    <i class="fas fa-angle-right"></i>
-                                    <span><i class="bi fs-5 bi-arrow-right"></i></span>
-                                </a>
+                                <router-link to="/trainings">
+                                    Read More<span><i class="bi fs-5 bi-arrow-right"></i></span>
+                                </router-link>
                             </div>
                         </div>
                     </div>
@@ -65,10 +64,9 @@
                                     great institutions. </p>
                             </div>
                             <div class="services-content-btn">
-                                <a href="#"> Read More
-                                    <i class="fas fa-angle-right"></i>
-                                    <span><i class="bi fs-5 bi-arrow-right"></i></span>
-                                </a>
+                                <router-link to="/about">
+                                    Read More<span><i class="bi fs-5 bi-arrow-right"></i></span>
+                                </router-link>
                             </div>
                         </div>
                     </div>
@@ -91,10 +89,9 @@
                                     available for download.</p>
                             </div>
                             <div class="services-content-btn">
-                                <a href="#"> Read More
-                                    <i class="fas fa-angle-right"></i>
-                                    <span><i class="bi fs-5 bi-arrow-right"></i></span>
-                                </a>
+                                <router-link to="/materials">
+                                    Read More<span><i class="bi fs-5 bi-arrow-right"></i></span>
+                                </router-link>
                             </div>
                         </div>
                     </div>

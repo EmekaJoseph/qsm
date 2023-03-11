@@ -1,5 +1,5 @@
 <template>
-    <div class="appointment-section pt-75 pb-75">
+    <div class="appointment-section pt-75 pb-75" id="instantform">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6">

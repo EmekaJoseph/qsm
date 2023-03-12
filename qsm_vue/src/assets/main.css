@@ -22,6 +22,34 @@ button:focus,
   background: url("@/assets/images/hero/hero-bg.jpg") no-repeat center/cover;
 }
 
+/* animatons- start */
+.bounce {
+  animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+
+.hover-tiltX {
+  transition: all ease-in-out 0.4s;
+}
+
+
+.hover-tiltX:hover {
+  transform: translateX(5px);
+}
+
+.hover-tiltY {
+  transition: all ease-in-out 0.4s;
+}
+
+
+.hover-tiltY:hover {
+  transform: translateY(-5px);
+}
+
+/* animatons- end */
+
+
+
+
 .theme-color {
   color: #FF3C00 !important;
 }

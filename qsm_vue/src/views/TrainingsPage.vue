@@ -19,7 +19,7 @@
 
       <div class="container py-2 mt-lg-3">
 
-        <div v-if="trainings.list" class="text-center my-5">
+        <div v-if="trainings.list.length" class="text-center my-5">
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Distinctio facilis reiciendis tenetur suscipit.
         </div>
@@ -30,20 +30,17 @@
 
         <div v-else>
 
-          <div style="min-height: 300px;" v-if="!trainings.list">
+          <div class="py-5" style="min-height: 300px;" v-if="!trainings.list.length">
             <EmptyListComponent str="No Available Trainings" />
           </div>
 
           <div v-else class="row gy-4">
             <div v-for="(training, i) in trainings.list" :key="i" class="col-12 col-md-6 col-lg-6">
-              <div class="card h-100 shadow">
+              <div class="card h-100 shadow rounded-4">
                 <div class="card-body">
-                  <h5 class="card-title text-black shadow-sm p-3 position-relative">
+                  <h5 class="card-title text-black shadow-sm p-3 ">
                     <i class=" theme-color-faint bi bi-file-earmark-easel text-muted fs-2"></i>
                     {{ training.title }}
-                    <!-- <span v-if="training.inCart" class="mt-2 pe-1 position-absolute top-0 start-100 translate-middle ">
-                    <i class="bi bi-cart-check text-muted bg-light p-1 px-2 rounded-5 small"></i>
-                  </span> -->
                   </h5>
                   <div class="card-text  ">
                     <ul class="list-group list-group-flush text-muted">
@@ -81,7 +78,7 @@
     </section>
 
     <div v-if="trainings.cart.length" class="fixed-bottom-btn">
-      <div data-bs-toggle="modal" data-bs-target="#cartModal" class="justify-content-end sharePanel">
+      <div data-bs-toggle="modal" data-bs-target="#cartModal" class="justify-content-end floatPanel">
         <a @click.prevent="" href="#"
           class="position-relative shadow animate__heartBeat animate__infinite animate__slower">
           <i class="bi bi-cart3"></i>
@@ -124,8 +121,8 @@ onMounted(() => {
 }
 
 
-.sharePanel {
-  margin-bottom: 250px;
+.floatPanel {
+  margin-bottom: 480px;
   padding-right: 50px;
   display: flex;
   z-index: 999;
@@ -134,23 +131,23 @@ onMounted(() => {
 }
 
 @media screen and (max-width: 767px) {
-  .sharePanel {
+  .floatPanel {
     padding-right: 20px;
   }
-
 }
 
-.sharePanel>a {
-  font-size: 18px;
-  /* background: #05a19c4b; */
+.floatPanel>a {
+  font-size: 24px;
   background-color: #f3efef;
   /* background-color: var(--bs-success-bg-subtle); */
-  /* color: var(--theme-main3); */
   color: #111;
-  padding: 12px 16px;
+  padding: 6px 13px;
   border-radius: 100%;
   border: 1px solid #747373;
-  /* border-color: red; */
+}
+
+.floatPanel>a>span {
+  font-size: 11px;
 }
 
 
@@ -159,8 +156,8 @@ onMounted(() => {
     font-size: 16px !important;
   }
 
-  .sharePanel {
+  /* .floatPanel {
     margin-bottom: 80px;
-  }
+  } */
 }
 </style>

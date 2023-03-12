@@ -6,20 +6,16 @@ export const useTrainings = defineStore('Trainings', () => {
     const loading = ref<boolean>(true)
     const detailsShow = ref<any>({})
     const cart = computed(() => {
-        return list.value.filter(x => x.inCart);
+        return list.value.filter((x: any) => x.inCart);
     })
 
 
 
     async function getList() {
-        // let { data } = await apCall();
+        // let { data } = await apiCall();
         // list.value = data
         loading.value = false
     }
-
-
-
-
 
 
     // #############################################################

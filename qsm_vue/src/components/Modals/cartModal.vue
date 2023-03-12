@@ -57,7 +57,7 @@
                                             <input v-model="field.phone" type="number" class="form-control " required>
                                         </div>
                                         <div class="col-md-12">
-                                            <label>Company </label>
+                                            <label>Company Name: </label>
                                             <input v-model="field.company" type="text" class="form-control ">
                                         </div>
 
@@ -99,11 +99,7 @@ const field = reactive({
 
 function sendRequest() {
     if (!field.name) {
-        fxn.Toast('Please include your name', 'warning')
-        return
-    }
-    if (!field.phone) {
-        fxn.Toast('Phone number required', 'warning')
+        fxn.Toast('Name is required', 'warning')
         return
     }
 
@@ -112,8 +108,15 @@ function sendRequest() {
         return
     }
 
+    if (!field.phone) {
+        fxn.Toast('Phone number required', 'warning')
+        return
+    }
+
+
+
     let obj = {
-        tranings: (trainings.cart.map(x => x.id)).toString(),
+        tranings: (trainings.cart.map((x: { id: any; }) => x.id)).toString(),
         name: field.name,
         email: field.email,
         phone: field.phone,

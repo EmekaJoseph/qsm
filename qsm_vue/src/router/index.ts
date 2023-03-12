@@ -22,6 +22,7 @@ import PageNotFound from '../views/PageNotFound.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+
   linkActiveClass: 'active',
   routes: [
     {
@@ -90,10 +91,14 @@ const router = createRouter({
   ],
 
   scrollBehavior(to) {
+    const page: any = {}
+    page.top = 0;
+    page.behavior = 'smooth';
     if (to.hash) {
-      return { el: to.hash }
+      page.el = to.hash
     }
-  }
+    return page
+  },
 })
 
 export default router

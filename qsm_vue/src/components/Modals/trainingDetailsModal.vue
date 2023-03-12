@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="modal fade" id="trainingDetailsModal" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+        <div class="modal fade" id="trainingDetailsModal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header border-0 bg-white text-black">
@@ -45,19 +45,18 @@
                                 <div class="row">
                                     <div class="col-8">
                                         <button v-if="!item.inCart" @click="item.inCart = !item.inCart"
-                                            class="btn btn-lg btn-custom-secondary w-100" data-bs-dismiss="modal">
+                                            class="btn btn-custom-secondary w-100" data-bs-dismiss="modal">
                                             <i class="bi bi-cart-plus"></i> Add to Cart
                                         </button>
 
                                         <button v-else @click="item.inCart = !item.inCart"
-                                            class="btn btn-lg btn-danger bg-danger-subtle text-dark w-100"
-                                            data-bs-dismiss="modal">
+                                            class="btn btn-danger bg-danger-subtle text-dark w-100" data-bs-dismiss="modal">
                                             <i class="bi bi-cart-x"></i> Remove
                                         </button>
                                     </div>
                                     <div class="col-4">
                                         <button data-bs-dismiss="modal"
-                                            class="w-100 btn btn-link text-decoration-none text-black bg-light-subtle btn-lg">close</button>
+                                            class="w-100 btn btn-link text-decoration-none text-black bg-light-subtle">close</button>
                                     </div>
                                 </div>
                             </div>
@@ -81,16 +80,6 @@ const item = computed(() => {
     return trainings.detailsShow
 })
 
-
-
-// defineProps({
-//     item: {
-//         type: Object,
-//         // eslint-disable-next-line vue/require-valid-default-prop
-//         default: {},
-//         required: true
-//     }
-// })
 
 
 const btnX: any = ref(null)

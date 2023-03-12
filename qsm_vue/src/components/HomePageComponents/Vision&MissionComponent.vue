@@ -13,9 +13,9 @@
                     <div class="process-single-item">
                         <div class="process-single-thumb">
                             <img src="@/assets/images/process/pcs1.jpg" alt="Work-Process">
-                            <div class="process-number">
+                            <!-- <div class="process-number">
                                 <span>01</span>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="process-content">
                             <div class="process-content-title">
@@ -29,9 +29,9 @@
                     <div class="process-single-item">
                         <div class="process-single-thumb">
                             <img src="@/assets/images/process/pcs2.jpg" alt="Work-Process">
-                            <div class="process-number">
+                            <!-- <div class="process-number">
                                 <span>02</span>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="process-content">
                             <div class="process-content-title">
@@ -45,9 +45,9 @@
                     <div class="process-single-item">
                         <div class="process-single-thumb">
                             <img src="@/assets/images/process/pcs3.jpg" alt="Work-Process">
-                            <div class="process-number">
+                            <!-- <div class="process-number">
                                 <span>03</span>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="process-content">
                             <div class="process-content-title">

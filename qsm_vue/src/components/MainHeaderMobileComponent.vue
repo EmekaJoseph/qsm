@@ -22,7 +22,8 @@
             <div class="offcanvas-body">
                 <div class="card border-0">
                     <div class="card-body pt-2">
-                        <ul data-bs-dismiss="offcanvas">
+                        <!-- <ul data-bs-dismiss="offcanvas"> -->
+                        <ul>
                             <li> <router-link to="/">Home</router-link> </li>
                             <li> <router-link to="/about">About us</router-link> </li>
                             <li><router-link to="/materials">Materials</router-link></li>

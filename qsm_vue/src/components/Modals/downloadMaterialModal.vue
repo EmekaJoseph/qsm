@@ -6,7 +6,7 @@
                 <div class="modal-content">
                     <div class="modal-header border-0 bg-light-subtle">
                         <div class="fw-bold text-muted2">
-                            <i class="bi bi-file-earmark-arrow-down"></i> Download
+                            {{ item.name }}
                         </div>
                         <span class="float-end">
                             <button @click="clearModal" ref="btnX" class="btn btn-close" data-bs-dismiss="modal"
@@ -15,21 +15,26 @@
                     </div>
                     <div class="modal-body p-sm-4">
                         <div v-if="!fileToDownLoad.length">
-                            <div class="fw-bold">{{ item.name }}</div>
-                            <span class="text-danger small">Code can only be used once!</span>
+                            <!-- <div class="fw-bold">{{ item.name }}</div> -->
+                            <span class=" text-danger small fs-11">
+                                <b>Enter One Time Code to download,</b> Code
+                                can only be used
+                                once!</span>
                             <div class="row mt-3">
                                 <div class="col-12">
-                                    <input v-model="code" type="text" class="form-control rounded-4"
+                                    <input v-model="code" type="text" class="form-control form-control-lg rounded-4"
                                         placeholder="enter code">
                                 </div>
                                 <div class="col-12 mt-3">
-                                    <button @click="checkCode" v-if="!checking" class="btn btn-dark  rounded-4 w-100"
-                                        :disabled="!code">
-                                        Check Code
+                                    <button @click="checkCode" v-if="!checking"
+                                        class="btn btn-lg rounded-4 w-100 theme-btn">
+                                        Validate
                                     </button>
-                                    <button v-else disabled class="btn btn-dark  rounded-4 w-100">
+
+                                    <button v-else disabled class="btn btn-dark btn-lg  rounded-4 w-100">
                                         Checking...
                                     </button>
+                                    <!-- <button class="btn theme-btn">sss</button> -->
                                 </div>
 
 
@@ -71,11 +76,14 @@ const fileToDownLoad = ref('')
 
 
 function checkCode() {
-    // Axios call with id
+    if (code.value) {
+        // Axios call with id
 
-    // checking.value = true
-    // fileToDownLoad.value = 'image'
-    // checking.value = false
+        // checking.value = true
+        // fileToDownLoad.value = 'image'
+        // checking.value = false
+    }
+
 }
 
 
@@ -84,9 +92,6 @@ function clearModal() {
     fileToDownLoad.value = ''
     checking.value = false
 }
-
-
-
 
 
 const btnX: any = ref(null)

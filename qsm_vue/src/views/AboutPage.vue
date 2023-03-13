@@ -74,7 +74,7 @@
           GOAL: To develop skills and increase productivity of your personnel.
         </section>
 
-        <section class="section text-start">
+        <section class="section text-start" id="trainings">
           <div class="title">SEMINARS/TRAINING CONDUCTED IN LAST FIVE YEARS</div>
           <ol style="list-style: circle;">
             <li>Regulatory Requirements for Product Licencing.</li>

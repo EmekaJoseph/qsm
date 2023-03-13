@@ -21,7 +21,7 @@
                                 <div class="bg-light p-3 rounded-3">
                                     <div class="text-black my-2">
                                         <div class="fw-bold">Description:</div>
-                                        {{ item.desc }}
+                                        {{ item.info }}
                                     </div>
 
                                     <div class="text-black mb-2">

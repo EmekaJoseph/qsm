@@ -9,6 +9,9 @@
                             <span class="badge bg-success-subtle text-dark rounded-4">
                                 {{ trainings.cart.length }}
                             </span>
+                            <span v-if="trainings.cart.length" @click="clearCart"
+                                class="ms-2 cursor-pointer text-danger small">
+                                Clear</span>
                         </div>
                         <span class="float-end">
                             <button ref="btnX" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -96,6 +99,12 @@ const field = reactive({
     phone: '',
     company: '',
 })
+
+function clearCart() {
+    trainings.list.forEach(x => {
+        x.inCart = null
+    });
+}
 
 function sendRequest() {
     if (!field.name) {

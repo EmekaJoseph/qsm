@@ -100,3 +100,11 @@ th {
 .text-muted2 {
   color: #c9cdd1 !important;
 }
+
+.xsmall {
+  font-size: 11px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

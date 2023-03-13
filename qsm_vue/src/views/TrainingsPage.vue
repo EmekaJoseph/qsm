@@ -42,29 +42,29 @@
                     <i class=" theme-color-faint bi bi-file-earmark-easel text-muted fs-2"></i>
                     {{ training.title }}
                   </h5>
-                  <div class="card-text  ">
+                  <div class="card-text ">
                     <ul class="list-group list-group-flush text-muted">
-                      <li class="list-group-item text-muted small">
+                      <li class="list-group-item text-muted ">
                         <i class="bi bi-geo-alt"></i> {{ training.venue }}
                       </li>
-                      <li class="list-group-item text-muted small ">
+                      <li class="list-group-item text-muted  ">
                         <i class="bi bi-clock"></i> {{ training.start_date }}
                       </li>
                     </ul>
                   </div>
                   <div class="card-footer bg-transparent border-0 mt-2">
                     <button v-if="!training.inCart" @click="training.inCart = !training.inCart"
-                      class="float-end btn btn-custom-secondary rounded-3 btn-sm ">
+                      class="float-end btn btn-custom-secondary rounded-3 btn-sm xsmall">
                       <i class="bi bi-cart-plus"></i> add to Cart
                     </button>
 
                     <button v-else @click="training.inCart = !training.inCart"
-                      class="float-end btn btn-danger bg-danger-subtle text-dark rounded-3 btn-sm px-3">
+                      class="float-end btn btn-danger bg-danger-subtle text-dark rounded-3 btn-sm px-3 xsmall">
                       <i class="bi bi-cart-x"></i> Remove
                     </button>
                     <button @click="trainings.detailsShow = training" data-bs-toggle="modal"
                       data-bs-target="#trainingDetailsModal"
-                      class="float-end btn btn-custom-light rounded-3 me-3 btn-sm px-3">
+                      class="float-end btn btn-custom-light rounded-3 me-3 btn-sm px-3 xsmall">
                       <i class="bi bi-list"></i> details
                     </button>
                   </div>
@@ -153,11 +153,16 @@ onMounted(() => {
 
 @media (max-width: 994px) {
   .card-title {
-    font-size: 16px !important;
+    font-size: 14px !important;
   }
 
   /* .floatPanel {
     margin-bottom: 80px;
   } */
+}
+
+.list-group-item {
+  font-size: 12px;
+  padding-block: 5px;
 }
 </style>

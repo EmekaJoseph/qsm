@@ -3,6 +3,13 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ArchiveController;
+use App\Http\Controllers\MaterialsController;
+use App\Http\Controllers\TrainingsController;
+use App\Http\Controllers\BlogController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,6 +21,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+
+
+Route::controller(UsersController::class)->group(function () {
+    Route::post('visitor',  'visitor');
+    Route::get('activeTrainings',  'activeTrainings');
+    Route::post('trainings/register',  'trainingRegistration');
 });
+
+
+
+
+//  ######################## PROTECT ########################## //
+
+Route::controller(AdminController::class)->group(function () {
+    Route::post('login',  'login');
+    Route::post('/logout/{id}',  'logout');
+});
+
+Route::get('/registrationList', [TrainingsController::class, 'registrationList']);
+Route::delete('/deleteRegistration/{id}', [TrainingsController::class, 'deleteRegistration']);
+
+Route::apiResources([
+    'archive' => ArchiveController::class,
+    'materials' => MaterialsController::class,
+    'trainings' => TrainingsController::class,
+    'blog' => BlogController::class,
+]);

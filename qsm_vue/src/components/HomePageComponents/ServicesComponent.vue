@@ -39,7 +39,7 @@
                                     your organization. </p>
                             </div>
                             <div class="services-content-btn">
-                                <router-link to="/trainings">
+                                <router-link :to="{ path: '/about', hash: '#trainings' }">
                                     Read More<span><i class="bi fs-5 bi-arrow-right"></i></span>
                                 </router-link>
                             </div>

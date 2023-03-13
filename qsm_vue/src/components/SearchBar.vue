@@ -1,5 +1,6 @@
 <template>
     <div>
+        <!-- DESKTOP START -->
         <div class="d-none d-sm-block">
             <div class="col-md-12">
                 <form @submit.prevent="sendToParent" class="input-group">
@@ -10,15 +11,42 @@
                 </form>
             </div>
         </div>
+        <!-- DESKTOP END -->
 
+
+        <!-- MOBILE START -->
         <div class="fixed-bottom-btn d-sm-none">
-            <div class="justify-content-end floatPanel">
+            <div class="justify-content-end floatPanel" data-bs-toggle="offcanvas" data-bs-target="#searchOffcanvas">
                 <span class=" shadow animate__heartBeat animate__infinite animate__slower">
                     <i class="bi bi-search text-white"></i>
                 </span>
 
             </div>
         </div>
+
+
+        <div class="offcanvas offcanvas-top" tabindex="-1" id="searchOffcanvas" aria-labelledby="offcanvasLabel">
+            <div class="offcanvas-header pb-0">
+                <h6 class="offcanvas-title text-muted2" id="offcanvasLabel">Search Materials</h6>
+                <button ref="btnCloseCanvas" type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body pt-4">
+                <form @submit.prevent="sendToParent" class="row gy-3">
+                    <div class="col-sm-8">
+                        <input v-model="str" type="text" class="form-control h-100 cnvasSearch" placeholder="enter name..">
+                    </div>
+                    <div class="col-sm-8">
+                        <button @click.prevent="sendToParent"
+                            class="btn btn-link text-decoration-none fw-bold text-uppercase text-black float-end">
+                            Search <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- MOBILE END -->
+
     </div>
 </template>
 
@@ -26,8 +54,10 @@
 import { ref } from 'vue';
 const emit = defineEmits(['submit'])
 const str = ref<string>('')
+const btnCloseCanvas = ref<any>(null)
 
 function sendToParent() {
+    btnCloseCanvas.value.click()
     if (str.value.length) {
         emit('submit', str.value)
     }
@@ -76,9 +106,6 @@ input:focus {
 
 
 
-
-
-
 .fixed-bottom-btn {
     position: fixed;
     bottom: 0;
@@ -108,5 +135,9 @@ input:focus {
     color: #fff !important;
     padding: 16px 20px;
     border-radius: 100%;
+}
+
+.cnvasSearch {
+    padding: 11px;
 }
 </style>

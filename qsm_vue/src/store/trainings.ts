@@ -25,7 +25,7 @@ export const useTrainings = defineStore('Trainings', () => {
             title: 'Economic Trainings for newbies',
             venue: ' along Masha round about, Surulere',
             image: 'image.jpg',
-            desc: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt necessitatibus perspiciatis
+            info: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt necessitatibus perspiciatis
             dignissimos, cupiditate, modi impedit ratione similique sapiente ad vitae, est suscipit alias
             hic maiores dolor illum aliquid nisi minus.`,
             start_date: '23/12/2023',
@@ -38,7 +38,7 @@ export const useTrainings = defineStore('Trainings', () => {
             title: 'The Best Training of the year',
             venue: ' 55, Ajose Street Lawanson, Lagos',
             image: 'image.jpg',
-            desc: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt necessitatibus perspiciatis
+            info: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt necessitatibus perspiciatis
             dignissimos, cupiditate, modi impedit ratione similique sapiente ad vitae, est suscipit alias
             hic maiores dolor illum aliquid nisi minus.`,
             start_date: '2/2/2023',

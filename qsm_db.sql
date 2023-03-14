@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2023 at 03:19 AM
+-- Generation Time: Mar 14, 2023 at 03:47 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -79,6 +79,29 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_archives`
+--
+
+CREATE TABLE `tbl_archives` (
+  `archive_id` int(100) NOT NULL,
+  `archive_name` varchar(100) NOT NULL,
+  `count` int(100) NOT NULL DEFAULT 0,
+  `created` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_archives`
+--
+
+INSERT INTO `tbl_archives` (`archive_id`, `archive_name`, `count`, `created`) VALUES
+(2, 'Archive2', 0, '2023-03-14 13:09:58'),
+(4, 'Archive_osho', 0, '2023-03-14 13:27:23'),
+(5, 'Archive_osho1', 0, '2023-03-14 13:27:27'),
+(6, 'Archive_osho2', 0, '2023-03-14 13:27:30');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_materials`
 --
 
@@ -99,11 +122,11 @@ CREATE TABLE `tbl_materials` (
 --
 
 INSERT INTO `tbl_materials` (`material_id`, `category_id`, `pages`, `material_code`, `doc`, `isArchived`, `name`, `created_at`, `updated_at`) VALUES
-(2, '2', '100', 'M1UY', '', '1', 'new Doc2', '2023-03-13 23:11:33', '2023-03-13 23:11:33'),
-(3, '2', '100', 'MJJP', '', '0', 'new Doc23', '2023-03-13 23:12:24', '2023-03-13 23:12:24'),
-(4, '1', '100', 'MO4PL', '', '0', 'new Doc234', '2023-03-13 23:13:07', '2023-03-13 23:13:07'),
-(5, '2', '100', '', '', '0', 'new Doc234ew', '2023-03-13 23:15:49', '2023-03-13 23:15:49'),
-(6, '2', '100', 'M4670', '', '0', 'new Doc234ews', '2023-03-13 23:16:41', '2023-03-13 23:16:41');
+(2, '3', '100', 'M1UY', '', '1', 'new Doc2', '2023-03-13 23:11:33', '2023-03-13 23:11:33'),
+(3, '13', '100', 'MJJP', '', '0', 'new Doc23', '2023-03-13 23:12:24', '2023-03-14 14:00:16'),
+(4, '10', '100', 'MO4PL', '', '0', 'new Doc234', '2023-03-13 23:13:07', '2023-03-14 14:00:16'),
+(5, '10', '100', '', '', '0', 'new Doc234ew', '2023-03-13 23:15:49', '2023-03-13 23:15:49'),
+(6, '3', '100', 'M4670', '', '0', 'new Doc234ews', '2023-03-13 23:16:41', '2023-03-13 23:16:41');
 
 -- --------------------------------------------------------
 
@@ -116,6 +139,23 @@ CREATE TABLE `tbl_material_categories` (
   `category_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `tbl_material_categories`
+--
+
+INSERT INTO `tbl_material_categories` (`category_id`, `category_name`) VALUES
+(3, 'Laboratory'),
+(4, 'Food'),
+(5, 'Pharmaceuticals'),
+(6, 'SMEs'),
+(7, 'Water'),
+(8, 'ICT/Accounting'),
+(9, 'Administration'),
+(10, 'Microbiology/Chemistry'),
+(11, 'Regulatory Requirements'),
+(12, 'Methods and Specifications'),
+(13, 'Miscellaneous');
+
 -- --------------------------------------------------------
 
 --
@@ -126,7 +166,7 @@ CREATE TABLE `tbl_material_otp` (
   `id` int(100) NOT NULL,
   `material_id` varchar(100) NOT NULL,
   `code` varchar(10) NOT NULL,
-  `name` varchar(100) DEFAULT NULL,
+  `ref` varchar(100) DEFAULT NULL,
   `created_date` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -134,8 +174,13 @@ CREATE TABLE `tbl_material_otp` (
 -- Dumping data for table `tbl_material_otp`
 --
 
-INSERT INTO `tbl_material_otp` (`id`, `material_id`, `code`, `name`, `created_date`) VALUES
-(1, '6', 'QSM67FX', 'sammy', '2023-03-14 01:31:45');
+INSERT INTO `tbl_material_otp` (`id`, `material_id`, `code`, `ref`, `created_date`) VALUES
+(1, '6', 'QSM67FX', 'sammy', '2023-03-14 01:31:45'),
+(3, '10', 'QSM10WKT', 'sammy', '2023-03-14 09:49:32'),
+(4, '13', 'QSM13LJK', 'sammy', '2023-03-14 09:49:39'),
+(5, '11', 'QSM11F4M', 'sammy', '2023-03-14 09:49:54'),
+(6, '11', 'QSM11MTC', 'sam', '2023-03-14 10:11:22'),
+(7, '11', 'QSM11LXE', 'sam', '2023-03-14 10:40:30');
 
 -- --------------------------------------------------------
 
@@ -237,6 +282,12 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indexes for table `tbl_archives`
+--
+ALTER TABLE `tbl_archives`
+  ADD PRIMARY KEY (`archive_id`);
+
+--
 -- Indexes for table `tbl_materials`
 --
 ALTER TABLE `tbl_materials`
@@ -295,6 +346,12 @@ ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `tbl_archives`
+--
+ALTER TABLE `tbl_archives`
+  MODIFY `archive_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `tbl_materials`
 --
 ALTER TABLE `tbl_materials`
@@ -304,13 +361,13 @@ ALTER TABLE `tbl_materials`
 -- AUTO_INCREMENT for table `tbl_material_categories`
 --
 ALTER TABLE `tbl_material_categories`
-  MODIFY `category_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `category_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tbl_material_otp`
 --
 ALTER TABLE `tbl_material_otp`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_registrations`

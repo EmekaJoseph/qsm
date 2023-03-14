@@ -71,7 +71,7 @@
 <script setup lang="ts">
 import { computed, ref, } from 'vue';
 import { onBeforeRouteLeave } from 'vue-router';
-import { hostURL } from '@/store/functions/axiosInstance';
+import { hostURL } from '@/store/functions/axiosManager';
 import { useTrainings } from '@/store/trainings'
 
 const trainings = useTrainings()

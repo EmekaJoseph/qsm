@@ -34,6 +34,7 @@ Route::controller(UsersController::class)->group(function () {
     Route::get('materialsByName/{name}',  'materialsByName');
     Route::get('materialsByCategory/{category_id}',  'materialsByCategory');
     Route::get('downloadMaterial/{code}',  'downloadMaterial');
+    Route::get('availableCategories',  'availableCategories');
 });
 
 
@@ -53,11 +54,20 @@ Route::controller(SettingsController::class)->group(function () {
     Route::delete('deleteCategory/{category_id}',  'deleteCategory');
 });
 
-Route::get('/registrationList', [TrainingsController::class, 'registrationList']);
-Route::delete('/deleteRegistration/{id}', [TrainingsController::class, 'deleteRegistration']);
-Route::get('/generate_pin/{material_id}/{name}', [MaterialsController::class, 'generate_pin']);
-Route::get('/view_pins', [MaterialsController::class, 'view_pins']);
-Route::delete('/delete_pin/{id}', [MaterialsController::class, 'delete_pin']);
+
+Route::controller(TrainingsController::class)->group(function () {
+    Route::get('registrationList',  'registrationList');
+    Route::delete('deleteRegistration/{id}',  'deleteRegistration');
+});
+
+Route::controller(MaterialsController::class)->group(function () {
+    Route::get('generate_pin/{material_id}/{ref}',  'generate_pin');
+    Route::get('view_pins',  'view_pins');
+    Route::delete('delete_pin/{id}',  'delete_pin');
+});
+
+Route::post('materialToArchive', [ArchiveController::class, 'materialToArchive']);
+Route::get('archiveDetails/{material_id}', [ArchiveController::class, 'archiveDetails']);
 
 Route::apiResources([
     'archive' => ArchiveController::class,

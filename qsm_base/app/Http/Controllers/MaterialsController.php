@@ -26,7 +26,8 @@ class MaterialsController extends BaseController
                 'name',
                 'category_name as category',
                 'created_at',
-                'material_code'
+                'material_code',
+                'isArchived'
             )
             ->where('isArchived', '0')
             ->when(!empty($req->search), function ($query) use ($req) {
@@ -130,18 +131,20 @@ class MaterialsController extends BaseController
 
 
     // #################### PINS START ########################### //
-    public function generate_pin($material_id, $name)
+    public function generate_pin($material_id, $ref)
     {
-        $id = DB::table('tbl_material_otp')->insertGetId([
+        $table = DB::table('tbl_material_otp');
+
+        $id =  $table->insertGetId([
             'material_id' => $material_id,
-            'name' => $name,
+            'ref' => $ref,
             'code' => 'QSM' . $material_id . strtoupper(Str::random(3)),
             'created_date' => Carbon::now()
         ]);
 
-        $material = DB::table('tbl_material_otp')->find($id);
+        $material =  $table->find($id);
 
-        return response()->json($material, 200);
+        return response()->json($material->code, 200);
     }
 
     public function view_pins()
@@ -166,7 +169,6 @@ class MaterialsController extends BaseController
 
     public function latestMaterials()
     {
-
         $materials = DB::table('tbl_material_categories')
             ->rightJoin('tbl_materials', 'tbl_material_categories.category_id', '=', 'tbl_materials.category_id')
             ->select(
@@ -221,7 +223,8 @@ class MaterialsController extends BaseController
 
     public function downloadMaterial($code)
     {
-        $otp = DB::table('tbl_material_otp')->where('code', $code)->first();
+        $table = DB::table('tbl_material_otp');
+        $otp = $table->where('code', $code)->first();
 
         if (!$otp) {
             return response()->json('code invalid', 203);
@@ -229,8 +232,20 @@ class MaterialsController extends BaseController
 
         $material = MaterialModel::find($otp->material_id);
 
-        DB::table('tbl_material_otp')->where('code', $code)->delete();
+        $table->where('code', $code)->delete();
 
         return response()->json($material->doc, 200);
+    }
+
+    public function availableCategories()
+    {
+        $idsArray = MaterialModel::where('isArchived', '0')->pluck('category_id')->toArray();
+
+        $uniqueIds = (collect($idsArray))->unique();
+        $ids = $uniqueIds->values()->all();
+
+        $caterogies = DB::table('tbl_material_categories')->whereIn('category_id', $ids)->get();
+
+        return response()->json($caterogies, 200);
     }
 }

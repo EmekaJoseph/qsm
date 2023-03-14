@@ -69,4 +69,11 @@ class UsersController extends BaseController
 
         return $mat->downloadMaterial($code);
     }
+
+    public function availableCategories()
+    {
+        $mat = new MaterialsController();
+
+        return $mat->availableCategories();
+    }
 }

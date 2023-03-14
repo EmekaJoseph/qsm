@@ -65,7 +65,7 @@ class TrainingsController extends BaseController
             $img = Image::make($file);
             $img->resize(800, 500, function ($constraint) {
                 $constraint->aspectRatio();
-            })->save('trainings/' . $fileName);
+            })->save('trainings_images/' . $fileName);
 
             $training->image = $fileName;
         }
@@ -101,7 +101,7 @@ class TrainingsController extends BaseController
         }
 
         if ($training->image) {
-            $imgFile = 'trainings/' . $training->image;
+            $imgFile = 'trainings_images/' . $training->image;
             if (file_exists($imgFile)) {
                 unlink($imgFile);
             }
@@ -136,8 +136,6 @@ class TrainingsController extends BaseController
             }
         }
 
-
-
         $data = [
             'active' => $active,
             'inActive' => $inActive
@@ -156,6 +154,7 @@ class TrainingsController extends BaseController
     public function activeTrainings()
     {
         $today = Carbon::now()->toDateString();
+
         $active = TrainingModel::select('*')
             ->where('end_date', '>=', $today)
             ->orderBy('created_at', 'desc')

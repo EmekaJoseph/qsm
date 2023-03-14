@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 use App\Http\Controllers\TrainingsController;
+use App\Http\Controllers\MaterialsController;
 
 class UsersController extends BaseController
 {
@@ -39,5 +40,33 @@ class UsersController extends BaseController
         $training = new TrainingsController();
 
         return $training->trainingRegistration($req);
+    }
+
+    public function latestMaterials()
+    {
+        $mat = new MaterialsController();
+
+        return $mat->latestMaterials();
+    }
+
+    public function materialsByName($name)
+    {
+        $mat = new MaterialsController();
+
+        return $mat->materialsByName($name);
+    }
+
+    public function materialsByCategory($category_id)
+    {
+        $mat = new MaterialsController();
+
+        return $mat->materialsByCategory($category_id);
+    }
+
+    public function downloadMaterial($code)
+    {
+        $mat = new MaterialsController();
+
+        return $mat->downloadMaterial($code);
     }
 }

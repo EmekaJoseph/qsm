@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2023 at 03:29 PM
+-- Generation Time: Mar 14, 2023 at 03:19 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -88,10 +88,22 @@ CREATE TABLE `tbl_materials` (
   `pages` varchar(10) NOT NULL,
   `material_code` varchar(10) NOT NULL,
   `doc` varchar(100) NOT NULL,
+  `isArchived` varchar(2) NOT NULL DEFAULT '0',
   `name` varchar(100) NOT NULL,
   `created_at` varchar(100) NOT NULL,
   `updated_at` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_materials`
+--
+
+INSERT INTO `tbl_materials` (`material_id`, `category_id`, `pages`, `material_code`, `doc`, `isArchived`, `name`, `created_at`, `updated_at`) VALUES
+(2, '2', '100', 'M1UY', '', '1', 'new Doc2', '2023-03-13 23:11:33', '2023-03-13 23:11:33'),
+(3, '2', '100', 'MJJP', '', '0', 'new Doc23', '2023-03-13 23:12:24', '2023-03-13 23:12:24'),
+(4, '1', '100', 'MO4PL', '', '0', 'new Doc234', '2023-03-13 23:13:07', '2023-03-13 23:13:07'),
+(5, '2', '100', '', '', '0', 'new Doc234ew', '2023-03-13 23:15:49', '2023-03-13 23:15:49'),
+(6, '2', '100', 'M4670', '', '0', 'new Doc234ews', '2023-03-13 23:16:41', '2023-03-13 23:16:41');
 
 -- --------------------------------------------------------
 
@@ -101,21 +113,29 @@ CREATE TABLE `tbl_materials` (
 
 CREATE TABLE `tbl_material_categories` (
   `category_id` int(100) NOT NULL,
-  `name` varchar(100) NOT NULL
+  `category_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_material_codes`
+-- Table structure for table `tbl_material_otp`
 --
 
-CREATE TABLE `tbl_material_codes` (
+CREATE TABLE `tbl_material_otp` (
   `id` int(100) NOT NULL,
   `material_id` varchar(100) NOT NULL,
   `code` varchar(10) NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
   `created_date` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_material_otp`
+--
+
+INSERT INTO `tbl_material_otp` (`id`, `material_id`, `code`, `name`, `created_date`) VALUES
+(1, '6', 'QSM67FX', 'sammy', '2023-03-14 01:31:45');
 
 -- --------------------------------------------------------
 
@@ -229,9 +249,9 @@ ALTER TABLE `tbl_material_categories`
   ADD PRIMARY KEY (`category_id`);
 
 --
--- Indexes for table `tbl_material_codes`
+-- Indexes for table `tbl_material_otp`
 --
-ALTER TABLE `tbl_material_codes`
+ALTER TABLE `tbl_material_otp`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -278,19 +298,19 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `tbl_materials`
 --
 ALTER TABLE `tbl_materials`
-  MODIFY `material_id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `material_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_material_categories`
 --
 ALTER TABLE `tbl_material_categories`
-  MODIFY `category_id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `category_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_material_codes`
+-- AUTO_INCREMENT for table `tbl_material_otp`
 --
-ALTER TABLE `tbl_material_codes`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `tbl_material_otp`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_registrations`

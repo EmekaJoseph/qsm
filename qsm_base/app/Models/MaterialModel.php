@@ -16,12 +16,10 @@ class MaterialModel extends Authenticatable
     protected $primaryKey = 'material_id';
 
     protected $fillable = [
-        'caterogy_id',
+        'category_id',
         'pages',
         'material_code',
         'doc',
         'name',
-        'created_at',
-        'updated_at',
     ];
 }

@@ -51,7 +51,7 @@
 
 @media (min-width: 768px) and (max-width: 991px) {
     .hero-section {
-        height: 300px !important;
+        height: 600px !important;
     }
 
 }

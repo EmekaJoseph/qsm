@@ -26,7 +26,7 @@ export function fileUploader() {
         if (!(newFile instanceof File)) {
             return;
         }
-        let fileReader = new FileReader
+        const fileReader = new FileReader
         fileReader.readAsDataURL(newFile)
         fileReader.addEventListener('load', () => {
             fileURL.value = fileReader.result

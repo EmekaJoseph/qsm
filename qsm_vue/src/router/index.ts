@@ -13,19 +13,11 @@ import AdminTrainings from '../views/Admin/AdminTrainings.vue'
 import AdminArchive from '../views/Admin/AdminArchive.vue'
 import AdminMaterials from '../views/Admin/AdminMaterials.vue'
 import AdminSettings from '../views/Admin/AdminSettings.vue'
-
+// import AdminRegistrations from '../views/Admin/AdminRegistrations.vue'
 
 import PageNotFound from '../views/PageNotFound.vue'
 
 
-
-
-
-
-
-
-
-// import HomeLayout from '../views/HomeLayout.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -54,6 +46,7 @@ const router = createRouter({
         { path: 'archive', name: 'Archive', component: AdminArchive },
         { path: 'materials', name: 'Materials', component: AdminMaterials },
         { path: 'settings', name: 'Settings', component: AdminSettings },
+        // { path: 'registrations', name: 'Registrations', component: AdminRegistrations },
       ],
     },
 
@@ -77,6 +70,10 @@ const router = createRouter({
     }
     return page
   },
+})
+
+router.afterEach((to, from) => {
+  document.title = 'QSM | ' + to.name?.toString();
 })
 
 export default router

@@ -42,19 +42,18 @@ const fx = reactive({
         })
     },
 
-    Confirm: (text: string, btnText: string, icon: string) => {
+    Confirm: (text: string, btnText: string) => {
         return Swal.fire({
             // title: `${title}`,
             text: `${text}`,
-            icon: `${icon}`,
+            // icon: 'question',
             iconColor: '#2c3e50',
             showCancelButton: true,
             confirmButtonText: `${btnText}`,
             cancelButtonText: 'cancel',
-            confirmButtonColor: '#f15825',
+            confirmButtonColor: '#00B383',
             reverseButtons: true,
-            width: '350px',
-            // position: 'bottom',
+            width: '300px',
         })
     },
 })

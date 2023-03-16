@@ -57,25 +57,25 @@ class UsersAPI {
 }
 
 
-class TrainingAPI {
+class TrainingsAPI {
     list() {
         return $instance.get(`trainings`)
     }
 
     addNew(form: FormData) {
-        return $instanceForm.post(`trainings`, JSON.stringify(form))
+        return $instanceForm.post(`trainings`, form)
     }
 
     updateDetail(id: string, data: any) {
-        return $instance.put(`trainings/${id}`, JSON.stringify(data))
+        return $instanceForm.post(`updateTraining/${id}`, data)
     }
 
     remove(id: string) {
         return $instance.delete(`trainings/${id}`)
     }
 
-    registrationList() {
-        return $instance.delete(`registrationList`)
+    registrationList(id: any) {
+        return $instance.get(`registrationList/${id}`)
     }
 
     deleteRegistration(id: string) {
@@ -155,7 +155,7 @@ class ArchiveAPI {
 export {
     hostURL,
     UsersAPI,
-    TrainingAPI,
+    TrainingsAPI,
     MaterialsAPI,
     ArchiveAPI
 }

@@ -6,7 +6,6 @@
                 <img src="@/assets/images/logo1.png" width="50" alt="Logo">
             </span>
 
-
             <div class="menuSection">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item" :class="{ 'gActive': (route.name == 'Dashboard') }">
@@ -22,6 +21,13 @@
                             Trainings
                         </router-link>
                     </li>
+
+                    <!-- <li class="list-group-item" :class="{ 'gActive': (route.name == 'Registrations') }">
+                        <router-link :to="{ name: 'Registrations' }">
+                            <i class="bi bi-journal-text"></i>&nbsp;
+                            Registrations
+                        </router-link>
+                    </li> -->
 
                     <li class="list-group-item" :class="{ 'gActive': (route.name == 'Materials') }">
                         <router-link :to="{ name: 'Materials' }">
@@ -115,14 +121,14 @@ a:not(.gActive):hover {
 }
 
 .active {
-    color: var(--theme-color) !important;
+    color: var(--theme-color2) !important;
     background-color: transparent !important;
     font-weight: normal;
 }
 
 .gActive {
-    background-color: #f5f5f5a4;
-    border-right: 2px solid var(--theme-color) !important;
+    background-color: #e7e5e5a4;
+    border-right: 2px solid var(--theme-color2) !important;
 }
 
 /* .badge {

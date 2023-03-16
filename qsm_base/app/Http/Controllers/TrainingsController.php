@@ -75,21 +75,63 @@ class TrainingsController extends BaseController
     }
 
 
-    public function update(Request $req, string $id)
+    public function updateTraining(Request $req, string $id)
     {
         $training = TrainingModel::find($id);
 
         $start = Carbon::parse($req->start_date);
         $end = Carbon::parse($req->end_date);
 
-        $training->title = $req->input('title');
+        $training->title =  $req->input('title');
         $training->info = $req->input('info');
         $training->venue = $req->input('venue');
         $training->start_date = $start->toDateString();
         $training->end_date = $end->toDateString();
 
-        return response()->json($training->save(), 200);
+        if ($req->file('image')) {
+
+            // delete old image
+            if ($training->image) {
+                $imgFile = 'trainings_images/' . $training->image;
+                if (file_exists($imgFile)) {
+                    unlink($imgFile);
+                }
+            }
+
+            // replace with new one
+            $file = $req->file('image');
+            $fileName = 'training-' . time() . '.' . $file->extension();
+
+            $img = Image::make($file);
+            $img->resize(800, 500, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save('trainings_images/' . $fileName);
+
+            $training->image = $fileName;
+        }
+
+        $training->save();
+        return response()->json('updated', 200);
     }
+
+
+
+
+    // public function update(Request $req, string $id)
+    // {
+    //     $training = TrainingModel::find($id);
+
+    //     $start = Carbon::parse($req->start_date);
+    //     $end = Carbon::parse($req->end_date);
+
+    //     $training->title = $req->input('title');
+    //     $training->info = $req->input('info');
+    //     $training->venue = $req->input('venue');
+    //     $training->start_date = $start->toDateString();
+    //     $training->end_date = $end->toDateString();
+
+    //     return response()->json($training->save(), 200);
+    // }
 
 
     public function destroy(string $id)
@@ -107,41 +149,49 @@ class TrainingsController extends BaseController
             }
         }
 
+        DB::table('tbl_registrations')->where('training', $id)->delete();
+
         $training->delete();
 
         return response()->json('deleted', 200);
     }
 
-    public function registrationList()
+    public function registrationList($training_id)
     {
-        $today = Carbon::now();
 
-        $active =  DB::table('tbl_registrations')
-            ->where('expiry', '>=', $today)->get();
+        $regs = DB::table('tbl_registrations')->where('training', $training_id)->get();
+        $unique = collect($regs)->unique('email');
+        return response()->json($unique->values()->all(), 200);
 
-        $inActive =  DB::table('tbl_registrations')
-            ->where('expiry', '<', $today)->get();
 
-        if (sizeof($active) > 0) {
-            foreach ($active as $record) {
-                $ids = explode(',', $record->trainings);
-                $record->list = TrainingModel::find($ids);
-            }
-        }
+        // $today = Carbon::now();
 
-        if (sizeof($inActive) > 0) {
-            foreach ($inActive as $record) {
-                $ids = explode(',', $record->trainings);
-                $record->list = TrainingModel::find($ids);
-            }
-        }
+        // $active =  DB::table('tbl_registrations')
+        //     ->where('expiry', '>=', $today)->get();
 
-        $data = [
-            'active' => $active,
-            'inActive' => $inActive
-        ];
+        // $inActive =  DB::table('tbl_registrations')
+        //     ->where('expiry', '<', $today)->get();
 
-        return response()->json($data, 200);
+        // if (sizeof($active) > 0) {
+        //     foreach ($active as $record) {
+        //         $ids = explode(',', $record->trainings);
+        //         $record->list = TrainingModel::find($ids);
+        //     }
+        // }
+
+        // if (sizeof($inActive) > 0) {
+        //     foreach ($inActive as $record) {
+        //         $ids = explode(',', $record->trainings);
+        //         $record->list = TrainingModel::find($ids);
+        //     }
+        // }
+
+        // $data = [
+        //     'active' => $active,
+        //     'inActive' => $inActive
+        // ];
+
+        // return response()->json($data, 200);
     }
 
     public function deleteRegistration($id)
@@ -166,25 +216,38 @@ class TrainingsController extends BaseController
     public function trainingRegistration(Request $req)
     {
         $ids = explode(',', $req->trainings);
-        $trainings = TrainingModel::whereIn('id', $ids)->pluck('end_date')->toArray();
 
-        $lastDate = Carbon::parse($trainings[0]);
-        foreach ($trainings as $tr) {
-            $row = Carbon::parse($tr);
-            if ($row > $lastDate) {
-                $lastDate = $row;
-            }
+        foreach ($ids as  $train_id) {
+            DB::table('tbl_registrations')->insert([
+                'training' => $train_id,
+                'name' => $req->input('name'),
+                'email' => $req->input('email'),
+                'phone' => $req->input('phone'),
+                'company' => $req->input('company'),
+                'expiry' => ' ',
+                'reg_date' => Carbon::now()
+            ]);
         }
 
-        DB::table('tbl_registrations')->insert([
-            'trainings' => $req->input('trainings'),
-            'name' => $req->input('name'),
-            'email' => $req->input('email'),
-            'phone' => $req->input('phone'),
-            'company' => $req->input('company'),
-            'expiry' => $lastDate,
-            'reg_date' => Carbon::now()
-        ]);
+        // $trainings = TrainingModel::whereIn('id', $ids)->pluck('end_date')->toArray();
+
+        // $lastDate = Carbon::parse($trainings[0]);
+        // foreach ($trainings as $tr) {
+        //     $row = Carbon::parse($tr);
+        //     if ($row > $lastDate) {
+        //         $lastDate = $row;
+        //     }
+        // }
+
+        // DB::table('tbl_registrations')->insert([
+        //     'trainings' => $req->input('trainings'),
+        //     'name' => $req->input('name'),
+        //     'email' => $req->input('email'),
+        //     'phone' => $req->input('phone'),
+        //     'company' => $req->input('company'),
+        //     'expiry' => $lastDate,
+        //     'reg_date' => Carbon::now()
+        // ]);
 
         return response()->json('saved', 200);
     }

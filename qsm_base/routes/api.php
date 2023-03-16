@@ -56,8 +56,9 @@ Route::controller(SettingsController::class)->group(function () {
 
 
 Route::controller(TrainingsController::class)->group(function () {
-    Route::get('registrationList',  'registrationList');
+    Route::get('registrationList/{training_id}',  'registrationList');
     Route::delete('deleteRegistration/{id}',  'deleteRegistration');
+    Route::post('updateTraining/{id}',  'updateTraining');
 });
 
 Route::controller(MaterialsController::class)->group(function () {

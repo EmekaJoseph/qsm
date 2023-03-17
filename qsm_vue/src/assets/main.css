@@ -112,6 +112,6 @@ th {
 
 .list-scroll {
   /* background-color: #eeeeee7c; */
-  min-height: 500px;
+  height: 370px;
   overflow-y: auto;
 }

@@ -72,7 +72,7 @@ const router = createRouter({
   },
 })
 
-router.afterEach((to, from) => {
+router.afterEach((to) => {
   document.title = 'QSM | ' + to.name?.toString();
 })
 

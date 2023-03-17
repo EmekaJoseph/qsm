@@ -51,7 +51,7 @@
                     </li>
 
                     <li class="list-group-item mt-5">
-                        <button class="btn bg-dark-subtle  btn-sm w-75">Logout</button>
+                        <button class="btn btn-light bg-danger-subtle btn-sm pe-5">Logout</button>
                     </li>
                 </ul>
             </div>

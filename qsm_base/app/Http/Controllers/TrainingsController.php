@@ -218,15 +218,19 @@ class TrainingsController extends BaseController
         $ids = explode(',', $req->trainings);
 
         foreach ($ids as  $train_id) {
-            DB::table('tbl_registrations')->insert([
-                'training' => $train_id,
-                'name' => $req->input('name'),
-                'email' => $req->input('email'),
-                'phone' => $req->input('phone'),
-                'company' => $req->input('company'),
-                'expiry' => ' ',
-                'reg_date' => Carbon::now()
-            ]);
+            $trn = TrainingModel::find($train_id);
+            if ($trn) {
+                DB::table('tbl_registrations')->insert([
+                    'training' => $train_id,
+                    'name' => $req->input('name'),
+                    'email' => $req->input('email'),
+                    'phone' => $req->input('phone'),
+                    'company' => $req->input('company'),
+                    'expiry' => ' ',
+                    'reg_date' => Carbon::now()
+                ]);
+                $trn->increment('reg_count');
+            }
         }
 
         // $trainings = TrainingModel::whereIn('id', $ids)->pluck('end_date')->toArray();

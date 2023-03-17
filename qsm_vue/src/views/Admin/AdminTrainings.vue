@@ -80,7 +80,7 @@
                                                         <i class="bi bi-three-dots-vertical"></i>
                                                     </button>
                                                     <ul class="dropdown-menu">
-                                                        <li>
+                                                        <li v-if="trn.reg_count != '0'">
                                                             <button @click="getRegList(trn.id)"
                                                                 class="btn btn-sm  dropdown-item">
                                                                 <i class="bi bi-journal-text"></i> Registrations
@@ -128,7 +128,7 @@
                                 <EmptyListComponent str="List Empty" />
                             </div>
 
-                            <div v-else class="table-responsive">
+                            <div v-else class="table-responsive list-scroll">
                                 <table class="table">
                                     <tbody>
                                         <tr v-for="(trn, index) in Trainings.inActive " :key=index>
@@ -158,7 +158,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, onMounted, ref } from 'vue'
+import { reactive, onMounted, ref, onUnmounted } from 'vue'
 import useFunction from '@/store/functions/useFunction';
 import { TrainingsAPI } from '@/store/functions/axiosManager';
 import editTraining from './_includes/modals/editTraining.vue';
@@ -286,6 +286,13 @@ async function deleteTraining(id: any) {
 }
 
 
+let interval = setInterval(() => {
+    getList()
+}, 10000)
+
+onUnmounted(() => {
+    clearInterval(interval)
+})
 
 
 

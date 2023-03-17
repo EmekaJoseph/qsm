@@ -1,59 +1,58 @@
 <template>
-    <div class="col-md-12 col-lg-5">
-        <div class="card border-0 bg-white rounded-4 h-100">
-            <div class="card-header bg-transparent fw-bold  border-0 p-3">
-                Materials Categories ({{ categories.list.length }})
-            </div>
-            <div class="card-body px-4">
-                <form v-if="!categories.isEditing" @submit.prevent="saveCategory" class="row g-2">
-                    <div class="col-12 col-md-8">
-                        <input v-model="categories.field" type="text" class="form-control">
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <button class="btn btn-custom-secondary w-100">
-                            <i class="bi bi-arrow-down"></i> Save
-                        </button>
-                    </div>
-                </form>
+    <div class="card border-0 bg-white rounded-4 h-100">
+        <div class="card-header bg-transparent fw-bold  border-0 p-3">
+            Materials Categories ({{ categories.list.length }})
+        </div>
+        <div class="card-body px-4">
+            <form v-if="!categories.isEditing" @submit.prevent="saveCategory" class="row g-2">
+                <div class="col-12 col-md-8">
+                    <input v-model="categories.field" type="text" class="form-control form-control-sm"
+                        placeholder="category name..">
+                </div>
+                <div class="col-12 col-md-4">
+                    <button class="btn btn-custom-secondary w-100 btn-sm">
+                        <i class="bi bi-arrow-down"></i> Save
+                    </button>
+                </div>
+            </form>
 
-                <form v-else @submit.prevent="updateCategory" class="row g-2">
-                    <div class="col-12 col-md-8">
-                        <input v-model="categories.editObj.category_name" type="text" class="form-control">
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <button class="btn btn-warning bg-warning-subtle w-100">
-                            <i class="bi bi-arrow-down"></i> Update
-                        </button>
-                    </div>
-                </form>
+            <form v-else @submit.prevent="updateCategory" class="row g-2">
+                <div class="col-12 col-md-8">
+                    <input v-model="categories.editObj.category_name" type="text" class="form-control form-control-sm">
+                </div>
+                <div class="col-12 col-md-4">
+                    <button class="btn btn-warning bg-warning-subtle w-100 btn-sm">
+                        Update
+                    </button>
+                </div>
+            </form>
 
 
-                <div class="mt-3 card p-3 ">
-                    <div v-if="categories.loading">
-                        <PageLoading />
-                    </div>
+            <div class="mt-3 card p-3 ">
+                <div v-if="categories.loading">
+                    <PageLoading />
+                </div>
 
-                    <div v-else class="table-responsive list-scroll">
-                        <table class="table table-sm">
-                            <tbody>
-                                <tr v-for="(cate, index) in categories.list" :key="index">
-                                    <th>{{ (index + 1) }}.</th>
-                                    <td>{{ cate.category_name }}</td>
-                                    <td>
-                                        <button @click="editCategory(cate)" class="btn btn-sm text-success m-0 p-0">
-                                            <i class="bi bi-pencil"></i>
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <button @click="deleteCategory(cate.category_id)"
-                                            class="btn btn-sm text-danger m-0 p-0">
-                                            <i class="bi bi-x-lg"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                <div v-else class="table-responsive list-scroll">
+                    <table class="table table-sm">
+                        <tbody>
+                            <tr v-for="(cate, index) in categories.list" :key="index">
+                                <th>{{ (index + 1) }}.</th>
+                                <td>{{ cate.category_name }}</td>
+                                <td>
+                                    <button @click="editCategory(cate)" class="btn btn-sm text-success m-0 p-0">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                </td>
+                                <td>
+                                    <button @click="deleteCategory(cate.category_id)"
+                                        class="btn btn-sm text-danger m-0 p-0">
+                                        <i class="bi bi-x-lg"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -83,7 +82,12 @@ onMounted(() => {
 
 async function loadCategories() {
     let { data } = await material_api.getCategories()
-    categories.list = data
+    let arr = data
+    if (arr.length) {
+        arr = arr.sort((a: any, b: any) => a.category_name.localeCompare(b.category_name))
+    }
+
+    categories.list = arr
     categories.loading = false
 }
 

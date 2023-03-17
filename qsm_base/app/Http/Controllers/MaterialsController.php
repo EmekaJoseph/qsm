@@ -17,7 +17,55 @@ class MaterialsController extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 
-    public function index(Request $req)
+
+    // public function index_(Request $req)
+    // {
+    //     $materials = DB::table('tbl_material_categories')
+    //         ->rightJoin('tbl_materials', 'tbl_material_categories.category_id', '=', 'tbl_materials.category_id')
+    //         ->select(
+    //             'material_id',
+    //             'name',
+    //             'category_name as category',
+    //             'created_at',
+    //             'material_code',
+    //             'isArchived'
+    //         )
+    //         ->where('isArchived', '0')
+    //         ->when(!empty($req->search), function ($query) use ($req) {
+    //             return $query->where('name', 'like', "%{$req->search}%")
+    //                 ->orWhere('material_code', 'like', "%{$req->search}%");
+    //         })
+
+    //         ->get();
+
+    //     if (sizeof($materials) > 0) {
+    //         foreach ($materials as $material) {
+    //             $material->created = (Carbon::parse($material->created_at))->diffForHumans();
+    //         }
+    //     }
+
+    //     $parPage = 20;
+    //     $collection = collect($materials);
+    //     $chunks = $collection->chunk($parPage);
+
+    //     $thisChunk = $chunks;
+    //     if (sizeof($chunks) > 0) {
+    //         if (sizeof($chunks) < $req->page || ($req->page == 0))
+    //             $thisChunk = [];
+    //         else
+    //             $thisChunk = ($chunks[$req->page - 1])->values();
+    //     }
+
+
+    //     return response()->json([
+    //         'list' => $thisChunk,
+    //         'total' => sizeof($materials),
+    //         'perPage' => $parPage,
+    //         'currPage' => $req->page,
+    //     ]);
+    // }
+
+    public function index()
     {
         $materials = DB::table('tbl_material_categories')
             ->rightJoin('tbl_materials', 'tbl_material_categories.category_id', '=', 'tbl_materials.category_id')
@@ -25,44 +73,19 @@ class MaterialsController extends BaseController
                 'material_id',
                 'name',
                 'category_name as category',
+                'tbl_material_categories.category_id as category_id',
                 'created_at',
                 'material_code',
-                'isArchived'
+                'isArchived',
+                'pages'
             )
             ->where('isArchived', '0')
-            ->when(!empty($req->search), function ($query) use ($req) {
-                return $query->where('name', 'like', "%{$req->search}%")
-                    ->orWhere('material_code', 'like', "%{$req->search}%");
-            })
-
             ->get();
 
-        if (sizeof($materials) > 0) {
-            foreach ($materials as $material) {
-                $material->created = (Carbon::parse($material->created_at))->diffForHumans();
-            }
-        }
-
-        $parPage = 20;
-        $collection = collect($materials);
-        $chunks = $collection->chunk($parPage);
-
-        $thisChunk = $chunks;
-        if (sizeof($chunks) > 0) {
-            if (sizeof($chunks) < $req->page || ($req->page == 0))
-                $thisChunk = [];
-            else
-                $thisChunk = ($chunks[$req->page - 1])->values();
-        }
-
-
-        return response()->json([
-            'list' => $thisChunk,
-            'total' => sizeof($materials),
-            'perPage' => $parPage,
-            'currPage' => $req->page,
-        ]);
+        return response()->json($materials, 200);
     }
+
+
 
     public function store(Request $req)
     {

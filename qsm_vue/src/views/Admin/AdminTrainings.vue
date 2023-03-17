@@ -1,5 +1,5 @@
 <template>
-    <div class="containe">
+    <div>
         <div class="row justify-content-center gy-3">
 
             <div class="col-lg-5">
@@ -42,8 +42,9 @@
 
                             <div class="col-md-12 mt-4">
                                 <button v-if="!form.isSaving" type="submit"
-                                    class="btn theme-btn float-end w-100">Submit</button>
-                                <button v-else class="btn theme-btn float-end w-100" disabled>Submitting...</button>
+                                    class="btn btn-custom-secondary  float-end w-100">Submit</button>
+                                <button v-else class="btn btn-custom-secondary  float-end w-100"
+                                    disabled>Submitting...</button>
                             </div>
                         </form>
                     </div>
@@ -175,7 +176,6 @@ async function getList() {
     Trainings.active = data.active;
     Trainings.inActive = data.inActive;
     Trainings.loading = false
-    window.scrollTo(0, 0)
 }
 
 const Trainings: any = reactive({
@@ -247,6 +247,7 @@ async function submitForm() {
         form.isSaving = false
         inputFileEl.value.value = ''
         getList()
+        window.scrollTo(0, 0)
 
 
     } catch (error) {
@@ -258,8 +259,6 @@ async function submitForm() {
 
 async function getRegList(id: any) {
     let { data } = await training_api.registrationList(id)
-    console.log(data);
-
     Trainings.regList = data
     openListBtn.value.click()
 }

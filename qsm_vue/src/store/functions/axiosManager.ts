@@ -85,11 +85,15 @@ class TrainingsAPI {
 
 class MaterialsAPI {
     addNew(form: FormData) {
-        return $instanceForm.post(`materials`, JSON.stringify(form))
+        return $instanceForm.post(`materials`, form)
     }
 
     listForAdmin() {
         return $instance.get(`materials`)
+    }
+
+    updateDetails(id: any, obj: any) {
+        return $instance.put(`materials/${id}`, JSON.stringify(obj))
     }
 
     remove(id: any) {

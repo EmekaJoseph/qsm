@@ -1,11 +1,291 @@
 <template>
-    <div>
-        Materials
+    <div class="row g-3">
+        <div class="col-md-12 col-lg-4">
+            <div class="card border-0 bg-white rounded-4 h-100">
+
+                <div class="card-header bg-transparent fw-bold  border-0 p-3">
+                    Upload Material
+                </div>
+                <div class="card-body">
+                    <form @submit.prevent="submitForm" class="row gy-3">
+                        <div class="col-md-12">
+                            Material File:
+                            <input ref="inputFileEl" @change="grabFile" type="file"
+                                accept=".doc,.docx,application/msword, .pdf, .txt, .xlsx, .xls" class="form-control">
+                        </div>
+
+                        <div class="col-md-12">
+                            <label>Material Name:</label>
+                            <textarea v-model="form.name" class="form-control" rows="2"></textarea>
+                        </div>
+
+                        <div class="col-4">
+                            <label>Pages:</label>
+                            <input v-model="form.pages" type="number" class="form-control">
+                        </div>
+                        <div class="col-8">
+                            <label class="small">Date published: <span class="xsmall">(optional)</span> </label>
+                            <input v-model="form.published" type="date" class="form-control">
+                        </div>
+
+                        <div class="col-md-12">
+                            <label>Category:</label>
+                            <select v-model="form.category_id" class="form-control  form-select">
+                                <option v-for="option in cateDropDown" :value="option.category_id" :key="option">
+                                    {{ option.category_name }}
+                                </option>
+                            </select>
+
+                        </div>
+
+
+
+                        <div class="col-md-12 mt-4">
+                            <button v-if="!form.isSaving" type="submit"
+                                class="btn btn-custom-secondary  float-end w-100">Submit</button>
+                            <button v-else class="btn btn-custom-secondary  float-end w-100" disabled>Submitting...</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-md-12 col-lg-8">
+            <div class="card border-0 bg-white rounded-4 h-100">
+                <div class="card-header bg-transparent fw-bold  border-0 p-3">
+                    Materials <span v-if="selected.length" class=" float-end">
+                        <button class="btn btn-dark text-dark bg-dark-subtle btn-sm p-0 px-1">
+                            <i class="bi bi-archive"></i> Archive
+                        </button>
+                    </span>
+                </div>
+                <div class="card-body">
+                    <div class="row gy-3">
+                        <div class="col-12">
+                            <div class="row gy-1">
+                                <div class="col-lg-12">
+                                    <div class="float-end">
+                                        <label>&nbsp;</label>
+                                        <input placeholder="search.." type="text" class="form-control"
+                                            v-model="searchValue">
+                                        <!-- <SearchField @submit="searchByName" /> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 list-scroll">
+                            <EasyDataTable alternating v-model:items-selected="selected" :headers="headers"
+                                :items="materials" show-index :sort-by="sortBy" :sort-type="sortType" buttons-pagination
+                                :search-field="searchField" :search-value="searchValue">
+                                <template #item-operation="item">
+                                    <div class="operation-wrapper">
+                                        <span data-bs-toggle="modal" data-bs-target="#editMaterial"
+                                            @click="editMaterial(item)" class="me-4 operation-icon"><i
+                                                class="bi bi-pencil"></i></span>
+                                        <span @click="deleteMaterial(item)" class="operation-icon"><i
+                                                class="bi bi-trash3 text-danger"></i></span>
+                                    </div>
+                                </template>
+
+                            </EasyDataTable>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <editMaterialModal :item="materialToEdit" :categories="cateDropDown" @done="getMaterials" />
     </div>
 </template>
 
 <script setup lang="ts">
 
+import { reactive, onMounted, ref } from 'vue'
+import { MaterialsAPI } from '@/store/functions/axiosManager';
+import useFunction from '@/store/functions/useFunction';
+import type { Header, Item, SortType } from "vue3-easy-data-table";
+import editMaterialModal from './_includes/modals/editMaterial.vue';
+
+
+
+const material_api = new MaterialsAPI()
+const fxn = useFunction.fx
+
+onMounted(() => {
+    getCategories()
+    getMaterials()
+})
+
+
+// ######## FORM START ############# //
+const cateDropDown = ref<any>([])
+const inputFileEl = ref<any>(null)
+
+const form = reactive({
+    doc: '',
+    name: '',
+    pages: '',
+    published: '',
+    category_id: '',
+    isSaving: false
+})
+
+function grabFile(e: any) {
+    form.doc = e.target.files[0]
+}
+
+
+async function getCategories() {
+    let { data } = await material_api.getCategories()
+    let arr = data
+    if (arr.length) {
+        arr = arr.sort((a: any, b: any) => a.category_name.localeCompare(b.category_name))
+    }
+    cateDropDown.value = arr
+}
+
+async function submitForm() {
+    if (!form.name || !form.pages || !form.category_id) {
+        fxn.Toast('Please complete the fields', 'warning')
+        return
+    }
+
+    if (!form.doc) {
+        fxn.Toast('No Material included', 'warning')
+        return
+    }
+
+    const obj = new FormData();
+    obj.append('name', form.name);
+    obj.append('pages', form.pages);
+    obj.append('category_id', form.category_id);
+    obj.append('doc', form.doc);
+    // obj.append('published', form.published);
+
+    form.isSaving = true
+
+    try {
+        let resp = await material_api.addNew(obj)
+        if (resp.status == 203) {
+            fxn.Toast('Name already exists', 'warning')
+            form.isSaving = false
+            return
+        }
+        form.category_id = ''
+        form.name = ''
+        form.pages = ''
+        form.doc = ''
+        form.published = ''
+        inputFileEl.value.value = ''
+
+        fxn.Toast('Added Successfully', 'success')
+        form.isSaving = false
+        getMaterials()
+        window.scrollTo(0, 0)
+    } catch (error) {
+        console.log(error);
+
+        form.isSaving = false
+        fxn.Toast('Network error', 'error')
+    }
+
+
+}
+// ######## FORM END ############# //
+
+
+
+
+// ######## MATERIALS TABLE START ############# //
+
+async function getMaterials() {
+    let { data } = await material_api.listForAdmin()
+    materials.value = data
+}
+
+
+const sortBy: string = "name";
+const sortType: SortType = "asc";
+
+const selected = ref([])
+const searchField = ["name", "category"];
+const searchValue = ref('');
+
+
+const headers: Header[] = [
+    { text: "NAME", value: "name", sortable: true },
+    // { text: "CODE", value: "material_code" },
+    { text: "CATEGORY", value: "category" },
+    { text: "", value: "operation" },
+];
+
+
+const materials = ref<Item[]>([])
+const materialToEdit = ref<any[]>([])
+
+function editMaterial(item: any) {
+    materialToEdit.value = item
+}
+
+function deleteMaterial(item: any) {
+    fxn.Confirm(`Delete this Material?`, 'Yes, Delete')
+        .then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    let resp = await material_api.remove(item.material_id)
+                    if (resp.status == 200) {
+                        getMaterials();
+                        fxn.Toast('Record Deleted', 'success')
+                    }
+                } catch (error) {
+                    fxn.Toast('internet error', 'error')
+                }
+            }
+        })
+}
+
+
+// ######## MATERIALS TABLE END ############# //
+
+
 </script>
 
-<style scoped></style>
+
+<style scoped>
+.operation-icon {
+    cursor: pointer;
+}
+</style>
+
+
+<style >
+.vue3-easy-data-table__header th.sortable .multi-sort__number {
+    border-radius: 0%;
+    height: 1.5em;
+    width: 1.5em;
+    line-height: 1.5em;
+    margin-left: 4px;
+    background-color: var(--easy-table-header-font-color);
+    color: var(--easy-table-header-background-color);
+    /* display: none; */
+}
+
+.easy-checkbox input[type=checkbox]:checked+label:before {
+    background: #111 !important;
+    /* background: red !important; */
+}
+
+/* .easy-checkbox input[type=checkbox].allSelected+label:before, */
+.easy-checkbox input[type=checkbox].partSelected+label:before {
+    background: var(--bs-warning) !important;
+}
+
+.vue3-easy-data-table__main {
+    min-height: 300px !important;
+}
+</style>

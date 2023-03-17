@@ -33,7 +33,7 @@
           <div v-else class="row gy-3">
             <div class="col-md-8">
               <div class="col-md-8">
-                <SearchBar @submit="searchByName" />
+                <SearchMaterialField @submit="searchByName" />
               </div>
 
               <div class="row gy-3 mt-sm-3">
@@ -102,7 +102,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import SearchBar from '@/components/SearchBar.vue';
+import SearchMaterialField from '@/components/SearchMaterialField.vue';
 import { useCourseMaterials } from '@/store/materials';
 import downloadMaterialModal from '@/components/Modals/downloadMaterialModal.vue';
 

@@ -1,6 +1,62 @@
 <template>
     <div class="row g-3">
-        <div class="col-md-12 col-lg-4">
+        <div class="col-md-12">
+            <div class="card border-0 bg-white rounded-4 h-100">
+                <div class="card-header bg-transparent fw-bold  border-0 p-3">
+                    Materials <span class="small"> ({{ materials.length }})</span>
+                    <span v-if="selected.length" class=" float-end">
+                        <button class="btn btn-dark text-dark bg-dark-subtle btn-sm p-0 px-1">
+                            <i class="bi bi-archive"></i> Archive
+                        </button>
+                    </span>
+                </div>
+                <div class="card-body">
+                    <div class="row gy-3">
+                        <div class="col-12">
+                            <div class="row gy-1">
+                                <div class="col-lg-12">
+                                    <div class="float-end">
+                                        <label>&nbsp;</label>
+                                        <input placeholder="search.." type="text" class="form-control"
+                                            v-model="searchValue">
+                                        <!-- <SearchField @submit="searchByName" /> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 list-scroll">
+                            <EasyDataTable alternating v-model:items-selected="selected" :headers="headers"
+                                :items="materials" show-index :sort-by="sortBy" :sort-type="sortType" buttons-pagination
+                                :search-field="searchField" :search-value="searchValue">
+                                <template #item-pin="item">
+                                    <button data-bs-toggle="modal" data-bs-target="#newPinMaterial"
+                                        @click="editMaterial(item)"
+                                        class="me-4 operation-icon btn btn-sm xsmall text-primary bg-secondary-subtle  p-0 px-2">
+                                        Generate
+                                    </button>
+                                </template>
+
+                                <template #item-operation="item">
+                                    <div class="operation-wrapper">
+                                        <span data-bs-toggle="modal" data-bs-target="#editMaterial"
+                                            @click="editMaterial(item)" class="me-4 operation-icon">
+                                            <i class="bi bi-pencil"></i>
+                                        </span>
+                                        <span @click="deleteMaterial(item)" class="operation-icon">
+                                            <i class="bi bi-trash3 text-danger"></i>
+                                        </span>
+                                    </div>
+                                </template>
+                            </EasyDataTable>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-5">
             <div class="card border-0 bg-white rounded-4 h-100">
 
                 <div class="card-header bg-transparent fw-bold  border-0 p-3">
@@ -50,55 +106,54 @@
             </div>
         </div>
 
-
-
-
-        <div class="col-md-12 col-lg-8">
+        <div class="col-md-12 col-lg-7">
             <div class="card border-0 bg-white rounded-4 h-100">
+
                 <div class="card-header bg-transparent fw-bold  border-0 p-3">
-                    Materials <span v-if="selected.length" class=" float-end">
-                        <button class="btn btn-dark text-dark bg-dark-subtle btn-sm p-0 px-1">
-                            <i class="bi bi-archive"></i> Archive
-                        </button>
-                    </span>
+                    ACTIVE PINS
                 </div>
-                <div class="card-body">
-                    <div class="row gy-3">
-                        <div class="col-12">
-                            <div class="row gy-1">
-                                <div class="col-lg-12">
-                                    <div class="float-end">
-                                        <label>&nbsp;</label>
-                                        <input placeholder="search.." type="text" class="form-control"
-                                            v-model="searchValue">
-                                        <!-- <SearchField @submit="searchByName" /> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="card-body list-scroll">
+                    <div v-if="!active_pins.length">
+                        <EmptyListComponent str="No Active PINS" />
+                    </div>
+                    <div v-else>
 
-                        <div class="col-12 list-scroll">
-                            <EasyDataTable alternating v-model:items-selected="selected" :headers="headers"
-                                :items="materials" show-index :sort-by="sortBy" :sort-type="sortType" buttons-pagination
-                                :search-field="searchField" :search-value="searchValue">
-                                <template #item-operation="item">
-                                    <div class="operation-wrapper">
-                                        <span data-bs-toggle="modal" data-bs-target="#editMaterial"
-                                            @click="editMaterial(item)" class="me-4 operation-icon"><i
-                                                class="bi bi-pencil"></i></span>
-                                        <span @click="deleteMaterial(item)" class="operation-icon"><i
-                                                class="bi bi-trash3 text-danger"></i></span>
-                                    </div>
-                                </template>
-
-                            </EasyDataTable>
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Material</th>
+                                        <th>PIN</th>
+                                        <th>Reference</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="(code, index) in active_pins" :key="index">
+                                        <th>{{ (index + 1) }}.</th>
+                                        <td> {{ code.material_code ? code.material_code : '--' }}</td>
+                                        <td class="text-success"> {{ code.code }}</td>
+                                        <td> {{ code.ref }}</td>
+                                        <td>
+                                            <button @click="deletePin(code.id)" class="btn btn-link text-danger m-0 p-0">
+                                                <i class="bi bi-x-lg"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
+
+
+
+
+
+
         <editMaterialModal :item="materialToEdit" :categories="cateDropDown" @done="getMaterials" />
     </div>
 </template>
@@ -119,6 +174,7 @@ const fxn = useFunction.fx
 onMounted(() => {
     getCategories()
     getMaterials()
+    getPins()
 })
 
 
@@ -213,14 +269,15 @@ const sortBy: string = "name";
 const sortType: SortType = "asc";
 
 const selected = ref([])
-const searchField = ["name", "category"];
+const searchField = ["name", "category", "material_code"];
 const searchValue = ref('');
 
 
 const headers: Header[] = [
     { text: "NAME", value: "name", sortable: true },
-    // { text: "CODE", value: "material_code" },
+    { text: "MATERIAL ID", value: "material_code" },
     { text: "CATEGORY", value: "category" },
+    { text: "ACCESS PIN", value: "pin" },
     { text: "", value: "operation" },
 ];
 
@@ -249,10 +306,31 @@ function deleteMaterial(item: any) {
         })
 }
 
-
 // ######## MATERIALS TABLE END ############# //
 
 
+
+
+// ######## PINS START ############# //
+const active_pins = ref<any>([])
+
+async function getPins() {
+    let { data } = await material_api.view_pins()
+    active_pins.value = data
+    console.log(data);
+
+}
+
+async function deletePin(id: any) {
+    try {
+        await material_api.delete_pin(id)
+        getPins()
+    } catch (error) {
+        fxn.Toast('Internet error', 'error')
+    }
+
+}
+// ######## PINS END ############# //
 </script>
 
 

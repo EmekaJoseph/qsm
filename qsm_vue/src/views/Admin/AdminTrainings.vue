@@ -55,7 +55,8 @@
                 <div class="card border-0 bg-white rounded-4 h-100">
                     <div class="card-header bg-transparent fw-bold  border-0 p-3"> <i
                             class="bi bi-circle-fill text-success xsmall"></i>
-                        Active Trainings ({{ Trainings.active.length }})</div>
+                        Active Trainings <span class="small"> ({{ Trainings.active.length }}) </span>
+                    </div>
                     <div class="card-body px-4">
 
                         <div v-if="Trainings.loading">

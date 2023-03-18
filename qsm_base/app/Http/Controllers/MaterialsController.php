@@ -110,7 +110,7 @@ class MaterialsController extends BaseController
             $material->doc = $fileName;
         }
 
-        $material->material_code = 'M' .  random_int(1, 9) . $material->material_id .  random_int(10, 99);
+        $material->material_code = 'M' .  random_int(1, 9) . $material->material_id .  strtoupper(Str::random(2));
         $material->save();
 
         return response()->json('saved', 200);
@@ -161,7 +161,7 @@ class MaterialsController extends BaseController
         $id =  $table->insertGetId([
             'material_id' => $material_id,
             'ref' => $ref,
-            'code' => 'QSM' . $material_id . strtoupper(Str::random(3)),
+            'code' => 'QSM-' . $material_id . strtoupper(Str::random(3)),
             'created_date' => Carbon::now()
         ]);
 
@@ -172,7 +172,19 @@ class MaterialsController extends BaseController
 
     public function view_pins()
     {
-        $all = DB::table('tbl_material_otp')->get();
+
+        $all = DB::table('tbl_materials')
+            ->rightJoin('tbl_material_otp', 'tbl_materials.material_id', '=', 'tbl_material_otp.material_id')
+            ->select(
+                'tbl_material_otp.id',
+                'code',
+                'material_code',
+                'name',
+                'ref',
+                'created_date',
+
+            )->get();
+
         return response()->json($all, 200);
     }
 

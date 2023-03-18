@@ -17,7 +17,7 @@
                                 <form class="row g-3">
                                     <div class="col-md-12">
                                         <label>Name:</label>
-                                        <input v-model="thisItem.name" type="text" class="form-control">
+                                        <textarea v-model="thisItem.name" class="form-control" rows="3"></textarea>
                                     </div>
                                     <div class="col-md-12">
                                         <label>Pages:</label>

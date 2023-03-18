@@ -161,7 +161,7 @@ class MaterialsController extends BaseController
         $id =  $table->insertGetId([
             'material_id' => $material_id,
             'ref' => $ref,
-            'code' => 'QSM-' . $material_id . strtoupper(Str::random(3)),
+            'code' => 'QSM-' . $material_id . strtoupper(Str::random(4)),
             'created_date' => Carbon::now()
         ]);
 

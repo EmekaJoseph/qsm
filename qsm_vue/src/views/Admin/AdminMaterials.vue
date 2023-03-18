@@ -1,5 +1,7 @@
 <template>
     <div class="row g-3">
+
+        <!-- MATERIALS TABLE ###################################### -->
         <div class="col-md-12">
             <div class="card border-0 bg-white rounded-4 h-100">
                 <div class="card-header bg-transparent fw-bold  border-0 p-3">
@@ -19,7 +21,6 @@
                                         <label>&nbsp;</label>
                                         <input placeholder="search.." type="text" class="form-control"
                                             v-model="searchValue">
-                                        <!-- <SearchField @submit="searchByName" /> -->
                                     </div>
                                 </div>
                             </div>
@@ -30,8 +31,8 @@
                                 :items="materials" show-index :sort-by="sortBy" :sort-type="sortType" buttons-pagination
                                 :search-field="searchField" :search-value="searchValue">
                                 <template #item-pin="item">
-                                    <button data-bs-toggle="modal" data-bs-target="#newPinMaterial"
-                                        @click="editMaterial(item)"
+                                    <button data-bs-toggle="modal" data-bs-target="#createPINModal"
+                                        @click="material_id_forNewPIN = item.material_id"
                                         class="me-4 operation-icon btn btn-sm xsmall text-primary bg-secondary-subtle  p-0 px-2">
                                         Generate
                                     </button>
@@ -51,11 +52,21 @@
                             </EasyDataTable>
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
+
+        <!-- MODALS ######################################### -->
+        <editMaterialModal :item="materialToEdit" :categories="cateDropDown" @done="getMaterials" />
+        <!-- <createPINModal /> -->
+        <createPINModal @done="getPins" :material_id="material_id_forNewPIN" />
+
+
+
+
+
+
+        <!-- NEW MATERIALS FORM ########################################### -->
         <div class="col-md-12 col-lg-5">
             <div class="card border-0 bg-white rounded-4 h-100">
 
@@ -93,9 +104,6 @@
                             </select>
 
                         </div>
-
-
-
                         <div class="col-md-12 mt-4">
                             <button v-if="!form.isSaving" type="submit"
                                 class="btn btn-custom-secondary  float-end w-100">Submit</button>
@@ -106,9 +114,12 @@
             </div>
         </div>
 
+
+
+
+        <!-- ACTIVE PINS ###################################################-->
         <div class="col-md-12 col-lg-7">
             <div class="card border-0 bg-white rounded-4 h-100">
-
                 <div class="card-header bg-transparent fw-bold  border-0 p-3">
                     ACTIVE PINS
                 </div>
@@ -149,12 +160,6 @@
             </div>
         </div>
 
-
-
-
-
-
-        <editMaterialModal :item="materialToEdit" :categories="cateDropDown" @done="getMaterials" />
     </div>
 </template>
 
@@ -165,6 +170,7 @@ import { MaterialsAPI } from '@/store/functions/axiosManager';
 import useFunction from '@/store/functions/useFunction';
 import type { Header, Item, SortType } from "vue3-easy-data-table";
 import editMaterialModal from './_includes/modals/editMaterial.vue';
+import createPINModal from './_includes/modals/createPINModal.vue';
 
 
 
@@ -242,7 +248,7 @@ async function submitForm() {
         fxn.Toast('Added Successfully', 'success')
         form.isSaving = false
         getMaterials()
-        window.scrollTo(0, 0)
+        // window.scrollTo(0, 0)
     } catch (error) {
         console.log(error);
 
@@ -274,8 +280,8 @@ const searchValue = ref('');
 
 
 const headers: Header[] = [
+    { text: "MATERIAL_ID", value: "material_code" },
     { text: "NAME", value: "name", sortable: true },
-    { text: "MATERIAL ID", value: "material_code" },
     { text: "CATEGORY", value: "category" },
     { text: "ACCESS PIN", value: "pin" },
     { text: "", value: "operation" },
@@ -313,6 +319,7 @@ function deleteMaterial(item: any) {
 
 // ######## PINS START ############# //
 const active_pins = ref<any>([])
+const material_id_forNewPIN = ref<string>('')
 
 async function getPins() {
     let { data } = await material_api.view_pins()

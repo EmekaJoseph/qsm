@@ -1,7 +1,6 @@
 <template>
     <div>
-        <div class="modal fade" id="editMaterial" data-backdrop="static" data-keyboard="false" tabindex="-1"
-            aria-hidden="true">
+        <div class="modal fade" id="editMaterial" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-header border-0 bg-light">

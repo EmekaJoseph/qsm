@@ -14,18 +14,19 @@
                         <div class="row justify-content-center gy-3">
                             <div class="col-md-12">
                                 <div v-if="item.image" class="image-holder fill">
-                                    <img class="img-fluid" :src="`${hostURL}/trainings/${item.image}`" alt="QSM-Training">
+                                    <img class="img-fluid" :src="`${hostURL}/trainings_images/${item.image}`"
+                                        alt="QSM-Training">
                                 </div>
                             </div>
                             <div class="col-md-12 ">
-                                <div class="bg-light p-3 rounded-3">
+                                <div class="bg-light p-3 rounded-3 py-4">
                                     <div class="text-black my-2">
-                                        <div class="fw-bold">Description:</div>
+                                        <div class="fw-bold bg-info-subtle p-1 rounded-4 text-center">Description:</div>
                                         {{ item.info }}
                                     </div>
 
                                     <div class="text-black mb-2">
-                                        <div class="fw-bold">Venue:</div>
+                                        <div class="fw-bold bg-info-subtle p-1 rounded-4 text-center">Venue:</div>
                                         {{ item.venue }}
                                     </div>
 

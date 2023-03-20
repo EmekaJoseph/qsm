@@ -131,9 +131,9 @@
               medical microbiology, food microbiology, Pharmaceutical microbiology and
               Water microbiology and chemistry. His expertises are in proposal writing, project
               development, product development and capacity building.</div>
-            <div class="col-lg-4 order-1 order-lg-2">
+            <!-- <div class="col-lg-4 order-1 order-lg-2">
               <div class="pic-span">PHOTO</div>
-            </div>
+            </div> -->
           </div>
 
           <div class="row mb-4 faculty-span">
@@ -142,9 +142,9 @@
               Laboratory Management in the Federal Institute of Industrial Research Oshodi
               (FIIRO). She is QMS and FSMS auditor with DQS. She is also an IRCA auditor. She
               is passionate about safety.</div>
-            <div class="col-lg-4 order-1 order-lg-2">
+            <!-- <div class="col-lg-4 order-1 order-lg-2">
               <div class="pic-span">PHOTO</div>
-            </div>
+            </div> -->
           </div>
 
           <div class="row mb-4 faculty-span">
@@ -155,9 +155,9 @@
               Establishment Inspection Directorate and Food Safety and Applied Nutrition
               Directorate of NAFDAC as a water and food safety auditor. Currently, he consults
               for companies on Regulatory, compliance and quality issues.</div>
-            <div class="col-lg-4 order-1 order-lg-2">
+            <!-- <div class="col-lg-4 order-1 order-lg-2">
               <div class="pic-span">PHOTO</div>
-            </div>
+            </div> -->
           </div>
 
           <div class="row mb-4 faculty-span">
@@ -168,9 +168,9 @@
               Standards Organization of Nigeria (Certified Systems Lead Auditor), Member Nigeria
               Institute of Food Science and Technology (NIFST).
             </div>
-            <div class="col-lg-4 order-1 order-lg-2">
+            <!-- <div class="col-lg-4 order-1 order-lg-2">
               <div class="pic-span">PHOTO</div>
-            </div>
+            </div> -->
           </div>
 
           <div class="row mb-4 faculty-span">
@@ -184,9 +184,9 @@
               deadlines are set.
 
             </div>
-            <div class="col-lg-4 order-1 order-lg-2">
+            <!-- <div class="col-lg-4 order-1 order-lg-2">
               <div class="pic-span">PHOTO</div>
-            </div>
+            </div> -->
           </div>
 
         </section>

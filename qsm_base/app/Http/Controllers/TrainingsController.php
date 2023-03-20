@@ -233,6 +233,7 @@ class TrainingsController extends BaseController
             }
         }
 
+
         // $trainings = TrainingModel::whereIn('id', $ids)->pluck('end_date')->toArray();
 
         // $lastDate = Carbon::parse($trainings[0]);
@@ -242,16 +243,6 @@ class TrainingsController extends BaseController
         //         $lastDate = $row;
         //     }
         // }
-
-        // DB::table('tbl_registrations')->insert([
-        //     'trainings' => $req->input('trainings'),
-        //     'name' => $req->input('name'),
-        //     'email' => $req->input('email'),
-        //     'phone' => $req->input('phone'),
-        //     'company' => $req->input('company'),
-        //     'expiry' => $lastDate,
-        //     'reg_date' => Carbon::now()
-        // ]);
 
         return response()->json('saved', 200);
     }

@@ -187,7 +187,7 @@
 
 <script setup lang="ts">
 
-import { reactive, onMounted, ref } from 'vue'
+import { reactive, onMounted, ref, onUnmounted } from 'vue'
 import { MaterialsAPI, ArchiveAPI } from '@/store/functions/axiosManager';
 import useFunction from '@/store/functions/useFunction';
 import type { Header, Item, SortType } from "vue3-easy-data-table";
@@ -413,6 +413,14 @@ async function deletePin(id: any) {
     }
 
 }
+
+let interval = setInterval(() => {
+    getPins()
+}, 10000)
+
+onUnmounted(() => {
+    clearInterval(interval)
+})
 // ######## PINS END ############# //
 </script>
 

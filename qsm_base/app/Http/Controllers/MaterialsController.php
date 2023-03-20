@@ -104,7 +104,7 @@ class MaterialsController extends BaseController
 
         if ($req->file('doc')) {
             $file = $req->file('doc');
-            $fileName =  str_replace(' ', '_', $material->name) . time() . '.' . $file->extension();
+            $fileName =  str_replace(' ', '_', $material->name) . '-QSM' . time() . '.' . $file->extension();
             $file->move('course_materials/', $fileName);
 
             $material->doc = $fileName;
@@ -200,6 +200,7 @@ class MaterialsController extends BaseController
 
 
 
+
     // users
 
     public function latestMaterials()
@@ -211,6 +212,7 @@ class MaterialsController extends BaseController
                 'name',
                 'category_name as category',
                 'pages',
+                'material_code'
             )
             ->where('isArchived', '0')
 
@@ -218,6 +220,7 @@ class MaterialsController extends BaseController
 
         return response()->json($materials, 200);
     }
+
 
     public function materialsByName($name)
     {
@@ -228,10 +231,12 @@ class MaterialsController extends BaseController
                 'name',
                 'category_name as category',
                 'pages',
+                'material_code'
             )
             ->where('isArchived', '0')
             ->when(!empty($name), function ($query) use ($name) {
-                return $query->where('name', 'like', "%{$name}%");
+                return $query->where('name', 'like', "%{$name}%")
+                    ->orWhere('material_code', 'like', "%{$name}%");
             })
 
             ->get();
@@ -248,6 +253,7 @@ class MaterialsController extends BaseController
                 'name',
                 'category_name as category',
                 'pages',
+                'material_code'
             )
             ->where('isArchived', '0')
             ->where('tbl_materials.category_id', $category_id)
@@ -256,21 +262,25 @@ class MaterialsController extends BaseController
         return response()->json($materials, 200);
     }
 
-    public function downloadMaterial($code)
-    {
-        $table = DB::table('tbl_material_otp');
-        $otp = $table->where('code', $code)->first();
 
-        if (!$otp) {
+
+    public function downloadMaterial($json)
+    {
+        $obj = json_decode($json);
+
+        $dataExists =  DB::table('tbl_material_otp')->where('code', $obj->otp)
+            ->where('material_id', $obj->material_id)->first();
+
+        if ($dataExists) {
+            DB::table('tbl_material_otp')->where('code', $obj->otp)->delete();
+            $material = MaterialModel::find($obj->material_id);
+            return response()->json($material->doc, 200);
+        } else {
             return response()->json('code invalid', 203);
         }
-
-        $material = MaterialModel::find($otp->material_id);
-
-        $table->where('code', $code)->delete();
-
-        return response()->json($material->doc, 200);
     }
+
+
 
     public function availableCategories()
     {

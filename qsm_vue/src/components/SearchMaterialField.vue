@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- DESKTOP START -->
+        <!-- DESKTOP START ################################# -->
         <div class="d-none d-sm-block">
             <div class="col-md-12">
                 <form @submit.prevent="sendToParent" class="input-group">
@@ -11,10 +11,10 @@
                 </form>
             </div>
         </div>
-        <!-- DESKTOP END -->
+        <!-- DESKTOP END ###########################-->
 
 
-        <!-- MOBILE START -->
+        <!-- MOBILE START ######################################## -->
         <div class="fixed-bottom-btn d-sm-none">
             <div class="justify-content-end floatPanel" data-bs-toggle="offcanvas" data-bs-target="#searchOffcanvas">
                 <span class=" shadow animate__heartBeat animate__infinite animate__slower">
@@ -27,14 +27,14 @@
 
         <div class="offcanvas offcanvas-top" tabindex="-1" id="searchOffcanvas" aria-labelledby="offcanvasLabel">
             <div class="offcanvas-header pb-0">
-                <h6 class="offcanvas-title text-muted2" id="offcanvasLabel">Search Materials</h6>
+                <h6 class="offcanvas-title text-muted2 fw-light small" id="offcanvasLabel">Search Materials</h6>
                 <button ref="btnCloseCanvas" type="button" class="btn-close" data-bs-dismiss="offcanvas"
                     aria-label="Close"></button>
             </div>
-            <div class="offcanvas-body pt-4">
+            <div class="offcanvas-body">
                 <form @submit.prevent="sendToParent" class="row gy-3">
                     <div class="col-sm-8">
-                        <input v-model="str" type="text" class="form-control h-100 cnvasSearch" placeholder="enter name..">
+                        <input v-model="str" type="text" class="form-control cnvasSearch" placeholder="enter name..">
                     </div>
                     <div class="col-sm-8">
                         <button @click.prevent="sendToParent"
@@ -45,7 +45,7 @@
                 </form>
             </div>
         </div>
-        <!-- MOBILE END -->
+        <!-- MOBILE END ############################### -->
 
     </div>
 </template>

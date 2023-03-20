@@ -45,6 +45,7 @@ Route::controller(UsersController::class)->group(function () {
 Route::controller(AdminController::class)->group(function () {
     Route::post('login',  'login');
     Route::post('logout/{id}',  'logout');
+    Route::get('overview',  'overview');
 });
 
 Route::controller(SettingsController::class)->group(function () {
@@ -53,7 +54,6 @@ Route::controller(SettingsController::class)->group(function () {
     Route::post('renameCategory',  'renameCategory');
     Route::delete('deleteCategory/{category_id}',  'deleteCategory');
 });
-
 
 Route::controller(TrainingsController::class)->group(function () {
     Route::get('registrationList/{training_id}',  'registrationList');

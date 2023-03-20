@@ -8,7 +8,7 @@
         <div class="container">
           <div class="row gx-4">
             <div class="col-lg-6 col-sm-10">
-              <h1 class="main-title animate__animated animate__slideInLeft"><span class="text-muted">Up Coming</span>
+              <h1 class="main-title animate__animated animate__slideInLeft"><span class="text-muted">QSM</span>
                 Trainings</h1>
             </div>
 
@@ -20,11 +20,12 @@
       <div class="container py-2 mt-lg-3">
 
         <div v-if="trainings.list.length" class="text-center my-5">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Distinctio facilis reiciendis tenetur suscipit.
+          <span class="fw-bold fs-5"> Register for a Training,</span> <br> You can register for more than a training by
+          simply adding them to
+          cart.
         </div>
 
-        <div v-if="trainings.loading">
+        <div class="my-5" v-if="trainings.loading">
           <PageLoading />
         </div>
 
@@ -38,17 +39,21 @@
             <div v-for="(training, i) in trainings.list" :key="i" class="col-12 col-md-6 col-lg-6">
               <div class="card h-100 shadow rounded-4">
                 <div class="card-body">
-                  <h5 class="card-title text-black shadow-sm p-3 ">
+                  <h5 style="cursor: pointer;" @click="trainings.detailsShow = training" data-bs-toggle="modal"
+                    data-bs-target="#trainingDetailsModal" class="card-title text-black shadow-sm p-3 ">
                     <i class=" theme-color-faint bi bi-file-earmark-easel text-muted fs-2"></i>
                     {{ training.title }}
                   </h5>
                   <div class="card-text ">
                     <ul class="list-group list-group-flush text-muted">
+
+                      <li class="list-group-item text-muted  ">
+                        <i class="bi bi-calendar"></i>
+                        {{ (new Date(training.start_date)).toDateString() }} -
+                        {{ (new Date(training.end_date)).toDateString() }}
+                      </li>
                       <li class="list-group-item text-muted ">
                         <i class="bi bi-geo-alt"></i> {{ training.venue }}
-                      </li>
-                      <li class="list-group-item text-muted  ">
-                        <i class="bi bi-clock"></i> {{ training.start_date }}
                       </li>
                     </ul>
                   </div>

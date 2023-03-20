@@ -51,10 +51,6 @@ defineProps({
     }
 })
 
-
-
-
-
 const btnX: any = ref(null)
 onBeforeRouteLeave(() => {
     btnX.value.click()

@@ -26,21 +26,25 @@
 
 
         <div v-else>
-          <div class="py-5" style="min-height: 300px;" v-if="!materials.list.length">
-            <EmptyListComponent str="No Available Materials" />
-          </div>
+        <!-- <div class="py-5" style="min-height: 300px;" v-if="!materials.list.length">
+            <EmptyListComponent str="No Materials" />
+                                  </div> -->
 
-          <div v-else class="row gy-3">
+          <div class="row gy-3">
             <div class="col-md-8">
               <div class="col-md-8">
                 <SearchMaterialField @submit="searchByName" />
               </div>
 
               <div class="row gy-3 mt-sm-3">
-                <div class="col-12 text-muted2 mb-sm-2 small" style="letter-spacing: 0.3rem;">
-                  RECENT UPLOADS:
+                <div v-show="!materials.searchLoading" class="col-12 text-muted2 mb-sm-2 small"
+                  style="letter-spacing: 0.2rem;">
+                  {{ materials.list.length ? listGroupName : 'NO MATERIALS' }}
                 </div>
-                <div v-for="matr in materials.list" :key="matr" class="col-12 col-sm-6" @click="selected = matr"
+                <div class="py-5" v-if="materials.searchLoading">
+                  <PageLoading />
+                </div>
+                <div v-else v-for="matr in materials.list" :key="matr" class="col-12 col-sm-6" @click="toDownload = matr"
                   data-bs-toggle="modal" data-bs-target="#downloadMaterialModal">
                   <div class="card rounded-0 shadow-sm material-card">
                     <div class="d-flex">
@@ -70,19 +74,21 @@
               </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4" v-if="materials.categories.length">
               <div class="card rounded-0 border-top-0 border-end-0 border-bottom-0 border-light shadow-sm">
                 <div class="card-body">
                   <div class="card-header bg-transparent fw-bold border-0">Categories:</div>
                   <ul class="list-group list-group-flush">
-                    <li @click="searchByCategory('All')" class="list-group-item cate-list-item hover-tiltX"
+
+                    <li @click="searchByLatest()" class="list-group-item cate-list-item hover-tiltX"
                       :class="{ 'theme-color': categoryToSearch == 'All' }">
-                      All
+                      All (Latest)
                     </li>
+
                     <li @click="searchByCategory(li)" v-for="li in materials.categories" :key="li"
                       class="list-group-item cate-list-item hover-tiltX"
-                      :class="{ 'theme-color': categoryToSearch == li }">
-                      {{ li }}
+                      :class="{ 'theme-color': categoryToSearch == li.category_name }">
+                      {{ li.category_name }}
                     </li>
                   </ul>
                 </div>
@@ -93,7 +99,7 @@
       </div>
     </section>
 
-    <downloadMaterialModal :item="selected" />
+    <downloadMaterialModal :item="toDownload" />
     <FooterComponent />
   </div>
 </template>
@@ -108,24 +114,35 @@ import downloadMaterialModal from '@/components/Modals/downloadMaterialModal.vue
 
 
 onMounted(() => {
-  materials.getList()
+  searchByLatest()
 })
 
-const materials = useCourseMaterials()
-const searchStr = ref<string>('')
-const categoryToSearch = ref<string>('All')
-const selected = ref<any>({})
 
-function searchByName(str: string) {
-  searchStr.value = str
-  materials.loading = true
-  materials.getList(str)
+
+const materials = useCourseMaterials()
+const categoryToSearch = ref<string>('All')
+const toDownload = ref<any>({})
+const listGroupName = ref<string>('RECENT UPLOADS:')
+
+function searchByLatest() {
+  categoryToSearch.value = 'All'
+  listGroupName.value = 'RECENT UPLOADS: ';
+  materials.searchLoading = true
+  materials.getLatestMaterials()
 }
 
-function searchByCategory(str: string) {
-  categoryToSearch.value = str
-  materials.loading = true
-  materials.getList('All', str)
+function searchByName(str: string) {
+  listGroupName.value = 'RESULTS BY NAME: ' + str;
+  categoryToSearch.value = ''
+  materials.searchLoading = true
+  materials.materialsByName(str)
+}
+
+function searchByCategory(cate: any) {
+  listGroupName.value = 'RESULTS FOR CATEGORY: ' + cate.category_name;
+  categoryToSearch.value = cate.category_name
+  materials.searchLoading = true
+  materials.materialsByCaterogy(cate.category_id)
 }
 
 

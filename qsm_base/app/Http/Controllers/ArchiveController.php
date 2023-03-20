@@ -19,8 +19,6 @@ class ArchiveController extends BaseController
     public function store(Request $req)
     {
 
-        $table = DB::table('tbl_archives');
-
         $archive_name = $req->input('archive_name');
 
         if (DB::table('tbl_archives')->where('archive_name', $archive_name)->exists()) {

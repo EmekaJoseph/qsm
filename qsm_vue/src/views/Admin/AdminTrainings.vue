@@ -81,9 +81,10 @@
                                             <td>{{ trn.title }}</td>
                                             <td>
                                                 <div class="dropdown">
-                                                    <button class="btn p-0 m-0 btn-link text-black dropdown-toggle"
+                                                    <button
+                                                        class="btn p-0 bg-dark-subtle px-2 m-0 btn-link text-black dropdown-toggle"
                                                         type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="bi bi-three-dots-vertical"></i>
+                                                        <i class="bi bi-three-dots"></i>
                                                     </button>
                                                     <ul class="dropdown-menu">
                                                         <li v-if="trn.reg_count != '0'">

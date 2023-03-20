@@ -31,7 +31,7 @@
                                         Validate
                                     </button>
 
-                                    <button v-else disabled class="btn btn-dark btn-lg  rounded-4 w-100">
+                                    <button v-else disabled class="btn theme-btn btn-lg  rounded-4 w-100">
                                         Checking...
                                     </button>
                                     <!-- <button class="btn theme-btn">sss</button> -->
@@ -41,8 +41,8 @@
                             </div>
                         </div>
                         <div v-else class="col-12 mt-3">
-                            <a class="btn btn-success btn-lg bg-success-subtle text-success w-100 border-0" href="#tile"
-                                download>
+                            <a class="btn btn-success btn-lg bg-success-subtle text-success w-100 border-0"
+                                :href="`${hostURL}/course_materials/${fileToDownLoad}`" download>
                                 <i class="bi bi-file-earmark-arrow-down-fill"></i> Download File</a>
                         </div>
                     </div>
@@ -55,10 +55,12 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { onBeforeRouteLeave } from 'vue-router';
-// import { hostURL } from '@/store/functions/axiosInstance';
+import { hostURL, UsersAPI } from '@/store/functions/axiosManager';
 import useFunction from '@/store/functions/useFunction';
 
 
+
+const users_api = new UsersAPI()
 const prop = defineProps({
     item: {
         type: Object,
@@ -68,20 +70,33 @@ const prop = defineProps({
 
 const checking = ref(false)
 
-const fxn = useFunction.fx
-
 const code = ref('')
 const fileToDownLoad = ref('')
+const fxn = useFunction.fx
 
 
 
-function checkCode() {
+async function checkCode() {
     if (code.value) {
-        // Axios call with id
+        const obj = {
+            material_id: prop.item.id,
+            otp: code.value
+        }
 
-        // checking.value = true
-        // fileToDownLoad.value = 'image'
-        // checking.value = false
+        checking.value = true
+
+        try {
+            const resp = await users_api.downloadMaterial(JSON.stringify(obj))
+            if (resp.status == 203) {
+                fxn.Toast('Invalid Code', 'error')
+                checking.value = false
+                return
+            }
+            fileToDownLoad.value = resp.data
+            checking.value = false
+        } catch (error) {
+            checking.value = false
+        }
     }
 
 }

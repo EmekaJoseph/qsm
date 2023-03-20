@@ -106,12 +106,16 @@ th {
   font-size: 11px;
 }
 
+.xxsmall {
+  font-size: 9px;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
 
 .list-scroll {
   /* background-color: #eeeeee7c; */
-  height: 400px;
+  height: 500px;
   overflow-y: auto;
 }

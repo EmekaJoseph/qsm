@@ -3,20 +3,42 @@
 
         <!-- MATERIALS TABLE ###################################### -->
         <div class="col-md-12">
-            <div class="card border-0 bg-white rounded-4 h-100">
+            <div class="card rounded-4">
+
                 <div class="card-header bg-transparent fw-bold  border-0 p-3">
                     Materials <span class="small"> ({{ materials.length }})</span>
                     <span v-if="selected.length" class=" float-end">
-                        <button class="btn btn-dark text-dark bg-dark-subtle btn-sm p-0 px-1">
+                        <!-- <button class="btn btn-dark text-dark bg-dark-subtle btn-sm p-0 px-1">
                             <i class="bi bi-archive"></i> Archive
-                        </button>
+                        </button> -->
+
+
+                        <div class="dropdown float-end me-3">
+                            <button class="btn btn-dark text-dark bg-dark-subtle btn-sm p-0 px-1 dropdown-toggle"
+                                type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-folder"></i> Archive
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li v-for="arch in archivesList" :key="arch">
+                                    <button @click="materialToArchive(arch.archive_id)"
+                                        class="btn btn-link m-0 dropdown-item">
+                                        <i v-if="arch.count == '0'" class="bi bi-folder"></i>
+                                        <i v-else class="bi bi-folder-fill"></i>
+                                        {{ arch.archive_name }}
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
                     </span>
                 </div>
                 <div class="card-body">
-                    <div class="row gy-3">
+                    <div class=" min-vh-100" v-if="materialsLoading">
+                        <PageLoading />
+                    </div>
+                    <div v-else class="row gy-3">
                         <div class="col-12">
                             <div class="row gy-1">
-                                <div class="col-lg-12">
+                                <div v-if="materials.length > 10" class="col-lg-12">
                                     <div class="float-end">
                                         <label>&nbsp;</label>
                                         <input placeholder="search.." type="text" class="form-control"
@@ -26,7 +48,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12 list-scroll">
+                        <div class="col-12 list-scrol">
                             <EasyDataTable alternating v-model:items-selected="selected" :headers="headers"
                                 :items="materials" show-index :sort-by="sortBy" :sort-type="sortType" buttons-pagination
                                 :search-field="searchField" :search-value="searchValue">
@@ -68,7 +90,7 @@
 
         <!-- NEW MATERIALS FORM ########################################### -->
         <div class="col-md-12 col-lg-5">
-            <div class="card border-0 bg-white rounded-4 h-100">
+            <div class="card rounded-4 h-100">
 
                 <div class="card-header bg-transparent fw-bold  border-0 p-3">
                     Upload Material
@@ -119,7 +141,7 @@
 
         <!-- ACTIVE PINS ###################################################-->
         <div class="col-md-12 col-lg-7">
-            <div class="card border-0 bg-white rounded-4 h-100">
+            <div class="card rounded-4 h-100">
                 <div class="card-header bg-transparent fw-bold  border-0 p-3">
                     ACTIVE PINS
                 </div>
@@ -166,21 +188,25 @@
 <script setup lang="ts">
 
 import { reactive, onMounted, ref } from 'vue'
-import { MaterialsAPI } from '@/store/functions/axiosManager';
+import { MaterialsAPI, ArchiveAPI } from '@/store/functions/axiosManager';
 import useFunction from '@/store/functions/useFunction';
 import type { Header, Item, SortType } from "vue3-easy-data-table";
 import editMaterialModal from './_includes/modals/editMaterial.vue';
 import createPINModal from './_includes/modals/createPINModal.vue';
+import PageLoading from '@/components/PageLoading.vue';
 
 
 
 const material_api = new MaterialsAPI()
+const archive_api = new ArchiveAPI()
 const fxn = useFunction.fx
+const archivesList = ref<any>([])
 
 onMounted(() => {
     getCategories()
     getMaterials()
     getPins()
+    getArchives()
 })
 
 
@@ -199,6 +225,16 @@ const form = reactive({
 
 function grabFile(e: any) {
     form.doc = e.target.files[0]
+}
+
+async function getArchives() {
+    try {
+        let resp = await archive_api.list();
+        archivesList.value = resp.data
+        // console.log(resp);
+    } catch (error) {
+        // 
+    }
 }
 
 
@@ -268,6 +304,7 @@ async function submitForm() {
 async function getMaterials() {
     let { data } = await material_api.listForAdmin()
     materials.value = data
+    materialsLoading.value = false
 }
 
 
@@ -289,6 +326,7 @@ const headers: Header[] = [
 
 
 const materials = ref<Item[]>([])
+const materialsLoading = ref<boolean>(true)
 const materialToEdit = ref<any[]>([])
 
 function editMaterial(item: any) {
@@ -311,6 +349,44 @@ function deleteMaterial(item: any) {
             }
         })
 }
+
+
+
+
+
+function materialToArchive(newArchive: any) {
+    fxn.Confirm(`Move to Archive?`, 'Continue')
+        .then(async (result) => {
+            if (result.isConfirmed) {
+
+                let ids = selected.value.map((x: any) => x.material_id)
+                let materialsStr = ids.toString();
+
+                let obj = {
+                    op_type: 'add',
+                    archive_id: newArchive,
+                    material_ids: materialsStr,
+                }
+
+                try {
+                    let resp = await archive_api.materialToArchive(obj)
+                    if (resp.status == 200) {
+                        getMaterials()
+                        selected.value = []
+                        fxn.Toast('material(s) moved to archive', 'success')
+                    }
+                } catch (error) {
+                    fxn.Toast('internet error', 'error')
+                }
+            }
+        })
+
+
+}
+
+
+
+
 
 // ######## MATERIALS TABLE END ############# //
 

@@ -38,7 +38,7 @@
 
                     <li class="list-group-item" :class="{ 'gActive': (route.name == 'Archive') }">
                         <router-link :to="{ name: 'Archive' }">
-                            <i class="bi bi-archive"></i>&nbsp;
+                            <i class="bi bi-folder"></i>&nbsp;
                             Archive
                         </router-link>
                     </li>

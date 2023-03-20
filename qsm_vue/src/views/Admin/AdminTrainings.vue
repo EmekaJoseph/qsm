@@ -2,8 +2,10 @@
     <div>
         <div class="row justify-content-center gy-3">
 
+
+            <!-- FORM ################################################# -->
             <div class="col-lg-5">
-                <div class="card border-0 bg-white rounded-4 h-100">
+                <div class="card rounded-4 h-100">
                     <div class="card-header bg-transparent fw-bold  border-0 p-3">
                         Add Training:
                     </div>
@@ -51,8 +53,10 @@
                 </div>
             </div>
 
+
+            <!-- ACTIVE TRAININGS ################################################# -->
             <div class="col-lg-7">
-                <div class="card border-0 bg-white rounded-4 h-100">
+                <div class="card rounded-4 h-100">
                     <div class="card-header bg-transparent fw-bold  border-0 p-3"> <i
                             class="bi bi-circle-fill text-success xsmall"></i>
                         Active Trainings <span class="small"> ({{ Trainings.active.length }}) </span>
@@ -113,6 +117,8 @@
                 </div>
             </div>
 
+
+            <!-- PAST TRAININGS ################################################# -->
             <div class="col-lg-12">
                 <div class="card bg-white rounded-4 h-100">
                     <div class="card-header bg-transparent fw-bold  border-0"> <i

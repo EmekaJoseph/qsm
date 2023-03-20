@@ -23,11 +23,11 @@ class ArchiveController extends BaseController
 
         $archive_name = $req->input('archive_name');
 
-        if ($table->where('archive_name', $archive_name)->exists()) {
+        if (DB::table('tbl_archives')->where('archive_name', $archive_name)->exists()) {
             return response()->json('name already exists', 203);
         }
 
-        $table->insert([
+        DB::table('tbl_archives')->insert([
             'archive_name' => $archive_name,
             'created' => Carbon::now()
         ]);
@@ -51,15 +51,15 @@ class ArchiveController extends BaseController
     public function update($archive_id, Request $req)
     {
 
-        $table = DB::table('tbl_archives');
-
         $archive_name = $req->input('archive_name');
 
-        if ($table->where('archive_name', $archive_name)->exists()) {
+        if (DB::table('tbl_archives')->whereNot('archive_id', $archive_id)
+            ->where('archive_name', $archive_name)->exists()
+        ) {
             return response()->json('name already exists', 203);
         }
 
-        $table->where('archive_id', $archive_id)
+        DB::table('tbl_archives')->where('archive_id', $archive_id)
             ->update(['archive_name' => $req->input('archive_name')]);
 
         return response()->json('updated', 200);
@@ -68,9 +68,7 @@ class ArchiveController extends BaseController
 
     public function destroy($archive_id)
     {
-        $table = DB::table('tbl_archives');
-
-        $archive =  $table->where('archive_id', $archive_id)->first();
+        $archive =  DB::table('tbl_archives')->where('archive_id', $archive_id)->first();
 
         if ($archive) {
             if ($archive->count > 0) {
@@ -103,7 +101,7 @@ class ArchiveController extends BaseController
             DB::table('tbl_archives')->where('archive_id', $archive_id)->decrement('count', sizeof($material_ids));
         } else  if ($op_type == 'move') {
 
-            $newArchive_id = $req->input('newArchive_id');
+            $newArchive_id = $req->input('move_to');
             MaterialModel::whereIn('material_id', $material_ids)->update(['isArchived' => $newArchive_id]);
 
             DB::table('tbl_archives')->where('archive_id', $archive_id)->decrement('count', sizeof($material_ids));

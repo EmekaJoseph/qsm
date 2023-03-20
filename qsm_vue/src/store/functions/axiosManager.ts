@@ -151,7 +151,7 @@ class ArchiveAPI {
     }
 
     archiveDetails(id: any) {
-        return $instance.post(`archiveDetails/${id}`)
+        return $instance.get(`archiveDetails/${id}`)
     }
 }
 

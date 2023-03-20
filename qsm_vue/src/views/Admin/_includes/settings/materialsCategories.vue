@@ -39,12 +39,12 @@
                             <tr v-for="(cate, index) in categories.list" :key="index">
                                 <th>{{ (index + 1) }}.</th>
                                 <td>{{ cate.category_name }}</td>
-                                <td>
+                                <td class=" hover-tiltY">
                                     <button @click="editCategory(cate)" class="btn btn-sm text-success m-0 p-0">
                                         <i class="bi bi-pencil"></i>
                                     </button>
                                 </td>
-                                <td>
+                                <td class="hover-tiltY">
                                     <button @click="deleteCategory(cate.category_id)"
                                         class="btn btn-sm text-danger m-0 p-0">
                                         <i class="bi bi-x-lg"></i>

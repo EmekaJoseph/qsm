@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 22, 2023 at 01:36 AM
+-- Generation Time: Mar 22, 2023 at 08:45 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -66,7 +66,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 CREATE TABLE `personal_access_tokens` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
+  `tokenable_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
   `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -75,6 +75,34 @@ CREATE TABLE `personal_access_tokens` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `personal_access_tokens`
+--
+
+INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
+(9, 'App\\Models\\AccountModel', '01gw4dva5ta971t2ncdgawvke3', 'qsm_token', 'aa42b639a377aa0e46738a7fa89660e0c42ebadd7a0f7e002669c2ce758b8e12', '[\"*\"]', '2023-03-22 18:45:03', NULL, '2023-03-22 18:06:20', '2023-03-22 18:45:03');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_account`
+--
+
+CREATE TABLE `tbl_account` (
+  `id` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `last_login` varchar(100) DEFAULT NULL,
+  `role` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_account`
+--
+
+INSERT INTO `tbl_account` (`id`, `username`, `password`, `last_login`, `role`) VALUES
+('01gw4dva5ta971t2ncdgawvke3', 'admin', '$2y$10$BwMJXp4rzkt9w3j8nKIPFuf5.ArejBga5ihDcb1mGQ2If72y3viC6', '2023-03-22 19:06:20', 'admin');
 
 -- --------------------------------------------------------
 
@@ -101,6 +129,7 @@ CREATE TABLE `tbl_materials` (
   `pages` varchar(10) NOT NULL,
   `material_code` varchar(10) NOT NULL,
   `doc` varchar(100) NOT NULL,
+  `no_of_downloads` int(100) DEFAULT 0,
   `isArchived` varchar(2) NOT NULL DEFAULT '0',
   `name` varchar(255) NOT NULL,
   `created_at` varchar(100) NOT NULL,
@@ -163,13 +192,6 @@ CREATE TABLE `tbl_messages` (
   `sent_date` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `tbl_messages`
---
-
-INSERT INTO `tbl_messages` (`id`, `name`, `email`, `message`, `sent_date`) VALUES
-(1, 'emeka', 'gmail@mail.com', 'message', '2023-03-22 00:33:11');
-
 -- --------------------------------------------------------
 
 --
@@ -223,7 +245,7 @@ CREATE TABLE `tbl_visitors` (
 --
 
 INSERT INTO `tbl_visitors` (`id`, `ip_addr`, `visit_date`) VALUES
-(1, '127.0.0.1', '2023-03-22 00:32:40');
+(1, '127.0.0.1', '2023-03-22 19:40:32');
 
 --
 -- Indexes for dumped tables
@@ -249,6 +271,12 @@ ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
+
+--
+-- Indexes for table `tbl_account`
+--
+ALTER TABLE `tbl_account`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_archives`
@@ -318,19 +346,19 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tbl_archives`
 --
 ALTER TABLE `tbl_archives`
-  MODIFY `archive_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `archive_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `tbl_materials`
 --
 ALTER TABLE `tbl_materials`
-  MODIFY `material_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `material_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `tbl_material_categories`
@@ -342,13 +370,13 @@ ALTER TABLE `tbl_material_categories`
 -- AUTO_INCREMENT for table `tbl_material_otp`
 --
 ALTER TABLE `tbl_material_otp`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `tbl_messages`
 --
 ALTER TABLE `tbl_messages`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_registrations`

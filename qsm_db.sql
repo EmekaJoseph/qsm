@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2023 at 03:47 PM
+-- Generation Time: Mar 22, 2023 at 01:36 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -89,16 +89,6 @@ CREATE TABLE `tbl_archives` (
   `created` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `tbl_archives`
---
-
-INSERT INTO `tbl_archives` (`archive_id`, `archive_name`, `count`, `created`) VALUES
-(2, 'Archive2', 0, '2023-03-14 13:09:58'),
-(4, 'Archive_osho', 0, '2023-03-14 13:27:23'),
-(5, 'Archive_osho1', 0, '2023-03-14 13:27:27'),
-(6, 'Archive_osho2', 0, '2023-03-14 13:27:30');
-
 -- --------------------------------------------------------
 
 --
@@ -112,21 +102,10 @@ CREATE TABLE `tbl_materials` (
   `material_code` varchar(10) NOT NULL,
   `doc` varchar(100) NOT NULL,
   `isArchived` varchar(2) NOT NULL DEFAULT '0',
-  `name` varchar(100) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `created_at` varchar(100) NOT NULL,
   `updated_at` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tbl_materials`
---
-
-INSERT INTO `tbl_materials` (`material_id`, `category_id`, `pages`, `material_code`, `doc`, `isArchived`, `name`, `created_at`, `updated_at`) VALUES
-(2, '3', '100', 'M1UY', '', '1', 'new Doc2', '2023-03-13 23:11:33', '2023-03-13 23:11:33'),
-(3, '13', '100', 'MJJP', '', '0', 'new Doc23', '2023-03-13 23:12:24', '2023-03-14 14:00:16'),
-(4, '10', '100', 'MO4PL', '', '0', 'new Doc234', '2023-03-13 23:13:07', '2023-03-14 14:00:16'),
-(5, '10', '100', '', '', '0', 'new Doc234ew', '2023-03-13 23:15:49', '2023-03-13 23:15:49'),
-(6, '3', '100', 'M4670', '', '0', 'new Doc234ews', '2023-03-13 23:16:41', '2023-03-13 23:16:41');
 
 -- --------------------------------------------------------
 
@@ -170,17 +149,26 @@ CREATE TABLE `tbl_material_otp` (
   `created_date` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `tbl_material_otp`
+-- Table structure for table `tbl_messages`
 --
 
-INSERT INTO `tbl_material_otp` (`id`, `material_id`, `code`, `ref`, `created_date`) VALUES
-(1, '6', 'QSM67FX', 'sammy', '2023-03-14 01:31:45'),
-(3, '10', 'QSM10WKT', 'sammy', '2023-03-14 09:49:32'),
-(4, '13', 'QSM13LJK', 'sammy', '2023-03-14 09:49:39'),
-(5, '11', 'QSM11F4M', 'sammy', '2023-03-14 09:49:54'),
-(6, '11', 'QSM11MTC', 'sam', '2023-03-14 10:11:22'),
-(7, '11', 'QSM11LXE', 'sam', '2023-03-14 10:40:30');
+CREATE TABLE `tbl_messages` (
+  `id` int(10) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `message` text NOT NULL,
+  `sent_date` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_messages`
+--
+
+INSERT INTO `tbl_messages` (`id`, `name`, `email`, `message`, `sent_date`) VALUES
+(1, 'emeka', 'gmail@mail.com', 'message', '2023-03-22 00:33:11');
 
 -- --------------------------------------------------------
 
@@ -190,7 +178,7 @@ INSERT INTO `tbl_material_otp` (`id`, `material_id`, `code`, `ref`, `created_dat
 
 CREATE TABLE `tbl_registrations` (
   `id` int(100) NOT NULL,
-  `trainings` varchar(100) NOT NULL,
+  `training` varchar(100) NOT NULL,
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `phone` varchar(100) NOT NULL,
@@ -198,16 +186,6 @@ CREATE TABLE `tbl_registrations` (
   `expiry` varchar(100) NOT NULL,
   `reg_date` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tbl_registrations`
---
-
-INSERT INTO `tbl_registrations` (`id`, `trainings`, `name`, `email`, `phone`, `company`, `expiry`, `reg_date`) VALUES
-(1, '2', 'emeka', 'josephiwuji@gmail.com', '080', 'proffictech', '2023-03-12 00:00:00', '2023-03-13 12:49:32'),
-(2, '2', 'emeka', 'josephiwuji@gmail.com', '080', 'proffictech', '2023-03-12 00:00:00', '2023-03-13 12:49:35'),
-(4, '2,3,4,5', 'emeka', 'josephiwuji@gmail.com', '080', 'proffictech', '2023-03-30 00:00:00', '2023-03-13 13:26:24'),
-(5, '2,6', 'emeka', 'josephiwuji@gmail.com', '080', 'proffictech', '2023-03-12 00:00:00', '2023-03-13 13:28:25');
 
 -- --------------------------------------------------------
 
@@ -223,19 +201,10 @@ CREATE TABLE `tbl_trainings` (
   `start_date` varchar(100) NOT NULL,
   `end_date` varchar(100) NOT NULL,
   `venue` varchar(100) NOT NULL,
+  `reg_count` int(100) NOT NULL DEFAULT 0,
   `created_at` varchar(100) NOT NULL,
   `updated_at` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tbl_trainings`
---
-
-INSERT INTO `tbl_trainings` (`id`, `title`, `info`, `image`, `start_date`, `end_date`, `venue`, `created_at`, `updated_at`) VALUES
-(2, 'title_3', 'info new', NULL, '2023-03-08', '2023-03-12', 'new venue', '2023-03-13 10:27:23', '2023-03-13 10:38:20'),
-(3, 'title3', 'info3', NULL, '2023-03-20', '2023-03-26', 'venue3', '2023-03-13 10:28:08', '2023-03-13 10:28:08'),
-(4, 'title4', 'info4', NULL, '2023-03-02', '2023-03-30', 'venue4', '2023-03-13 11:47:58', '2023-03-13 11:47:58'),
-(5, 'title5', 'info4', NULL, '2023-03-02', '2023-03-24', 'venue5', '2023-03-13 11:48:36', '2023-03-13 11:48:36');
 
 -- --------------------------------------------------------
 
@@ -254,7 +223,7 @@ CREATE TABLE `tbl_visitors` (
 --
 
 INSERT INTO `tbl_visitors` (`id`, `ip_addr`, `visit_date`) VALUES
-(1, '127.0.0.1', '2023-03-13 08:58:33');
+(1, '127.0.0.1', '2023-03-22 00:32:40');
 
 --
 -- Indexes for dumped tables
@@ -306,6 +275,12 @@ ALTER TABLE `tbl_material_otp`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_messages`
+--
+ALTER TABLE `tbl_messages`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_registrations`
 --
 ALTER TABLE `tbl_registrations`
@@ -349,37 +324,43 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `tbl_archives`
 --
 ALTER TABLE `tbl_archives`
-  MODIFY `archive_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `archive_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `tbl_materials`
 --
 ALTER TABLE `tbl_materials`
-  MODIFY `material_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `material_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `tbl_material_categories`
 --
 ALTER TABLE `tbl_material_categories`
-  MODIFY `category_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `category_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `tbl_material_otp`
 --
 ALTER TABLE `tbl_material_otp`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT for table `tbl_messages`
+--
+ALTER TABLE `tbl_messages`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_registrations`
 --
 ALTER TABLE `tbl_registrations`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tbl_trainings`
 --
 ALTER TABLE `tbl_trainings`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_visitors`

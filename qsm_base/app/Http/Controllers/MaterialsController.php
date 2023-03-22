@@ -77,7 +77,8 @@ class MaterialsController extends BaseController
                 'created_at',
                 'material_code',
                 'isArchived',
-                'pages'
+                'pages',
+                'no_of_downloads'
             )
             ->where('isArchived', '0')
             ->get();
@@ -274,6 +275,7 @@ class MaterialsController extends BaseController
         if ($dataExists) {
             DB::table('tbl_material_otp')->where('code', $obj->otp)->delete();
             $material = MaterialModel::find($obj->material_id);
+            $material->increment('no_of_downloads');
             return response()->json($material->doc, 200);
         } else {
             return response()->json('code invalid', 203);

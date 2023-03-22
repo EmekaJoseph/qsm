@@ -1,4 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useAccount } from '@/store/Account'
+
+
 import HomeView from '../views/HomePage.vue'
 import AboutView from '../views/AboutPage.vue'
 import TrainingsPage from '../views/TrainingsPage.vue'
@@ -34,11 +37,35 @@ const router = createRouter({
 
     { path: '/blog', name: 'Blog', component: () => import('../views/BlogPage.vue') },
 
-    { path: '/admin/login', name: 'Login', alias: '/admin', component: AdminLogin },
+    {
+      beforeEnter: (to, from, next) => {
+        const account = useAccount()
+        if (account.state.id) {
+          next({ path: '/admin/dashboard' });
+        }
+        else {
+          next();
+        }
+      },
+      path: '/admin/login',
+      name: 'Login',
+      alias: '/admin',
+      component: AdminLogin
+    },
 
 
     {
+
       path: '/admin',
+      beforeEnter: (to, from, next) => {
+        const account = useAccount()
+        if (!account.state.id) {
+          next({ path: '/admin/login' });
+        }
+        else {
+          next();
+        }
+      },
       component: AdminLayout,
       children: [
         { path: 'dashboard', name: 'Dashboard', component: AdminDashboard },

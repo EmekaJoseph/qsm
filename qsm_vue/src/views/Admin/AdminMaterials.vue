@@ -55,7 +55,7 @@
                                 <template #item-pin="item">
                                     <button data-bs-toggle="modal" data-bs-target="#createPINModal"
                                         @click="material_id_forNewPIN = item.material_id"
-                                        class="me-4 operation-icon btn btn-sm xsmall text-primary bg-secondary-subtle  p-0 px-2">
+                                        class="me-4 operation-icon btn btn-sm xsmall text-success bg-success-subtle  p-0 px-2">
                                         Generate
                                     </button>
                                 </template>
@@ -320,6 +320,7 @@ const headers: Header[] = [
     { text: "MATERIAL_ID", value: "material_code" },
     { text: "NAME", value: "name", sortable: true },
     { text: "CATEGORY", value: "category" },
+    { text: "DOWNLOADS", value: "no_of_downloads" },
     { text: "ACCESS PIN", value: "pin" },
     { text: "", value: "operation" },
 ];

@@ -25,9 +25,9 @@
                                 <tr style="cursor: pointer;"
                                     :class="{ 'bg-secondary-subtle': (arch == archives.onDisplay) }"
                                     v-for="arch in archives.list" :key="arch">
-                                    <th>
-                                        <i v-if="arch.count == '0'" class="bi bi-folder"></i>
-                                        <i v-else class="bi bi-folder-fill"></i>
+                                    <th class="fs-4">
+                                        <i v-if="arch.count == '0'" class="bi bi-archive"></i>
+                                        <i v-else class="bi bi-archive-fill"></i>
                                     </th>
                                     <td @click="showArchiveDetails(arch)" class="text-capitalize archive-name">{{
                                         arch.archive_name }}
@@ -72,7 +72,7 @@
                         <div class="dropdown float-end me-3">
                             <button class="m-0 p-0 px-2 btn btn-light btn-custom-secondary btn-sm dropdown-toggle"
                                 type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-folder"></i> Move
+                                <i class="bi bi-folder-symlink"></i> Move
                             </button>
                             <ul class="dropdown-menu">
                                 <li v-for="arch in archives.list" :key="arch">

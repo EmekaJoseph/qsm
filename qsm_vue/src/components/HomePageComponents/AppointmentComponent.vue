@@ -27,7 +27,8 @@
                                             placeholder="Email Address">
                                     </div>
                                     <div class="col-lg-12">
-                                        <textarea v-model="person.message" class="form-control" rows="5"></textarea>
+                                        <textarea placeholder="Your message" v-model="person.message" class="form-control"
+                                            rows="5"></textarea>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="quote_btn text_center mt-3">
@@ -39,7 +40,6 @@
                                     </div>
                                 </div>
                             </form>
-                            <div id="status"></div>
                         </div>
 
 

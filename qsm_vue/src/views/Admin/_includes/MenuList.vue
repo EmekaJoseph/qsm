@@ -24,8 +24,8 @@
 
             <li class="list-group-item" :class="{ 'gActive': (route.name == 'Archive') }">
                 <router-link :to="{ name: 'Archive' }">
-                    <i class="bi bi-folder"></i>&nbsp;
-                    Archive
+                    <i class="bi bi-archive"></i>&nbsp;
+                    Archives
                 </router-link>
             </li>
 
@@ -37,15 +37,33 @@
             </li>
 
             <li class="list-group-item mt-5">
-                <button class="btn btn-light bg-danger-subtle btn-sm pe-5">Logout</button>
+                <button @click="logOut" class="btn btn-light bg-danger-subtle btn-sm pe-5">Logout</button>
             </li>
         </ul>
     </div>
 </template>
 
 <script setup lang="ts">
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
+import { useAccount } from '@/store/Account'
+import { AdminAPI } from '@/store/functions/axiosManager';
+
+
+const account = useAccount()
+const admin_api = new AdminAPI()
 const route = useRoute();
+const router = useRouter();
+
+
+async function logOut() {
+    try {
+        await admin_api.logout(account.state.id)
+    } catch (error) {
+        // 
+    }
+    account.state = account.nullState;
+    router.replace({ path: '/admin' })
+}
 
 
 </script>

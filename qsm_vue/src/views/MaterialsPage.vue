@@ -22,7 +22,7 @@
 
         <div class="text-center mb-lg-5">
           <span class="fw-bold fs-"> Download Materials,</span> <br>
-          Please <router-link class="btn btn-link text-info p-0" :to="{ path: '/', hash: '#instantform' }">contact
+          Please <router-link class="btn btn-link text-success p-0" :to="{ path: '/', hash: '#instantform' }">contact
             us</router-link> for your
           One-Time-Code to download.
         </div>
@@ -35,7 +35,7 @@
         <div v-else>
         <!-- <div class="py-5" style="min-height: 300px;" v-if="!materials.list.length">
             <EmptyListComponent str="No Materials" />
-                                                                        </div> -->
+                                                                          </div> -->
 
           <div class="row gy-3">
             <div class="col-md-8">

@@ -28,12 +28,12 @@
 
                             <div class="col-md-6">
                                 <label>Start Date:</label>
-                                <input v-model="form.start_date" type="date" class="form-control">
+                                <input v-model="form.start_date" type="date" :min="form.today" class="form-control">
                             </div>
 
                             <div class="col-md-6">
                                 <label>End Date:</label>
-                                <input v-model="form.end_date" type="date" class="form-control">
+                                <input v-model="form.end_date" type="date" :min="form.start_date" class="form-control">
                             </div>
 
                             <div class="col-md-12">
@@ -204,8 +204,9 @@ const form: any = reactive({
     title: '',
     info: '',
     venue: '',
-    start_date: '',
-    end_date: '',
+    start_date: new Date().toISOString().split('T')[0],
+    end_date: new Date().toISOString().split('T')[0],
+    today: new Date().toISOString().split('T')[0],
     image: '',
     isSaving: false
 })

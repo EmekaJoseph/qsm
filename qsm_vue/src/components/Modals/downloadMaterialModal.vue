@@ -40,10 +40,11 @@
 
                             </div>
                         </div>
-                        <div v-else class="col-12 mt-3">
-                            <a class="btn btn-success btn-lg bg-success-subtle text-success w-100 border-0"
+                        <div v-else class="col-12 mt-2">
+                            <div class="text-center mb-3 text-dark">PIN VALID!</div>
+                            <a class="btn btn-success btn-lg bg-success-subtle fw-bold text-success w-100 border-0"
                                 :href="`${hostURL}/course_materials/${fileToDownLoad}`" download>
-                                <i class="bi bi-file-earmark-arrow-down-fill"></i> Download File</a>
+                                <i class="bi bi-file-earmark-arrow-down-fill"></i> Download Material</a>
                         </div>
                     </div>
                 </div>

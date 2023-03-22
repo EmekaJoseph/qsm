@@ -12,6 +12,7 @@ use Carbon\Carbon;
 
 use App\Http\Controllers\TrainingsController;
 use App\Http\Controllers\MaterialsController;
+use App\Http\Controllers\EmailController;
 
 class UsersController extends BaseController
 {
@@ -28,6 +29,7 @@ class UsersController extends BaseController
 
     public function sendMessage(Request $req)
     {
+
         DB::table('tbl_messages')
             ->updateOrInsert(
                 [
@@ -42,6 +44,16 @@ class UsersController extends BaseController
                     'sent_date' => Carbon::now()
                 ]
             );
+        try {
+            $mailer = new EmailController();
+            $mailer->sendMessageAlert(
+                $req->input('name'),
+                $req->input('email'),
+                $req->input('message'),
+            );
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
 
         return response()->json('saved', 200);
     }

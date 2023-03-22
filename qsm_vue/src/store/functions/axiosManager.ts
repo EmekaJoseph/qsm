@@ -24,6 +24,23 @@ const $instanceForm = axios.create({
     },
 })
 
+// create interceptor for renewing token
+$instance.interceptors.request.use(
+    (config: any) => {
+        const token = localStorage.getItem('kue_es_em__tk');
+        if (token) config.headers.Authorization = `Bearer ${token}`;
+        return config;
+    }
+);
+
+$instanceForm.interceptors.request.use(
+    (config: any) => {
+        const token = localStorage.getItem('kue_es_em__tk');
+        if (token) config.headers.Authorization = `Bearer ${token}`;
+        return config;
+    }
+);
+
 
 
 class UsersAPI {
@@ -57,6 +74,20 @@ class UsersAPI {
 
     sendMessage(data: object) {
         return $instance.post(`sendMessage`, JSON.stringify(data))
+    }
+}
+
+class AdminAPI {
+    login(data: object) {
+        return $instance.post(`login`, JSON.stringify(data))
+    }
+
+    logout(id: any) {
+        return $instance.post(`logout/${id}`,)
+    }
+
+    overview(data: object) {
+        return $instance.post(`overview`, JSON.stringify(data))
     }
 }
 
@@ -163,6 +194,7 @@ class ArchiveAPI {
 export {
     hostURL,
     UsersAPI,
+    AdminAPI,
     TrainingsAPI,
     MaterialsAPI,
     ArchiveAPI

@@ -17,10 +17,10 @@
       </div>
 
 
-      <div class="container py-2 mt-lg-3">
+      <div class="container py-2 mt-lg-3 min-vh-100">
 
-        <div v-if="trainings.list.length" class="text-center my-5">
-          <span class="fw-bold fs-5"> Register for a Training,</span> <br> You can register for more than a training by
+        <div v-if="trainings.list.length" class="text-center mb-lg-5">
+          <span class="fw-bold"> Register for a Training,</span> <br> You can register for more than a training by
           simply adding them to
           cart.
         </div>

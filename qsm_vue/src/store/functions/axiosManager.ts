@@ -54,6 +54,10 @@ class UsersAPI {
     availableCategories() {
         return $instance.get(`availableCategories`)
     }
+
+    sendMessage(data: object) {
+        return $instance.post(`sendMessage`, JSON.stringify(data))
+    }
 }
 
 

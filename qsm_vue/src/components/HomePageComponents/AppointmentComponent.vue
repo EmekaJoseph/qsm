@@ -10,36 +10,39 @@
                 <div class="col-sm-12 col-md-6">
                     <div class="appointment-content-section pt-40 pb-30 pl-50 pr-50">
                         <div class="appointment-content">
-                            <h3>Request Free Consultation</h3>
-                            <p class="mt-0 pb-10">Get in touch and discover how we can help. We aim to be in touch for a
-                                consultation </p>
+                            <h3>Enquiry Form</h3>
+                            <p class="mt-0 pb-10">Need Consultation?, Need to make an enquiry?
+                                Get in touch! We aim to
+                                be in touch </p>
                         </div>
                         <div class="appointment-form-section">
-                            <form action="https://formspree.io/f/myyleorq" method="POST" id="dreamit-form">
-                                <div class="row">
+                            <form @submit.prevent="submitForm" id="dreamit-form">
+                                <div class="row gy-3">
                                     <div class="col-lg-12">
-                                        <div class="form_box mb-30">
-                                            <input type="text" name="name" placeholder="Name">
-                                        </div>
+                                        <input class="form-control form-control-lg" v-model="person.name" type="text"
+                                            placeholder="Name">
                                     </div>
                                     <div class="col-lg-12">
-                                        <div class="form_box mb-30">
-                                            <input type="email" name="email" placeholder="Email Address">
-                                        </div>
+                                        <input class="form-control form-control-lg" v-model="person.email" type="email"
+                                            placeholder="Email Address">
                                     </div>
                                     <div class="col-lg-12">
-                                        <div class="form_box mb-30">
-                                            <textarea name="message" id="message" cols="30" rows="10"
-                                                placeholder="Your Message"></textarea>
-                                        </div>
-                                        <div class="quote_btn text_center">
-                                            <button class="btn" type="submit">Send Message</button>
+                                        <textarea v-model="person.message" class="form-control" rows="5"></textarea>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="quote_btn text_center mt-3">
+                                            <button v-if="!person.isSending" class="btn" type="submit">Send
+                                                Message</button>
+
+                                            <button v-else disabled class="btn" type="submit">Sending..</button>
                                         </div>
                                     </div>
                                 </div>
                             </form>
                             <div id="status"></div>
                         </div>
+
+
                     </div>
                 </div>
             </div>
@@ -48,5 +51,45 @@
 </template>
 
 <script setup lang="ts">
+import { reactive } from 'vue';
+import useFunction from '@/store/functions/useFunction';
+import { UsersAPI } from '@/store/functions/axiosManager';
+
+const user_api = new UsersAPI()
+
+const fxn = useFunction.fx
+
+const person = reactive({
+    name: '',
+    email: '',
+    message: '',
+    isSending: false
+})
+
+async function submitForm() {
+    if (!person.name || !person.message || !person.name) {
+        fxn.Toast('Please complete the form', 'warning')
+        return
+    }
+
+    person.isSending = true
+
+    try {
+        let resp = await user_api.sendMessage(person)
+        if (resp.status == 200) {
+            fxn.Toast('Thank You for contacting us, we will reach you soon.', 'success')
+            person.email = ''
+            person.name = ''
+            person.message = ''
+            person.isSending = false
+        }
+    } catch (error) {
+        fxn.Toast('Network Error, Please try again', 'success')
+        person.isSending = false
+    }
+
+
+
+}
 
 </script>

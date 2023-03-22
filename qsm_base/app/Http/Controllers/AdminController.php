@@ -32,6 +32,7 @@ class AdminController extends BaseController
             'registrations' => DB::table('tbl_registrations')->get()->count(),
             'archives' => DB::table('tbl_archives')->get()->count(),
             'visitors' => DB::table('tbl_visitors')->get()->count(),
+            'messages' => DB::table('tbl_messages')->get()->count(),
             // 'blog_posts' => DB::table('tbl_blog')->get()->count()
         ];
 

@@ -31,7 +31,6 @@ export const useCourseMaterials = defineStore('CourseMaterials', () => {
     async function materialsByName(name: string) {
         const { data } = await users_api.materialsByName(name)
         noSearchResults.value = !data.length ? true : false
-        console.log(data);
 
         list.value = data
         searchLoading.value = false

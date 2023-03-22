@@ -1,9 +1,9 @@
 <template>
-    <div class="mobile-menu-area d-sm-block d-md-block d-lg-none">
+    <div class="mobile-menu-area d-sm-block d-md-block d-lg-none fixed-top">
         <nav class="navbar bg-body-tertiar">
             <div class="container-fluid">
                 <a href="#" class="navbar-brand">
-                    <img src="assets/images/logo.png" alt="qsm-logo">
+                    <img src="@/assets/images/logo2w.png" width="40" alt="qsm-logo">
                 </a>
 
                 <div data-bs-toggle="offcanvas" data-bs-target="#offcanvas" class="menu-icon">
@@ -38,14 +38,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { onBeforeRouteLeave } from 'vue-router';
+import { ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
 
+const route = useRoute()
 const btnClose = ref<any>()
 
-onBeforeRouteLeave(() => {
+watch(() => route.path, () => {
     btnClose.value.click()
 })
+
+
 
 </script>
 
@@ -61,7 +64,7 @@ onBeforeRouteLeave(() => {
 }
 
 .offcanvas {
-    min-height: 50vh !important;
+    min-height: 55vh !important;
     /* padding-left: 10px; */
 }
 

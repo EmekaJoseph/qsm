@@ -2,26 +2,28 @@
     <div class="card border-0 bg-white rounded-4 h-100">
         <div class="card-header bg-transparent fw-bold  border-0 p-3">
             Materials Categories ({{ categories.list.length }})
+            <span v-if="categories.isEditing" @click="cancelEditing()" style="cursor: pointer;"
+                class="float-end text-danger small">Cancel</span>
         </div>
         <div class="card-body px-4">
             <form v-if="!categories.isEditing" @submit.prevent="saveCategory" class="row g-2">
                 <div class="col-12 col-md-8">
-                    <input v-model="categories.field" type="text" class="form-control form-control-sm"
+                    <input v-model="categories.field" type="text" class="form-control form-control-lg"
                         placeholder="category name..">
                 </div>
                 <div class="col-12 col-md-4">
-                    <button class="btn btn-custom-secondary w-100 btn-sm">
-                        <i class="bi bi-arrow-down"></i> Save
+                    <button class="btn btn-custom-secondary w-100 btn-lg">
+                        Save
                     </button>
                 </div>
             </form>
 
             <form v-else @submit.prevent="updateCategory" class="row g-2">
                 <div class="col-12 col-md-8">
-                    <input v-model="categories.editObj.category_name" type="text" class="form-control form-control-sm">
+                    <input v-model="categories.editObj.category_name" type="text" class="form-control form-control-lg">
                 </div>
                 <div class="col-12 col-md-4">
-                    <button class="btn btn-warning bg-warning-subtle w-100 btn-sm">
+                    <button class="btn btn-warning bg-warning-subtle w-100 btn-lg">
                         Update
                     </button>
                 </div>
@@ -112,6 +114,11 @@ function editCategory(cate: any) {
     categories.editObj = cate
 }
 
+function cancelEditing() {
+    categories.isEditing = false
+    categories.editObj = {}
+}
+
 async function updateCategory() {
     let obj = {
         category_id: categories.editObj.category_id,
@@ -122,13 +129,11 @@ async function updateCategory() {
         if (resp.status == 200) {
             loadCategories();
             fxn.Toast('Updated', 'success')
-            categories.isEditing = false
-            categories.editObj = {}
+            cancelEditing()
         }
     } catch (error) {
         fxn.Toast('internet error', 'error')
-        categories.isEditing = false
-        categories.editObj = {}
+        cancelEditing()
     }
 }
 

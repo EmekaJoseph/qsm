@@ -8,12 +8,10 @@
                         <!-- <h1> Consultancy Services <br>at its Best</h1> -->
                         <h1 class="animate__animated animate__slideInLeft"> Training &amp; Consultancy <br> Services at its
                             Best</h1>
-                        <!-- <h2>Training &amp; Development, <br> Technical Course
-                            &amp; Consultancy Services </h2> -->
                         <p>Training &amp; Development, Technical Course
                             &amp; Consultancy Services</p>
                         <div class="btn-common btn-hero">
-                            <a href="#">Learn More <i class="fas fa-angle-right"></i></a>
+                            <router-link to="/about">Learn More <i class="bi bi-chevron-right"></i></router-link>
                         </div>
                     </div>
                 </div>

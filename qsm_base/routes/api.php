@@ -35,6 +35,7 @@ Route::controller(UsersController::class)->group(function () {
     Route::get('materialsByCategory/{category_id}',  'materialsByCategory');
     Route::get('downloadMaterial/{code}',  'downloadMaterial');
     Route::get('availableCategories',  'availableCategories');
+    Route::post('sendMessage',  'sendMessage');
 });
 
 

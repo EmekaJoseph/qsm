@@ -26,6 +26,26 @@ class UsersController extends BaseController
             );
     }
 
+    public function sendMessage(Request $req)
+    {
+        DB::table('tbl_messages')
+            ->updateOrInsert(
+                [
+                    'email' => $req->input('email'),
+                    'name' => $req->input('name'),
+                    'message' => $req->input('message')
+                ],
+                [
+                    'email' => $req->input('email'),
+                    'name' => $req->input('name'),
+                    'message' => $req->input('message'),
+                    'sent_date' => Carbon::now()
+                ]
+            );
+
+        return response()->json('saved', 200);
+    }
+
 
     public function activeTrainings(Request $req)
     {

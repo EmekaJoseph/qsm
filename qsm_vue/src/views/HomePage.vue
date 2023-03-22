@@ -11,7 +11,7 @@
       <Vision_MissionComponent />
       <AppointmentComponent />
       <FAQsComponent />
-      <BlogSectionComponent />
+      <!-- <BlogSectionComponent /> -->
     </section>
 
     <FooterComponent />

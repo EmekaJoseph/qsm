@@ -10,7 +10,7 @@
             <div class="widget">
               <div class="about-company">
                 <div class="footer-logo">
-                  <img src="@/assets/images/footer/logo2.png" alt="Footer-logo">
+                  <img src="@/assets/images/footer/logo_footer.png" width="50" alt="Footer-logo">
                 </div>
                 <p>We train and bring the most current knowledge to your organization. </p>
                 <div class="footer-about-social-icon">

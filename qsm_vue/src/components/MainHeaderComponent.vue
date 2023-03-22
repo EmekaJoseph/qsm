@@ -7,7 +7,8 @@
                     <div class="col-md-3">
                         <div class="logo">
                             <router-link to="/">
-                                <img src="assets/images/logo.png" alt="logo">
+                                <img v-if="!(y > 50)" src="@/assets/images/logo2.png" width="50" alt="logo">
+                                <img v-else src="@/assets/images/logo2w.png" width="50" alt="logo">
                             </router-link>
                         </div>
                     </div>
@@ -47,8 +48,8 @@
                                 </li>
                             </ul>
                             <div class="nav-btn  d-sm-none d-md-none d-lg-inline-block">
-                                <router-link class="fw-light" :to="{ path: '/', hash: '#instantform' }">Get
-                                    Consultant</router-link>
+                                <router-link class="fw-light fs-6" :to="{ path: '/', hash: '#instantform' }">Get
+                                    Consultation</router-link>
                             </div>
                         </nav>
 

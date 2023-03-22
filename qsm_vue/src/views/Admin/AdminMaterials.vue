@@ -286,7 +286,7 @@ async function submitForm() {
         getMaterials()
         // window.scrollTo(0, 0)
     } catch (error) {
-        console.log(error);
+        // console.log(error);
 
         form.isSaving = false
         fxn.Toast('Network error', 'error')
@@ -400,7 +400,7 @@ const material_id_forNewPIN = ref<string>('')
 async function getPins() {
     let { data } = await material_api.view_pins()
     active_pins.value = data
-    console.log(data);
+    // console.log(data);
 
 }
 

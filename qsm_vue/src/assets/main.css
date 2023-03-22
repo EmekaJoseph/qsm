@@ -13,6 +13,14 @@ button:focus,
 
 .body-section {
   margin-bottom: 100px;
+
+}
+
+@media screen and (max-width: 992px) {
+  .body-section {
+    margin-top: 67px;
+
+  }
 }
 
 .other-page-hero {

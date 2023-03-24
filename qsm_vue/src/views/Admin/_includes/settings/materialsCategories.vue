@@ -1,7 +1,7 @@
 <template>
     <div class="card border-0 bg-white rounded-4 h-100">
         <div class="card-header bg-transparent fw-bold  border-0 p-3">
-            Materials Categories ({{ categories.list.length }})
+            <i class="bi bi-tag"></i> Materials Categories ({{ categories.list.length }})
             <span v-if="categories.isEditing" @click="cancelEditing()" style="cursor: pointer;"
                 class="float-end text-danger small">Cancel</span>
         </div>

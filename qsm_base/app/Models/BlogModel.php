@@ -19,8 +19,9 @@ class BlogModel extends Authenticatable
 
     protected $fillable = [
         'title',
-        'text',
-        'images',
+        'body',
+        'image',
         'category',
+        'imagePublicId'
     ];
 }

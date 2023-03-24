@@ -50,6 +50,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::post('logout/{id}',  'logout');
         Route::get('overview',  'overview');
         Route::post('newUser',  'newUser');
+        Route::post('changePassword',  'changePassword');
+        Route::get('getMessages',  'getMessages');
+        Route::delete('deleteMessage/{id}',  'deleteMessage');
     });
 
     Route::controller(SettingsController::class)->group(function () {
@@ -72,7 +75,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     });
 
     Route::post('materialToArchive', [ArchiveController::class, 'materialToArchive']);
-    Route::get('archiveDetails/{material_id}', [ArchiveController::class, 'archiveDetails']);
+    // Route::get('archiveDetails/{material_id}', [ArchiveController::class, 'archiveDetails']);
 
     Route::apiResources([
         'archive' => ArchiveController::class,

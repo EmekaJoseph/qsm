@@ -89,6 +89,22 @@ class AdminAPI {
     overview(data: object) {
         return $instance.post(`overview`, JSON.stringify(data))
     }
+
+    newUser(data: object) {
+        return $instance.post(`newUser`, JSON.stringify(data))
+    }
+
+    changePassword(data: object) {
+        return $instance.post(`changePassword`, JSON.stringify(data))
+    }
+
+    getMessages() {
+        return $instance.get(`getMessages`)
+    }
+
+    deleteMessage(id: any) {
+        return $instance.delete(`deleteMessage/${id}`,)
+    }
 }
 
 
@@ -186,7 +202,29 @@ class ArchiveAPI {
     }
 
     archiveDetails(id: any) {
-        return $instance.get(`archiveDetails/${id}`)
+        return $instance.get(`archive/${id}`)
+    }
+}
+
+class BlogAPI {
+    create(data: any) {
+        return $instanceForm.post(`blog`, data)
+    }
+
+    list() {
+        return $instance.get(`blog`)
+    }
+
+    updateDetails(archive_id: string, data: any) {
+        return $instance.post(`blog/${archive_id}`, JSON.stringify(data))
+    }
+
+    remove(blog_id: any) {
+        return $instance.delete(`blog/${blog_id}`)
+    }
+
+    blogDetails(blog_id: any) {
+        return $instance.get(`blog/${blog_id}`)
     }
 }
 
@@ -197,5 +235,6 @@ export {
     AdminAPI,
     TrainingsAPI,
     MaterialsAPI,
-    ArchiveAPI
+    ArchiveAPI,
+    BlogAPI
 }

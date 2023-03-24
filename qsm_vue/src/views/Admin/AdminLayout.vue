@@ -3,7 +3,7 @@
 <template>
     <nav data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" class="fixed-top navbar bg-body-tertiary top-nav">
         <div class="container-fluid">
-            <a class="navbar-brand">QSM - Admin</a>
+            <a class="navbar-brand">QSM-Manager <span class="xsmall text-muted2"> &gt; {{ route.name }}</span></a>
             <div class="fs-1 d-md-none"><i class="bi bi-list"></i></div>
         </div>
     </nav>
@@ -18,9 +18,10 @@
 </template>
 
 <script setup lang="ts">
-import { RouterView, } from 'vue-router'
+import { RouterView, useRoute } from 'vue-router'
 import sideBar from './_includes/sideBar.vue';
 import offCanvasMenu from './_includes/offCanvasMenu.vue';
+const route = useRoute()
 </script>
 
 

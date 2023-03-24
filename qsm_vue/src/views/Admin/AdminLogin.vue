@@ -5,7 +5,7 @@
                 <div class="col-lg-4 col-md-8">
                     <div class="card border-0 shadow-sm">
                         <div class="card-header border-0  fw-bold  text-center py-3">QSM
-                            <span class="text-muted">| Admin</span>
+                            <span class="text-muted">| Manager</span>
                         </div>
                         <div class="card-body py-5 px-4">
                             <form class="row gy-3">

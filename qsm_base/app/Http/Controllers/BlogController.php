@@ -11,8 +11,10 @@ use Illuminate\Http\JsonResponse;
 
 use App\Models\BlogModel;
 use Carbon\Carbon;
+use Illuminate\Contracts\Filesystem\Cloud;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\ImageManagerStatic as Image;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class BlogController extends BaseController
 {
@@ -21,13 +23,10 @@ class BlogController extends BaseController
 
     public function index()
     {
-        $list =  BlogModel::select('blog_id', 'title', 'text', 'created_at', 'images')
-            ->orderByDesc('created_at')->limit(20)->get();
-
-
+        $list =  BlogModel::select('blog_id', 'title', 'created_at', 'category')->get();
         if (sizeof($list) > 0) {
-            foreach ($list as $line) {
-                $line->images = explode(',', $line->images);
+            foreach ($list as $li) {
+                $li->created = (Carbon::parse($li->created_at))->diffForHumans();
             }
         }
         return response()->json($list, 200);
@@ -35,9 +34,9 @@ class BlogController extends BaseController
 
 
 
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        $title = $request->input('title');
+        $title = $req->input('title');
 
         if (BlogModel::where('title', $title)->exists()) {
             return response()->json(['error' => 'title already exists'], 203);
@@ -46,30 +45,19 @@ class BlogController extends BaseController
         $newBlog = new BlogModel();
 
         $newBlog->title = $title;
-        $newBlog->text = $request->input('text');
+        $newBlog->body = $req->input('body');
+        $newBlog->category = $req->input('category');
+        // $imagePath = null;
+        // $imagePublicId = null;
 
-        if ($request->images) {
+        if ($req->file('image')) {
             try {
-                $imagesArray = json_decode($request->images);
-                $nameArr = array();
+                $result = $req->file('image')->storeOnCloudinaryAs('qsm_blog', 'blog_' . time());
+                $imagePath = $result->getSecurePath();
+                $imagePublicId = $result->getPublicId();
 
-                foreach ($imagesArray as $image) {
-                    $parts = explode(';base64,', $image);
-                    $base64 = base64_decode($parts[1]);
-                    $fileName = 'blog-images/' . uniqid() . '.png';
-                    file_put_contents($fileName, $base64);
-
-                    $img = Image::make($fileName);
-                    $newName = 'blog-' . uniqid() . '.png';
-                    $img->resize(400, 400, function ($constraint) {
-                        $constraint->aspectRatio();
-                    })->save('blog-images/' . $newName);
-
-                    array_push($nameArr, $newName);
-                    unlink($fileName);
-                }
-
-                $newBlog->images = implode(',', $nameArr);
+                $newBlog->image = $imagePath;
+                $newBlog->imagePublicId = $imagePublicId;
             } catch (\Throwable $th) {
                 //throw $th;
             }
@@ -84,40 +72,57 @@ class BlogController extends BaseController
     public function show(string $id)
     {
         $blogPost = BlogModel::find($id);
-        if (!$blogPost) {
-            return response()->json('post not found', 203);
-        }
-
-        $blogPost->images = explode(',', $blogPost->images);
         return response()->json($blogPost, 200);
     }
 
-    public function update(Request $request, string $id)
+
+    public function updateDetails($id, Request $req)
     {
-        //
+
+
+        $title = $req->input('title');
+
+        if (BlogModel::whereNot('$id', $id)->where('title', $title)->exists()) {
+            return response()->json('title already exists', 203);
+        }
+
+        $thisBlog = BlogModel::find($id);
+
+        $thisBlog->title = $req->input('body');
+        $thisBlog->body = $req->input('body');
+        $thisBlog->category = $req->input('category');
+
+
+        if ($req->file('image')) {
+            try {
+
+                // delete the image from clodinary ##############################
+
+                $result = $req->file('image')->storeOnCloudinaryAs('qsm_blog', 'blog_' . time());
+                $imagePath = $result->getSecurePath();
+                $imagePublicId = $result->getPublicId();
+
+                $thisBlog->image = $imagePath;
+                $thisBlog->imagePublicId = $imagePublicId;
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+        }
+
+        $thisBlog->save();
+
+        return response()->json('updated', 200);
     }
 
 
     public function destroy(string $id)
     {
         $blogPost = BlogModel::find($id);
-
-        if (!$blogPost) {
-            return response()->json('post not found', 203);
+        try {
+            //    delete image from cloudinary #####################################
+        } catch (\Throwable $th) {
+            //throw $th;
         }
-
-        if ($blogPost->images) {
-            $nameArr = explode(',', $blogPost->images);
-            foreach ($nameArr as $image) {
-                $imgFile = 'blog-images/' . $image;
-                if (file_exists($imgFile)) {
-                    unlink($imgFile);
-                }
-            }
-        }
-
-        $blogPost->delete();
-
-        return response()->json('deleted', 200);
+        return response()->json($blogPost->delete(), 200);
     }
 }

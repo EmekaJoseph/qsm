@@ -111,7 +111,7 @@ class ArchiveController extends BaseController
     }
 
 
-    public function archiveDetails($archive_id)
+    public function show($archive_id)
     {
         $materials = MaterialModel::where('isArchived', $archive_id)->get();
         return response()->json($materials, 200);

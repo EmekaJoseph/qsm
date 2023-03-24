@@ -1,7 +1,9 @@
 <template>
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasLabel">
         <div class="offcanvas-header pb-0">
-            <h5 class="offcanvas-title" id="offcanvasLabel"></h5>
+            <h5 class="offcanvas-title" id="offcanvasLabel">
+                QSM
+            </h5>
             <button ref="btnCloseCanvas" type="button" class="btn-close fs-4" data-bs-dismiss="offcanvas"
                 aria-label="Close"></button>
         </div>
@@ -9,8 +11,6 @@
             <div class="card border-0">
                 <div class="card-body pt-4 ps-0">
                     <MenuList />
-
-
                 </div>
             </div>
         </div>

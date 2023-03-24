@@ -8,8 +8,8 @@
                 </router-link>
             </li>
 
-            <li class="list-group-item" :class="{ 'gActive': (route.name == 'Trainings__') }">
-                <router-link :to="{ name: 'Trainings__' }">
+            <li class="list-group-item" :class="{ 'gActive': (route.name == 'Trainings') }">
+                <router-link :to="{ name: 'Trainings' }">
                     <i class="bi bi-file-earmark-easel"></i>&nbsp;
                     Trainings
                 </router-link>
@@ -22,10 +22,17 @@
                 </router-link>
             </li>
 
-            <li class="list-group-item" :class="{ 'gActive': (route.name == 'Archive') }">
-                <router-link :to="{ name: 'Archive' }">
+            <li class="list-group-item" :class="{ 'gActive': (route.name == 'Archives') }">
+                <router-link :to="{ name: 'Archives' }">
                     <i class="bi bi-archive"></i>&nbsp;
                     Archives
+                </router-link>
+            </li>
+
+            <li class="list-group-item" :class="{ 'gActive': (route.name == 'BlogEdit') }">
+                <router-link :to="{ name: 'BlogEdit' }">
+                    <i class="bi bi-newspaper"></i>&nbsp;
+                    Blog
                 </router-link>
             </li>
 

@@ -1,0 +1,100 @@
+<template>
+    <div class="card border-0 bg-white rounded-4 h-100">
+        <div class="card-header bg-transparent fw-bold  border-0 p-3">
+            <i class="bi bi-chat-left-dots"></i> Messages ({{ messages.list.length }})
+        </div>
+        <div class="card-body px-4 list-scroll">
+            <div class="mt-3 card p-3 ">
+                <div v-if="messages.loading">
+                    <PageLoading />
+                </div>
+
+                <div v-else>
+
+                    <div class="text-muted2" v-if="!messages.list.length">
+                        No messages
+                    </div>
+
+                    <div v-else>
+                        <ul class="list-group list-group-flush">
+                            <li v-for="li in messages.list" :key="li" class="list-group-item my-1">
+                                <span @click="messages.isReading = li" class="cursor-pointer hover-tiltX">
+                                    <i v-if="messages.isReading.id == li.id" class="bi bi-chevron-down"></i>
+                                    <i v-else class="bi bi-chevron-right"></i>
+                                    {{ li.name }} ({{ li.email }})
+                                </span>
+                                <span @click="deleteMessage(li.id)" class="float-end">
+                                    <button class="btn btn-sm text-danger m-0 p-0 hover-tiltY">
+                                        <i class="bi bi-trash3"></i>
+                                    </button>
+                                </span>
+                                <span class="float-end me-5 xsmall">{{ li.sent }}</span>
+                                <div v-show="messages.isReading.id == li.id"
+                                    class="message-center card rounded-4 p-3 small bg-secondary-subtle">
+                                    {{ messages.isReading.message }}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup lang="ts">
+import { reactive, onMounted, onUnmounted } from 'vue'
+import { AdminAPI } from '@/store/functions/axiosManager';
+import useFunction from '@/store/functions/useFunction';
+// import { useTimeAgo } from '@vueuse/core'
+
+// const timeago = (date: Date) => useTimeAgo(new Date(date));
+
+const admin_api = new AdminAPI()
+const fxn = useFunction.fx
+
+
+onMounted(() => {
+    messages.loading = true
+    getMessages()
+})
+
+
+const messages: any = reactive({
+    loading: false,
+    list: [],
+    isReading: ''
+})
+
+async function getMessages() {
+    let { data } = await admin_api.getMessages()
+    messages.list = data
+    messages.loading = false
+
+}
+
+async function deleteMessage(id: any) {
+    fxn.Confirm(`Delete Messsage?`, 'Yes, Delete')
+        .then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    await admin_api.deleteMessage(id)
+                    getMessages();
+                    fxn.Toast('Message Deleted', 'success')
+                } catch (error) {
+                    fxn.Toast('internet error', 'error')
+                }
+            }
+        })
+}
+
+
+let interval = setInterval(() => {
+    getMessages()
+}, 10000)
+
+onUnmounted(() => {
+    clearInterval(interval)
+})
+
+</script>

@@ -1,5 +1,5 @@
 <template>
-    <div class="row g-3">
+    <div class="row g-2">
 
         <!-- MATERIALS TABLE ###################################### -->
         <div class="col-md-12">
@@ -412,7 +412,6 @@ async function deletePin(id: any) {
     } catch (error) {
         fxn.Toast('Internet error', 'error')
     }
-
 }
 
 let interval = setInterval(() => {

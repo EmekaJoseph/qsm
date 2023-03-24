@@ -16,7 +16,7 @@ import AdminTrainings from '../views/Admin/AdminTrainings.vue'
 import AdminArchive from '../views/Admin/AdminArchive.vue'
 import AdminMaterials from '../views/Admin/AdminMaterials.vue'
 import AdminSettings from '../views/Admin/AdminSettings.vue'
-// import AdminRegistrations from '../views/Admin/AdminRegistrations.vue'
+import AdminBlog from '../views/Admin/AdminBlog.vue'
 
 import PageNotFound from '../views/PageNotFound.vue'
 
@@ -31,7 +31,7 @@ const router = createRouter({
 
     { path: '/about', name: 'About', component: AboutView },
 
-    { path: '/trainings', name: 'Trainings', component: TrainingsPage },
+    { path: '/trainings', name: 'Trainings_', component: TrainingsPage },
 
     { path: '/materials', name: 'Course Materials', component: MaterialsPage },
 
@@ -69,11 +69,11 @@ const router = createRouter({
       component: AdminLayout,
       children: [
         { path: 'dashboard', name: 'Dashboard', component: AdminDashboard },
-        { path: 'trainings', name: 'Trainings__', component: AdminTrainings },
-        { path: 'archive', name: 'Archive', component: AdminArchive },
+        { path: 'trainings', name: 'Trainings', component: AdminTrainings },
+        { path: 'archives', name: 'Archives', component: AdminArchive },
         { path: 'materials', name: 'Materials', component: AdminMaterials },
         { path: 'settings', name: 'Settings', component: AdminSettings },
-        // { path: 'registrations', name: 'Registrations', component: AdminRegistrations },
+        { path: 'blog', name: 'BlogEdit', component: AdminBlog },
       ],
     },
 

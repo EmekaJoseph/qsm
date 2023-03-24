@@ -84,4 +84,42 @@ class AdminController extends BaseController
         } catch (\Throwable $th) {
         }
     }
+
+    public function changePassword(Request $req)
+    {
+        $id = $req->input('id');
+        $account = AccountModel::find($id);
+        // return $account;
+
+        $oldPass = $req->input('oldPass');
+
+        if (!Hash::check($oldPass, $account->password)) {
+            return response()->json('invalid details', 203);
+        }
+
+        $newHash = Hash::make($req->input('newPass'));
+
+        $account->password = $newHash;
+        $account->save();
+
+        return response()->json('success', 200);
+    }
+
+
+    public function getMessages()
+    {
+        $messages = DB::table('tbl_messages')->orderByDesc('sent_date')->get();
+
+        if (sizeof($messages) > 0) {
+            foreach ($messages as $mes) {
+                $mes->sent = (Carbon::parse($mes->sent_date))->diffForHumans();
+            }
+        }
+        return response()->json($messages, 200);
+    }
+
+    public function deleteMessage($id)
+    {
+        DB::table('tbl_messages')->where('id', $id)->delete();
+    }
 }

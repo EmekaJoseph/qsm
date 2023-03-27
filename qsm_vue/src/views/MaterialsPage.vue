@@ -35,7 +35,7 @@
         <div v-else>
         <!-- <div class="py-5" style="min-height: 300px;" v-if="!materials.list.length">
             <EmptyListComponent str="No Materials" />
-                                                                          </div> -->
+                                                                              </div> -->
 
           <div class="row gy-3">
             <div class="col-md-8">
@@ -81,6 +81,7 @@
               </div>
             </div>
 
+            <!-- Categories area -->
             <div class="col-md-4" v-if="materials.categories.length">
               <div class="card rounded-0 border-top-0 border-end-0 border-bottom-0 border-light shadow-sm">
                 <div class="card-body">

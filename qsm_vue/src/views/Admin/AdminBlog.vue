@@ -91,11 +91,10 @@
 
                                 <template #item-operation="item">
                                     <div class="operation-wrapper">
-                                        <span data-bs-toggle="modal" data-bs-target="#editMaterial" @click="editBlog(item)"
-                                            class="me-4 operation-icon">
+                                        <span @click="editBlog(item.blog_id)" class="me-4 operation-icon">
                                             <i class="bi bi-pencil"></i>
                                         </span>
-                                        <span @click="deleteBlog(item)" class="operation-icon">
+                                        <span @click="deleteBlog(item.blog_id)" class="operation-icon">
                                             <i class="bi bi-trash3 text-danger"></i>
                                         </span>
                                     </div>
@@ -108,7 +107,8 @@
         </div>
 
         <!-- MODAL ######################################### -->
-        <!-- <editMaterialModal :item="materialToEdit" :categories="cateDropDown" @done="getMaterials" /> -->
+        <editBlogModal :item="blogToEdit" @done="getBlogs" />
+        <button class="d-none" data-bs-toggle="modal" data-bs-target="#editBlog" ref="openModalBtn"></button>
     </div>
 </template>
 
@@ -118,7 +118,7 @@ import { onMounted, reactive, ref } from 'vue'
 import { BlogAPI } from '@/store/functions/axiosManager';
 import useFunction from '@/store/functions/useFunction';
 import type { Header, Item, } from "vue3-easy-data-table";
-// import editMaterialModal from './_includes/modals/editMaterial.vue';
+import editBlogModal from './_includes/modals/editBlog.vue';
 
 import { fileUploader } from '@/store/functions/fileUploader'
 
@@ -142,29 +142,34 @@ async function getBlogs() {
     listIsLoading.value = false
 }
 
-const searchField = ["name", "category", "material_code"];
+const searchField = ["title", "category"];
 const searchValue = ref('');
 
 
 const headers: Header[] = [
     { text: "TITLE", value: "title" },
-    { text: "CREATED", value: "created" },
+    { text: "", value: "created" },
     { text: "CATEGORY", value: "category" },
     { text: "", value: "operation" },
 ];
 
 const blogToEdit = ref<any[]>([])
+const openModalBtn = ref<any>(null)
 
-function editBlog(item: any) {
-    blogToEdit.value = item
+async function editBlog(blog_id: any) {
+    let { data } = await blog_api.blogDetails(blog_id)
+    console.log(data);
+
+    blogToEdit.value = data
+    openModalBtn.value.click()
 }
 
-function deleteBlog(item: any) {
-    fxn.Confirm(`Delete this Material?`, 'Yes, Delete')
+function deleteBlog(blog_id: any) {
+    fxn.Confirm(`Delete this Blog?`, 'Yes, Delete')
         .then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    let resp = await blog_api.remove(item.blog_id)
+                    let resp = await blog_api.remove(blog_id)
                     if (resp.status == 200) {
                         getBlogs();
                         fxn.Toast('Record Deleted', 'success')
@@ -212,7 +217,7 @@ async function submit() {
 
     newForm.append('title', form.title);
     newForm.append('body', form.body);
-    let $category: any = !form.category ? null : form.category
+    let $category: any = !form.category ? '' : form.category
     newForm.append('category', $category);
     if (newFile.value) newForm.append('image', newFile.value);
 

@@ -1,12 +1,12 @@
 <template>
     <div class="menuSection">
         <ul class="list-group list-group-flush">
-            <li class="list-group-item" :class="{ 'gActive': (route.name == 'Dashboard') }">
+            <!-- <li class="list-group-item" :class="{ 'gActive': (route.name == 'Dashboard') }">
                 <router-link :to="{ name: 'Dashboard' }">
                     <i class="bi bi-grid-1x2"></i>&nbsp;
                     Dashboard
                 </router-link>
-            </li>
+            </li> -->
 
             <li class="list-group-item" :class="{ 'gActive': (route.name == 'Trainings') }">
                 <router-link :to="{ name: 'Trainings' }">

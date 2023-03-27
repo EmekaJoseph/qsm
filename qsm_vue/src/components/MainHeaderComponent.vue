@@ -44,7 +44,7 @@
                                 </li>
 
                                 <li>
-                                    <router-link class="a-text" to="/blog">Blog</router-link>
+                                    <router-link class="a-text" to="/blog-home">Blog</router-link>
                                 </li>
                             </ul>
                             <div class="nav-btn  d-sm-none d-md-none d-lg-inline-block">

@@ -50,7 +50,7 @@
                                     <div class="col-md-12 mt-3">
                                         <button v-if="!isSaving" @click.prevent="updateDetails"
                                             class="float-end theme-btn btn-custom-secondary btn">Update
-                                            Details</button>
+                                        </button>
                                         <button v-else class="float-end theme-btn btn" disabled>Updating...</button>
                                     </div>
                                 </form>

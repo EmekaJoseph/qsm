@@ -103,7 +103,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
 import { useTrainings } from '@/store/trainings'
 import trainingDetailsModal from '@/components/Modals/trainingDetailsModal.vue';
 import cartModal from '@/components/Modals/cartModal.vue';
@@ -114,6 +114,17 @@ onMounted(() => {
   window.scrollTo(0, 0);
   trainings.getList()
 })
+
+
+
+let interval = setInterval(() => {
+  trainings.getList()
+}, 10000)
+
+onUnmounted(() => {
+  clearInterval(interval)
+})
+
 
 </script>
 

@@ -39,7 +39,7 @@ Route::controller(UsersController::class)->group(function () {
 });
 
 Route::post('login', [AdminController::class, 'login']);
-
+Route::apiResource('blog', BlogController::class);
 
 
 
@@ -75,12 +75,13 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     });
 
     Route::post('materialToArchive', [ArchiveController::class, 'materialToArchive']);
-    // Route::get('archiveDetails/{material_id}', [ArchiveController::class, 'archiveDetails']);
+
+    Route::post('updateBlog/{blog_id}', [BlogController::class, 'updateBlog']);
 
     Route::apiResources([
         'archive' => ArchiveController::class,
         'materials' => MaterialsController::class,
         'trainings' => TrainingsController::class,
-        'blog' => BlogController::class,
+        // 'blog' => BlogController::class,
     ]);
 });

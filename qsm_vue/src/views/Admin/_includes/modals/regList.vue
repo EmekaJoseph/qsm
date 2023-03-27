@@ -4,7 +4,6 @@
             <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header border-0 bg-light">
-                        <!-- <span class="fw-bold">{{ item.name }}</span> -->
                         <span class="fw-bold">Registrations: ({{ list.length }})</span>
                         <span class="float-end">
                             <button ref="btnX" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -56,33 +55,3 @@ onBeforeRouteLeave(() => {
     btnX.value.click()
 })
 </script>
-
-<style scoped>
-.info-panel {
-    padding: 10px;
-    border: none;
-    background-color: var(--theme-color-bg);
-    border-radius: 0%;
-}
-
-.image-holder {
-    /* cursor: pointer; */
-    transition: all 0.5s ease;
-    height: 150px;
-    width: auto;
-}
-
-.fill {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden
-}
-
-.fill img {
-    flex-shrink: 0;
-    min-width: 100%;
-    min-height: 100%
-}
-</style>
-

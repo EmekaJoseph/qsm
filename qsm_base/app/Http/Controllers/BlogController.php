@@ -23,7 +23,7 @@ class BlogController extends BaseController
 
     public function index()
     {
-        $list =  BlogModel::select('blog_id', 'title', 'created_at', 'category')->get();
+        $list =  BlogModel::select('blog_id', 'title', 'created_at', 'category', 'image')->orderByDesc('created_at')->get();
         if (sizeof($list) > 0) {
             foreach ($list as $li) {
                 $li->created = (Carbon::parse($li->created_at))->diffForHumans();
@@ -31,8 +31,6 @@ class BlogController extends BaseController
         }
         return response()->json($list, 200);
     }
-
-
 
     public function store(Request $req)
     {
@@ -72,23 +70,23 @@ class BlogController extends BaseController
     public function show(string $id)
     {
         $blogPost = BlogModel::find($id);
+        if (!$blogPost)
+            return response()->json('not found', 203);
         return response()->json($blogPost, 200);
     }
 
 
-    public function updateDetails($id, Request $req)
+    public function updateBlog($blog_id, Request $req)
     {
-
-
         $title = $req->input('title');
 
-        if (BlogModel::whereNot('$id', $id)->where('title', $title)->exists()) {
+        if (BlogModel::whereNot('blog_id', $blog_id)->where('title', $title)->exists()) {
             return response()->json('title already exists', 203);
         }
 
-        $thisBlog = BlogModel::find($id);
+        $thisBlog = BlogModel::find($blog_id);
 
-        $thisBlog->title = $req->input('body');
+        $thisBlog->title = $req->input('title');
         $thisBlog->body = $req->input('body');
         $thisBlog->category = $req->input('category');
 

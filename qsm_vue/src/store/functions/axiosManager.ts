@@ -215,8 +215,8 @@ class BlogAPI {
         return $instance.get(`blog`)
     }
 
-    updateDetails(archive_id: string, data: any) {
-        return $instance.post(`blog/${archive_id}`, JSON.stringify(data))
+    updateBlog(blog_id: string, data: any) {
+        return $instanceForm.post(`updateBlog/${blog_id}`, data)
     }
 
     remove(blog_id: any) {

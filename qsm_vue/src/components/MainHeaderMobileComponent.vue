@@ -28,7 +28,7 @@
                             <li> <router-link to="/about">About us</router-link> </li>
                             <li><router-link to="/materials">Materials</router-link></li>
                             <li><router-link to="/trainings">Trainings</router-link></li>
-                            <li><router-link to="/blog">Blog</router-link></li>
+                            <li><router-link to="/blog-home">Blog</router-link></li>
                         </ul>
                     </div>
                 </div>

@@ -90,7 +90,7 @@ async function login() {
         admin.username = ''
         account.state = resp.data
         account.token = resp.data.token
-        router.replace({ path: '/admin/dashboard' })
+        router.replace({ path: '/admin/trainings' })
 
         console.log(resp);
         admin.loading = false

@@ -14,12 +14,6 @@
               <div class="animate__animated animate__slideInLeft animate__delay-1s">Latest news and Updates</div>
             </div>
 
-            <!-- <div class="col-md-6 d-none d-lg-block">
-              <div class="d-flex justify-content-center align-content-center">
-                <img src="@/assets/images/hero/side.png" width="46%" alt="">
-              </div>
-            </div> -->
-
           </div>
         </div>
       </div>
@@ -27,6 +21,19 @@
 
       <div class="container py-5 animate__animated animate__fadeIn text-black">
 
+        <div class="col-12 text-muted2 mb-sm-2 small" style="letter-spacing: 0.2rem;">
+          BLOGS LIST
+        </div>
+
+        <ul class="list-group list-group-flush mt-5">
+          <li @click="blogDetails(blog.blog_id)" v-for="blog in blogList" :key="blog"
+            class="list-group-item cate-list-item hover-tiltX shadow-sm mb-2">
+            <div class="blogTopic"> {{ blog.title }}</div>
+            <span class="xsmall fst-italic text-muted">
+              posted {{ blog.created }}
+            </span>
+          </li>
+        </ul>
 
       </div>
     </section>
@@ -38,15 +45,59 @@
 
 
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+import { BlogAPI } from '@/store/functions/axiosManager';
+import { useRouter } from 'vue-router';
 
 
+const blog_api = new BlogAPI()
+const blogList = ref<any[]>([])
+const router = useRouter()
+
+onMounted(() => {
+  getBlogs()
+})
+
+async function getBlogs() {
+  let { data } = await blog_api.list()
+  blogList.value = data.slice(0, 3)
+}
+
+function blogDetails(blog_id: any) {
+  router.push({
+    path: `/blog`,
+    query: {
+      blog: blog_id
+    }
+  })
+}
+
+
+let interval = setInterval(() => {
+  getBlogs()
+}, 10000)
+
+onUnmounted(() => {
+  clearInterval(interval)
+})
 
 </script>
 
 <style>
+.blogTopic {
+  font-size: 23px !important;
+  font-weight: 500;
+  cursor: pointer;
+  /* text-transform: capitalize; */
+}
+
+.blogTopic:hover {
+  color: var(--theme-color);
+}
+
 @media (max-width: 994px) {
-  /* .main-title {
-    font-size: 25px !important;
-  } */
+  .blogTopic {
+    font-size: 18px !important;
+  }
 }
 </style>

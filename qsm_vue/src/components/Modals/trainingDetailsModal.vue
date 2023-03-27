@@ -4,7 +4,7 @@
             <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header border-0 bg-white text-black">
-                        <span class="fw-bold">{{ item.title }}</span>
+                        <span class="fw-bold text-uppercase">{{ item.title }}</span>
                         <!-- <span class="fw-bold">Head</span> -->
                         <span class="float-end">
                             <button ref="btnX" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -20,13 +20,14 @@
                             </div>
                             <div class="col-md-12 ">
                                 <div class="bg-light p-3 rounded-3 py-4">
-                                    <div class="text-black my-2">
-                                        <div class="fw-bold bg-info-subtle p-1 rounded-4 text-center">Description:</div>
+                                    <div class="text-black mb-5">
+                                        <div class="fw-bold text-decoration-underline text-center">Description:
+                                        </div>
                                         {{ item.info }}
                                     </div>
 
                                     <div class="text-black mb-2">
-                                        <div class="fw-bold bg-info-subtle p-1 rounded-4 text-center">Venue:</div>
+                                        <div class="fw-bold text-decoration-underline text-center">Venue:</div>
                                         {{ item.venue }}
                                     </div>
 

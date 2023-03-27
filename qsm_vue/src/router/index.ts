@@ -28,26 +28,23 @@ const router = createRouter({
   linkActiveClass: 'active',
   routes: [
     { path: '/', name: 'Home', component: HomeView },
-
     { path: '/about', name: 'About', component: AboutView },
-
     { path: '/trainings', name: 'Trainings_', component: TrainingsPage },
-
     { path: '/materials', name: 'Course Materials', component: MaterialsPage },
-
-    { path: '/blog', name: 'Blog', component: () => import('../views/BlogPage.vue') },
+    { path: '/blog-home', name: 'Blog Home', component: () => import('../views/BlogPage.vue') },
+    { path: '/blog', name: 'Blog', component: () => import('../views/BlogDetails.vue'), props: route => ({ query: route.query }), },
 
     {
+      path: '/admin/login',
       beforeEnter: (to, from, next) => {
         const account = useAccount()
         if (account.state.id) {
-          next({ path: '/admin/dashboard' });
+          next({ path: '/admin/trainings' });
         }
         else {
           next();
         }
       },
-      path: '/admin/login',
       name: 'Login',
       alias: '/admin',
       component: AdminLogin

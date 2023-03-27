@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div class="modal fade" id="editMaterial" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm">
+        <div class="modal fade" id="editBlog" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header border-0 bg-light">
                         <!-- <span class="fw-bold">{{ item.name }}</span> -->
@@ -12,29 +12,38 @@
                     </div>
                     <div class="modal-body p-sm-4">
                         <div class="row justify-content-center gy-3">
+                            <div class="col-md-12">
+                                <div v-if="item.image" class="image-holder fill">
+                                    <img class="img-fluid" :src="item.image" alt="blog image">
+                                </div>
+                            </div>
                             <div class="col-md-12 ">
                                 <form class="row g-3">
                                     <div class="col-md-12">
-                                        <label>Name:</label>
-                                        <textarea v-model="thisItem.name" class="form-control" rows="3"></textarea>
+                                        <label>Title:</label>
+                                        <textarea v-model="thisItem.title" class="form-control" rows="2"></textarea>
                                     </div>
                                     <div class="col-md-12">
-                                        <label>Pages:</label>
-                                        <input v-model="thisItem.pages" type="text" class="form-control">
+                                        <label>Body:</label>
+                                        <textarea v-model="thisItem.body" class="form-control" rows="7"></textarea>
                                     </div>
                                     <div class="col-md-12">
                                         <label>Category:</label>
-                                        <select v-model="thisItem.category_id" class="form-control  form-select">
-                                            <option v-for="option in categories" :value="option.category_id" :key="option">
-                                                {{ option.category_name }}
-                                            </option>
-                                        </select>
+                                        <input v-model="thisItem.category" type="text" class="form-control">
+                                    </div>
 
+
+                                    <div class="col-md-12">
+                                        <span v-if="item.image">Change Image:</span>
+                                        <span v-else>Add Image:</span>
+                                        <input ref="inputFileEl" @change="grabFile" type="file"
+                                            accept="image/jpeg, image/png, image/jpg" class="form-control">
                                     </div>
 
                                     <div class="col-md-12 mt-3">
                                         <button v-if="!isSaving" @click.prevent="updateDetails"
-                                            class="float-end theme-btn btn-custom-secondary btn">Update
+                                            class="float-end theme-btn btn-custom-secondary btn">
+                                            Update
                                         </button>
                                         <button v-else class="float-end theme-btn btn" disabled>Updating...</button>
                                     </div>
@@ -53,60 +62,68 @@
 import { reactive, ref, watchEffect } from 'vue';
 import { onBeforeRouteLeave } from 'vue-router';
 import useFunction from '@/store/functions/useFunction';
-import { MaterialsAPI } from '@/store/functions/axiosManager';
+import { BlogAPI } from '@/store/functions/axiosManager';
 
 const fxn = useFunction.fx
 const isSaving = ref(false)
 const emit = defineEmits(['done'])
-const material_api = new MaterialsAPI()
+const blog_api = new BlogAPI()
+const inputFileEl = ref<any>(null)
 
 const prop = defineProps({
     item: {
-        type: Object,
-        required: true
-    },
-
-    categories: {
         type: Object,
         required: true
     }
 })
 
 const thisItem = reactive({
-    name: prop.item.name,
-    pages: prop.item.pages,
-    category_id: prop.item.category_id,
-
+    title: prop.item.title,
+    body: prop.item.body,
+    category: prop.item.category,
+    image: '',
 })
 
 watchEffect(() => {
-    thisItem.name = prop.item.name
-    thisItem.pages = prop.item.pages
-    thisItem.category_id = prop.item.category_id
+    thisItem.title = prop.item.title
+    thisItem.body = prop.item.body
+    thisItem.category = prop.item.category
 })
 
-
+function grabFile(e: any) {
+    thisItem.image = e.target.files[0]
+}
 
 
 async function updateDetails() {
-    if (!thisItem.name || !thisItem.pages || !thisItem.category_id) {
-        fxn.Toast('some fields are empty', 'warning')
+    if (!thisItem.title || !thisItem.body) {
+        fxn.Toast('compulsory fields are empty', 'warning')
         return;
     }
 
+    const obj = new FormData();
+    obj.append('title', thisItem.title);
+    obj.append('body', thisItem.body);
+    let $category: any = !thisItem.category ? '' : thisItem.category
+    obj.append('category', $category);
+    if (thisItem.image)
+        obj.append('image', thisItem.image);
+
     isSaving.value = true
-    let obj = {
-        name: thisItem.name,
-        pages: thisItem.pages,
-        category_id: thisItem.category_id,
-    }
 
     try {
-        await material_api.updateDetails(prop.item.material_id, obj)
+        let resp = await blog_api.updateBlog(prop.item.blog_id, obj)
+        console.log(resp);
+        if (resp.status == 203) {
+            fxn.Toast('Title already exists', 'warning')
+            isSaving.value = false
+            return
+        }
         fxn.Toast('updated', 'success')
         emit('done')
         isSaving.value = false
         btnX.value.click()
+        inputFileEl.value.value = ''
     } catch (error) {
         fxn.Toast('internet error', 'error')
         isSaving.value = false

@@ -25,7 +25,7 @@
         </div>
 
 
-        <div class="offcanvas offcanvas-top" tabindex="-1" id="searchOffcanvas" aria-labelledby="offcanvasLabel">
+        <div class="offcanvas offcanvas-bottom" tabindex="-1" id="searchOffcanvas" aria-labelledby="offcanvasLabel">
             <div class="offcanvas-header pb-0">
                 <h6 class="offcanvas-title text-muted2 fw-light small" id="offcanvasLabel">Search Materials</h6>
                 <button ref="btnCloseCanvas" type="button" class="btn-close" data-bs-dismiss="offcanvas"
@@ -66,6 +66,12 @@ function sendToParent() {
 </script>
 
 <style scoped>
+.offcanvas {
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+    padding-top: 10px;
+}
+
 .input-group-text {
     background-color: #fff !important;
     /* border-left: none !important; */

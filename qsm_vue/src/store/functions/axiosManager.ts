@@ -113,6 +113,10 @@ class TrainingsAPI {
         return $instance.get(`trainings`)
     }
 
+    activeTrainings() {
+        return $instance.get(`activeTrainings`)
+    }
+
     addNew(form: FormData) {
         return $instanceForm.post(`trainings`, form)
     }

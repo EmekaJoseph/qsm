@@ -145,10 +145,18 @@
                                             <td>{{ trn.title }}</td>
 
 
+
+                                            <td>
+                                                <button @click="getRegList(trn.id)"
+                                                    class="btn btn-small text-dark  m-0 p-0">
+                                                    <i class="bi bi-journal-text"></i> list
+                                                </button>
+                                            </td>
+
                                             <td>
                                                 <button @click="deleteTraining(trn.id)"
                                                     class="btn btn-small text-danger  m-0 p-0">
-                                                    <i class="bi bi-trash3"></i>
+                                                    <i class="bi bi-trash3"></i> delete
                                                 </button>
                                             </td>
                                         </tr>

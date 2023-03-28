@@ -84,4 +84,5 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         'trainings' => TrainingsController::class,
         // 'blog' => BlogController::class,
     ]);
+    // Route::apiResource('blog', BlogController::class)->except(['index', 'show']);
 });

@@ -12,11 +12,10 @@ export const useTrainings = defineStore('Trainings', () => {
     })
 
 
-
     async function getList() {
         const trainings_api = new TrainingsAPI()
-        const { data } = await trainings_api.list();
-        list.value = data.active
+        const { data } = await trainings_api.activeTrainings();
+        list.value = data
         loading.value = false
     }
 

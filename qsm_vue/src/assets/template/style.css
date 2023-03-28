@@ -971,7 +971,7 @@ nav.itsoft_menu {
   ================ Start banner section
   -------------------*/
 .banner-section {
-    background: url(@/assets/images/hero/it-startup.jpg);
+    /* background: url(@/assets/images/hero/it-startup.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -1498,7 +1498,7 @@ a.em-active-button:hover {
 }
 
 .carousel-slider {
-    background: url(@/assets/images/slick/ss-bg.jpg);
+    /* background: url(@/assets/images/slick/ss-bg.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -1757,7 +1757,7 @@ a.em-active-button:hover {
 
 /*carousel slider area style four*/
 .carousel-slider.style-four {
-    background: url(@/assets/images/slick/ss-bg.jpg);
+    /* background: url(@/assets/images/slick/ss-bg.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -1825,7 +1825,7 @@ a.em-active-button:hover {
 
 /*carousel slider style five*/
 .carousel-slider.style-five {
-    background: url(@/assets/images/slick/ss-bg.jpg);
+    /* background: url(@/assets/images/slick/ss-bg.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -2266,7 +2266,7 @@ a.em-active-button:hover {
 
 /*carousel slider style-forteen*/
 .carousel-slider.style-fourteen {
-    background: url(@/assets/images/about2/slider-img.jpg);
+    /* background: url(@/assets/images/about2/slider-img.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -2308,7 +2308,7 @@ a.em-active-button:hover {
 
 /*carousel slider style fiveteen*/
 .carousel-slider.style-fiveteen {
-    background: url(@/assets/images/about2/slider1.jpg);
+    /* background: url(@/assets/images/about2/slider1.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -2421,7 +2421,7 @@ a.em-active-button:hover {
   ================ Start Hero Section Style Two
   -------------------*/
 .hero-section.style-2 {
-    background: url(@/assets/images/hero/hero-bg2.jpg);
+    /* background: url(@/assets/images/hero/hero-bg2.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -2465,9 +2465,9 @@ a.em-active-button:hover {
 /*-----------------
   ================ Start Hero Section Style Four
   -------------------*/
-.hero-section.style-4 {
+/* .hero-section.style-4 {
     background: url(@/assets/images/hero/hero-s1.jpg) no-repeat center/cover;
-}
+} */
 
 .hero-section.style-4 .hero-content-area p {
     width: 100%;
@@ -2477,7 +2477,7 @@ a.em-active-button:hover {
   ================ Start Hero Section Style Six
   -------------------*/
 .hero-section.style-6 {
-    background: url(@/assets/images/hero/hero-bg6.jpg);
+    /* background: url(@/assets/images/hero/hero-bg6.jpg); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -2491,7 +2491,7 @@ a.em-active-button:hover {
 
 /*hero section style 10*/
 .hero-section.style-10 {
-    background: url(@/assets/images/about2/home2.png) no-repeat center/cover;
+    /* background: url(@/assets/images/about2/home2.png) no-repeat center/cover; */
     position: relative;
     overflow: hidden;
     background-position: center center;
@@ -2536,7 +2536,7 @@ a.em-active-button:hover {
 
 /*hero sevtion style six*/
 .hero-section.style-six {
-    background: url(@/assets/images/hero/hero-bg6.jpg);
+    /* background: url(@/assets/images/hero/hero-bg6.jpg); */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -2573,7 +2573,7 @@ a.em-active-button:hover {
 
 /*hero sevtion style eigfht*/
 .hero-section.style-eight {
-    background: url(@/assets/images/hero/slider-bg.jpg) no-repeat center/cover;
+    /* background: url(@/assets/images/hero/slider-bg.jpg) no-repeat center/cover; */
     position: relative;
     overflow: hidden;
     height: 700px;
@@ -2646,13 +2646,13 @@ a.em-active-button:hover {
     position: relative;
 }
 
-.swiper-slide.slide-1 {
+/* .swiper-slide.slide-1 {
     background: url(@/assets/images/hero/hero-s1.jpg) no-repeat center/cover;
 }
 
 .swiper-slide.slide-2 {
     background: url(@/assets/images/hero/hero-s2.jpg) no-repeat center/cover;
-}
+} */
 
 .swiper-slider {
     position: relative;
@@ -2755,21 +2755,21 @@ a.em-active-button:hover {
 /*-----------------
   ================ Start Swiper Slider style Three
   -------------------*/
-.swiper-slider.style-3 {
+/* .swiper-slider.style-3 {
     background: url(@/assets/images/hero/hero-bg.jpg) no-repeat center/cover;
 }
 
 .swiper-slider.style-3 .swiper-slide.slide-1 {
     background: url(@/assets/images/hero/ss7.png) no-repeat right;
-}
+} */
 
-.swiper-slider.style-3 .swiper-slide.slide-2 {
+/* .swiper-slider.style-3 .swiper-slide.slide-2 {
     background: url(@/assets/images/hero/ss6.png) no-repeat right;
 }
 
 .swiper-slide.slide-3 {
     background: url(@/assets/images/hero/ss5.png) no-repeat right;
-}
+} */
 
 /*-----------------
   ================ Start Swiper Slider style Four
@@ -2778,13 +2778,13 @@ a.em-active-button:hover {
     height: 700px;
 }
 
-.swiper-slider.style-four .swiper-slide.slide-1 {
+/* .swiper-slider.style-four .swiper-slide.slide-1 {
     background: url(@/assets/images/hero/hero-s3.jpg) no-repeat center/cover;
 }
 
 .swiper-slider.style-four .swiper-slide.slide-2 {
     background: url(@/assets/images/hero/hero-s4.jpg) no-repeat center/cover;
-}
+} */
 
 .swiper-slider.style-four .swiper-slider-content h4,
 .swiper-slider.style-four .swiper-slider-content h1,
@@ -2858,7 +2858,7 @@ a.em-active-button:hover {
   ================ Start Slick Slider style Two
   -------------------*/
 .slick-slider.style-2 {
-    background: url(@/assets/images/slick/ss-bg.jpg) no-repeat center/ cover;
+    /* background: url(@/assets/images/slick/ss-bg.jpg) no-repeat center/ cover; */
     position: relative;
     height: 700px;
 }
@@ -4173,7 +4173,7 @@ div#firsttab {
 .feature-icon::before {
     position: absolute;
     content: '';
-    background: url(@/assets/images/hero/icon-1.png);
+    /* background: url(@/assets/images/hero/icon-1.png); */
     width: 56px;
     height: 71px;
     right: -25px;
@@ -4522,9 +4522,9 @@ div#firsttab {
     margin-bottom: 30px;
 }
 
-.feature-section.style-nine .single-feature-box:hover {
+/* .feature-section.style-nine .single-feature-box:hover {
     background: url(@/assets/images/services/svs6.jpg) no-repeat center/ cover scroll;
-}
+} */
 
 .feature-section.style-nine .single-feature-box::before {
     position: absolute;
@@ -4800,7 +4800,7 @@ div#firsttab {
 
 /*about area style eight*/
 .about-section.style-eight {
-    background: #f4f7fc url(@/assets/images/services/back.png);
+    /* background: #f4f7fc url(@/assets/images/services/back.png); */
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -5082,7 +5082,7 @@ div#firsttab {
     padding-top: 20px;
 }
 
-.flip-box-front.two {
+/* .flip-box-front.two {
     background: linear-gradient(rgba(0, 0, 0, 0.61), rgba(0, 0, 0, 0.61)), url(@/assets/images/about/flipx.jpg);
     background-position: center center;
     background-size: cover;
@@ -5099,7 +5099,7 @@ div#firsttab {
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-}
+} */
 
 .des p {
     width: 72%;
@@ -5141,7 +5141,7 @@ div#firsttab {
     color: #CB7931;
 }
 
-.flip-box-front.three {
+/* .flip-box-front.three {
     background: linear-gradient(rgba(0, 0, 0, 0.61), rgba(0, 0, 0, 0.61)), url(@/assets/images/about/flipx2.jpg);
     background-position: center center;
     background-size: cover;
@@ -5181,7 +5181,7 @@ div#firsttab {
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-}
+} */
 
 .flip-box.two {
     position: relative;
@@ -5339,7 +5339,7 @@ div#firsttab {
   ============== Itsoft Start Skills section style Two
   -------------------*/
 .skills-wrapper {
-    background: linear-gradient(rgba(26, 31, 53, 0.82), rgba(26, 31, 53, 0.82)), transparent url(@/assets/images/skills/sk-bg1.jpg) no-repeat center/cover;
+    /* background: linear-gradient(rgba(26, 31, 53, 0.82), rgba(26, 31, 53, 0.82)), transparent url(@/assets/images/skills/sk-bg1.jpg) no-repeat center/cover; */
     padding: 50px 80px;
 }
 
@@ -5798,12 +5798,12 @@ div#firsttab {
     transform: translate(-50%, -50%);
 }
 
-.video-section.style-three .video-content {
+/* .video-section.style-three .video-content {
     padding-top: 120px;
     padding-bottom: 120px;
     position: relative;
     background: url(@/assets/images/video/vb1.jpg) no-repeat center/ cover scroll;
-}
+} */
 
 /*------------------
   ============== Start About Section Style Three
@@ -6206,7 +6206,7 @@ div#firsttab {
 
 /*about section atyle ten*/
 .about-section.style-elevent {
-    background: url(@/assets/images/about/about-bg.png);
+    /* background: url(@/assets/images/about/about-bg.png); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -6382,7 +6382,7 @@ div#firsttab {
   ============== Start choose area
   -------------------*/
 .choose-area {
-    background: url(@/assets/images/about/choose.png);
+    /* background: url(@/assets/images/about/choose.png); */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -6398,7 +6398,7 @@ div#firsttab {
     position: absolute;
     top: 46%;
     right: -163px;
-    background: url(@/assets/images/about/icon11.jpg);
+    /* background: url(@/assets/images/about/icon11.jpg); */
     padding: 24px 70px 33px 70px;
     border: 4px solid#fff;
     text-align: center;
@@ -6500,7 +6500,7 @@ div#firsttab {
 
 /*choose area style two*/
 .choose-area.style-two {
-    background: url(@/assets/images/about/choose2.png);
+    /* background: url(@/assets/images/about/choose2.png); */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -6559,7 +6559,7 @@ div#firsttab {
 
 /*choose area style sixteen*/
 .choose-area.style-sixteen {
-    background: url(@/assets/images/about2/us.png);
+    /* background: url(@/assets/images/about2/us.png); */
     background-position: center center;
     background-repeat: no-repeat;
     position: relative;
@@ -6634,7 +6634,7 @@ div#firsttab {
 
 /*choose section*/
 .service-choose-section {
-    background: url(@/assets/images/about2/choose.jpg);
+    /* background: url(@/assets/images/about2/choose.jpg); */
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -6830,7 +6830,7 @@ div#firsttab {
 }
 
 .counter-section.style-33 {
-    background: url(@/assets/images/counter-bg23.jpg);
+    /* background: url(@/assets/images/counter-bg23.jpg); */
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -7168,7 +7168,7 @@ div#firsttab {
 }
 
 .services-section.style-3 {
-    background: #f4f7fc url(@/assets/images/services/svbg3.png) no-repeat center/cover;
+    /* background: #f4f7fc url(@/assets/images/services/svbg3.png) no-repeat center/cover; */
 }
 
 .services-section.style-3 .services-single-content {
@@ -7268,7 +7268,7 @@ div#firsttab {
   ================ Start Services Section Style Four
   --------------------*/
 .services-section.style-4 {
-    background: #252628 url(@/assets/images/services/svbg4.png) no-repeat center/cover;
+    /* background: #252628 url(@/assets/images/services/svbg4.png) no-repeat center/cover; */
 }
 
 .services-section.style-4 .services-single-items {
@@ -7478,9 +7478,9 @@ div#firsttab {
 /*--------------------
    ================ Service Section Style Six
   --------------------*/
-.service-head {
+/* .service-head {
     background: url(@/assets/images/services/svs-bg1.jpg) no-repeat center /cover;
-}
+} */
 
 .services-section.margin-top {
     margin-top: -145px;
@@ -7507,9 +7507,9 @@ div#firsttab {
 /*--------------------
    ================ Service Section Style Seven
   --------------------*/
-.services-section.style-7 {
+/* .services-section.style-7 {
     background: linear-gradient(rgba(244, 247, 252, 0.62), rgba(244, 247, 252, 0.62)), transparent url(@/assets/images/services/gray-bg1.png) bottom center/cover no-repeat fixed;
-}
+} */
 
 .services-section.style-7 .services-single-items {
     box-shadow: 0px 0 6px rgb(26 46 85 / 10%);
@@ -7820,35 +7820,35 @@ div#firsttab {
 }
 
 .service-section.style-fiveteen .single-service-box:hover {
-    background: url("@/assets/images/about2/service6.jpg");
+    /* background: url("@/assets/images/about2/service6.jpg"); */
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 .service-section.style-fiveteen .single-service-box.two:hover {
-    background: url("@/assets/images/about2/service4.jpg");
+    /* background: url("@/assets/images/about2/service4.jpg"); */
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 .service-section.style-fiveteen .single-service-box.three:hover {
-    background: url("@/assets/images/about2/service2.jpg");
+    /* background: url("@/assets/images/about2/service2.jpg"); */
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 .service-section.style-fiveteen .single-service-box.four:hover {
-    background: url("@/assets/images/about2/service1.jpg");
+    /* background: url("@/assets/images/about2/service1.jpg"); */
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 .service-section.style-fiveteen .single-service-box.five:hover {
-    background: url("@/assets/images/about2/service4.jpg");
+    /* background: url("@/assets/images/about2/service4.jpg"); */
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -7985,7 +7985,7 @@ div#firsttab {
 
 /*service section area*/
 .service-section-area.style-ten {
-    background: url(@/assets/images/about/icon8.png);
+    /* background: url(@/assets/images/about/icon8.png); */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -8196,7 +8196,7 @@ div#firsttab {
 
 /*service section area*/
 .service-section-area.style-eleven {
-    background: url(@/assets/images/about/icon10.png);
+    /* background: url(@/assets/images/about/icon10.png); */
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -8402,13 +8402,13 @@ div#firsttab {
 
 /*right side area*/
 .service-area.style-ten {
-    background: url(@/assets/images/about/three.png);
+    /* background: url(@/assets/images/about/three.png); */
     background-repeat: no-repeat;
 }
 
 .service-area.style-ten .single-service-box {
     box-shadow: 0 0 40px rgb(0 0 0 / 6%);
-    background: url(@/assets/images/about/four.png);
+    /* background: url(@/assets/images/about/four.png); */
     padding: 56px 10px 28px 39px;
     position: relative;
     margin-bottom: 30px;
@@ -8569,7 +8569,7 @@ div#firsttab {
     left: -57px;
     height: 100%;
     width: 100%;
-    background: url(@/assets/images/about/process1.png);
+    /* background: url(@/assets/images/about/process1.png); */
     z-index: -1;
     background-size: cover;
     background-position: center center;
@@ -8591,7 +8591,7 @@ div#firsttab {
 .process-single-box.two:hover .process-icon:after {
     height: 89px;
     width: 83px;
-    background: url(@/assets/images/about/back2.png);
+    /* background: url(@/assets/images/about/back2.png); */
     background-size: cover;
     left: -28px;
     box-shadow: 0 0 30px rgb(0 0 0 / 8%);
@@ -8621,7 +8621,7 @@ div#firsttab {
 }
 
 .process-single-box:hover .process-icon:before {
-    background: url(@/assets/images/about/back3.png);
+    /* background: url(@/assets/images/about/back3.png); */
     z-index: -1;
     background-size: cover;
     background-position: center center;
@@ -8700,7 +8700,7 @@ div#firsttab {
     right: -50px;
     height: 100%;
     width: 100%;
-    background: url(@/assets/images/about/pross.png);
+    /* background: url(@/assets/images/about/pross.png); */
     z-index: -1;
     background-size: cover;
     background-position: center center;
@@ -8751,7 +8751,7 @@ div#firsttab {
     ================ counter area
    --------------------*/
 .counter-area .row.upper12 {
-    background: url(@/assets/images/about/counter-bg.png);
+    /* background: url(@/assets/images/about/counter-bg.png); */
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -8790,7 +8790,7 @@ div#firsttab {
 }
 
 .counter-area.style-two .row.upper13 {
-    background: url(@/assets/images/about/counter3.png);
+    /* background: url(@/assets/images/about/counter3.png); */
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -9221,7 +9221,7 @@ div#firsttab {
 
 /*team area style two*/
 .team-area.style-two {
-    background: url(@/assets/images/about/member.png);
+    /* background: url(@/assets/images/about/member.png); */
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -9402,7 +9402,7 @@ div#firsttab {
     ================ Itsoft Start case area
    --------------------*/
 .case-study-area {
-    background: url(@/assets/images/about/icon11.jpg);
+    /* background: url(@/assets/images/about/icon11.jpg); */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -9656,7 +9656,7 @@ div#firsttab {
   ================ Start Choose Us Section Style Four
   --------------------*/
 .choose-us-section.style-four {
-    background: transparent url(@/assets/images/choose-us/ch6.jpg) top right/cover no-repeat scroll;
+    /* background: transparent url(@/assets/images/choose-us/ch6.jpg) top right/cover no-repeat scroll; */
     padding-top: 384px;
     padding-bottom: 120px;
 }
@@ -10013,7 +10013,7 @@ div#firsttab {
   ================ Start portfolio style two
   --------------------*/
 .portfolio-section.style-two {
-    background: url(@/assets/images/hero/team-bg.jpg);
+    /* background: url(@/assets/images/hero/team-bg.jpg); */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -10034,7 +10034,7 @@ div#firsttab {
 .fun-fact-container {
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
     position: relative;
-    background: url(@/assets/images/fun-fact/ffbg.png);
+    /* background: url(@/assets/images/fun-fact/ffbg.png); */
     background-repeat: no-repeat;
     background-position: top left/auto;
 }
@@ -10374,7 +10374,7 @@ div#firsttab {
 }
 
 .video-area .video-bg {
-    background: url(@/assets/images/video.jpg);
+    /* background: url(@/assets/images/video.jpg); */
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -10791,7 +10791,7 @@ div#firsttab {
   <!-- Start vission area Css -->
   <!-- ============================================================== -->*/
 .vission-area {
-    background: url(@/assets/images/ssion.jpg);
+    /* background: url(@/assets/images/ssion.jpg); */
     background-position: center;
     background-repeat: no-repeat;
     padding: 58px 0 105px;
@@ -10823,7 +10823,7 @@ div#firsttab {
   <!-- Start mission area Css -->
   <!-- ============================================================== -->*/
 .mission-area {
-    background: url(@/assets/images/vission.jpg);
+    /* background: url(@/assets/images/vission.jpg); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -10897,7 +10897,7 @@ div#firsttab {
     z-index: 1;
     bottom: -108px;
     right: -1px;
-    background: url(@/assets/images/mission-bg.png);
+    /* background: url(@/assets/images/mission-bg.png); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -11096,7 +11096,7 @@ div#firsttab {
 
 /*counter  area style three */
 .counter-section.style-three {
-    background: url(@/assets/images/hero/counter.jpg);
+    /* background: url(@/assets/images/hero/counter.jpg); */
     padding: 65px 0 76px;
     background-size: cover;
     background-position: center center;
@@ -11118,7 +11118,7 @@ div#firsttab {
 
 /*counter area style four*/
 .counter-section.style-four {
-    background: linear-gradient(rgba(255, 60, 0, 0.65), rgba(255, 60, 0, 0.65)), url(@/assets/images/hero/counter2.jpg);
+    /* background: linear-gradient(rgba(255, 60, 0, 0.65), rgba(255, 60, 0, 0.65)), url(@/assets/images/hero/counter2.jpg); */
     padding: 79px 0 66px;
     background-size: cover;
     background-position: center center;
@@ -11158,7 +11158,7 @@ div#firsttab {
   ============== Start cctv service section
   -------------------*/
 .cctv-service-section {
-    background: url(@/assets/images/hero/ccc.jpg);
+    /* background: url(@/assets/images/hero/ccc.jpg); */
     padding: 80px 0 201px;
     background-size: cover;
     background-position: center center;
@@ -11424,9 +11424,9 @@ div#firsttab {
     margin-top: 0 !important;
 }
 
-.team-section.style-5 {
+/* .team-section.style-5 {
     background: transparent url(@/assets/images/team/team-bg.jpg) no-repeat bottom left/cover scroll;
-}
+} */
 
 .team-sections.style-5 {
     background: inherit !important;
@@ -11582,9 +11582,9 @@ div#firsttab {
 /*----------------
   ============== Itsoft Start Appoinment Section
   ------------------*/
-.appointment-section {
+/* .appointment-section {
     background: transparent url(@/assets/images/appointment/apm1.jpg) center right/auto no-repeat scroll;
-}
+} */
 
 .appointment-section-thumb img {
     width: 100%;
@@ -11654,9 +11654,9 @@ textarea::placeholder {
     margin-left: 0;
 }
 
-.appointment-carousel {
+/* .appointment-carousel {
     background: linear-gradient(rgba(255, 60, 0, 0.74), rgba(255, 60, 0, 0.74)), transparent url(@/assets/images/testimonial/tstm-bg7.jpg) center center/cover no-repeat scroll;
-}
+} */
 
 .appointment-carousel .testimonial-single-item {
     background: transparent;
@@ -11736,9 +11736,9 @@ textarea::placeholder {
 /*----------------
   ============== Itsoft Start Case Study Section
   ------------------*/
-.section-head.style-2 {
+/* .section-head.style-2 {
     background: linear-gradient(360deg, rgba(255, 60, 0, 0.87), rgba(241, 141, 1, 0.87)), #f4f7fc url(@/assets/images/case-study/pd-sh.jpg) center center/cover no-repeat scroll;
-}
+} */
 
 .case-study-single-item {
     overflow: hidden;
@@ -11841,9 +11841,9 @@ textarea::placeholder {
 }
 
 /*section head style eight*/
-.section-head.style-eight {
+/* .section-head.style-eight {
     background: linear-gradient(360deg, rgba(255, 60, 0, 0.87), rgba(241, 141, 1, 0.87)), #f4f7fc url(@/assets/images/case-study/pd-sh.jpg) center center/cover no-repeat scroll;
-}
+} */
 
 .section-head.style-eight .section-head h5 {
     color: #fff;
@@ -11862,7 +11862,7 @@ textarea::placeholder {
 
 /*section head style 10*/
 .section-head.style-10 {
-    background: url(@/assets/images/about2/bac.jpg);
+    /* background: url(@/assets/images/about2/bac.jpg); */
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -12162,9 +12162,9 @@ textarea::placeholder {
 /*-------------------
   Itsoft Start Call Do Action Section
   -------------------*/
-.call-do-action-section {
+/* .call-do-action-section {
     background: linear-gradient(rgba(17, 26, 58, 0.75), rgba(17, 26, 58, 0.75)), transparent url(@/assets/images/call-do-action/cda1.jpg) no-repeat center/cover;
-}
+} */
 
 .video-icon-cda a {
     width: 100px;
@@ -12407,9 +12407,9 @@ textarea::placeholder {
 /*-------------------
   ==============Start Call Do Action Section Style Four
   -------------------*/
-.call-do-action-3 {
+/* .call-do-action-3 {
     background: linear-gradient(rgba(255, 60, 0, 0.62), rgba(255, 60, 0, 0.62)), url(@/assets/images/call-do-action/cda3.jpg) no-repeat center / cover;
-}
+} */
 
 /*-------------------
   ==============Start Call Do Action Section Style Five
@@ -12528,7 +12528,7 @@ textarea::placeholder {
   -------------------*/
 .testimonial-section.style-2 {
     margin-top: 0;
-    background: url(@/assets/images/testimonial/tstm-bg2.jpg) no-repeat center/ cover;
+    /* background: url(@/assets/images/testimonial/tstm-bg2.jpg) no-repeat center/ cover; */
 }
 
 .testimonial-single-item.style-2 .testimonial-content-text {
@@ -12566,7 +12566,7 @@ textarea::placeholder {
   -------------------*/
 .testimonial-section.style-4 {
     margin-top: 0 !important;
-    background: url(@/assets/images/testimonial/tstm-bg1.jpg) no-repeat center/cover;
+    /* background: url(@/assets/images/testimonial/tstm-bg1.jpg) no-repeat center/cover; */
 }
 
 .testimonial-section.style-4 .testimonial-content-text {
@@ -12677,7 +12677,7 @@ textarea::placeholder {
 
 /*testi section style-2 upper*/
 .testimonial-section.style-5.upper {
-    background: url(@/assets/images/about2/section.jpg);
+    /* background: url(@/assets/images/about2/section.jpg); */
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -12744,7 +12744,7 @@ textarea::placeholder {
 
 /*testimonial style ten*/
 .testimonial-area.style-ten {
-    background: url(@/assets/images/about/icon16.jpg);
+    /* background: url(@/assets/images/about/icon16.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -12879,7 +12879,7 @@ textarea::placeholder {
 
 /*testimonal are style eleven*/
 .testimonial-area.style-eleven {
-    background: url(@/assets/images/about/counter4.png);
+    /* background: url(@/assets/images/about/counter4.png); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -12956,7 +12956,7 @@ textarea::placeholder {
     overflow: hidden;
     z-index: 1;
     transition: .5s;
-    background: url(@/assets/images/about/testimonial3.png);
+    /* background: url(@/assets/images/about/testimonial3.png); */
     margin-bottom: 20px;
     background-repeat: no-repeat;
 }
@@ -12990,7 +12990,7 @@ textarea::placeholder {
 }
 
 .testimonial-area.style-eleven .owl-dot {
-    background: url(@/assets/images/about/testi3.png);
+    /* background: url(@/assets/images/about/testi3.png); */
     height: 80px;
     width: 80px;
     margin: 0 8px;
@@ -13001,7 +13001,7 @@ textarea::placeholder {
 }
 
 .testimonial-area.style-eleven .owl-dot.active {
-    background: linear-gradient(360deg, rgba(255, 59, 0, 0.3), rgba(255, 59, 0, 0.3)), url(@/assets/images/about/ficture.png);
+    /* background: linear-gradient(360deg, rgba(255, 59, 0, 0.3), rgba(255, 59, 0, 0.3)), url(@/assets/images/about/ficture.png); */
     height: 80px;
     width: 80px;
     margin: 0 8px;
@@ -13727,7 +13727,7 @@ input.subscribe-mail-box {
 
 /*subscribe section style ten*/
 .subscribe-section.style-ten {
-    background: url(@/assets/images/about/subscribe.jpg);
+    /* background: url(@/assets/images/about/subscribe.jpg); */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -13895,7 +13895,7 @@ input.subscribe-mail-box {
 
 /*footer section style ten upper*/
 .footer.style-ten.upper {
-    background: url(@/assets/images/about/footer4.jpg);
+    /* background: url(@/assets/images/about/footer4.jpg); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -14007,7 +14007,7 @@ input.subscribe-mail-box {
    Itsoft Start Breadcumb area style
   -------------------*/
 .breadcumb-area {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(@/assets/images/about/iab1.jpg) no-repeat center/cover;
+    /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(@/assets/images/about/iab1.jpg) no-repeat center/cover; */
     height: 520px;
     position: relative;
 }
@@ -14057,7 +14057,7 @@ input.subscribe-mail-box {
     text-align: center;
 }
 
-.flip-box-one .front-side,
+/* .flip-box-one .front-side,
 .flip-box-one .back-side {
     background: linear-gradient(rgb(0, 0, 0, 0.6), rgb(0, 0, 0, 0.6)), url(@/assets/images/flipbox/fb-bg1.jpg) no-repeat center/cover;
 }
@@ -14075,7 +14075,7 @@ input.subscribe-mail-box {
 .flip-box-four .front-side,
 .flip-box-four .back-side {
     background: linear-gradient(rgb(0, 0, 0, 0.6), rgb(0, 0, 0, 0.6)), url(@/assets/images/flipbox/fb-bg4.jpg) no-repeat center/cover;
-}
+} */
 
 .front-side,
 .back-side {
@@ -14134,9 +14134,9 @@ input.subscribe-mail-box {
 /*--------------------
    ================ Service Section Style Eight
   --------------------*/
-.services-section.style-8 {
+/* .services-section.style-8 {
     background: linear-gradient(rgb(0, 0, 0, 0.8), rgb(0, 0, 0, 0.8)), url(@/assets/images/services/svbg8.jpg) no-repeat center/cover;
-}
+} */
 
 .service-icon-list ul li {
     display: inline-block;
@@ -14674,9 +14674,9 @@ input.subscribe-mail-box {
   ============== Start Appoinment Section Style Three
   ------------------*/
 
-.appointment-section.style-3 {
+/* .appointment-section.style-3 {
     background: url(@/assets/images/appointment/apm-bg1.jpg) no-repeat center/ cover;
-}
+} */
 
 .appointment-section.style-3 .input-box {
     width: 80%;

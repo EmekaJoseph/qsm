@@ -35,7 +35,7 @@
         <div v-else>
         <!-- <div class="py-5" style="min-height: 300px;" v-if="!materials.list.length">
             <EmptyListComponent str="No Materials" />
-                                                                              </div> -->
+                                                                                  </div> -->
 
           <div class="row gy-3">
             <div class="col-md-8">

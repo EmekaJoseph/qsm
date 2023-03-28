@@ -39,7 +39,7 @@ Route::controller(UsersController::class)->group(function () {
 });
 
 Route::post('login', [AdminController::class, 'login']);
-Route::apiResource('blog', BlogController::class);
+Route::resource('blog', BlogController::class)->only(['index', 'show']);
 
 
 
@@ -82,7 +82,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         'archive' => ArchiveController::class,
         'materials' => MaterialsController::class,
         'trainings' => TrainingsController::class,
-        // 'blog' => BlogController::class,
     ]);
-    // Route::apiResource('blog', BlogController::class)->except(['index', 'show']);
+
+    Route::resource('blog', BlogController::class)->except(['index', 'show']);
 });

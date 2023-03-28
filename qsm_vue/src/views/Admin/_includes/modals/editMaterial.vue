@@ -29,18 +29,16 @@
                                                 {{ option.category_name }}
                                             </option>
                                         </select>
-
                                     </div>
 
-                                    <div class="col-md-12 mt-3">
+                                    <div class="col-md-12 mt-4">
                                         <button v-if="!isSaving" @click.prevent="updateDetails"
-                                            class="float-end theme-btn btn-custom-secondary btn">Update
+                                            class="float-end theme-btn btn-custom-secondary btn w-100">Update
                                         </button>
-                                        <button v-else class="float-end theme-btn btn" disabled>Updating...</button>
+                                        <button v-else class="float-end theme-btn btn w-100" disabled>Updating...</button>
                                     </div>
                                 </form>
                             </div>
-
                         </div>
                     </div>
                 </div>

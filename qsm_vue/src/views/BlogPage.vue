@@ -60,7 +60,7 @@ onMounted(() => {
 
 async function getBlogs() {
   let { data } = await blog_api.list()
-  blogList.value = data.slice(0, 3)
+  blogList.value = data
 }
 
 function blogDetails(blog_id: any) {

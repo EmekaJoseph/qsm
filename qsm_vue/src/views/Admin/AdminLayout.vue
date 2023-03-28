@@ -1,10 +1,11 @@
 
 
 <template>
-    <nav data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" class="fixed-top navbar bg-body-tertiary top-nav">
+    <nav class="fixed-top navbar bg-body-tertiary top-nav">
         <div class="container-fluid">
             <a class="navbar-brand">QSM-Manager <span class="xsmall text-muted2"> &gt; {{ route.name }}</span></a>
-            <div class="fs-1 d-md-none"><i class="bi bi-list"></i></div>
+            <div data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" class="fs-1 d-md-none"><i
+                    class="bi bi-list"></i></div>
         </div>
     </nav>
 

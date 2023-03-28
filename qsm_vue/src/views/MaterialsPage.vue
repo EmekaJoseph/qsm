@@ -35,7 +35,7 @@
         <div v-else>
         <!-- <div class="py-5" style="min-height: 300px;" v-if="!materials.list.length">
             <EmptyListComponent str="No Materials" />
-                                                                                  </div> -->
+                                                                                          </div> -->
 
           <div class="row gy-3">
             <div class="col-md-8">
@@ -60,7 +60,7 @@
                       </div>
                       <div class="col-10 details-right">
                         <div class="title">
-                          {{ matr.name }}
+                          {{ matr.name }} <small>({{ matr.material_code }})</small>
                         </div>
                         <div class="info">
                           <div class="category text-success mb-1">
@@ -140,7 +140,7 @@ function searchByLatest() {
 }
 
 function searchByName(str: string) {
-  listGroupName.value = 'RESULTS BY NAME: ' + str;
+  listGroupName.value = 'RESULTS BY SEARCH: ' + str;
   categoryToSearch.value = ''
   materials.searchLoading = true
   materials.materialsByName(str)

@@ -52,23 +52,14 @@ onMounted(() => {
     getBlogs()
 })
 
-
-
 async function getBlogs() {
     let { data } = await blog_api.list()
     blogList.value = data.slice(0, 3)
 }
 
 function blogDetails(blog_id: any) {
-    router.push({
-        path: `/blog`,
-        query: {
-            blog: blog_id
-        }
-    })
+    router.push({ path: `/blog`, query: { blog: blog_id } })
 }
-
-
 
 let interval = setInterval(() => {
     getBlogs()
@@ -77,7 +68,6 @@ let interval = setInterval(() => {
 onUnmounted(() => {
     clearInterval(interval)
 })
-
 
 </script>
 

@@ -19,7 +19,7 @@
                                 <li v-else><a href="/#" class="a-text">Home</a></li> -->
 
                                 <li>
-                                    <router-link class="a-text" :to="{ path: '/', hash: '#' }">Home</router-link>
+                                    <router-link class="a-text" :to="{ path: '/', hash: '' }">Home</router-link>
                                 </li>
 
                                 <li>

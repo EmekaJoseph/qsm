@@ -44,7 +44,8 @@
             </li>
 
             <li class="list-group-item mt-5">
-                <button @click="logOut" class="btn btn-light bg-danger-subtle btn-sm pe-5">Logout</button>
+                <button data-bs-dismiss="offcanvas" @click="logOut"
+                    class="btn btn-light bg-danger-subtle btn-sm pe-5">Logout</button>
             </li>
         </ul>
     </div>
@@ -112,7 +113,7 @@ a:not(.gActive):hover {
 
 @media screen and (max-width: 767px) {
     .list-group-item {
-        margin-bottom: 10px;
+        margin-bottom: 16px;
         border: none;
         /* font-size: 16px; */
     }

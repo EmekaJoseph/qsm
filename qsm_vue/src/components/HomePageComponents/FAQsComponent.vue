@@ -20,10 +20,6 @@
             <div class="section-slide">
                 <!-- <img class="codeImg" src="@/assets/images/dots.png" alt="" /> -->
                 <div class="container">
-                    <!-- <div class="col-lg-8 mx-auto text-center mb-5">
-                        <h2 class="fs-1 section-title">- FAQs -</h2>
-                        <p class="mb-0 subtitle-text">Frequently Asked Questions. ❓</p>
-                    </div> -->
                     <div class="row justify-content-center gy-3 gx-lg-4">
                         <div class="animate__animated animate__slideInUp  col-md-12">
                             <div class="mb-3">
@@ -43,7 +39,7 @@
                                                 :class="{ 'show': faq.question == showing }"
                                                 :aria-labelledby="'heading' + index" data-bs-parent="#accordionExample">
                                                 <div class="accordion-body">
-                                                    <p class=" fst-italic">
+                                                    <p class=" fst-italic text-muted">
                                                         {{ faq.answer }}
                                                     </p>
                                                 </div>
@@ -191,8 +187,8 @@ const showing = ref(faqs[0].question)
 }
 
 .accordion-button:not(.collapsed) {
-    /* color: #FF3C00 !important; */
-    color: #111 !important;
+    color: #FF3C00 !important;
+    /* color: #111 !important; */
     font-weight: bold;
 }
 
@@ -200,11 +196,11 @@ const showing = ref(faqs[0].question)
     color: #FF3C00 !important;
 } */
 
-/* .accordion-button.collapsed::after {
+.accordion-button.collapsed::after {
     background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%232c3e50'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
 
 .accordion-button:not(.collapsed)::after {
     background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%232c3e50'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-} */
+}
 </style>

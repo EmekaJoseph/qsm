@@ -8,8 +8,9 @@
                         <!-- <h1> Consultancy Services <br>at its Best</h1> -->
                         <h1 class="animate__animated animate__slideInLeft"> Training &amp; Consultancy <br> Services at its
                             Best</h1>
-                        <p>Training &amp; Development, Technical Course
-                            &amp; Consultancy Services</p>
+                        <p class="text-success text-sml">Training &amp; Development, Technical
+                            Course &amp; Consultancy Services
+                        </p>
                         <div class="btn-common btn-hero">
                             <router-link to="/about">Learn More <i class="bi bi-chevron-right"></i></router-link>
                         </div>
@@ -55,9 +56,13 @@
 }
 
 
-/* @media (max-width: 991px) {
-    .hero-section {
+@media (max-width: 991px) {
+    /* .hero-section {
         margin-top: 50px;
+    } */
+
+    .text-sml {
+        font-weight: bold;
     }
-} */
+}
 </style>

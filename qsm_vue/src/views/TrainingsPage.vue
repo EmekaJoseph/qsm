@@ -19,7 +19,7 @@
 
       <div class="container py-2 mt-lg-3 min-vh-100">
 
-        <div v-if="trainings.list.length" class="text-center mb-lg-5">
+        <div v-if="trainings.list.length" class="text-center mb-5">
           <span class="fw-bold"> Register for a Training,</span> <br> You can register for more than a training by
           simply adding them to
           cart.
@@ -103,7 +103,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted } from 'vue'
+import { onMounted } from 'vue'
 import { useTrainings } from '@/store/trainings'
 import trainingDetailsModal from '@/components/Modals/trainingDetailsModal.vue';
 import cartModal from '@/components/Modals/cartModal.vue';
@@ -114,17 +114,6 @@ onMounted(() => {
   window.scrollTo(0, 0);
   trainings.getList()
 })
-
-
-
-let interval = setInterval(() => {
-  trainings.getList()
-}, 10000)
-
-onUnmounted(() => {
-  clearInterval(interval)
-})
-
 
 </script>
 

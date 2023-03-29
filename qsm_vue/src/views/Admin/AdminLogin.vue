@@ -30,7 +30,10 @@
                                     <button v-else disabled class="btn theme-btn btn-lg w-100">Please Wait..</button>
                                 </div>
                             </form>
+                            <div class="text-center my-3"><router-link to="/">Home</router-link>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -91,8 +94,6 @@ async function login() {
         account.state = resp.data
         account.token = resp.data.token
         router.replace({ path: '/admin/trainings' })
-
-        console.log(resp);
         admin.loading = false
 
     } catch (error) {

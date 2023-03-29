@@ -24,11 +24,11 @@
                     <div class="card-body pt-2">
                         <!-- <ul data-bs-dismiss="offcanvas"> -->
                         <ul>
-                            <li> <router-link to="/">Home</router-link> </li>
-                            <li> <router-link to="/about">About us</router-link> </li>
-                            <li><router-link to="/materials">Materials</router-link></li>
-                            <li><router-link to="/trainings">Trainings</router-link></li>
-                            <li><router-link to="/blog-home">Blog</router-link></li>
+                            <li> <router-link to="/"><i class="bi bi-dash-lg"></i> Home</router-link> </li>
+                            <li> <router-link to="/about"><i class="bi bi-dash-lg"></i> About us</router-link> </li>
+                            <li><router-link to="/materials"><i class="bi bi-dash-lg"></i> Materials</router-link></li>
+                            <li><router-link to="/trainings"><i class="bi bi-dash-lg"></i> Trainings</router-link></li>
+                            <li><router-link to="/blog-home"><i class="bi bi-dash-lg"></i> Blog</router-link></li>
                         </ul>
                     </div>
                 </div>
@@ -76,7 +76,6 @@ watch(() => route.path, () => {
 
 .offcanvas-body ul li {
     list-style-type: none;
-    list-style-type: circle;
     margin-bottom: 30px;
 }
 

@@ -1,8 +1,6 @@
 <template>
     <div>
         <div class="row justify-content-center gy-3">
-
-
             <!-- FORM ################################################# -->
             <div class="col-lg-5">
                 <div class="card rounded-4 h-100">
@@ -13,17 +11,17 @@
                         <form @submit.prevent="submitForm" class="row gy-3">
                             <div class="col-md-12">
                                 <label>Training Title:</label>
-                                <input v-model="form.title" type="text" class="form-control">
+                                <textarea v-model="form.title" class="form-control" rows="2"></textarea>
                             </div>
 
                             <div class="col-md-12">
                                 <label>Training Info:</label>
-                                <textarea v-model="form.info" class="form-control" rows="4"></textarea>
+                                <textarea v-model="form.info" class="form-control" rows="10"></textarea>
                             </div>
 
                             <div class="col-md-12">
                                 <label>Training Venue:</label>
-                                <input v-model="form.venue" type="text" class="form-control">
+                                <textarea v-model="form.venue" class="form-control" rows="2"></textarea>
                             </div>
 
                             <div class="col-md-6">
@@ -74,15 +72,23 @@
                             </div>
 
                             <div v-else class="table-responsive list-scroll">
-                                <table class="table">
+                                <table class="table table-sm text-muted">
                                     <tbody>
                                         <tr v-for="(trn, index) in Trainings.active " :key=index>
-                                            <th>{{ (index + 1) }}</th>
-                                            <td>{{ trn.title }}</td>
-                                            <td>
+                                            <td class="">
+                                                <span class="fw-bold text-capitalize">{{ trn.title }}</span>
+                                                <div class="small text-muted">
+                                                    {{ reglink(trn.id) }}
+                                                </div>
+                                                <button @click="copy(reglink(trn.id))"
+                                                    class="btn btn-sm m-0 p-0 px-1 text-success bg-success-subtle">
+                                                    copy link
+                                                </button>
+                                            </td>
+                                            <td style="width: 5%;">
                                                 <div class="dropdown">
                                                     <button
-                                                        class="btn p-0 bg-dark-subtle px-2 m-0 btn-link text-black dropdown-toggle"
+                                                        class="btn p-0 bg-light-subtle px-2 m-0 btn-link text-black dropdown-toggle"
                                                         type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                         <i class="bi bi-three-dots"></i>
                                                     </button>
@@ -124,7 +130,7 @@
                 <div class="card bg-white rounded-4 h-100">
                     <div class="card-header bg-transparent fw-bold  border-0"> <i
                             class="bi bi-circle-fill text-muted2 xsmall"></i>
-                        Past Trainings</div>
+                        Previous Trainings:</div>
                     <div class="card-body">
 
                         <div v-if="Trainings.loading">
@@ -143,8 +149,6 @@
                                         <tr v-for="(trn, index) in Trainings.inActive " :key=index>
                                             <th>{{ (index + 1) }}</th>
                                             <td>{{ trn.title }}</td>
-
-
 
                                             <td>
                                                 <button @click="getRegList(trn.id)"
@@ -167,7 +171,10 @@
                     </div>
                 </div>
             </div>
+
         </div>
+
+        <!-- modals ################################################ -->
         <editTraining :item="Trainings.toEdit" @done="getList" />
         <regList :list="Trainings.regList" />
         <button data-bs-toggle="modal" data-bs-target="#regList" ref="openListBtn" class="d-none"></button>
@@ -180,7 +187,10 @@ import useFunction from '@/store/functions/useFunction';
 import { TrainingsAPI } from '@/store/functions/axiosManager';
 import editTraining from './_includes/modals/editTraining.vue';
 import regList from './_includes/modals/regList.vue';
+import { useClipboard } from '@vueuse/core'
 
+const { copy } = useClipboard()
+// const clipboard = useClipboard()
 
 onMounted(() => {
     Trainings.loading = true
@@ -280,6 +290,9 @@ async function getRegList(id: any) {
     openListBtn.value.click()
 }
 
+const reglink = (id: any) => {
+    return `${window.location.origin}/booktraining?trn=${id}`
+}
 
 
 async function deleteTraining(id: any) {

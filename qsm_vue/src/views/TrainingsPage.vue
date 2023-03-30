@@ -67,8 +67,7 @@
                       class="float-end btn btn-danger bg-danger-subtle text-dark rounded-3 btn-sm px-3 xsmall">
                       <i class="bi bi-cart-x"></i> Remove
                     </button>
-                    <button @click="trainings.detailsShow = training" data-bs-toggle="modal"
-                      data-bs-target="#trainingDetailsModal"
+                    <button @click="gotoTrainingPage(training.id)"
                       class="float-end btn btn-custom-light rounded-3 me-3 btn-sm px-3 xsmall">
                       <i class="bi bi-list"></i> details
                     </button>
@@ -107,13 +106,24 @@ import { onMounted } from 'vue'
 import { useTrainings } from '@/store/trainings'
 import trainingDetailsModal from '@/components/Modals/trainingDetailsModal.vue';
 import cartModal from '@/components/Modals/cartModal.vue';
+import { useRouter } from 'vue-router';
 
 const trainings = useTrainings()
+const router = useRouter()
 
 onMounted(() => {
   window.scrollTo(0, 0);
   trainings.getList()
 })
+
+function gotoTrainingPage(id: any) {
+  router.push({
+    path: '/booktraining',
+    query: {
+      trn: id
+    }
+  })
+}
 
 </script>
 

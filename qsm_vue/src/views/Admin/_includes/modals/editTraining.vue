@@ -21,15 +21,15 @@
                                 <form class="row g-3">
                                     <div class="col-md-12">
                                         <label>Title:</label>
-                                        <input v-model="thisItem.title" type="text" class="form-control">
+                                        <textarea v-model="thisItem.title" class="form-control" rows="2"></textarea>
                                     </div>
                                     <div class="col-md-12">
                                         <label>Info:</label>
-                                        <textarea v-model="thisItem.info" class="form-control" rows="3"></textarea>
+                                        <textarea v-model="thisItem.info" class="form-control" rows="10"></textarea>
                                     </div>
                                     <div class="col-md-12">
                                         <label>Venue:</label>
-                                        <input v-model="thisItem.venue" type="text" class="form-control">
+                                        <textarea v-model="thisItem.venue" class="form-control" rows="2"></textarea>
                                     </div>
                                     <div class="col-md-6">
                                         <label>Start:</label>

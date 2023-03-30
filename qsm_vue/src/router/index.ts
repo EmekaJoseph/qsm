@@ -30,6 +30,7 @@ const router = createRouter({
     { path: '/', name: 'Home', component: HomeView },
     { path: '/about', name: 'About', component: AboutView },
     { path: '/trainings', name: 'Trainings_', component: TrainingsPage },
+    { path: '/booktraining', name: 'Book Training', component: () => import('../views/BookTraining.vue'), props: route => ({ query: route.query }) },
     { path: '/materials', name: 'Course Materials', component: MaterialsPage },
     { path: '/blog-home', name: 'Blog Home', component: () => import('../views/BlogPage.vue') },
     { path: '/blog', name: 'Blog', component: () => import('../views/BlogDetails.vue'), props: route => ({ query: route.query }), },

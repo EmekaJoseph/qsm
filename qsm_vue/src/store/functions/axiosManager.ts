@@ -113,6 +113,10 @@ class TrainingsAPI {
         return $instance.get(`trainings`)
     }
 
+    details(id: any) {
+        return $instance.get(`trainings/${id}`)
+    }
+
     activeTrainings() {
         return $instance.get(`activeTrainings`)
     }

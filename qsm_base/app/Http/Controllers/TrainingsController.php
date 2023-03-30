@@ -74,6 +74,16 @@ class TrainingsController extends BaseController
         return response()->json('saved', 200);
     }
 
+    public function show($id)
+    {
+        $training = TrainingModel::find($id);
+        if (!$training) {
+            return response()->json('not found', 203);
+        }
+
+        return response()->json($training, 200);
+    }
+
 
     public function updateTraining(Request $req, string $id)
     {
@@ -113,25 +123,6 @@ class TrainingsController extends BaseController
         $training->save();
         return response()->json('updated', 200);
     }
-
-
-
-
-    // public function update(Request $req, string $id)
-    // {
-    //     $training = TrainingModel::find($id);
-
-    //     $start = Carbon::parse($req->start_date);
-    //     $end = Carbon::parse($req->end_date);
-
-    //     $training->title = $req->input('title');
-    //     $training->info = $req->input('info');
-    //     $training->venue = $req->input('venue');
-    //     $training->start_date = $start->toDateString();
-    //     $training->end_date = $end->toDateString();
-
-    //     return response()->json($training->save(), 200);
-    // }
 
 
     public function destroy(string $id)

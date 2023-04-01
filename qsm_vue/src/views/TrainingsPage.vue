@@ -36,11 +36,11 @@
           </div>
 
           <div v-else class="row gy-4">
-            <div v-for="(training, i) in trainings.list" :key="i" class="col-12 col-md-6 col-lg-6">
+            <div v-for="(training, i) in trainings.list" :key="i" class="col-12 col-md-6 col-lg-4">
               <div class="card h-100 shadow rounded-4">
                 <div class="card-body">
-                  <h5 style="cursor: pointer;" @click="trainings.detailsShow = training" data-bs-toggle="modal"
-                    data-bs-target="#trainingDetailsModal" class="card-title text-black shadow-sm p-3 ">
+                  <h5 style="cursor: pointer;" @click="gotoTrainingPage(training.id)"
+                    class="card-title text-black shadow-sm p-3 ">
                     <i class=" theme-color-faint bi bi-file-earmark-easel text-muted fs-2"></i>
                     {{ training.title }}
                   </h5>
@@ -96,7 +96,6 @@
     </div>
 
     <cartModal />
-    <trainingDetailsModal />
     <FooterComponent />
   </div>
 </template>
@@ -104,7 +103,6 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import { useTrainings } from '@/store/trainings'
-import trainingDetailsModal from '@/components/Modals/trainingDetailsModal.vue';
 import cartModal from '@/components/Modals/cartModal.vue';
 import { useRouter } from 'vue-router';
 

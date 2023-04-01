@@ -27,21 +27,23 @@
                                                 class="fas fa-angle-right"></i></span></a>
                                     <ul class="sub-menu">
 
-                                        <li> <router-link to="/about">About Us</router-link> </li>
-                                        <li>
+                                        <li><router-link to="/about">About Us</router-link> </li>
+                                        <li><router-link to="/trainings">Trainings</router-link></li>
+                                        <li><router-link to="/materials">Materials</router-link></li>
+                                        <!-- <li>
                                             <router-link :to="{ path: '/about', hash: '#history' }">History</router-link>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </li>
 
-                                <li>
+                                <!-- <li>
                                     <a href="#" class="a-text">Services<i class="bi bi-chevron-down"></i><span><i
                                                 class="fas fa-angle-right"></i></span></a>
                                     <ul class="sub-menu">
                                         <li><router-link to="/trainings">Trainings</router-link></li>
                                         <li><router-link to="/materials">Materials</router-link></li>
                                     </ul>
-                                </li>
+                                </li> -->
 
                                 <li>
                                     <router-link class="a-text" to="/blog-home">Blog</router-link>
@@ -79,7 +81,7 @@ a {
 }
 
 .itsoft_nav_manu nav ul li a {
-    margin: 30px 15px;
+    margin: 30px 20px;
     color: #111 !important;
 }
 

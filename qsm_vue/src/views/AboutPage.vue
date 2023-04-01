@@ -28,26 +28,32 @@
 
         <section class="section" id="history">
           <div class="title">Who We Are</div>
-          QSM Training & Consulting Ltd Outsourcing Services is amongst the leading provider of
-          outsourcing services to multiple clients across a number of sectors in the Nigerian economy.
-          Our client base includes multi-nationals, as well as very successful indigenous organizations.
+          Quality System Management was founded in the year 2001 and was rebranded to QSM Training & Consulting Limited in
+          the year 2015 with headquarter in Lagos, Nigeria. QSM Training and Consulting Limited is a leading Training and
+          Consulting firm, serving clients across Africa. Our Staff represents a diverse spectrum of professional
+          disciplines, ranging from, Pharmacists, Foods Scientists, Biochemist, Microbiologist, Chemist, Regulatory
+          Experts and practicing Engineers. We also have in our employment seasoned administrators, accountants and a team
+          of ICT experts. Our robust collaboration with different government agencies, professional bodies, the academia
+          and industries within are sphere of operations account for our sustainable success.
           <p>
-            We leverage our experience working with organizations in key sectors of the |Nigerian
-            economy, the knowledge base of the QSM Training & Consulting Ltd, as well as its large pool of
-            experience seekers to deliver world class outsourcing solutions to our clients.
+            Our motivation was the rapid changing landscape in quality assurance and quality management requirements and
+            our commitment to capacity building for personnel in the food, pharmaceutical, cosmetic, diagnostics and
+            allied fields. Our client spectrum continues to expand extending beyond the shores of Nigeria. We host regular
+            group advertised training, workshop, seminar, conference and exhibition. Our clients have ranked our in-house
+            training and facility audit as among the best in Nigeria. Our monthly Newsletter is a platform to discuss
+            contemporary issues as they emerge, forecast future trends and Showcase Company's profile and advertise their
+            products. Our cartoon corner can best be described as unveiling. Our goal is to help companies maintain
+            standards and quality for customers' satisfaction.
           </p>
-          <p>We have developed, tested & implemented various outsourcing processes and solutions
-            uniquely tailored to the Nigerian economy environment guaranteeing our clients a seamless
-            transition as they seek to strategically optimize their resources.
-          </p>
-          <p>
-            Our over-arching goal is to ensure that our clients achieve and exceed their business objectives.
-            Every member of our team is committed to delivering the excellence and professionalism
-            required to deliver on this promise.
+          <p>QSM Training &amp; Consulting programmes have helped clients design and implement projects, improve
+            efficiency,
+            enhance human capacity and build great institutions.
+            At QSM Training &amp; Consulting we learn to train and bring the most current knowledge to your corridor.
+
           </p>
         </section>
 
-        <section class="section">
+        <!-- <section class="section">
           <div class="title">History</div>
           Quality System Management was founded in the year 2001 and was rebranded to QSM
           Training & Consulting Limited in the year 2015 with headquartered in Lagos, Nigeria.
@@ -65,29 +71,36 @@
             efficiency, enhance human capacity and build great institutions.
             At QTC we train and bring the most current knowledge to your organization.
           </p>
-        </section>
+        </section> -->
 
         <section class="section">
-          <div class="title">Vision & Mission</div>
-          VISION: We envision in delivering, sustainable Human Capital for the Future through training <br>
-          MISSION: Our mission is to partner with organization in providing human capital development <br>
-          GOAL: To develop skills and increase productivity of your personnel.
+          <div class="title">Vision</div>
+          To be a leading innovative training and consulting firm on quality assurance and regulatory guidelines in food,
+          pharmaceutics and allied industries.
+        </section>
+        <section class="section">
+          <div class="title">Mission</div>
+          To build capacity in skill and regulatory requirements for the food, pharmaceutical and allied industries for
+          increase in productivity, best practices and sustainability.
+        </section>
+        <section class="section">
+          <div class="title">Goal</div>
+          To help companies maintain standards and quality for customers’ satisfaction.
         </section>
 
         <section class="section text-start" id="trainings">
-          <div class="title">SEMINARS/TRAINING CONDUCTED IN LAST FIVE YEARS</div>
-          <ol style="list-style: circle;">
+          <div class="title">OUR SEMINARS/TRAINING MODULES</div>
+          <ol style="list-style: circle; margin-top: 0px !important;">
             <li>Regulatory Requirements for Product Licencing.</li>
             <li>Good Practices for Quality Control Laboratories.</li>
-            <li>Water Quality Management (Module 1).</li>
+            <li>Water Quality Management.</li>
             <li>Good Manufacturing Practices in Pharmaceutical, Water, Food and Cosmetics
               Industries.</li>
-            <li>Good Practices for Quality Control Laboratories.</li>
-            <li>Managing Materials (Raw Materials, Packing/Labellings, Finished Materials.</li>
+            <li>Managing Materials (Raw Materials, Packing/Labelings, Finished Materials).</li>
             <li>Good Documentation Practices.</li>
             <li>Food Safety Training.</li>
             <li>Good Storage Practice.</li>
-            <li>Achieving Quality & Compliance Excellence.</li>
+            <li>Achieving Quality &amp; Compliance Excellence.</li>
             <li>Good Warehousing Practices.</li>
             <li>Good Hygiene Practices.</li>
             <li>System Development for Microbiology in Pharmaceutical, Food and Cosmetics
@@ -95,7 +108,49 @@
             <li>Proactive Approach to Good Production Practices in Sterile Products Plant.</li>
             <li>Equipment System Qualification.</li>
             <li>Hazard Analysis Critical Control Point (HACCP).</li>
+            <li>Specialized Trainings .</li>
           </ol>
+        </section>
+
+        <section class="section" id="consulting">
+          <div class="title">CONSULTING SERVICES</div>
+          <ol style="list-style: circle; margin-top: 0px !important;">
+            <li>Special Training/Seminars </li>
+            <li>Collaboration Training </li>
+            <li>Facility Audit </li>
+          </ol>
+        </section>
+
+        <section class="section">
+          <div class="title">OUTSOURCING SERVICES</div>
+          <div>
+            QSM Training &amp; Consulting Ltd Outsourcing Services is among the leading provider of outsourcing services
+            to
+            multiple clients across a number of sectors in the Nigerian economy. Our client base includes multi-nationals,
+            as well as very successful indigenous organizations.
+          </div>
+          <div>
+            <span>Our consultancy and outsourced services include:</span>
+            <ol style="list-style: circle; margin-top: 0px !important;">
+              <li> Laboratory services</li>
+              <li> Fumigation and pest control services</li>
+              <li> Equipment maintenance and calibration services</li>
+              <li> Water treatment and engineering services</li>
+              <li> Product registration and renewal of licenses with regulatory agencies</li>
+              <li> Pre-inspection and audit services</li>
+              <li> Business proposal and contract bidding</li>
+            </ol>
+          </div>
+
+          <span class="px-1 bg-warning-subtle rounded-1">Our over-arching goal is to ensure that our clients achieve
+            and exceed their business objectives. Every
+            member of our team is committed to delivering the excellence and professionalism required to deliver on this
+            promise.</span>
+        </section>
+
+        <section class="section text-start">
+          <div class="title">PROFESSIONAL BODY MEMBERSHIP</div>
+          <div class="text-success fs-5">Nigeria Institute of Training and Development (<b>NITAD</b>)</div>
         </section>
 
         <section class="section text-start">
@@ -103,7 +158,7 @@
           <ol>
             <li v-for="(trn, index) in trainings.list" :key="index">
               {{ trn.title }}
-              <ol style="list-style: circle;">
+              <ol style="list-style: upper-roman;">
                 <li v-for="list in trn.list" :key="list">
                   {{ list.name }} - <b>{{ list.date }}</b> </li>
               </ol>
@@ -112,81 +167,129 @@
         </section>
 
         <section class="section" id="faculty">
-          <div class="title">FACULTY:</div>
-          <div class="row mb-4 faculty-span">
-            <div class="col-lg-8 order-2 order-lg-1"><b>Prof. Louis Egwari</b> Chair, Training QSM training and Consulting
-              Ltd. He has over
-              30 years of work experience in academics and hospital duties and administration.
-              Seven years work experience in the Drug Production Unit of Pharmacy
-              Department Lagos University Teaching Hospital, Idi-Araba and 23 years of
-              academic and administrative experience in College of Medicine Idi-Araba,
-              University of Lagos and Covenant University. He is a member of the Institute of
-              Public Analysts of Nigeria (IPAN), Nigerian Institute of Food Science and
-              Technology (NIFST) and the Association of Medical Laboratory Scientist of Nigeria
-              (AMLSN). He is also a member of the Anaerobe Society of the Americas (ASA) and
-              the International Society of Infectious Diseases (ISID). He is a researcher, an
-              author and a reviewer for many Journals. He is also external examiner to many
-              Institutions both National and International. He has 3 patents all from microbial
-              fermentation. He is a trainer, writer and speaker on diverse topics related to
-              medical microbiology, food microbiology, Pharmaceutical microbiology and
-              Water microbiology and chemistry. His expertises are in proposal writing, project
-              development, product development and capacity building.</div>
-            <!-- <div class="col-lg-4 order-1 order-lg-2">
-              <div class="pic-span">PHOTO</div>
-            </div> -->
-          </div>
+          <div class="title mb-3">ADMINISTRATIVE STAFF:</div>
 
           <div class="row mb-4 faculty-span">
-            <div class="col-lg-8 order-2 order-lg-1"><b>Dr (Mrs) Agnes Yemisi Asagbra - </b> Holds a PhD in Food and
-              Industrial Microbiology. She is presently the Director of Production, Analytical and
-              Laboratory Management in the Federal Institute of Industrial Research Oshodi
-              (FIIRO). She is QMS and FSMS auditor with DQS. She is also an IRCA auditor. She
-              is passionate about safety.</div>
-            <!-- <div class="col-lg-4 order-1 order-lg-2">
-              <div class="pic-span">PHOTO</div>
-            </div> -->
-          </div>
-
-          <div class="row mb-4 faculty-span">
-            <div class="col-lg-8 order-2 order-lg-1"><b>Emeka Chukwurah C. - </b> is an experienced Regulatory Affairs,
-              cGMP Compliance Professional and ISO 9001:2015 Auditor. He has over 14 years work experience
-              that spans the academia, Non-Governmental Organization, government
-              administration and FMCG. Out of the 14 yrs. he spent Eleven (11) years in
-              Establishment Inspection Directorate and Food Safety and Applied Nutrition
-              Directorate of NAFDAC as a water and food safety auditor. Currently, he consults
-              for companies on Regulatory, compliance and quality issues.</div>
-            <!-- <div class="col-lg-4 order-1 order-lg-2">
-              <div class="pic-span">PHOTO</div>
-            </div> -->
-          </div>
-
-          <div class="row mb-4 faculty-span">
-            <div class="col-lg-8 order-2 order-lg-1"><b>Opaleye, Nureni Babatunde – MBA (Master in Business
-                Administration) - </b> University of Lagos, B.Sc (Hons) Microbiology – University of Lagos, OND (Science
-              Technology) – The polytechnic Ibadan, Nigeria, Member Nigerian Society for Microbiology (MNSM),
-              Member Association of Industrial Microbiologist of Nigeria (MAIMN), Member
-              Standards Organization of Nigeria (Certified Systems Lead Auditor), Member Nigeria
-              Institute of Food Science and Technology (NIFST).
+            <div class="col-lg-8 order-2 order-lg-1">
+              <div class="theme-color fw-bold">Chinyere Ikeora</div>
+              <div>
+                <b>Career designation:</b> Regulatory Affairs/cGMP &amp; HSE Compliance Professional.
+              </div>
+              <div>
+                <b>Job designation:</b> Managing Director.
+              </div>
+              <div>
+                <b>Professional Designation/Affiliation:</b> IASP, FIPMA.
+              </div>
+              <div>
+                <b>Competencies:</b> Regulatory Affairs, CGMP and HSE compliance Management & Training Facility Audit
+              </div>
             </div>
-            <!-- <div class="col-lg-4 order-1 order-lg-2">
-              <div class="pic-span">PHOTO</div>
-            </div> -->
+            <div class="col-lg-4 order-1 order-lg-2">
+              <div class="pic-span">
+                <img src="@/assets/images/staff/staff_chinyere.jpg" alt="">
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row mb-4 faculty-span">
+            <div class="col-lg-8 order-2 order-lg-1">
+              <div class="theme-color fw-bold">Prof. Louis Egwari</div>
+              <div>
+                <b>Career designation:</b> Director, Research and Training, QSM Training and Consulting Ltd.
+              </div>
+              <div>
+                <b>Job designation:</b> Professor of Microbiology
+              </div>
+              <div>
+                <b>Professional Designation/Affiliation:</b> MIPAN (IPAN), MNIFST (NIFST), MIMLSN (IMLSN), MISID (ISID)
+              </div>
+              <div>
+                <b>Competencies:</b> Epidemiology of Infectious Diseases, Antimicrobial Agents and Drug Resistance, Water,
+                Food and Pharmaceutical Microbiology.
+              </div>
+            </div>
+            <div class="col-lg-4 order-1 order-lg-2">
+              <div class="pic-span">
+                <img src="@/assets/images/staff/staff_prof.jpg" alt="">
+              </div>
+            </div>
           </div>
 
           <div class="row mb-4 faculty-span">
-            <div class="col-lg-8 order-2 order-lg-1"><b>James Oyeyipo - (Training Manager) - </b> Accountant by training,
-              a highly motivated and result driven young man who has over
-              seven years of invaluable experience in leading and developing a successful team, skilled
-              in purchasing/supply management, accounting, financial management and marketing
-              with extra curricula skill in cinematographic and skill photography. His working
-              experience has enabled him to develop good individual and team playing abilities,
-              interpersonal skills and a strong ability to work within set targets even when tight
-              deadlines are set.
-
+            <div class="col-lg-8 order-2 order-lg-1">
+              <div class="theme-color fw-bold">Emeka Chukwurah</div>
+              <div>
+                <b>Career designation:</b> Regulatory Affairs/CGMP Compliance Professional.
+              </div>
+              <div>
+                <b>Job designation:</b> Resource Person
+              </div>
+              <div>
+                <b>Professional Designation/Affiliation:</b> ASQ Certified Food Safety &amp; Quality Auditor
+              </div>
+              <div>
+                <b>Competencies:</b> Regulatory Affairs, Regulatory Crises Management, CGMP &amp; HACCP Compliance
+                Management,
+                Quality Risk Management.
+              </div>
             </div>
-            <!-- <div class="col-lg-4 order-1 order-lg-2">
-              <div class="pic-span">PHOTO</div>
-            </div> -->
+            <div class="col-lg-4 order-1 order-lg-2">
+              <div class="pic-span">
+                <img src="@/assets/images/staff/staff_emeka.jpg" alt="">
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-4 faculty-span">
+            <div class="col-lg-8 order-2 order-lg-1">
+              <div class="theme-color fw-bold">Dr. Olayemi O. Akinnola</div>
+              <div>
+                <b>Career designation:</b> Senior Lecturer, Covenant University.
+              </div>
+              <div>
+                <b>Job designation:</b> Resource Person
+              </div>
+              <div>
+                <b>Professional Designation/Affiliation:</b> MISID (ISID).
+              </div>
+              <div>
+                <b>Competencies:</b> Specialization: Medical Microbiology, Pharmaceutical Microbiology and Antibiotic
+                Stewardship.
+              </div>
+            </div>
+            <div class="col-lg-4 order-1 order-lg-2">
+              <div class="pic-span">
+                <img src="@/assets/images/staff/staff_olayemi.jpg" alt="">
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-4 faculty-span">
+            <div class="col-lg-8 order-2 order-lg-1">
+              <div class="theme-color fw-bold">Elochukwu Adibo</div>
+              <div>
+                <b>Career designation:</b> Internationally Certified Biomedical Scientist.
+              </div>
+              <div>
+                <b>Job designation:</b> Resource Person
+              </div>
+              <div>
+                <b>Professional Designation/Affiliation:</b> Institute of Biomedical Science, Royal Microscopic Society
+                both in the UK, Register of the Health Care Profession Council in the UK, Fellow of Chartered Institute of
+                Management and Leadership of the United States of America.
+              </div>
+              <div>
+                <b>Competencies:</b> Laboratory Diagnosis/Procedures, Quality Management System, Leadership and Management
+                in Health, Infection Prevention and Control
+              </div>
+            </div>
+            <div class="col-lg-4 order-1 order-lg-2">
+              <div class="pic-span">
+                <img src="@/assets/images/staff/staff_elochukwu.jpg" alt="">
+              </div>
+            </div>
           </div>
 
         </section>
@@ -208,16 +311,10 @@ const trainings = useTraningsHistory();
 </script>
 
 <style>
-@media (max-width: 994px) {
-  .main-title {
-    font-size: 25px !important;
-  }
-}
-
 .section {
   margin-block: 27px;
   font-size: 16px;
-  text-align: justify;
+  /* text-align: justify; */
 }
 
 .faculty-span {
@@ -235,8 +332,35 @@ const trainings = useTraningsHistory();
   margin-left: 20px;
 } */
 
+
 .pic-span {
-  height: 200px;
-  background-color: var(--bs-light);
+  /* height: 300px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden
+}
+
+.pic-span img {
+  flex-shrink: 0;
+  width: 60%;
+  border: 2px solid #d1cfcf;
+  /* min-height: 100%; */
+}
+
+
+@media (max-width: 994px) {
+  .main-title {
+    font-size: 25px !important;
+  }
+
+  .section {
+    text-align: justify;
+  }
+
+  .pic-span {
+    display: flex;
+    justify-content: start;
+  }
 }
 </style>

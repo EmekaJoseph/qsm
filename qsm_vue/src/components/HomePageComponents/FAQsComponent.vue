@@ -45,34 +45,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
-
-                                        <!-- <div class="accordion-item">
-                                            <h2 class="accordion-header" id="headingTwo">
-                                                <button class="accordion-button collapsed headTopic" type="button"
-                                                    data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                                    aria-expanded="false" aria-controls="collapseTwo">
-                                                    After registration, what next?
-                                                </button>
-                                            </h2>
-                                            <div id="collapseTwo" class="accordion-collapse collapse"
-                                                aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                                <div class="accordion-body">
-                                                    <p>
-                                                        Once you have successfully registered, your payment will be
-                                                        confirmed
-                                                        within 48 hours. After confirmation, an email will be sent to you,
-                                                        in
-                                                        this email all the information you need to complete registration
-                                                        will be
-                                                        included. Please make sure you provide a valid email address while
-                                                        applying and check your spam for emails from us. Also, endeavor to
-                                                        thoroughly study the information provided in the email.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div> -->
-
                                     </div>
                                 </div>
                             </div>

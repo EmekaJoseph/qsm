@@ -23,7 +23,7 @@
             <div class="row justify-content-center g-3">
 
                 <div class="col-md-4">
-                    <div class="services-carousel-single-item ">
+                    <div class="services-carousel-single-item h-100">
                         <div class="services-carousel-thumb">
                             <img src="@/assets/images/services/svs2.jpg" alt="carousel-img">
                         </div>
@@ -35,12 +35,19 @@
                                 <h2>Training</h2>
                             </div>
                             <div class="services-content">
-                                <p>At QSM Training & Consulting Limited we train and bring the most current knowledge to
-                                    your organization. </p>
+                                <p>
+                                <ol style="list-style: circle;">
+                                    <li>Regulatory Requirements for Product Licencing.</li>
+                                    <li>Good Practices for Quality Control Laboratories.</li>
+                                    <li>Water Quality Management.</li>
+                                </ol>
+
+                                </p>
                             </div>
                             <div class="services-content-btn">
                                 <router-link :to="{ path: '/about', hash: '#trainings' }">
-                                    Read More<span><i class="bi fs-5 bi-arrow-right"></i></span>
+                                    Read More <i class="bi bi-chevron-right"></i>
+                                    <span><i class="bi fs-5 bi-arrow-right"></i></span>
                                 </router-link>
                             </div>
                         </div>
@@ -48,7 +55,7 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="services-carousel-single-item  ">
+                    <div class="services-carousel-single-item h-100  ">
                         <div class="services-carousel-thumb">
                             <img src="@/assets/images/services/svs1.jpg" alt="carousel-img">
                         </div>
@@ -60,12 +67,18 @@
                                 <h2>Consulting</h2>
                             </div>
                             <div class="services-content">
-                                <p> We have helped clients design and implement projects, enhance human capacity and build
-                                    great institutions. </p>
+                                <p>
+                                <ol style="list-style: circle;">
+                                    <li>Special Training/Seminars </li>
+                                    <li>Collaboration Training </li>
+                                    <li>Facility Audit </li>
+                                </ol>
+                                </p>
                             </div>
                             <div class="services-content-btn">
                                 <router-link to="/about">
-                                    Read More<span><i class="bi fs-5 bi-arrow-right"></i></span>
+                                    Read More <i class="bi bi-chevron-right"></i>
+                                    <span><i class="bi fs-5 bi-arrow-right"></i></span>
                                 </router-link>
                             </div>
                         </div>
@@ -73,7 +86,7 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="services-carousel-single-item  ">
+                    <div class="services-carousel-single-item h-100 ">
                         <div class="services-carousel-thumb">
                             <img src="@/assets/images/services/svs3.jpg" alt="carousel-img">
                         </div>
@@ -90,7 +103,8 @@
                             </div>
                             <div class="services-content-btn">
                                 <router-link to="/materials">
-                                    Read More<span><i class="bi fs-5 bi-arrow-right"></i></span>
+                                    Read More <i class="bi bi-chevron-right"></i>
+                                    <span><i class="bi fs-5 bi-arrow-right"></i></span>
                                 </router-link>
                             </div>
                         </div>

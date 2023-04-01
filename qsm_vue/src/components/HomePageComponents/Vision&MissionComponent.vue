@@ -21,7 +21,8 @@
                             <div class="process-content-title">
                                 <h4>Vision</h4>
                             </div>
-                            <p>We envision in delivering, sustainable Human Capital for the Future through training </p>
+                            <p>To be a leading innovative training and consulting firm on quality assurance and regulatory
+                                guidelines in food, pharmaceutics and allied industries. </p>
                         </div>
                     </div>
                 </div>
@@ -37,7 +38,8 @@
                             <div class="process-content-title">
                                 <h4>Mission</h4>
                             </div>
-                            <p>Our mission is to partner with organization in providing human capital development</p>
+                            <p>To build capacity in skill and regulatory requirements for the food, pharmaceutical and
+                                allied industries for increase in productivity, best practices and sustainability. </p>
                         </div>
                     </div>
                 </div>
@@ -53,7 +55,7 @@
                             <div class="process-content-title">
                                 <h4>Goal</h4>
                             </div>
-                            <p>To develop skills and increase productivity of your personnel.
+                            <p>To help companies maintain standards and quality for customers’ satisfaction.
                             </p>
                         </div>
                     </div>

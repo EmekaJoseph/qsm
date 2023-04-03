@@ -48,7 +48,10 @@
                                 </div>
                                 <div class="single-content-inner">
                                     <h5 class="inner-content-title pb-15 text-white">Our Faculty</h5>
-                                    <p>We are equipped with reputable hands.
+                                    <p>Our Staff represents a diverse spectrum of professional
+                                        disciplines, ranging from, Pharmacists, Foods Scientists, Biochemist,
+                                        Microbiologist, Chemist, Regulatory
+                                        Experts and practicing Engineers.
                                         <router-link :to="{ path: '/about', hash: '#faculty' }">Read More..</router-link>
                                     </p>
                                 </div>

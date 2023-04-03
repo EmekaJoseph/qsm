@@ -36,6 +36,8 @@ Route::controller(UsersController::class)->group(function () {
     Route::get('downloadMaterial/{code}',  'downloadMaterial');
     Route::get('availableCategories',  'availableCategories');
     Route::post('sendMessage',  'sendMessage');
+    Route::post('newsLetterSub/{email}',  'newsLetterSub');
+    Route::post('newsLetterUnsub/{email}',  'newsLetterUnSub');
 });
 
 Route::post('login', [AdminController::class, 'login']);
@@ -76,6 +78,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     });
 
     Route::post('materialToArchive', [ArchiveController::class, 'materialToArchive']);
+    Route::post('sendNewsLetter', [UsersController::class, 'sendNewsLetter']);
 
     Route::post('updateBlog/{blog_id}', [BlogController::class, 'updateBlog']);
 

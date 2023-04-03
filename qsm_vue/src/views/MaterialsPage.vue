@@ -35,7 +35,7 @@
         <div v-else>
         <!-- <div class="py-5" style="min-height: 300px;" v-if="!materials.list.length">
             <EmptyListComponent str="No Materials" />
-                                                                                          </div> -->
+                                                                                                                                                                          </div> -->
 
           <div class="row gy-3">
             <div class="col-md-8">
@@ -82,23 +82,31 @@
             </div>
 
             <!-- Categories area -->
-            <div class="col-md-4" v-if="materials.categories.length">
-              <div class="card rounded-0 border-top-0 border-end-0 border-bottom-0 border-light shadow-sm">
-                <div class="card-body">
-                  <div class="card-header bg-transparent fw-bold border-0">Categories:</div>
-                  <ul class="list-group list-group-flush">
+            <div class="col-md-4">
+              <div class="row gy-5">
+                <div class="col-12" v-if="materials.categories.length">
+                  <div class="card rounded-0 border-top-0 border-end-0 border-bottom-0 border-light shadow-sm">
+                    <div class="card-body">
+                      <div class="card-header bg-transparent fw-bold border-0">Categories:</div>
+                      <ul class="list-group list-group-flush">
 
-                    <li @click="searchByLatest()" class="list-group-item cate-list-item hover-tiltX"
-                      :class="{ 'theme-color': categoryToSearch == 'All' }">
-                      All (Latest)
-                    </li>
+                        <li @click="searchByLatest()" class="list-group-item cate-list-item hover-tiltX"
+                          :class="{ 'theme-color': categoryToSearch == 'All' }">
+                          All (Latest)
+                        </li>
 
-                    <li @click="searchByCategory(li)" v-for="li in materials.categories" :key="li"
-                      class="list-group-item cate-list-item hover-tiltX"
-                      :class="{ 'theme-color': categoryToSearch == li.category_name }">
-                      {{ li.category_name }}
-                    </li>
-                  </ul>
+                        <li @click="searchByCategory(li)" v-for="li in materials.categories" :key="li"
+                          class="list-group-item cate-list-item hover-tiltX"
+                          :class="{ 'theme-color': categoryToSearch == li.category_name }">
+                          {{ li.category_name }}
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="newsletter">
+                  <newsLetterForm />
                 </div>
               </div>
             </div>
@@ -112,18 +120,21 @@
   </div>
 </template>
 
-
-
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import SearchMaterialField from '@/components/SearchMaterialField.vue';
 import { useCourseMaterials } from '@/store/materials';
 import downloadMaterialModal from '@/components/Modals/downloadMaterialModal.vue';
+import newsLetterForm from '@/components/newsLetterForm.vue';
+
+
 
 
 onMounted(() => {
   searchByLatest()
 })
+
+
 
 
 
@@ -200,5 +211,11 @@ function searchByCategory(cate: any) {
 
 .cate-list-item:hover {
   color: #111;
+}
+
+@media (max-width: 768px) {
+  .newsletter {
+    margin-top: 200px;
+  }
 }
 </style>

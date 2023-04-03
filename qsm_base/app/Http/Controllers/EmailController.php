@@ -21,6 +21,17 @@ class EmailController extends BaseController
         $this->sendEmail($topic, $template, $data, $to);
     }
 
+    function sendNewsletter($title, $text, $email)
+    {
+        $data = [
+            'text' => $text,
+        ];
+        $template = 'emails/sendNewsletter';
+        $topic = $title;
+        $to = $email;
+        $this->sendEmail($topic, $template, $data, $to);
+    }
+
 
 
     private function sendEmail($topic, $template, $data, $email)

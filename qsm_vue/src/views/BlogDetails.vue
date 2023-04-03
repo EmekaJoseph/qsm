@@ -5,7 +5,7 @@
     <section class="body-section">
       <div class="pt-5 animate__animated animate__slideInLeft">
         <div class="container">
-          <h2>{{ currentBlog.title }}</h2>
+          <h3>{{ currentBlog.title }}</h3>
           <div v-if="currentBlog.image" class="row gx-4">
             <div class="col-lg-12">
               <div clas="img-holder fill">
@@ -22,9 +22,7 @@
           {{ new Date(currentBlog.created_at).toDateString() }}
         </div>
 
-        <div class="blog-text">
-          {{ currentBlog.body }}
-        </div>
+        <div class="blog-text" v-html="currentBlog.body"> </div>
 
       </div>
     </section>

@@ -122,4 +122,22 @@ class AdminController extends BaseController
     {
         DB::table('tbl_messages')->where('id', $id)->delete();
     }
+
+
+    public function sendNewsletter(Request $req)
+    {
+        $emails =  DB::table('tbl_newsletter')->pluck('email')->toArray();
+        $title = $req->input('title');
+        $text = $req->input('text');
+        if (sizeof($emails) > 0) {
+            $mailer = new EmailController();
+            try {
+                foreach ($emails as $email) {
+                    $mailer->sendNewsletter($title, $text, $email);
+                }
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+        }
+    }
 }

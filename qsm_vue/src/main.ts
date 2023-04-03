@@ -10,16 +10,19 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
 
+import 'vue3-carousel/dist/carousel.css';
+
+import '@vueup/vue-quill/dist/vue-quill.snow.css';
 
 import './assets/template/style.css';
 import './assets/template/responsive.css';
 import './assets/template/ui-kit.css';
 import './assets/template/default.css'
 
-
 import './assets/main.css'
 import 'animate.css';
-import 'vue3-carousel/dist/carousel.css';
+
+
 
 import vSelect from "vue-select";
 import "vue-select/dist/vue-select.css";

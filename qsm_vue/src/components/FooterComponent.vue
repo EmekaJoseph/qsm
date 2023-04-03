@@ -42,7 +42,7 @@
                 <div class="footer-quick-link-list">
                   <ul>
                     <li> <router-link to="/">Home</router-link> </li>
-                    <li> <router-link to="/about">About Our Company</router-link> </li>
+                    <li> <router-link to="/about">About Us</router-link> </li>
                     <li><router-link to="/materials">Course Materials</router-link></li>
                     <li><router-link to="/trainings">Trainings</router-link></li>
                     <li><router-link to="/admin">Admin</router-link></li>
@@ -59,7 +59,7 @@
                   <h5>Contacts</h5>
                 </div>
                 <p><b>Adress: </b> 68, Randle Avenue, Surulere, Lagos, Nigeria.</p>
-                <p><b>Phone: </b> +234 816 308 3253; <br>+234 802 364 7417; <br>+234 803 584 9127;</p>
+                <p><b>Phone: </b> +234 816 308 3253; <br>+234 802 364 7417; <br>+234 803 584 9127.</p>
                 <p><b>Email: </b> qsmtrainingconsulting@gmail.com</p>
               </div>
             </div>

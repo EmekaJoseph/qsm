@@ -46,32 +46,11 @@
             standards and quality for customers' satisfaction.
           </p>
           <p>QSM Training &amp; Consulting programmes have helped clients design and implement projects, improve
-            efficiency,
-            enhance human capacity and build great institutions.
+            efficiency, enhance human capacity and build great institutions.
             At QSM Training &amp; Consulting we learn to train and bring the most current knowledge to your corridor.
 
           </p>
         </section>
-
-        <!-- <section class="section">
-          <div class="title">History</div>
-          Quality System Management was founded in the year 2001 and was rebranded to QSM
-          Training & Consulting Limited in the year 2015 with headquartered in Lagos, Nigeria.
-          QSM Training & Consulting Limited (QTC) is a leading Training and Consulting firm,
-          serving clients across West Africa. Our Staff represents a diverse spectrum of
-          professional, ranging from Foods / Scientists, Technologists, Pharmacists,
-          Pharmacologist, Microbiologists, Chemists, Biochemists, and Engineers.
-          <p>For 18 years, we have sustained integrity and proficiency in designing trainings, seminar,
-            workshop and facility audit for the Food, Pharmaceutical, Water and Cosmetic
-            Manufacturers. Our reputation for quality service is attested to by participants who
-            attend our trainings.
-          </p>
-          <p>
-            QTC programmes have helped clients design and implement projects, improve
-            efficiency, enhance human capacity and build great institutions.
-            At QTC we train and bring the most current knowledge to your organization.
-          </p>
-        </section> -->
 
         <section class="section">
           <div class="title">Vision</div>

@@ -75,6 +75,14 @@ class UsersAPI {
     sendMessage(data: object) {
         return $instance.post(`sendMessage`, JSON.stringify(data))
     }
+
+    newsLetterSub(email: string) {
+        return $instance.post(`newsLetterSub/${email}`)
+    }
+
+    newsLetterUnsub(email: string) {
+        return $instance.post(`newsLetterUnsub/${email}`)
+    }
 }
 
 class AdminAPI {

@@ -17,10 +17,10 @@
                                 <h3>We Offer Quality Trainings &amp;</h3>
                                 <h2>Consultancy <span>Services</span></h2>
                                 <span class="section-head-bar"></span>
-                                <p> QSM Training &amp; Consulting Ltd Outsourcing Services is amongst the leading provider
-                                    of outsourcing services to multiple clients across a number of sectors in the Nigerian
-                                    economy. Our client base includes multi-nationals, as well as very successful indigenous
-                                    organizations.</p>
+                                <p> QSM Training and Consulting Limited is a leading Training and
+                                    Consulting firm, serving clients across Africa.
+                                    <router-link to="/about" class="theme-color"> more..</router-link>
+                                </p>
                             </div>
                         </div>
                         <div class="about-content">
@@ -31,11 +31,8 @@
                                 <div class="single-content-inner">
                                     <h5 class="inner-content-title pb-15">Clients' Experience</h5>
                                     <p>
-                                        Our over-arching goal is to ensure that our clients achieve and exceed their
-                                        business objectives.
-                                        <!-- Every member of our team is committed to delivering the excellence and
-                                        professionalism
-                                        required to deliver on this promise. -->
+                                        We host regular
+                                        group advertised trainings, workshops, seminars, conference and exhibition.
                                     </p>
                                 </div>
                             </div>
@@ -45,8 +42,9 @@
                                 </div>
                                 <div class="single-content-inner">
                                     <h5 class="inner-content-title pb-15">Quick Support</h5>
-                                    <p>We have developed, tested and implemented various outsourcing processes and solutions
-                                        uniquely tailored to the Nigerian economy environment. </p>
+                                    <p>Our goal is to help companies maintain
+                                        standards and quality for customers' satisfaction.
+                                    </p>
                                 </div>
                             </div>
                         </div>

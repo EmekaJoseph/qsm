@@ -58,6 +58,22 @@ class UsersController extends BaseController
         return response()->json('saved', 200);
     }
 
+    public function newsLetterSub($email)
+    {
+        if (DB::table('tbl_newsletter')->where('email', $email)->exists()) {
+            return response()->json('exists', 203);
+        }
+
+        DB::table('tbl_newsletter')->insert(['email' => $email]);
+
+        return response()->json('saved', 200);
+    }
+
+    public function newsLetterUnSub($email)
+    {
+        DB::table('tbl_newsletter')->where('email', $email)->delete();
+    }
+
 
     public function activeTrainings(Request $req)
     {

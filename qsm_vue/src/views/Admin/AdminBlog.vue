@@ -20,11 +20,12 @@
                                 <label>Title</label>
                                 <textarea v-model="form.title" rows="2" class="form-control"></textarea>
                             </div>
-                            <div class="col-12">
+                            <div class="col-12" style="margin-bottom: 50px;">
                                 <label>Body</label>
-                                <textarea v-model="form.body" rows="10" class="form-control"></textarea>
+                                <!-- <textarea v-model="form.body" rows="10" class="form-control"></textarea> -->
+                                <QuillEditor content-type="html" toolbar="minimal" v-model:content="form.body" />
                             </div>
-                            <div class="col-12">
+                            <div class="col-12 mt-4">
                                 <label>Category</label>
                                 <input v-model="form.category" type="text" class="form-control" />
                             </div>
@@ -121,6 +122,8 @@ import type { Header, Item, } from "vue3-easy-data-table";
 import editBlogModal from './_includes/modals/editBlog.vue';
 
 import { fileUploader } from '@/store/functions/fileUploader'
+import { QuillEditor } from '@vueup/vue-quill';
+
 
 const blog_api = new BlogAPI()
 const fxn = useFunction.fx
@@ -133,6 +136,7 @@ onMounted(() => {
     listIsLoading.value = true
     getBlogs()
 })
+
 
 
 // ######## BLOG TABLE START ############# //

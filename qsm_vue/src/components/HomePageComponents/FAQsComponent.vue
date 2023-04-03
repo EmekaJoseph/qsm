@@ -3,48 +3,41 @@
         <div class="container">
             <div class="section-head pb-65">
                 <div class="row align-items-center">
-                    <div class="col-sm-12 col-md-12 col-lg-4">
+                    <div class="col-sm-12 col-md-12 col-lg-6">
                         <div class="section-title">
                             <h5>// FAQS</h5>
                             <h3>Freqently Asked Questions</h3>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-12 col-lg-8">
+                    <!-- <div class="col-sm-12 col-md-12 col-lg-8">
                         <div class="section-head-content">
                             <p class="pt-0 pb-0">Our Frequently Asked Questions that make help you understand some of our
                                 modes of operations.</p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="section-slide">
                 <!-- <img class="codeImg" src="@/assets/images/dots.png" alt="" /> -->
-                <div class="container">
-                    <div class="row justify-content-center gy-3 gx-lg-4">
-                        <div class="animate__animated animate__slideInUp  col-md-12">
-                            <div class="mb-3">
-                                <div class="text">
-                                    <div class="accordion accordion-flush" id="accordionExample">
-                                        <div v-for="(faq, index) in faqs" :key="index" class="accordion-item">
-                                            <h2 @click="showing = faq.question" class="accordion-header"
-                                                :id="'heading' + index">
-                                                <button class="accordion-button headTopic"
-                                                    :class="{ 'collapsed': faq.question != showing }" type="button"
-                                                    data-bs-toggle="collapse" :data-bs-target="'#collapse_' + index"
-                                                    aria-expanded="true" :aria-controls="'#collapse_' + index">
-                                                    {{ faq.question }}
-                                                </button>
-                                            </h2>
-                                            <div :id="'#collapse_' + index" class="accordion-collapse collapse"
-                                                :class="{ 'show': faq.question == showing }"
-                                                :aria-labelledby="'heading' + index" data-bs-parent="#accordionExample">
-                                                <div class="accordion-body">
-                                                    <p class=" fst-italic text-muted">
-                                                        {{ faq.answer }}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
+                <div class="containe">
+                    <div class="animate__animated animate__slideInUp  col-md-12">
+                        <div class="accordion accordion-flush" id="accordionExample">
+                            <div v-for="(faq, index) in faqs" :key="index" class="accordion-item">
+                                <h2 @click="showing = faq.question" class="accordion-header" :id="'heading' + index">
+                                    <button class="accordion-button headTopic"
+                                        :class="{ 'collapsed': faq.question != showing }" type="button"
+                                        data-bs-toggle="collapse" :data-bs-target="'#collapse_' + index"
+                                        aria-expanded="true" :aria-controls="'#collapse_' + index">
+                                        {{ faq.question }}
+                                    </button>
+                                </h2>
+                                <div :id="'#collapse_' + index" class="accordion-collapse collapse"
+                                    :class="{ 'show': faq.question == showing }" :aria-labelledby="'heading' + index"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p class=" fst-italic text-muted">
+                                            {{ faq.answer }}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -124,7 +117,7 @@ const faqs: any = [
     {
         question: `What skills and experience does your facilitators have? `,
         answer: `We are a team of professionals with great wealth of experience, skills and proven track records of delivering results.  You can view our facilitators’ profile. `,
-    },
+    }
 ]
 
 const showing = ref(faqs[0].question)

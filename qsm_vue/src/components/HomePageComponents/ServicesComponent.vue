@@ -76,7 +76,7 @@
                                 </p>
                             </div>
                             <div class="services-content-btn">
-                                <router-link to="/about">
+                                <router-link :to="{ path: '/about', hash: '#consulting' }">
                                     Read More <i class="bi bi-chevron-right"></i>
                                     <span><i class="bi fs-5 bi-arrow-right"></i></span>
                                 </router-link>

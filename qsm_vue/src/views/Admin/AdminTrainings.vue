@@ -14,7 +14,7 @@
                                 <textarea v-model="form.title" class="form-control" rows="2"></textarea>
                             </div>
 
-                            <div class="col-md-12" style="margin-bottom: 70px; height: 250px">
+                            <div class="col-md-12" style="margin-bottom: 100px; height: 250px">
                                 <label>Training Info:</label>
                                 <!-- <textarea v-model="form.info" class="form-control" rows="10"></textarea> -->
                                 <QuillEditor placeholder="type here.." content-type="html" toolbar="minimal"

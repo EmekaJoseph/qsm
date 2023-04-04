@@ -83,11 +83,6 @@
         <!-- <createPINModal /> -->
         <createPINModal @done="getPins" :material_id="material_id_forNewPIN" />
 
-
-
-
-
-
         <!-- NEW MATERIALS FORM ########################################### -->
         <div class="col-md-12 col-lg-5">
             <div class="card rounded-4 h-100">
@@ -135,9 +130,6 @@
                 </div>
             </div>
         </div>
-
-
-
 
         <!-- ACTIVE PINS ###################################################-->
         <div class="col-md-12 col-lg-7">

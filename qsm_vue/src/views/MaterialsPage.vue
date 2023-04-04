@@ -35,7 +35,7 @@
         <div v-else>
         <!-- <div class="py-5" style="min-height: 300px;" v-if="!materials.list.length">
             <EmptyListComponent str="No Materials" />
-                                                                                                                                                                          </div> -->
+                                                                                                                                                                              </div> -->
 
           <div class="row gy-3">
             <div class="col-md-8">
@@ -215,7 +215,7 @@ function searchByCategory(cate: any) {
 
 @media (max-width: 768px) {
   .newsletter {
-    margin-top: 200px;
+    margin-top: 300px;
   }
 }
 </style>

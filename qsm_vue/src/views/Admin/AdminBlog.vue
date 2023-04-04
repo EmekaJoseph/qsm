@@ -20,9 +20,8 @@
                                 <label>Title</label>
                                 <textarea v-model="form.title" rows="2" class="form-control"></textarea>
                             </div>
-                            <div class="col-12" style="margin-bottom: 50px; height:300px">
+                            <div class="col-12" style="margin-bottom: 100px; height:300px">
                                 <label>Body</label>
-                                <!-- <textarea v-model="form.body" rows="10" class="form-control"></textarea> -->
                                 <QuillEditor placeholder="type here.." content-type="html" toolbar="minimal"
                                     v-model:content="form.body" />
                             </div>
@@ -51,6 +50,7 @@
                                     class="btn theme-btn w-100 btn-lg">Save</button>
                                 <button v-else disabled class="btn theme-btn w-100 btn-lg">Saving..</button>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -115,7 +115,6 @@
 </template>
 
 <script setup lang="ts">
-
 import { onMounted, reactive, ref } from 'vue'
 import { BlogAPI } from '@/store/functions/axiosManager';
 import useFunction from '@/store/functions/useFunction';
@@ -135,8 +134,6 @@ onMounted(() => {
     getBlogs()
 })
 
-
-
 // ######## BLOG TABLE START ############# //
 async function getBlogs() {
     let { data } = await blog_api.list()
@@ -146,7 +143,6 @@ async function getBlogs() {
 
 const searchField = ["title", "category"];
 const searchValue = ref('');
-
 
 const headers: Header[] = [
     { text: "TITLE", value: "title" },
@@ -160,8 +156,6 @@ const openModalBtn = ref<any>(null)
 
 async function editBlog(blog_id: any) {
     let { data } = await blog_api.blogDetails(blog_id)
-    console.log(data);
-
     blogToEdit.value = data
     openModalBtn.value.click()
 }
@@ -210,6 +204,7 @@ async function submit() {
         fxn.Toast('Title is required', 'warning')
         return
     }
+
     if (!form.body) {
         fxn.Toast('Blog has no body', 'warning')
         return
@@ -238,7 +233,6 @@ async function submit() {
     } catch (error) {
         form.isSaving = false
         fxn.Toast('Network Error', 'error')
-        // 
     }
 }
 

@@ -26,7 +26,7 @@
 
       <div class="container py-5 animate__animated animate__fadeIn text-black">
 
-        <section class="section" id="history">
+        <section class="section" style="text-align: justify;" id="history">
           <div class="title">Who We Are</div>
           Quality System Management was founded in the year 2001 and was rebranded to QSM Training & Consulting Limited in
           the year 2015 with headquarter in Lagos, Nigeria. QSM Training and Consulting Limited is a leading Training and
@@ -52,17 +52,17 @@
           </p>
         </section>
 
-        <section class="section">
+        <section class="section" style="text-align: justify;">
           <div class="title">Vision</div>
           To be a leading innovative training and consulting firm on quality assurance and regulatory guidelines in food,
           pharmaceutics and allied industries.
         </section>
-        <section class="section">
+        <section class="section" style="text-align: justify;">
           <div class="title">Mission</div>
           To build capacity in skill and regulatory requirements for the food, pharmaceutical and allied industries for
           increase in productivity, best practices and sustainability.
         </section>
-        <section class="section">
+        <section class="section" style="text-align: justify;">
           <div class="title">Goal</div>
           To help companies maintain standards and quality for customers’ satisfaction.
         </section>
@@ -270,7 +270,9 @@
               </div>
             </div>
           </div>
-
+          <div class="col-md-4">
+            <newsLetterForm />
+          </div>
         </section>
       </div>
     </section>
@@ -284,6 +286,7 @@
 
 <script setup lang="ts">
 import { useTraningsHistory } from '@/store/trainingHistory';
+import newsLetterForm from '@/components/newsLetterForm.vue';
 
 const trainings = useTraningsHistory();
 
@@ -333,9 +336,9 @@ const trainings = useTraningsHistory();
     font-size: 25px !important;
   }
 
-  .section {
+  /* .section {
     text-align: justify;
-  }
+  } */
 
   .pic-span {
     display: flex;

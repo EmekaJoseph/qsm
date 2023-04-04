@@ -41,8 +41,6 @@ $instanceForm.interceptors.request.use(
     }
 );
 
-
-
 class UsersAPI {
     visitor() {
         return $instance.post(`visitor`)

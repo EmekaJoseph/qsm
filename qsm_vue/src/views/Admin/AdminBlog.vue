@@ -20,10 +20,11 @@
                                 <label>Title</label>
                                 <textarea v-model="form.title" rows="2" class="form-control"></textarea>
                             </div>
-                            <div class="col-12" style="margin-bottom: 50px;">
+                            <div class="col-12" style="margin-bottom: 50px; height:300px">
                                 <label>Body</label>
                                 <!-- <textarea v-model="form.body" rows="10" class="form-control"></textarea> -->
-                                <QuillEditor content-type="html" toolbar="minimal" v-model:content="form.body" />
+                                <QuillEditor placeholder="type here.." content-type="html" toolbar="minimal"
+                                    v-model:content="form.body" />
                             </div>
                             <div class="col-12 mt-4">
                                 <label>Category</label>
@@ -120,10 +121,7 @@ import { BlogAPI } from '@/store/functions/axiosManager';
 import useFunction from '@/store/functions/useFunction';
 import type { Header, Item, } from "vue3-easy-data-table";
 import editBlogModal from './_includes/modals/editBlog.vue';
-
 import { fileUploader } from '@/store/functions/fileUploader'
-import { QuillEditor } from '@vueup/vue-quill';
-
 
 const blog_api = new BlogAPI()
 const fxn = useFunction.fx

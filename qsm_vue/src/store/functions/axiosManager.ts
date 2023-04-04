@@ -113,6 +113,10 @@ class AdminAPI {
     deleteMessage(id: any) {
         return $instance.delete(`deleteMessage/${id}`,)
     }
+
+    newslettersList() {
+        return $instance.get(`newslettersList`)
+    }
 }
 
 

@@ -56,6 +56,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::post('changePassword',  'changePassword');
         Route::get('getMessages',  'getMessages');
         Route::delete('deleteMessage/{id}',  'deleteMessage');
+        Route::post('sendNewsletter',  'sendNewsletter');
+        Route::get('newslettersList',  'newslettersList');
     });
 
     Route::controller(SettingsController::class)->group(function () {
@@ -78,7 +80,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     });
 
     Route::post('materialToArchive', [ArchiveController::class, 'materialToArchive']);
-    Route::post('sendNewsLetter', [UsersController::class, 'sendNewsLetter']);
 
     Route::post('updateBlog/{blog_id}', [BlogController::class, 'updateBlog']);
 

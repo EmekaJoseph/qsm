@@ -1,7 +1,8 @@
 <template>
     <div class="card border-0 bg-white rounded-4 h-100">
         <div class="card-header bg-transparent fw-bold  border-0 p-3">
-            <i class="bi bi-chat-left-dots"></i> Messages ({{ messages.list.length }})
+            <i class="bi bi-chat-left-dots"></i>
+            Inbox <span>({{ messages.list.length }})</span>
         </div>
         <div class="card-body px-4 list-scroll">
             <div class="mt-3 card p-3 ">
@@ -28,11 +29,11 @@
                                         <i class="bi bi-trash3"></i>
                                     </button>
                                 </span>
-                                <span class="float-end me-5 xsmall">{{ li.sent }}</span>
                                 <div v-show="messages.isReading.id == li.id"
-                                    class="message-center card rounded-4 p-3 small bg-secondary-subtle">
+                                    class="message-center card p-3 small bg-light-subtle">
                                     {{ messages.isReading.message }}
                                 </div>
+                                <span class="float-en me-5 xsmall">{{ li.sent }}</span>
                             </li>
                         </ul>
                     </div>

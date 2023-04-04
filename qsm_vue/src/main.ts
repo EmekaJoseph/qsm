@@ -54,6 +54,9 @@ import Vue3EasyDataTable from 'vue3-easy-data-table';
 import 'vue3-easy-data-table/dist/style.css';
 app.component('EasyDataTable', Vue3EasyDataTable);
 
+import { QuillEditor } from '@vueup/vue-quill';
+app.component('QuillEditor', QuillEditor);
+
 app.use(createPinia())
 app.use(VueSweetalert2);
 // @ts-ignore

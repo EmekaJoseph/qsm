@@ -14,14 +14,16 @@
                                 <textarea v-model="form.title" class="form-control" rows="2"></textarea>
                             </div>
 
-                            <div class="col-md-12">
+                            <div class="col-md-12" style="margin-bottom: 70px; height: 250px">
                                 <label>Training Info:</label>
-                                <textarea v-model="form.info" class="form-control" rows="10"></textarea>
+                                <!-- <textarea v-model="form.info" class="form-control" rows="10"></textarea> -->
+                                <QuillEditor placeholder="type here.." content-type="html" toolbar="minimal"
+                                    v-model:content="form.info" />
                             </div>
 
                             <div class="col-md-12">
                                 <label>Training Venue:</label>
-                                <textarea v-model="form.venue" class="form-control" rows="2"></textarea>
+                                <textarea v-model="form.venue" class="form-control " rows="2"></textarea>
                             </div>
 
                             <div class="col-md-6">
@@ -37,13 +39,13 @@
                             <div class="col-md-12">
                                 Image (optional)
                                 <input ref="inputFileEl" @change="grabFile" type="file"
-                                    accept="image/jpeg, image/png, image/jpg" class="form-control">
+                                    accept="image/jpeg, image/png, image/jpg" class="form-control form-control-lg">
                             </div>
 
                             <div class="col-md-12 mt-4">
                                 <button v-if="!form.isSaving" type="submit"
-                                    class="btn btn-custom-secondary  float-end w-100">Submit</button>
-                                <button v-else class="btn btn-custom-secondary  float-end w-100"
+                                    class="btn btn-custom-secondary btn-lg  float-end w-100">Submit</button>
+                                <button v-else class="btn btn-custom-secondary btn-lg  float-end w-100"
                                     disabled>Submitting...</button>
                             </div>
                         </form>
@@ -190,7 +192,6 @@ import regList from './_includes/modals/regList.vue';
 import { useClipboard } from '@vueuse/core'
 
 const { copy } = useClipboard()
-// const clipboard = useClipboard()
 
 onMounted(() => {
     Trainings.loading = true

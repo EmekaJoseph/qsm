@@ -9,6 +9,9 @@
         <div class=" col-lg-5">
             <changePassword />
         </div>
+        <div class=" col-lg-7">
+            <newsLetters />
+        </div>
     </div>
 </template>
 
@@ -16,4 +19,5 @@
 import materialsCategories from './_includes/settings/materialsCategories.vue';
 import messagesList from './_includes/settings/messagesList.vue';
 import changePassword from './_includes/settings/changePassword.vue';
+import newsLetters from './_includes/settings/newsLetters.vue';
 </script>

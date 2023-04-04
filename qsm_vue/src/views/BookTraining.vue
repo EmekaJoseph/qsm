@@ -30,7 +30,7 @@
           </div>
           <div class="col-md-7">
             <div class="fw-bold text-black text-uppercase fs-4">{{ training.title }}</div>
-            <div>{{ training.info }}</div>
+            <div v-html="training.info"></div>
             <div class="mt-3 small text-muted">
               <i class="bi bi-calendar"></i>
               {{ (new Date(training.start_date)).toDateString() }} -
@@ -40,12 +40,12 @@
 
 
             <div class="row g-3 mt-5">
-              <div class="col-md-4">
+              <div class="col-md-5">
                 <button data-bs-toggle="modal" data-bs-target="#instantBooking" class="btn theme-btn w-100">Book
                   now</button>
               </div>
-              <div class="col-md-4">
-                <router-link class="btn btn-custom-secondary w-100" to="/trainings">Other trainings</router-link>
+              <div class="col-md-3">
+                <router-link class="btn btn-custom-light w-100" to="/trainings">Other trainings</router-link>
               </div>
             </div>
           </div>

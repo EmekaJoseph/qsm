@@ -3,28 +3,41 @@
     <MainHeaderComponent />
 
     <section class="body-section">
-      <div class="pt-5 animate__animated animate__slideInLeft">
-        <div class="container">
-          <h3>{{ currentBlog.title }}</h3>
-          <div v-if="currentBlog.image" class="row gx-4">
-            <div class="col-lg-12">
-              <div clas="img-holder fill">
-                <img :src="currentBlog.image" alt="">
+      <div class="container pt-5">
+
+        <div class="row gy-4">
+
+          <div class="col-md-8">
+            <h3>{{ currentBlog.title }}</h3>
+            <div v-if="currentBlog.image" class="row gx-4">
+              <div class="col-lg-12">
+                <div clas="img-holder fill">
+                  <img :src="currentBlog.image" alt="">
+                </div>
               </div>
             </div>
+            <div class="container py-5 animate__animated animate__fadeIn text-black">
+              <div class="col-12 text-muted2 mb-sm-2 small" style="letter-spacing: 0.2rem;">
+                {{ new Date(currentBlog.created_at).toDateString() }}
+              </div>
+
+              <div class="blog-text" v-html="currentBlog.body"> </div>
+
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <newsLetterForm />
           </div>
         </div>
+
+
+
+
       </div>
 
 
-      <div class="container py-5 animate__animated animate__fadeIn text-black">
-        <div class="col-12 text-muted2 mb-sm-2 small" style="letter-spacing: 0.2rem;">
-          {{ new Date(currentBlog.created_at).toDateString() }}
-        </div>
 
-        <div class="blog-text" v-html="currentBlog.body"> </div>
-
-      </div>
     </section>
 
     <FooterComponent />
@@ -37,6 +50,7 @@
 import { ref, onMounted } from 'vue'
 import { BlogAPI } from '@/store/functions/axiosManager';
 import { useRoute, useRouter } from 'vue-router';
+import newsLetterForm from '@/components/newsLetterForm.vue';
 
 const blog_api = new BlogAPI()
 const route = useRoute()

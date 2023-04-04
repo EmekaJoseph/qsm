@@ -123,6 +123,12 @@ class AdminController extends BaseController
         DB::table('tbl_messages')->where('id', $id)->delete();
     }
 
+    public function newslettersList()
+    {
+        $emails =  DB::table('tbl_newsletter')->pluck('email')->toArray();
+        return response()->json($emails, 200);
+    }
+
 
     public function sendNewsletter(Request $req)
     {

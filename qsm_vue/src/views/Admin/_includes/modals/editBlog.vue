@@ -23,7 +23,7 @@
                                         <label>Title:</label>
                                         <textarea v-model="thisItem.title" class="form-control" rows="2"></textarea>
                                     </div>
-                                    <div class="col-md-12" style="margin-bottom: 70px;">
+                                    <div class="col-md-12" style="margin-bottom: 70px; height: 250px">
                                         <label>Body:</label>
                                         <QuillEditor content-type="html" toolbar="minimal"
                                             v-model:content="thisItem.body" />
@@ -64,7 +64,6 @@ import { reactive, ref, watchEffect } from 'vue';
 import { onBeforeRouteLeave } from 'vue-router';
 import useFunction from '@/store/functions/useFunction';
 import { BlogAPI } from '@/store/functions/axiosManager';
-import { QuillEditor } from '@vueup/vue-quill';
 
 const fxn = useFunction.fx
 const isSaving = ref(false)

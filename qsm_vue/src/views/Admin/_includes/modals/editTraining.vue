@@ -23,9 +23,10 @@
                                         <label>Title:</label>
                                         <textarea v-model="thisItem.title" class="form-control" rows="2"></textarea>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-12" style="margin-bottom: 70px; height: 250px">
                                         <label>Info:</label>
-                                        <textarea v-model="thisItem.info" class="form-control" rows="10"></textarea>
+                                        <QuillEditor content-type="html" toolbar="minimal"
+                                            v-model:content="thisItem.info" />
                                     </div>
                                     <div class="col-md-12">
                                         <label>Venue:</label>

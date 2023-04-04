@@ -1,5 +1,5 @@
 <template>
-    <div v-if="blogList.length" class="blog-section pt-70 pb-70">
+    <div v-if="blogList.length >= 3" class="blog-section pt-70 pb-70">
         <div class="container">
             <div class="section-head text-center mb-85">
                 <h5>// Our Blogs</h5>

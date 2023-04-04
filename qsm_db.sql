@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 22, 2023 at 08:45 PM
+-- Generation Time: Apr 04, 2023 at 03:47 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -81,7 +81,10 @@ CREATE TABLE `personal_access_tokens` (
 --
 
 INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
-(9, 'App\\Models\\AccountModel', '01gw4dva5ta971t2ncdgawvke3', 'qsm_token', 'aa42b639a377aa0e46738a7fa89660e0c42ebadd7a0f7e002669c2ce758b8e12', '[\"*\"]', '2023-03-22 18:45:03', NULL, '2023-03-22 18:06:20', '2023-03-22 18:45:03');
+(25, 'App\\Models\\AccountModel', '01gw4dva5ta971t2ncdgawvke3', 'qsm_token', '83db93e636635f065ba6f8de78e2a2740d769f3f9b98f09b7c8fa2ac8c785042', '[\"*\"]', '2023-03-30 08:52:29', NULL, '2023-03-29 08:56:16', '2023-03-30 08:52:29'),
+(26, 'App\\Models\\AccountModel', '01gw4dva5ta971t2ncdgawvke3', 'qsm_token', '5622d22d82382c8fe25f70210d05a033161532beff34daf9f233a55ebfd5e19f', '[\"*\"]', '2023-03-29 11:36:50', NULL, '2023-03-29 11:33:42', '2023-03-29 11:36:50'),
+(27, 'App\\Models\\AccountModel', '01gw4dva5ta971t2ncdgawvke3', 'qsm_token', '54f03503c1128edec5469f1ec91748436249f4e7941b365f856ce9c0d85b8247', '[\"*\"]', '2023-04-04 12:23:26', NULL, '2023-03-30 08:58:34', '2023-04-04 12:23:26'),
+(28, 'App\\Models\\AccountModel', '01gw4dva5ta971t2ncdgawvke3', 'qsm_token', '8e38df3589437c41d501f945f78e715627d14c5b116a247e77b8aa78103f6775', '[\"*\"]', '2023-04-04 11:49:57', NULL, '2023-04-04 11:46:21', '2023-04-04 11:49:57');
 
 -- --------------------------------------------------------
 
@@ -102,7 +105,7 @@ CREATE TABLE `tbl_account` (
 --
 
 INSERT INTO `tbl_account` (`id`, `username`, `password`, `last_login`, `role`) VALUES
-('01gw4dva5ta971t2ncdgawvke3', 'admin', '$2y$10$BwMJXp4rzkt9w3j8nKIPFuf5.ArejBga5ihDcb1mGQ2If72y3viC6', '2023-03-22 19:06:20', 'admin');
+('01gw4dva5ta971t2ncdgawvke3', 'qsm', '$2y$10$uZ57DtQHJkcoONsqEOjgjeXg8hji8KAT.2nbVtwzg./tH9pMBGrhe', '2023-04-04 12:46:21', 'admin');
 
 -- --------------------------------------------------------
 
@@ -115,6 +118,23 @@ CREATE TABLE `tbl_archives` (
   `archive_name` varchar(100) NOT NULL,
   `count` int(100) NOT NULL DEFAULT 0,
   `created` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_blog`
+--
+
+CREATE TABLE `tbl_blog` (
+  `blog_id` varchar(100) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `body` text NOT NULL,
+  `category` varchar(100) DEFAULT NULL,
+  `image` varchar(100) DEFAULT NULL,
+  `imagePublicId` varchar(100) DEFAULT NULL,
+  `created_at` varchar(100) NOT NULL,
+  `updated_at` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -189,7 +209,26 @@ CREATE TABLE `tbl_messages` (
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `message` text NOT NULL,
+  `isRead` varchar(10) DEFAULT NULL,
   `sent_date` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_messages`
+--
+
+INSERT INTO `tbl_messages` (`id`, `name`, `email`, `message`, `isRead`, `sent_date`) VALUES
+(11, 'sa', 'asas@maaa.com', 'sasasasas sadsad adadad', NULL, '2023-04-04 13:04:10');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_newsletter`
+--
+
+CREATE TABLE `tbl_newsletter` (
+  `id` int(100) NOT NULL,
+  `email` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -209,6 +248,13 @@ CREATE TABLE `tbl_registrations` (
   `reg_date` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `tbl_registrations`
+--
+
+INSERT INTO `tbl_registrations` (`id`, `training`, `name`, `email`, `phone`, `company`, `expiry`, `reg_date`) VALUES
+(26, '01gws2mwtb9ap8awzc0psptx6n', 'emeka', 'sasas@mail.com', '234', 'sasasas', ' ', '2023-03-30 11:01:18');
+
 -- --------------------------------------------------------
 
 --
@@ -216,7 +262,7 @@ CREATE TABLE `tbl_registrations` (
 --
 
 CREATE TABLE `tbl_trainings` (
-  `id` int(100) NOT NULL,
+  `id` varchar(100) NOT NULL,
   `title` varchar(100) NOT NULL,
   `info` text NOT NULL,
   `image` varchar(100) DEFAULT NULL,
@@ -227,6 +273,13 @@ CREATE TABLE `tbl_trainings` (
   `created_at` varchar(100) NOT NULL,
   `updated_at` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_trainings`
+--
+
+INSERT INTO `tbl_trainings` (`id`, `title`, `info`, `image`, `start_date`, `end_date`, `venue`, `reg_count`, `created_at`, `updated_at`) VALUES
+('01gws2mwtb9ap8awzc0psptx6n', 'the Adventure of snakes', 'http://localhost:5173/booktraining?trn=01gwrzmwydd1nxbvegjgz1tyqs', NULL, '2023-03-30', '2023-03-30', 'sasa', 1, '2023-03-30 10:57:35', '2023-03-30 11:01:18');
 
 -- --------------------------------------------------------
 
@@ -245,7 +298,7 @@ CREATE TABLE `tbl_visitors` (
 --
 
 INSERT INTO `tbl_visitors` (`id`, `ip_addr`, `visit_date`) VALUES
-(1, '127.0.0.1', '2023-03-22 19:40:32');
+(1, '127.0.0.1', '2023-04-04 13:07:40');
 
 --
 -- Indexes for dumped tables
@@ -285,6 +338,12 @@ ALTER TABLE `tbl_archives`
   ADD PRIMARY KEY (`archive_id`);
 
 --
+-- Indexes for table `tbl_blog`
+--
+ALTER TABLE `tbl_blog`
+  ADD PRIMARY KEY (`blog_id`);
+
+--
 -- Indexes for table `tbl_materials`
 --
 ALTER TABLE `tbl_materials`
@@ -306,6 +365,12 @@ ALTER TABLE `tbl_material_otp`
 -- Indexes for table `tbl_messages`
 --
 ALTER TABLE `tbl_messages`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_newsletter`
+--
+ALTER TABLE `tbl_newsletter`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -346,49 +411,49 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `tbl_archives`
 --
 ALTER TABLE `tbl_archives`
-  MODIFY `archive_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `archive_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `tbl_materials`
 --
 ALTER TABLE `tbl_materials`
-  MODIFY `material_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `material_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `tbl_material_categories`
 --
 ALTER TABLE `tbl_material_categories`
-  MODIFY `category_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `category_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `tbl_material_otp`
 --
 ALTER TABLE `tbl_material_otp`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `tbl_messages`
 --
 ALTER TABLE `tbl_messages`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `tbl_newsletter`
+--
+ALTER TABLE `tbl_newsletter`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_registrations`
 --
 ALTER TABLE `tbl_registrations`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
---
--- AUTO_INCREMENT for table `tbl_trainings`
---
-ALTER TABLE `tbl_trainings`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `tbl_visitors`

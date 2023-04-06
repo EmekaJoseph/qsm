@@ -23,5 +23,5 @@ Route::fallback(function () {
 });
 
 Route::get('/sitemap.xml', function () {
-    return view('sitemap');
+    return response()->view('sitemap')->header('Content-Type', 'text/xml');
 });

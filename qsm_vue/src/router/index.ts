@@ -27,7 +27,7 @@ const router = createRouter({
 
   linkActiveClass: 'active',
   routes: [
-    { path: '/', name: 'Home', component: HomeView },
+    { path: '/', name: 'TRAINING & COUNSULTING', component: HomeView },
     { path: '/about', name: 'About', component: AboutView },
     { path: '/trainings', name: 'Trainings_', component: TrainingsPage },
     { path: '/booktraining', name: 'Book Training', component: () => import('../views/BookTraining.vue'), props: route => ({ query: route.query }) },

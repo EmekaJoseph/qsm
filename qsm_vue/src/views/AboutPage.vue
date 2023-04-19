@@ -52,6 +52,18 @@
           </p>
         </section>
 
+        <section class="section" id="core_areas">
+          <div class="title">OUR CORE AREAS:</div>
+          <ol style="list-style: circle; margin-top: 0px !important;">
+            <li>Food Industries. </li>
+            <li>Packaging water Industries</li>
+            <li>Pharmaceutical Industries. </li>
+            <li>Cosmetic Industries. </li>
+            <li>Herbal Drug. </li>
+            <li>Laboratory Diagnosis and Practices. </li>
+          </ol>
+        </section>
+
         <section class="section" style="text-align: justify;">
           <div class="title">Vision</div>
           To be a leading innovative training and consulting firm on quality assurance and regulatory guidelines in food,
@@ -145,12 +157,41 @@
           </ol>
         </section>
 
+        <hr style="  border-color:  #ccc;">
+
         <section class="section" id="faculty">
-          <div class="title mb-3">ADMINISTRATIVE STAFF:</div>
+          <div class="title mb-4 text-decoration-underline">ADMINISTRATIVE STAFF:</div>
 
           <div class="row mb-4 faculty-span">
             <div class="col-lg-8 order-2 order-lg-1">
-              <div class="theme-color fw-bold">Chinyere Ikeora</div>
+              <div class="theme-color fw-bold fs-5">William Effiok</div>
+              <div>
+                <b>Career designation:</b> Regulatory Compliance Consultant.
+              </div>
+              <div>
+                <b>Job designation:</b> Chief Executive Officer.
+              </div>
+              <div>
+                <b>Professional Designation/Affiliation:</b> FIPAN, FNIFST, FNIM, FNIMC, FOSHA .
+              </div>
+              <div>
+                <b>Competencies:</b> Lead Auditor ISO 22000, Regulatory Affairs,
+                Laboratory Systems, Management, HSE Compliance Managing and
+                Training
+
+              </div>
+            </div>
+            <div class="col-lg-4 order-1 order-lg-2">
+              <div class="pic-span">
+                <img src="@/assets/images/staff/staff_william.jpg" alt="">
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row mb-4 faculty-span">
+            <div class="col-lg-8 order-2 order-lg-1">
+              <div class="theme-color fw-bold fs-5">Chinyere Ikeora</div>
               <div>
                 <b>Career designation:</b> Regulatory Affairs/cGMP &amp; HSE Compliance Professional.
               </div>
@@ -174,7 +215,7 @@
 
           <div class="row mb-4 faculty-span">
             <div class="col-lg-8 order-2 order-lg-1">
-              <div class="theme-color fw-bold">Prof. Louis Egwari</div>
+              <div class="theme-color fw-bold fs-5">Prof. Louis Egwari</div>
               <div>
                 <b>Career designation:</b> Director, Research and Training, QSM Training and Consulting Ltd.
               </div>
@@ -198,7 +239,7 @@
 
           <div class="row mb-4 faculty-span">
             <div class="col-lg-8 order-2 order-lg-1">
-              <div class="theme-color fw-bold">Emeka Chukwurah</div>
+              <div class="theme-color fw-bold fs-5">Emeka Chukwurah</div>
               <div>
                 <b>Career designation:</b> Regulatory Affairs/CGMP Compliance Professional.
               </div>
@@ -223,7 +264,7 @@
 
           <div class="row mb-4 faculty-span">
             <div class="col-lg-8 order-2 order-lg-1">
-              <div class="theme-color fw-bold">Dr. Olayemi O. Akinnola</div>
+              <div class="theme-color fw-bold fs-5">Dr. Olayemi O. Akinnola</div>
               <div>
                 <b>Career designation:</b> Senior Lecturer, Covenant University.
               </div>
@@ -247,7 +288,7 @@
 
           <div class="row mb-4 faculty-span">
             <div class="col-lg-8 order-2 order-lg-1">
-              <div class="theme-color fw-bold">Elochukwu Adibo</div>
+              <div class="theme-color fw-bold fs-5">Elochukwu Adibo</div>
               <div>
                 <b>Career designation:</b> Internationally Certified Biomedical Scientist.
               </div>
@@ -270,9 +311,106 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+
+
+          <div class="row mb-4 faculty-span">
+            <div class="col-lg-8 order-2 order-lg-1">
+              <div class="theme-color fw-bold fs-5">Iwuji Victoria.</div>
+              <div>
+                <b>Career designation:</b> Consultancy, Business &amp; Accounting Services and Training.
+              </div>
+              <div>
+                <b>Job designation:</b> Business Consultant/ Accountant/ Admin
+              </div>
+              <div>
+                <b>Professional Designation/Affiliation:</b> MBA (Master in Finance), B.Sc (Hons), ICAN (In view)
+              </div>
+              <div>
+                <b>Competencies:</b> Consultancy, Business &amp; Accounting Services and Training
+              </div>
+            </div>
+            <div class="col-lg-4 order-1 order-lg-2">
+              <div class="pic-span">
+                <img src="@/assets/images/staff/staff_victoria.jpg" alt="">
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-4 faculty-span">
+            <div class="col-lg-8 order-2 order-lg-1">
+              <div class="theme-color fw-bold fs-5">Oguns Olumide.</div>
+              <div>
+                <b>Career designation:</b> Regulatory Affairs/cGMP &amp; FSMS Compliance Professional.
+              </div>
+              <div>
+                <b>Job designation:</b> Quality Assurance Manager.
+              </div>
+              <div>
+                <b>Professional Designation/Affiliation:</b> NSM, MNIFST.
+              </div>
+              <div>
+                <b>Competencies:</b> Quality Maintenance, Analytical testing, HSE compliance, Research Development &amp;
+                Training, Creative designing.
+              </div>
+            </div>
+            <div class="col-lg-4 order-1 order-lg-2">
+              <div class="pic-span">
+                <img src="@/assets/images/staff/staff_oguns.jpg" alt="">
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-4 faculty-span">
+            <div class="col-lg-8 order-2 order-lg-1">
+              <div class="theme-color fw-bold fs-5">Idowu Adekunle.</div>
+              <div>
+                <b>Career designation:</b> Regulatory Compliance, Trainings.
+              </div>
+              <div>
+                <b>Job designation:</b> Support officer.
+              </div>
+              <div>
+                <b>Academic/ Professional Designation:</b> BSc. Ed (Chemistry).
+              </div>
+              <div>
+                <b>Competencies:</b> Organization skills
+              </div>
+            </div>
+            <div class="col-lg-4 order-1 order-lg-2">
+              <div class="pic-span">
+                <img src="@/assets/images/staff/staff_idowu.jpg" alt="">
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-4 faculty-span">
+            <div class="col-lg-8 order-2 order-lg-1">
+              <div class="theme-color fw-bold fs-5">Gabriel Osondu.</div>
+              <div>
+                <b>Career designation:</b> CEO, Safebrooks Nigeria Ltd.
+              </div>
+              <!-- <div>
+                <b>Job designation:</b> Support officer.
+              </div> -->
+              <!-- <div>
+                <b>Academic/ Professional Designation:</b> BSc. Ed (Chemistry).
+              </div> -->
+              <!-- <div>
+                <b>Competencies:</b> Organization skills
+              </div> -->
+            </div>
+            <!-- <div class="col-lg-4 order-1 order-lg-2">
+              <div class="pic-span">
+                <img src="@/assets/images/staff/staff_victoria.jpg" alt="">
+              </div>
+            </div> -->
+          </div>
+
+          <div class="col-md-4 mt-5 pt-5">
             <newsLetterForm />
           </div>
+
+
         </section>
       </div>
     </section>
@@ -325,7 +463,7 @@ const trainings = useTraningsHistory();
 
 .pic-span img {
   flex-shrink: 0;
-  width: 60%;
+  width: 50%;
   border: 2px solid #d1cfcf;
   /* min-height: 100%; */
 }

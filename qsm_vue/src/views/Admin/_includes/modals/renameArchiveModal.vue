@@ -20,8 +20,9 @@
 
                                     <div class="col-md-12 mt-3">
                                         <button v-if="!isSaving" @click.prevent="updateDetails"
-                                            class="theme-btn btn-custom-secondary btn w-100">Save</button>
-                                        <button v-else class="float-end theme-btn btn w-100" disabled>Saving...</button>
+                                            class="theme-btn btn-custom-secondary btn w-100">Rename</button>
+                                        <button v-else class="float-end theme-btn btn w-100" disabled>Please
+                                            wait...</button>
                                     </div>
                                 </form>
                             </div>

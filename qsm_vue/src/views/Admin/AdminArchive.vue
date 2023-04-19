@@ -20,32 +20,37 @@
                                 New Archive <i class="bi bi-plus-circle-fill"></i>
                             </button>
                         </div>
-                        <table class="table table-sm table-hover">
-                            <tbody>
-                                <tr style="cursor: pointer;"
-                                    :class="{ 'bg-secondary-subtle': (arch == archives.onDisplay) }"
-                                    v-for="arch in archives.list" :key="arch">
-                                    <th class="fs-4">
-                                        <i v-if="arch.count == '0'" class="bi bi-archive"></i>
-                                        <i v-else class="bi bi-archive-fill"></i>
-                                    </th>
-                                    <td @click="showArchiveDetails(arch)" class="text-capitalize archive-name">{{
-                                        arch.archive_name }}
-                                        <div class="xxsmall text-lowercase">{{ arch.created }}</div>
-                                    </td>
-                                    <td @click="showArchiveDetails(arch)" class="xsmall">
-                                        <div>{{ arch.count }} {{ arch.count == 1 ? 'mat' : 'mats' }}</div>
-                                    </td>
-                                    <td @click="archives.toEdit = arch" data-bs-toggle="modal"
-                                        data-bs-target="#renameArchiveModal" class="table-btn">
-                                        <i class="bi bi-pencil"></i>
-                                    </td>
-                                    <td @click="deleteArchive(arch)" class="table-btn text-danger">
-                                        <i class="bi bi-trash3"></i>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="text-center mt-5 text-muted pt-5" v-if="!archives.list.length">
+                            No archives!
+                        </div>
+                        <div v-else>
+                            <table class="table table-sm table-hover">
+                                <tbody>
+                                    <tr style="cursor: pointer;"
+                                        :class="{ 'bg-secondary-subtle': (arch == archives.onDisplay) }"
+                                        v-for="arch in archives.list" :key="arch">
+                                        <th class="fs-4">
+                                            <i v-if="arch.count == '0'" class="bi bi-archive"></i>
+                                            <i v-else class="bi bi-archive-fill"></i>
+                                        </th>
+                                        <td @click="showArchiveDetails(arch)" class="text-capitalize archive-name">{{
+                                            arch.archive_name }}
+                                            <div class="xxsmall text-lowercase">{{ arch.created }}</div>
+                                        </td>
+                                        <td @click="showArchiveDetails(arch)" class="xsmall">
+                                            <div>{{ arch.count }} {{ arch.count == 1 ? 'mat' : 'mats' }}</div>
+                                        </td>
+                                        <td @click="archives.toEdit = arch" data-bs-toggle="modal"
+                                            data-bs-target="#renameArchiveModal" class="table-btn">
+                                            <i class="bi bi-pencil"></i>
+                                        </td>
+                                        <td @click="deleteArchive(arch)" class="table-btn text-danger">
+                                            <i class="bi bi-trash3"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

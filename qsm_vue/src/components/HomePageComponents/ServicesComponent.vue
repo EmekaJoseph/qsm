@@ -66,7 +66,7 @@
                             <div class="services-content-title">
                                 <h2>Consulting</h2>
                             </div>
-                            <div class="services-content">
+                            <div class="services-content mt-lg-5">
                                 <p>
                                 <ol style="list-style: circle;">
                                     <li>Special Training/Seminars </li>
@@ -75,7 +75,7 @@
                                 </ol>
                                 </p>
                             </div>
-                            <div class="services-content-btn">
+                            <div class="services-content-btn mt-lg-5">
                                 <router-link :to="{ path: '/about', hash: '#consulting' }">
                                     Read More <i class="bi bi-chevron-right"></i>
                                     <span><i class="bi fs-5 bi-arrow-right"></i></span>
@@ -101,7 +101,7 @@
                                 <p>We provide course materials related to the courses we that teach. These materials are
                                     available for download.</p>
                             </div>
-                            <div class="services-content-btn">
+                            <div class="services-content-btn mt-lg-5">
                                 <router-link to="/materials">
                                     Read More <i class="bi bi-chevron-right"></i>
                                     <span><i class="bi fs-5 bi-arrow-right"></i></span>

@@ -33,6 +33,11 @@
                             </table>
                         </div>
                     </div>
+                    <div class="modal-footer border-0">
+                        <export-excel :data="list" :fields="excelFields" :name="`qsm_trainings.xls`">
+                            <button class="btn btn-dark"><i class="bi bi-download"></i> Export</button>
+                        </export-excel>
+                    </div>
                 </div>
             </div>
         </div>
@@ -49,6 +54,13 @@ defineProps({
         required: true
     }
 })
+
+const excelFields = {
+    'Name': 'name',
+    'Email': 'email',
+    'Phone': 'phone',
+    'Company': 'company'
+}
 
 const btnX: any = ref(null)
 onBeforeRouteLeave(() => {

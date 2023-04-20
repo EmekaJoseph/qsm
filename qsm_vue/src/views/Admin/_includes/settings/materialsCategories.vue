@@ -9,11 +9,11 @@
             <form v-if="!categories.isEditing" @submit.prevent="saveCategory" class="row g-2">
                 <div class="col-12 col-md-8">
                     <input v-model="categories.field" type="text" class="form-control form-control-lg"
-                        placeholder="category name..">
+                        placeholder="new category..">
                 </div>
                 <div class="col-12 col-md-4">
                     <button class="btn btn-custom-secondary w-100 btn-lg">
-                        Save
+                        Add
                     </button>
                 </div>
             </form>
@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-12 col-md-4">
                     <button class="btn btn-warning bg-warning-subtle w-100 btn-lg">
-                        Update
+                        Rename
                     </button>
                 </div>
             </form>

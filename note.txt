@@ -1,0 +1,5 @@
+-- ALTER TABLE `tbl_messages` ADD `phone` VARCHAR(20) NOT NULL AFTER `email`;
+-- UsersController
+-- qsm_docu folder in public
+-- replace materials table 
+-- replace training table

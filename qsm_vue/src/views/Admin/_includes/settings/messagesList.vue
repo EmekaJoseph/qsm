@@ -19,19 +19,22 @@
                     <div v-else>
                         <ul class="list-group list-group-flush">
                             <li v-for="li in messages.list" :key="li" class="list-group-item my-1">
-                                <span @click="messages.isReading = li" class="cursor-pointer hover-tiltX">
-                                    <i v-if="messages.isReading.id == li.id" class="bi bi-chevron-down"></i>
+                                <span @click="readMessage(li.id)" class="name-name cursor-pointer hover-tiltX"
+                                    :class="{ 'theme-color': li.isReading }">
+                                    <i v-if="li.isReading" class="bi bi-chevron-down"></i>
                                     <i v-else class="bi bi-chevron-right"></i>
-                                    {{ li.name }} ({{ li.email }})
+                                    {{ li.name }} &nbsp;
                                 </span>
                                 <span @click="deleteMessage(li.id)" class="float-end">
                                     <button class="btn btn-sm text-danger m-0 p-0 hover-tiltY">
                                         <i class="bi bi-trash3"></i>
                                     </button>
                                 </span>
-                                <div v-show="messages.isReading.id == li.id"
-                                    class="message-center card p-3 small bg-light-subtle">
-                                    {{ messages.isReading.message }}
+                                <div v-if="li.isReading" class="message-center card border-0 p-3 small bg-warning-subtle">
+                                    {{ li.message }}
+                                    <div class="xsmall mt-3">
+                                        {{ li.email }}, {{ li.phone }}
+                                    </div>
                                 </div>
                                 <span class="float-en me-5 xsmall">{{ li.sent }}</span>
                             </li>
@@ -64,8 +67,12 @@ onMounted(() => {
 const messages: any = reactive({
     loading: false,
     list: [],
-    isReading: ''
 })
+
+function readMessage(id: any) {
+    let thisMsg = messages.list.find((x: { id: any; }) => x.id == id)
+    thisMsg.isReading = thisMsg.isReading ? false : true;
+}
 
 async function getMessages() {
     let { data } = await admin_api.getMessages()
@@ -90,12 +97,18 @@ async function deleteMessage(id: any) {
 }
 
 
-let interval = setInterval(() => {
-    getMessages()
-}, 10000)
+// let interval = setInterval(() => {
+//     getMessages()
+// }, 10000)
 
-onUnmounted(() => {
-    clearInterval(interval)
-})
+// onUnmounted(() => {
+//     clearInterval(interval)
+// })
 
 </script>
+
+<style scoped>
+.name-name:hover {
+    font-weight: bold;
+}
+</style>

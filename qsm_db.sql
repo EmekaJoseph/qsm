@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2023 at 03:47 PM
+-- Generation Time: Apr 20, 2023 at 05:34 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -83,8 +83,8 @@ CREATE TABLE `personal_access_tokens` (
 INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
 (25, 'App\\Models\\AccountModel', '01gw4dva5ta971t2ncdgawvke3', 'qsm_token', '83db93e636635f065ba6f8de78e2a2740d769f3f9b98f09b7c8fa2ac8c785042', '[\"*\"]', '2023-03-30 08:52:29', NULL, '2023-03-29 08:56:16', '2023-03-30 08:52:29'),
 (26, 'App\\Models\\AccountModel', '01gw4dva5ta971t2ncdgawvke3', 'qsm_token', '5622d22d82382c8fe25f70210d05a033161532beff34daf9f233a55ebfd5e19f', '[\"*\"]', '2023-03-29 11:36:50', NULL, '2023-03-29 11:33:42', '2023-03-29 11:36:50'),
-(27, 'App\\Models\\AccountModel', '01gw4dva5ta971t2ncdgawvke3', 'qsm_token', '54f03503c1128edec5469f1ec91748436249f4e7941b365f856ce9c0d85b8247', '[\"*\"]', '2023-04-04 12:23:26', NULL, '2023-03-30 08:58:34', '2023-04-04 12:23:26'),
-(28, 'App\\Models\\AccountModel', '01gw4dva5ta971t2ncdgawvke3', 'qsm_token', '8e38df3589437c41d501f945f78e715627d14c5b116a247e77b8aa78103f6775', '[\"*\"]', '2023-04-04 11:49:57', NULL, '2023-04-04 11:46:21', '2023-04-04 11:49:57');
+(28, 'App\\Models\\AccountModel', '01gw4dva5ta971t2ncdgawvke3', 'qsm_token', '8e38df3589437c41d501f945f78e715627d14c5b116a247e77b8aa78103f6775', '[\"*\"]', '2023-04-04 11:49:57', NULL, '2023-04-04 11:46:21', '2023-04-04 11:49:57'),
+(29, 'App\\Models\\AccountModel', '01gw4dva5ta971t2ncdgawvke3', 'qsm_token', 'baa57a5513d5933834d1fa711ae95bde07fa7f72b6dee95be772d23bf3f96295', '[\"*\"]', '2023-04-20 14:34:00', NULL, '2023-04-04 20:23:06', '2023-04-20 14:34:00');
 
 -- --------------------------------------------------------
 
@@ -105,7 +105,7 @@ CREATE TABLE `tbl_account` (
 --
 
 INSERT INTO `tbl_account` (`id`, `username`, `password`, `last_login`, `role`) VALUES
-('01gw4dva5ta971t2ncdgawvke3', 'qsm', '$2y$10$uZ57DtQHJkcoONsqEOjgjeXg8hji8KAT.2nbVtwzg./tH9pMBGrhe', '2023-04-04 12:46:21', 'admin');
+('01gw4dva5ta971t2ncdgawvke3', 'qsm', '$2y$10$uZ57DtQHJkcoONsqEOjgjeXg8hji8KAT.2nbVtwzg./tH9pMBGrhe', '2023-04-04 21:23:06', 'admin');
 
 -- --------------------------------------------------------
 
@@ -119,6 +119,13 @@ CREATE TABLE `tbl_archives` (
   `count` int(100) NOT NULL DEFAULT 0,
   `created` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_archives`
+--
+
+INSERT INTO `tbl_archives` (`archive_id`, `archive_name`, `count`, `created`) VALUES
+(35, 'Archive_001', 0, '2023-04-20 15:00:14');
 
 -- --------------------------------------------------------
 
@@ -155,6 +162,14 @@ CREATE TABLE `tbl_materials` (
   `created_at` varchar(100) NOT NULL,
   `updated_at` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_materials`
+--
+
+INSERT INTO `tbl_materials` (`material_id`, `category_id`, `pages`, `material_code`, `doc`, `no_of_downloads`, `isArchived`, `name`, `created_at`, `updated_at`) VALUES
+(42, '7', '22', 'M442GC', 'BEST_PRACTICES_FOR_COLLECTING_WATER_SAMPLES_FOR_ANALYSES-QSM1682002668.pptx', 0, '0', 'BEST PRACTICES FOR COLLECTING WATER SAMPLES FOR ANALYSES', '2023-04-20 14:57:48', '2023-04-20 14:57:48'),
+(43, '8', '40', 'M943LP', 'Good_practice_of_Bookkeeping_and_Accounting_Software-QSM1682002716.pptx', 0, '0', 'Good practice of Bookkeeping and Accounting Software', '2023-04-20 14:58:36', '2023-04-20 14:58:36');
 
 -- --------------------------------------------------------
 
@@ -208,17 +223,11 @@ CREATE TABLE `tbl_messages` (
   `id` int(10) NOT NULL,
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
+  `phone` varchar(20) NOT NULL,
   `message` text NOT NULL,
   `isRead` varchar(10) DEFAULT NULL,
   `sent_date` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tbl_messages`
---
-
-INSERT INTO `tbl_messages` (`id`, `name`, `email`, `message`, `isRead`, `sent_date`) VALUES
-(11, 'sa', 'asas@maaa.com', 'sasasasas sadsad adadad', NULL, '2023-04-04 13:04:10');
 
 -- --------------------------------------------------------
 
@@ -248,13 +257,6 @@ CREATE TABLE `tbl_registrations` (
   `reg_date` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `tbl_registrations`
---
-
-INSERT INTO `tbl_registrations` (`id`, `training`, `name`, `email`, `phone`, `company`, `expiry`, `reg_date`) VALUES
-(26, '01gws2mwtb9ap8awzc0psptx6n', 'emeka', 'sasas@mail.com', '234', 'sasasas', ' ', '2023-03-30 11:01:18');
-
 -- --------------------------------------------------------
 
 --
@@ -279,7 +281,8 @@ CREATE TABLE `tbl_trainings` (
 --
 
 INSERT INTO `tbl_trainings` (`id`, `title`, `info`, `image`, `start_date`, `end_date`, `venue`, `reg_count`, `created_at`, `updated_at`) VALUES
-('01gws2mwtb9ap8awzc0psptx6n', 'the Adventure of snakes', 'http://localhost:5173/booktraining?trn=01gwrzmwydd1nxbvegjgz1tyqs', NULL, '2023-03-30', '2023-03-30', 'sasa', 1, '2023-03-30 10:57:35', '2023-03-30 11:01:18');
+('01gyfk66trwmz2wnppd57xmhvn', 'QA in Pharmaceuticals - Module 4', '<ul><li>Cleaning validation</li></ul><p><strong>Bank Details: </strong></p><p>QSM Training &amp; Consulting Ltd.</p><p>GTBank (0240416491)</p>', 'training-1682003139.jpg', '2023-05-16', '2023-05-17', 'QSM Training Palace - No 1, Ekololu street, Off Itire Road, Oposite Mobile Filling Station', 0, '2023-04-20 15:05:39', '2023-04-20 15:05:39'),
+('01gyfkadayjm7g769s4gxv89h8', 'QA In Pharmaceuticals - Module 5', '<ul><li>Application of HACCP in <strong style=\"color: rgba(33, 37, 41, 0.75);\">&nbsp;</strong><span style=\"color: rgba(33, 37, 41, 0.75);\">Pharmaceuticals</span></li></ul><p><strong>Bank Details: </strong></p><p>QSM Training &amp; Consulting Ltd.</p><p>GTBank (0240416491)</p><p><strong>Fee: </strong></p><p>N30, 000</p>', 'training-1682003277.jpg', '2023-05-18', '2023-05-18', 'QSM Training Palace - No 1, Ekololu street, Off Itire Road, Oposite Mobile Filling Station', 0, '2023-04-20 15:07:57', '2023-04-20 15:07:57');
 
 -- --------------------------------------------------------
 
@@ -298,7 +301,7 @@ CREATE TABLE `tbl_visitors` (
 --
 
 INSERT INTO `tbl_visitors` (`id`, `ip_addr`, `visit_date`) VALUES
-(1, '127.0.0.1', '2023-04-04 13:07:40');
+(1, '127.0.0.1', '2023-04-20 15:28:48');
 
 --
 -- Indexes for dumped tables
@@ -411,19 +414,19 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `tbl_archives`
 --
 ALTER TABLE `tbl_archives`
-  MODIFY `archive_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `archive_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `tbl_materials`
 --
 ALTER TABLE `tbl_materials`
-  MODIFY `material_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `material_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `tbl_material_categories`
@@ -435,13 +438,13 @@ ALTER TABLE `tbl_material_categories`
 -- AUTO_INCREMENT for table `tbl_material_otp`
 --
 ALTER TABLE `tbl_material_otp`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `tbl_messages`
 --
 ALTER TABLE `tbl_messages`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tbl_newsletter`
@@ -453,7 +456,7 @@ ALTER TABLE `tbl_newsletter`
 -- AUTO_INCREMENT for table `tbl_registrations`
 --
 ALTER TABLE `tbl_registrations`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `tbl_visitors`

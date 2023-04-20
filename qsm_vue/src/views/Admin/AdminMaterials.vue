@@ -95,7 +95,8 @@
                         <div class="col-md-12">
                             Material File:
                             <input ref="inputFileEl" @change="grabFile" type="file"
-                                accept=".doc,.docx,application/msword, .pdf, .txt, .xlsx, .xls" class="form-control">
+                                accept=".doc, .docx, application/msword, .pdf, .txt, .xlsx, .xls, .pptx, .ppt"
+                                class="form-control">
                         </div>
 
                         <div class="col-md-12">

@@ -5,8 +5,8 @@
                 <div class="row align-items-center">
                     <div class="col-sm-12 col-md-12 col-lg-4">
                         <div class="section-title">
-                            <h5>// OUR SERVICES</h5>
-                            <h3>What We Provide</h3>
+                            <h5>// SERVICES</h5>
+                            <h3>Our Core Services</h3>
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-8">

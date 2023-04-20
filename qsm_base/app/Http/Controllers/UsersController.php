@@ -35,12 +35,14 @@ class UsersController extends BaseController
                 [
                     'email' => $req->input('email'),
                     'name' => $req->input('name'),
-                    'message' => $req->input('message')
+                    'message' => $req->input('message'),
+                    'phone' => $req->input('phone')
                 ],
                 [
                     'email' => $req->input('email'),
                     'name' => $req->input('name'),
                     'message' => $req->input('message'),
+                    'phone' => $req->input('phone'),
                     'sent_date' => Carbon::now()
                 ]
             );

@@ -144,6 +144,8 @@
           <div class="text-success fs-5">Nigeria Institute of Training and Development (<b>NITAD</b>)</div>
         </section>
 
+        <hr style="border-color:  #ccc;">
+
         <section class="section text-start">
           <div class="title">TRAINING DONE SO FAR:</div>
           <ol>
@@ -157,7 +159,26 @@
           </ol>
         </section>
 
-        <hr style="  border-color:  #ccc;">
+        <hr style="border-color:  #ccc;">
+
+        <section class="section">
+          <div class="row justify-content-center gy-4">
+            <div class="col-md-4 d-flex justify-content-center  align-items-center">
+              <div>
+                <div class="h4 mb-0 text-center fw-bold">PHOTO GALLERY</div>
+                <div class="small text-muted text-center">
+                  ..photos from our previous/past trainings.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <gallerySlides />
+            </div>
+          </div>
+
+        </section>
+
+        <hr style="border-color:  #ccc;">
 
         <section class="section" id="faculty">
           <div class="title mb-4 text-decoration-underline">ADMINISTRATIVE STAFF:</div>
@@ -425,6 +446,8 @@
 <script setup lang="ts">
 import { useTraningsHistory } from '@/store/trainingHistory';
 import newsLetterForm from '@/components/newsLetterForm.vue';
+import gallerySlides from '@/components/gallerySlides.vue'
+
 
 const trainings = useTraningsHistory();
 

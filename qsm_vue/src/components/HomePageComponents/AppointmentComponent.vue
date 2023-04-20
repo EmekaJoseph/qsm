@@ -27,6 +27,10 @@
                                             placeholder="Email Address">
                                     </div>
                                     <div class="col-lg-12">
+                                        <input class="form-control form-control-lg" v-model="person.phone" type="number"
+                                            placeholder="Phone Number">
+                                    </div>
+                                    <div class="col-lg-12">
                                         <textarea placeholder="Your message" v-model="person.message" class="form-control"
                                             rows="5"></textarea>
                                     </div>
@@ -62,12 +66,13 @@ const fxn = useFunction.fx
 const person = reactive({
     name: '',
     email: '',
+    phone: '',
     message: '',
     isSending: false
 })
 
 async function submitForm() {
-    if (!person.name || !person.message || !person.name) {
+    if (!person.name || !person.message || !person.email || !person.phone) {
         fxn.Toast('Please complete the form', 'warning')
         return
     }
@@ -77,8 +82,9 @@ async function submitForm() {
     try {
         let resp = await user_api.sendMessage(person)
         if (resp.status == 200) {
-            fxn.Toast('Thank You for contacting us, we will reach you soon.', 'success')
+            fxn.Toast('Thank You for reaching out, we will contact you soon.', 'success')
             person.email = ''
+            person.phone = ''
             person.name = ''
             person.message = ''
             person.isSending = false
@@ -87,9 +93,6 @@ async function submitForm() {
         fxn.Toast('Network Error, Please try again', 'success')
         person.isSending = false
     }
-
-
-
 }
 
 </script>

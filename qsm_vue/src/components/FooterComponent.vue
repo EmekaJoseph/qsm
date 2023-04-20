@@ -61,6 +61,12 @@
                 <p><b>Adress: </b> 68, Randle Avenue, Surulere, Lagos, Nigeria.</p>
                 <p><b>Phone: </b> +234 816 308 3253; <br>+234 802 364 7417; <br>+234 803 584 9127.</p>
                 <p><b>Email: </b> qsmtrainingconsulting@gmail.com</p>
+
+                <div class="mt-4">
+
+                  <a class="text-warning" :href="`${hostURL}/qsm_docu/T_&_C.docx`" download>
+                    <i class="bi bi-download"></i> Terms &amp; Conditions..</a>
+                </div>
               </div>
             </div>
           </div>
@@ -91,6 +97,10 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { hostURL } from '@/store/functions/axiosManager';
+</script>
 
 <style scoped>
 .active {

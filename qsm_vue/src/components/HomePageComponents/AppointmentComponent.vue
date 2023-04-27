@@ -18,15 +18,16 @@
                         <div class="appointment-form-section">
                             <form @submit.prevent="submitForm" id="dreamit-form">
                                 <div class="row gy-3">
+
                                     <div class="col-lg-12">
+                                        <input class="form-control form-control-lg" v-model="person.email" type="email"
+                                            placeholder="Email">
+                                    </div>
+                                    <div class="col-lg-6">
                                         <input class="form-control form-control-lg" v-model="person.name" type="text"
                                             placeholder="Name">
                                     </div>
-                                    <div class="col-lg-12">
-                                        <input class="form-control form-control-lg" v-model="person.email" type="email"
-                                            placeholder="Email Address">
-                                    </div>
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-6">
                                         <input class="form-control form-control-lg" v-model="person.phone" type="number"
                                             placeholder="Phone Number">
                                     </div>

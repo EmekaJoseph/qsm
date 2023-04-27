@@ -57,9 +57,9 @@
 
 
 @media (max-width: 991px) {
-    /* .hero-section {
-        margin-top: 50px;
-    } */
+    .hero-section {
+        height: 90vh !important;
+    }
 
     .text-sml {
         font-weight: bold;

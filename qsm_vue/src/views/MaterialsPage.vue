@@ -35,7 +35,7 @@
         <div v-else>
         <!-- <div class="py-5" style="min-height: 300px;" v-if="!materials.list.length">
             <EmptyListComponent str="No Materials" />
-                                                                                                                                                                              </div> -->
+                                                                                                                                                                                                                                                                                                                                                                        </div> -->
 
           <div class="row gy-3">
             <div class="col-md-8">
@@ -53,27 +53,31 @@
                 </div>
                 <div v-else v-for="matr in materials.list" :key="matr" class="col-12 col-sm-6" @click="toDownload = matr"
                   data-bs-toggle="modal" data-bs-target="#downloadMaterialModal">
-                  <div class="card rounded-0 shadow-sm material-card">
-                    <div class="d-flex">
-                      <div class="col-2 icon-left">
-                        <i class="bi bi-file-earmark-lock"></i>
-                      </div>
-                      <div class="col-10 details-right">
-                        <div class="title">
-                          {{ matr.name }} <small>({{ matr.material_code }})</small>
-                        </div>
-                        <div class="info">
-                          <div class="category text-success mb-1">
-                            <i class="bi bi-tag"></i> {{ matr.category }}
+                  <div class="card rounded-0 shadow material-card">
+                    <div class="card-body pb-0">
+                      <div class="d-flex">
+                      <!-- <div class="col-2 icon-left">
+                          <i class="bi bi-file-earmark-lock"></i>
+                                                                                                                                                  </div> -->
+                        <div class="col-10 details-right">
+                          <div class="title">
+                            <span class="text-muted fw-bold">
+                              {{ matr.material_code }}</span> - {{ fxn.truncateStr(matr.name, 45) }}
                           </div>
-                          {{ matr.pages }} pages <span class="float-end">
-                            <button class="btn btn-sm btn-custom-light rounded-4 fs-11 hover-tiltY">
-                              <i class="bi bi-download"></i> download
-                            </button>
-                          </span>
+                          <div class="info">
+                            <span class="category text-success"><i class="bi bi-tag"></i> {{ matr.category }}</span>,
+                            <span class="ms-1">
+                              {{ matr.pages }} pages
+                            </span>
+                          </div>
                         </div>
-
                       </div>
+                    </div>
+                    <div class="card-footer border-0 bg-transparent pb-3">
+                      <button class="float-end btn btn-sm btn-custom-secondary rounded-2 fs-11 hover-tiltY">
+                        <i class="bi bi-cloud-download"></i> download
+                      </button>
+
                     </div>
                   </div>
                 </div>
@@ -126,8 +130,9 @@ import SearchMaterialField from '@/components/SearchMaterialField.vue';
 import { useCourseMaterials } from '@/store/materials';
 import downloadMaterialModal from '@/components/Modals/downloadMaterialModal.vue';
 import newsLetterForm from '@/components/newsLetterForm.vue';
+import useFunction from '@/store/functions/useFunction';
 
-
+const fxn = useFunction.fx
 
 
 onMounted(() => {
@@ -172,6 +177,7 @@ function searchByCategory(cate: any) {
 .material-card {
   cursor: pointer;
   height: 100%;
+  border-left: 2px solid #9e2a07;
 }
 
 .icon-left {
@@ -182,12 +188,14 @@ function searchByCategory(cate: any) {
   padding: 5px;
   font-size: 30px;
   color: #ff3c0070;
-  background-color: #ff3c0010;
+  /* background-color: #ff3c0010; */
+  height: 100%;
 }
 
-.details-right {
+/* .details-right {
   padding: 7px;
-}
+  margin-left: 10px;
+} */
 
 .details-right .title {
   font-weight: bold;
@@ -216,6 +224,10 @@ function searchByCategory(cate: any) {
 @media (max-width: 768px) {
   .newsletter {
     margin-top: 300px;
+  }
+
+  .details-right .title {
+    font-size: 11px;
   }
 }
 </style>

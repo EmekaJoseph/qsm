@@ -65,7 +65,7 @@
                 <div class="mt-4">
 
                   <a class="text-warning" :href="`${hostURL}/qsm_docu/T_&_C.docx`" download>
-                    <i class="bi bi-download"></i> Terms &amp; Conditions..</a>
+                    <i class="bi bi-file-earmark-arrow-down"></i> Terms &amp; Conditions.</a>
                 </div>
               </div>
             </div>

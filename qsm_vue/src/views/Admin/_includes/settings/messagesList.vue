@@ -47,7 +47,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, onMounted, onUnmounted } from 'vue'
+import { reactive, onMounted } from 'vue'
 import { AdminAPI } from '@/store/functions/axiosManager';
 import useFunction from '@/store/functions/useFunction';
 // import { useTimeAgo } from '@vueuse/core'
@@ -78,7 +78,6 @@ async function getMessages() {
     let { data } = await admin_api.getMessages()
     messages.list = data
     messages.loading = false
-
 }
 
 async function deleteMessage(id: any) {

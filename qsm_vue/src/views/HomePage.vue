@@ -9,6 +9,7 @@
       <ChooseUsComponent />
       <!-- <ProjectsComponent /> -->
       <Vision_MissionComponent />
+      <clientsComponent />
       <AppointmentComponent />
       <FAQsComponent />
       <BlogSectionComponent />
@@ -31,6 +32,7 @@ import ChooseUsComponent from '@/components/HomePageComponents/ChooseUsComponent
 import BlogSectionComponent from '@/components/HomePageComponents/BlogSectionComponent.vue'
 import FAQsComponent from '@/components/HomePageComponents/FAQsComponent.vue'
 import AppointmentComponent from '@/components/HomePageComponents/AppointmentComponent.vue'
+import clientsComponent from '@/components/HomePageComponents/clientsComponent.vue'
 
 
 import { onMounted } from 'vue';

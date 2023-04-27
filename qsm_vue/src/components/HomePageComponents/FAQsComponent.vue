@@ -1,5 +1,5 @@
 <template>
-    <div class="services-section pt-70 pb-80">
+    <div class="services-section pt-70 pb-80 bg-white">
         <div class="container">
             <div class="section-head pb-65">
                 <div class="row align-items-center">
@@ -18,27 +18,20 @@
                 </div>
             </div>
             <div class="section-slide">
-                <!-- <img class="codeImg" src="@/assets/images/dots.png" alt="" /> -->
                 <div class="containe">
                     <div class="animate__animated animate__slideInUp  col-md-12">
                         <div class="accordion accordion-flush" id="accordionExample">
-                            <div v-for="(faq, index) in faqs" :key="index" class="accordion-item">
-                                <h2 @click="showing = faq.question" class="accordion-header" :id="'heading' + index">
-                                    <button class="accordion-button headTopic"
-                                        :class="{ 'collapsed': faq.question != showing }" type="button"
-                                        data-bs-toggle="collapse" :data-bs-target="'#collapse_' + index"
-                                        aria-expanded="true" :aria-controls="'#collapse_' + index">
+                            <div class="accordion-item" v-for="(faq, index) in faqs" :key="index">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        :data-bs-target="'#flush-' + index" aria-expanded="false"
+                                        :aria-controls="'#flush-' + index">
                                         {{ faq.question }}
                                     </button>
                                 </h2>
-                                <div :id="'#collapse_' + index" class="accordion-collapse collapse"
-                                    :class="{ 'show': faq.question == showing }" :aria-labelledby="'heading' + index"
-                                    data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <p class=" fst-italic text-muted">
-                                            {{ faq.answer }}
-                                        </p>
-                                    </div>
+                                <div :id="'flush-' + index" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body text-muted"> {{ faq.answer }}</div>
                                 </div>
                             </div>
                         </div>

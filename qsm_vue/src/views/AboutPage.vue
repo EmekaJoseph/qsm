@@ -64,20 +64,22 @@
           </ol>
         </section>
 
-        <section class="section" style="text-align: justify;">
+        <section class="section" style="text-align: justif;">
           <div class="title">Vision</div>
           To be a leading innovative training and consulting firm on quality assurance and regulatory guidelines in food,
           pharmaceutics and allied industries.
         </section>
-        <section class="section" style="text-align: justify;">
+        <section class="section" style="text-align: justif;">
           <div class="title">Mission</div>
           To build capacity in skill and regulatory requirements for the food, pharmaceutical and allied industries for
           increase in productivity, best practices and sustainability.
         </section>
-        <section class="section" style="text-align: justify;">
+        <section class="section" style="text-align: justif;">
           <div class="title">Goal</div>
           To help companies maintain standards and quality for customers’ satisfaction.
         </section>
+
+        <hr style="border-color:  #ccc;">
 
         <section class="section text-start" id="trainings">
           <div class="title">OUR SEMINARS/TRAINING MODULES</div>
@@ -144,11 +146,46 @@
           <div class="text-success fs-5">Nigeria Institute of Training and Development (<b>NITAD</b>)</div>
         </section>
 
+        <section class="section" id="clients">
+          <div class="title">OUR CLIENTS:</div>
+          <ol style="list-style: circle; margin-top: 0px !important;">
+            <li> Emerald Park</li>
+            <li> Tasty Time</li>
+            <li> Petadis Ent</li>
+            <li> Richygold Int’l Limited</li>
+            <li> Goko Herbs West African Limited</li>
+            <li> Chi Pharmaceuticals Ltd.</li>
+            <li> Butchers & Bakers Ltd.</li>
+            <li> Association of Table Water Producer (ATWAP)</li>
+            <li> National Agency for Food and Drug Administration and Control (NAFDAC)</li>
+            <li> Covenant University</li>
+            <li> Nando Herbs Ltd</li>
+            <li> Gonat International Ventures Ltd</li>
+            <li> Dr. Nwakor 7 Keys Nigeria Limited</li>
+
+          </ol>
+        </section>
+
         <hr style="border-color:  #ccc;">
 
+
         <section class="section text-start">
-          <div class="title">TRAINING DONE SO FAR:</div>
-          <ol>
+          <div class="title">TRAININGS DONE SO FAR:</div>
+
+          <ol class="list-group list-group-flush">
+            <li li v-for="(trn, index) in trainings.list" :key="index" class="list-group-item m-0 px-0">
+              <span class="fw-bold text-muted">{{ trn.title }}</span>
+              <div>
+                <ol style="list-style: upper-roman;">
+                  <li v-for="list in trn.list" :key="list">
+                    {{ list.name }} - <b>{{ list.date }}</b> </li>
+                </ol>
+              </div>
+            </li>
+
+          </ol>
+
+          <!-- <ol>
             <li v-for="(trn, index) in trainings.list" :key="index">
               {{ trn.title }}
               <ol style="list-style: upper-roman;">
@@ -156,7 +193,7 @@
                   {{ list.name }} - <b>{{ list.date }}</b> </li>
               </ol>
             </li>
-          </ol>
+          </ol> -->
         </section>
 
         <hr style="border-color:  #ccc;">

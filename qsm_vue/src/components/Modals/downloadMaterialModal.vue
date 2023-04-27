@@ -4,14 +4,14 @@
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm">
                 <div class="modal-content">
-                    <div class="modal-header border-0 bg-light-subtle">
+                    <div class="modal-header border-0 border-bottom bg-light-subtle">
                         <div class="fw-bold text-muted2">
                             {{ item.name }}
                         </div>
-                        <span class="float-end">
+                        <!-- <span class="float-end">
                             <button @click="clearModal" ref="btnX" class="btn btn-close" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
-                        </span>
+                        </span> -->
                     </div>
                     <div class="modal-body p-sm-4">
                         <div v-if="!fileToDownLoad.length">
@@ -34,10 +34,14 @@
                                     <button v-else disabled class="btn theme-btn btn-lg  rounded-4 w-100">
                                         Checking...
                                     </button>
-                                    <!-- <button class="btn theme-btn">sss</button> -->
                                 </div>
 
-
+                                <div class="col-12 mt-2">
+                                    <button @click="clearModal" ref="btnX" data-bs-dismiss="modal"
+                                        class="btn btn-lg rounded-4 w-100 btn-light">
+                                        Cancel
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <div v-else class="col-12 mt-2">

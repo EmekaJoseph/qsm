@@ -8,7 +8,7 @@
 
                 <template #addons>
                     <!-- <Pagination /> -->
-                    <Navigation />
+                    <!-- <Navigation /> -->
                 </template>
             </Carousel>
         </div>
@@ -23,8 +23,14 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 <style scoped>
 .carousel__item {
     width: 100vw;
-    height: 400px;
+    height: 350px;
     object-fit: cover;
+}
+
+@media (max-width: 994px) {
+    .carousel__item {
+        height: 200px;
+    }
 }
 </style>
 

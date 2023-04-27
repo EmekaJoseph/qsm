@@ -8,11 +8,10 @@
         <div class="card-body px-4">
             <form v-if="!categories.isEditing" @submit.prevent="saveCategory" class="row g-2">
                 <div class="col-12 col-md-8">
-                    <input v-model="categories.field" type="text" class="form-control form-control-lg"
-                        placeholder="new category..">
+                    <input v-model="categories.field" type="text" class="form-control" placeholder="new category..">
                 </div>
                 <div class="col-12 col-md-4">
-                    <button class="btn btn-custom-secondary w-100 btn-lg">
+                    <button class="btn btn-custom-secondary w-100">
                         Add
                     </button>
                 </div>

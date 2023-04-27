@@ -23,14 +23,14 @@
                         </div>
                         <div v-else class="row justify-content-center gy-3">
                             <div class="col-md-12">
-                                <div class="py-3 p-1 card shadow-s rounded-0">
+                                <div class="py-3 p-1 card shadow-sm bg-light rounded-0">
                                     <div class="table-responsive">
                                         <table class="table table-sm">
                                             <tbody>
                                                 <tr v-for="trn in trainings.cart" :key="trn">
-                                                    <th style="width: 10%;"><i class="bi bi-check-lg text-success"></i>
+                                                    <th style="width: 5%;"><i class="bi bi-check-lg text-success"></i>
                                                     </th>
-                                                    <td style="width:80%">{{ trn.title }}</td>
+                                                    <td style="width:90%">{{ trn.title }}</td>
                                                     <td>
                                                         <button @click="trn.inCart = null" class="btn m-0 p-0"><i
                                                                 class="bi bi-x-lg"></i></button>

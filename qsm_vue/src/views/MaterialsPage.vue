@@ -33,7 +33,7 @@
 
 
         <div v-else>
-        <!-- <div class="py-5" style="min-height: 300px;" v-if="!materials.list.length">
+          <!-- <div class="py-5" style="min-height: 300px;" v-if="!materials.list.length">
             <EmptyListComponent str="No Materials" />
                                                                                                                                                                                                                                                                                                                                                                         </div> -->
 
@@ -44,30 +44,31 @@
               </div>
 
               <div class="row gy-3 mt-sm-3">
-                <div v-show="!materials.searchLoading" class="col-12 text-muted2 mb-sm-2 small"
+                <div v-show="!materials.searchLoading" class="col-12 text-muted2 mb-sm-2 small py-3"
                   style="letter-spacing: 0.2rem;">
                   {{ materials.list.length ? listGroupName : 'NO MATERIALS' }}
                 </div>
                 <div class="py-5" v-if="materials.searchLoading">
                   <PageLoading />
                 </div>
-                <div v-else v-for="matr in materials.list" :key="matr" class="col-12 col-sm-6" @click="toDownload = matr"
-                  data-bs-toggle="modal" data-bs-target="#downloadMaterialModal">
+                <div v-else v-for="{ id, name, material_code, pages, category } in materials.list" :key="id"
+                  class="col-12 col-sm-6" @click="downloadMaterial(id, name)" data-bs-toggle="modal"
+                  data-bs-target="#downloadMaterialModal">
                   <div class="card rounded-0 shadow material-card">
                     <div class="card-body pb-0">
                       <div class="d-flex">
-                      <!-- <div class="col-2 icon-left">
+                        <!-- <div class="col-2 icon-left">
                           <i class="bi bi-file-earmark-lock"></i>
                                                                                                                                                   </div> -->
                         <div class="col-10 details-right">
                           <div class="title">
                             <span class="text-muted fw-bold">
-                              {{ matr.material_code }}</span> - {{ fxn.truncateStr(matr.name, 45) }}
+                              {{ material_code }}</span> - {{ fxn.truncateStr(name, 45) }}
                           </div>
                           <div class="info">
-                            <span class="category text-success"><i class="bi bi-tag"></i> {{ matr.category }}</span>,
+                            <span class="category text-success"><i class="bi bi-tag"></i> {{ category }}</span>,
                             <span class="ms-1">
-                              {{ matr.pages }} pages
+                              {{ pages }} pages
                             </span>
                           </div>
                         </div>
@@ -125,32 +126,37 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, reactive } from 'vue';
 import SearchMaterialField from '@/components/SearchMaterialField.vue';
 import { useCourseMaterials } from '@/store/materials';
 import downloadMaterialModal from '@/components/Modals/downloadMaterialModal.vue';
 import newsLetterForm from '@/components/newsLetterForm.vue';
 import useFunction from '@/store/functions/useFunction';
 
-const fxn = useFunction.fx
-
 
 onMounted(() => {
   searchByLatest()
 })
 
-
-
-
-
+const fxn = useFunction.fx
 const materials = useCourseMaterials()
-const categoryToSearch = ref<string>('All')
-const toDownload = ref<any>({})
-const listGroupName = ref<string>('RECENT UPLOADS:')
+
+const categoryToSearch = ref<string>('')
+const listGroupName = ref<string>('')
+
+const toDownload = reactive({
+  id: '',
+  name: ''
+})
+
+function downloadMaterial(id: string, name: string) {
+  toDownload.id = id
+  toDownload.name = name
+}
 
 function searchByLatest() {
   categoryToSearch.value = 'All'
-  listGroupName.value = 'RECENT UPLOADS: ';
+  listGroupName.value = 'MOST RECENT:';
   materials.searchLoading = true
   materials.getLatestMaterials()
 }
@@ -168,8 +174,6 @@ function searchByCategory(cate: any) {
   materials.searchLoading = true
   materials.materialsByCaterogy(cate.category_id)
 }
-
-
 
 </script>
 
@@ -227,7 +231,7 @@ function searchByCategory(cate: any) {
   }
 
   .details-right .title {
-    font-size: 11px;
+    font-size: 13px;
   }
 }
 </style>

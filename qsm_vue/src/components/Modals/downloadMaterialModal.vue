@@ -4,22 +4,25 @@
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm">
                 <div class="modal-content">
+                    <div v-if="fileToDownLoad.length">
+                        <span class="float-end m-2">
+                            <button @click="clearModal" ref="btnX" class="btn btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </span>
+                    </div>
                     <div class="modal-header border-0 border-bottom bg-light-subtle">
                         <div class="fw-bold text-muted2">
                             {{ item.name }}
                         </div>
-                        <!-- <span class="float-end">
-                            <button @click="clearModal" ref="btnX" class="btn btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </span> -->
                     </div>
                     <div class="modal-body p-sm-4">
                         <div v-if="!fileToDownLoad.length">
                             <!-- <div class="fw-bold">{{ item.name }}</div> -->
                             <span class=" text-danger small fs-11">
-                                <b>Enter One Time Code to download,</b> Code
-                                can only be used
-                                once!</span>
+                                <div class="text-center">Enter One Time Code to download,</div>
+                                <div class="text-center"><b>Code can only be used once!</b></div>
+
+                            </span>
                             <div class="row mt-3">
                                 <div class="col-12">
                                     <input v-model="code" type="text" class="form-control form-control-lg rounded-4"
@@ -45,7 +48,7 @@
                             </div>
                         </div>
                         <div v-else class="col-12 mt-2">
-                            <div class="text-center mb-3 text-dark">PIN VALID!</div>
+                            <!-- <div class="text-center mb-3 text-dark">PIN VALID!</div> -->
                             <a class="btn btn-success btn-lg bg-success-subtle fw-bold text-success w-100 border-0"
                                 :href="`${hostURL}/course_materials/${fileToDownLoad}`" download>
                                 <i class="bi bi-file-earmark-arrow-down-fill"></i> Download Material</a>

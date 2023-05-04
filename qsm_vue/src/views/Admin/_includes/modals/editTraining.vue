@@ -49,6 +49,10 @@
                                     </div>
 
                                     <div class="col-md-12 mt-3">
+                                        <button type="button" v-if="!isSaving" data-bs-dismiss="modal"
+                                            class="float-end btn btn-custom-light ms-3 ">
+                                            Cancel
+                                        </button>
                                         <button v-if="!isSaving" @click.prevent="updateDetails"
                                             class="float-end theme-btn btn-custom-secondary btn">Update
                                         </button>

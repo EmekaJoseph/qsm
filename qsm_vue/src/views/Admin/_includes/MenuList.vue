@@ -31,7 +31,7 @@
 
             <li class="list-group-item" :class="{ 'gActive': (route.name == 'BlogEdit') }">
                 <router-link :to="{ name: 'BlogEdit' }">
-                    <i class="bi bi-newspaper"></i>&nbsp;
+                    <i class="bi bi-pencil"></i>&nbsp;
                     Blog
                 </router-link>
             </li>
@@ -84,7 +84,7 @@ async function logOut() {
 .list-group-item {
     background-color: transparent;
     color: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border: none;
     font-size: 17px;
 }

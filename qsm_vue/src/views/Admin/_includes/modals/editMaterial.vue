@@ -32,10 +32,14 @@
                                     </div>
 
                                     <div class="col-md-12 mt-4">
-                                        <button v-if="!isSaving" @click.prevent="updateDetails"
-                                            class="float-end theme-btn btn-custom-secondary btn w-100">Update
+                                        <button type="button" v-if="!isSaving" data-bs-dismiss="modal"
+                                            class="float-end btn btn-custom-light ms-3 ">
+                                            Cancel
                                         </button>
-                                        <button v-else class="float-end theme-btn btn w-100" disabled>Updating...</button>
+                                        <button v-if="!isSaving" @click.prevent="updateDetails"
+                                            class="float-end theme-btn btn-custom-secondary btn">Update
+                                        </button>
+                                        <button v-else class="float-end theme-btn btn" disabled>Updating...</button>
                                     </div>
                                 </form>
                             </div>

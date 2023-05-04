@@ -1,5 +1,5 @@
 <template>
-    <div class="appointment-section pt-75 pb-75" id="instantform">
+    <div class="appointment-section pt-75 pb-75">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6">
@@ -15,7 +15,7 @@
                                 Get in touch! We aim to
                                 be in touch </p>
                         </div>
-                        <div class="appointment-form-section">
+                        <div class="appointment-form-section" id="instantform">
                             <form @submit.prevent="submitForm" id="dreamit-form">
                                 <div class="row gy-3">
 

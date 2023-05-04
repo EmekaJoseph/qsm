@@ -80,12 +80,12 @@
                                 <i class="bi bi-folder-symlink"></i> Move
                             </button>
                             <ul class="dropdown-menu">
-                                <li v-for="arch in archives.list" :key="arch">
-                                    <button v-if="arch.archive_id != archives.onDisplay.archive_id"
-                                        @click="materialToArchive(arch.archive_id)" class="btn btn-link m-0 dropdown-item">
-                                        <i v-if="arch.count == '0'" class="bi bi-folder"></i>
+                                <li v-for="{ archive_id, count, archive_name } in archives.list" :key="archive_id">
+                                    <button v-if="archive_id != archives.onDisplay.archive_id"
+                                        @click="materialToArchive(archive_id)" class="btn btn-link m-0 dropdown-item">
+                                        <i v-if="count == '0'" class="bi bi-folder"></i>
                                         <i v-else class="bi bi-folder-fill"></i>
-                                        {{ arch.archive_name }}
+                                        {{ archive_name }}
                                     </button>
                                 </li>
                             </ul>

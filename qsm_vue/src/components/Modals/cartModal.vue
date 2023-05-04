@@ -65,10 +65,16 @@
                                         </div>
 
                                         <div class="col-md-12 mt-5">
+                                            <button type="button" v-if="!field.isSending" data-bs-dismiss="modal"
+                                                class="float-end btn btn-custom-secondary ms-3 ">
+                                                Cancel
+                                            </button>
                                             <button v-if="!field.isSending" @click.prevent="submitForm"
                                                 class="float-end btn theme-btn  w-auto">
                                                 <i class="bi bi-check-lg"></i> Register
                                             </button>
+
+
                                             <button disabled v-else class="float-end btn theme-btn  w-auto">
                                                 <i class="bi bi-check-lg"></i> Sending...
                                             </button>

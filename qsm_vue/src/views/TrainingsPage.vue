@@ -106,7 +106,7 @@ import { useTrainings } from '@/store/trainings'
 import cartModal from '@/components/Modals/cartModal.vue';
 import { useRouter } from 'vue-router';
 
-const trainings = useTrainings()
+const trainings: any = useTrainings()
 const router = useRouter()
 
 onMounted(() => {

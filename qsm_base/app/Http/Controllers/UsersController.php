@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use App\Http\Controllers\TrainingsController;
 use App\Http\Controllers\MaterialsController;
 use App\Http\Controllers\EmailController;
+use stdClass;
 
 class UsersController extends BaseController
 {
@@ -47,12 +48,14 @@ class UsersController extends BaseController
                 ]
             );
         try {
+            $mailObj = new stdClass();
+            $mailObj->name = $req->input('name');
+            $mailObj->email = $req->input('email');
+            $mailObj->message = $req->input('message');
+
             $mailer = new EmailController();
-            $mailer->sendMessageAlert(
-                $req->input('name'),
-                $req->input('email'),
-                $req->input('message'),
-            );
+            $mailer->autoResponse($mailObj);
+            $mailer->sendMessageAlert($mailObj);
         } catch (\Throwable $th) {
             //throw $th;
         }

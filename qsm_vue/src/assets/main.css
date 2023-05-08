@@ -141,3 +141,13 @@ input[type=number] {
 }
 
 /* #################################### end of remove arrow from number input */
+
+
+
+/* format v-html paragraphs to have no margins START */
+
+.v-html p {
+  margin-block: 0px !important;
+}
+
+/* format v-html paragraphs to have no margins END */

@@ -3,7 +3,7 @@
         <div class="container">
             <div class="section-head pb-65">
                 <div class="section-head">
-                    <h5>// Vission &amp; Mission</h5>
+                    <h5>// Vision &amp; Mission</h5>
                     <h2 class="text-white"> We have passion <span> for Delivering </span></h2>
                     <span class="section-head-bar-2"></span>
                 </div>

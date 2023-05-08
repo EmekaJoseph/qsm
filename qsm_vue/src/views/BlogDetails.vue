@@ -21,7 +21,7 @@
                 {{ new Date(currentBlog.created_at).toDateString() }}
               </div>
 
-              <div class="blog-text" v-html="currentBlog.body"> </div>
+              <div class="blog-text v-html" v-html="currentBlog.body"> </div>
 
             </div>
           </div>

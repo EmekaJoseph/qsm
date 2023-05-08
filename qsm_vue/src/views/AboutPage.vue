@@ -218,7 +218,7 @@
         <hr style="border-color:  #ccc;">
 
         <section class="section" id="faculty">
-          <div class="title mb-4 text-decoration-underline">ADMINISTRATIVE STAFF:</div>
+          <div class="title mb-4 text-decoration-underline">Meet our Management Team:</div>
 
           <div class="row mb-4 faculty-span">
             <div class="col-lg-8 order-2 order-lg-1">

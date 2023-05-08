@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Aguda</title>
+    <title>QSM - noreply</title>
     <style>
         html {
             line-height: 1.15;
@@ -13,7 +13,7 @@
         }
 
         body {
-            margin: 0
+            margin: 20px
         }
 
         .info {
@@ -33,22 +33,21 @@
 </head>
 
 <body class="container">
-    <h5>You have a new Message from a your <b>{{$name}}</b>.</h5>
+    <h5>Hello <b>{{$name}}</b>,</h5>
 
     <section class="info">
-        <div><b>Message:</b></div>
-        <div>{{$message}}</div>
+        <div><b>Thank you for reaching out!</b></div>
+        <div>This is a confirmation that we got your message.</div>
     </section>
 
     <section class="info">
-        <div><b>Sender Email:</b></div>
-        <div>{{$email}}</div>
+        <div>We will contact you as soon as possible.</div>
     </section>
 
 
-    <!-- <footer>
-        <div> <a href="https://agudatechy.com">Agudatechy</a> &copy; 2023</div>
-    </footer> -->
+    <footer>
+        <div> <a href="https://qsmtrainingconsulting.com">qsmtrainingconsulting.com</a></div>
+    </footer>
 </body>
 
 </html>

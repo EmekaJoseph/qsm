@@ -8,37 +8,33 @@ use Illuminate\Support\Facades\Mail;
 
 class EmailController extends BaseController
 {
-    function sendMessageAlert($name, $email, $message)
+    function sendMessageAlert($obj)
     {
-        $data = [
-            'name' => $name,
-            'email' => $email,
-            'message' => $message
-        ];
-        $template = 'emails/messageAlert';
-        $topic = 'New Message/Enquiry';
+
+        $template = 'emails/newMessageAlert';
+        $topic = 'New Message';
         $to = 'qsmtrainingconsulting@gmail.com';
-        $this->sendEmail($topic, $template, $data, $to);
+        $this->sendEmail($topic, $template, [], $to);
     }
 
-    function sendNewsletter($title, $text, $email)
+    function autoResponse($obj)
     {
         $data = [
-            'text' => $text,
+            'name' => $obj->name,
+            'email' => $obj->email,
         ];
-        $template = 'emails/sendNewsletter';
-        $topic = $title;
-        $to = $email;
+        $template = 'emails/autoResponse';
+        $topic = 'no-reply';
+        $to = $obj->email;
         $this->sendEmail($topic, $template, $data, $to);
     }
-
 
 
     private function sendEmail($topic, $template, $data, $email)
     {
         Mail::send($template, $data, function ($message) use ($email, $topic) {
             $message->to($email)->subject($topic);
-            $message->from('support@qsmconsulting.com', 'QSM SUPPORT');
+            $message->from('info@qsmtrainingconsulting.com', 'QSM info');
         });
     }
 }

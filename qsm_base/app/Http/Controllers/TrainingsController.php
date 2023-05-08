@@ -33,7 +33,9 @@ class TrainingsController extends BaseController
 
         $data = [
             'active' => $active,
-            'inActive' => $inActive
+            'inActive' => $inActive,
+            'today_date' => $today,
+            'time_now' => Carbon::now()
         ];
 
         return response()->json($data, 200);

@@ -200,6 +200,8 @@ onMounted(() => {
 
 async function getList() {
     let { data } = await training_api.list()
+    console.log(data);
+
     Trainings.active = data.active;
     Trainings.inActive = data.inActive;
     Trainings.loading = false

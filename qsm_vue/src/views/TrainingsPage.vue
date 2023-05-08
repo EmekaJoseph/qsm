@@ -57,25 +57,24 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="card-footer bg-transparent border-0 mt-2">
-                    <button v-if="!training.inCart" @click="training.inCart = !training.inCart"
-                      class="float-end btn btn-custom-secondary rounded-3 btn-sm xsmall">
-                      <i class="bi bi-cart-plus"></i> add to Cart
-                    </button>
+                </div>
+                <div class="card-footer bg-transparent border-0 pb-3">
+                  <button v-if="!training.inCart" @click="training.inCart = !training.inCart"
+                    class="float-end btn btn-custom-secondary rounded-3 btn-sm xsmall">
+                    <i class="bi bi-cart-plus"></i> add to Cart
+                  </button>
 
-                    <button v-else @click="training.inCart = !training.inCart"
-                      class="float-end btn btn-danger bg-danger-subtle text-dark rounded-3 btn-sm px-3 xsmall">
-                      <i class="bi bi-cart-x"></i> Remove
-                    </button>
-                    <button @click="gotoTrainingPage(training.id)"
-                      class="float-end btn btn-custom-light rounded-3 me-3 btn-sm px-3 xsmall">
-                      <i class="bi bi-list"></i> details
-                    </button>
-                  </div>
+                  <button v-else @click="training.inCart = !training.inCart"
+                    class="float-end btn btn-danger bg-danger-subtle text-dark rounded-3 btn-sm px-3 xsmall">
+                    <i class="bi bi-cart-x"></i> Remove
+                  </button>
+                  <button @click="gotoTrainingPage(training.id)"
+                    class="float-end btn btn-custom-light rounded-3 me-3 btn-sm px-3 xsmall">
+                    <i class="bi bi-list"></i> details
+                  </button>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>

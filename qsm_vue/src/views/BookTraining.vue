@@ -30,7 +30,7 @@
           </div>
           <div class="col-md-7">
             <div class="fw-bold text-black text-uppercase fs-4">{{ training.title }}</div>
-            <div v-html="training.info"></div>
+            <div class="v-html" v-html="training.info"></div>
             <div class="mt-3 small text-muted">
               <i class="bi bi-calendar"></i>
               {{ (new Date(training.start_date)).toDateString() }} -

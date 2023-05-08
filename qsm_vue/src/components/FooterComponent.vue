@@ -16,16 +16,22 @@
                 <div class="footer-about-social-icon">
                   <ul>
                     <li>
-                      <a href="#"><i class="bi bi-facebook"></i></a>
+                      <a href="https://web.facebook.com/qsm.qsm.902/">
+                        <i class="bi bi-facebook"></i>
+                      </a>
                     </li>
                     <li>
-                      <a href="#"><i class="bi bi-twitter"></i></a>
+                      <a href="https://www.linkedin.com/in/qsm-training-08138818a/recent-activity/">
+                        <i class="bi bi-linkedin"></i>
+                      </a>
                     </li>
                     <li>
-                      <a href="#"><i class="bi bi-pinterest"></i></a>
+                      <a href="https://instagram.com/qsmtrainingandconsulting?igshid=ZGUzMzM3NWJiOQ==">
+                        <i class="bi bi-instagram"></i>
+                      </a>
                     </li>
                     <li>
-                      <a href="#"><i class="bi bi-linkedin"></i></a>
+                      <!-- <a href="#"><i class="bi bi-pinterest"></i></a> -->
                     </li>
                   </ul>
                 </div>

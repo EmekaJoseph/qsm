@@ -59,17 +59,17 @@
                   </div>
                 </div>
                 <div class="card-footer bg-transparent border-0 pb-3">
-                  <button v-if="!training.inCart" @click="training.inCart = !training.inCart"
-                    class="float-end btn btn-custom-secondary rounded-3 btn-sm xsmall">
+                  <button v-if="!training.inCart" @click="updateInCart(training)"
+                    class="float-end btn btn-custom-secondary rounded-3 btn-sm">
                     <i class="bi bi-cart-plus"></i> add to Cart
                   </button>
 
-                  <button v-else @click="training.inCart = !training.inCart"
-                    class="float-end btn btn-danger bg-danger-subtle text-dark rounded-3 btn-sm px-3 xsmall">
+                  <button v-else @click="updateInCart(training)"
+                    class="float-end btn btn-danger bg-danger-subtle text-dark rounded-3 btn-sm px-3">
                     <i class="bi bi-cart-x"></i> Remove
                   </button>
                   <button @click="gotoTrainingPage(training.id)"
-                    class="float-end btn btn-custom-light rounded-3 me-3 btn-sm px-3 xsmall">
+                    class="float-end btn btn-custom-light rounded-3 me-3 btn-sm px-3">
                     <i class="bi bi-list"></i> details
                   </button>
                 </div>
@@ -93,7 +93,6 @@
 
       </div>
     </div>
-
     <cartModal />
     <FooterComponent />
   </div>
@@ -104,9 +103,23 @@ import { onMounted } from 'vue'
 import { useTrainings } from '@/store/trainings'
 import cartModal from '@/components/Modals/cartModal.vue';
 import { useRouter } from 'vue-router';
+import useFunction from '@/store/functions/useFunction';
+
+const fxn = useFunction.fx
 
 const trainings: any = useTrainings()
 const router = useRouter()
+
+function updateInCart(training: any) {
+  if (!training.inCart) {
+    fxn.ToastShort('Added to cart')
+    training.inCart = true
+  }
+  else {
+    fxn.ToastShort('Removed from cart')
+    training.inCart = null
+  }
+}
 
 onMounted(() => {
   window.scrollTo(0, 0);
@@ -145,6 +158,7 @@ function gotoTrainingPage(id: any) {
 @media screen and (max-width: 767px) {
   .floatPanel {
     padding-right: 20px;
+    margin-bottom: 300px;
   }
 }
 

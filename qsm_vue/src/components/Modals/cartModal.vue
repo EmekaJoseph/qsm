@@ -27,14 +27,19 @@
                                     <div class="table-responsive">
                                         <table class="table table-sm">
                                             <tbody>
-                                                <tr v-for="trn in trainings.cart" :key="trn">
-                                                    <th style="width: 5%;"><i class="bi bi-check-lg text-success"></i>
+                                                <tr v-for="(trn, i) in trainings.cart" :key="i">
+                                                    <th><i class="bi bi-dot text-success"></i>
                                                     </th>
-                                                    <td style="width:90%">{{ trn.title }}</td>
+                                                    <td>{{ trn.title }}</td>
+                                                    <td class="text-end"> {{ fxn.AddCommas(trn.price) }}</td>
                                                     <td>
                                                         <button @click="trn.inCart = null" class="btn m-0 p-0"><i
                                                                 class="bi bi-x-lg"></i></button>
                                                     </td>
+                                                </tr>
+                                                <tr>
+                                                    <th colspan="2" class="text-end">TOTAL:</th>
+                                                    <th class="text-end">N{{ fxn.AddCommas(totalPrice) }}</th>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -57,7 +62,8 @@
                                         </div>
                                         <div class="col-md-12 col-lg-6">
                                             <label>Phone <span class="text-danger">*</span></label>
-                                            <input v-model="field.phone" type="number" class="form-control " required>
+                                            <input v-maska data-maska="###########" v-model="field.phone" type="text"
+                                                class="form-control " required>
                                         </div>
                                         <div class="col-md-12 col-lg-6">
                                             <label>Company Name: </label>
@@ -93,11 +99,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from 'vue';
+import { ref, reactive, computed } from 'vue';
 import { onBeforeRouteLeave } from 'vue-router';
 import { UsersAPI } from '@/store/functions/axiosManager';
 import { useTrainings } from '@/store/trainings'
 import useFunction from '@/store/functions/useFunction';
+import { vMaska } from "maska"
 
 const fxn = useFunction.fx
 const users_api = new UsersAPI()
@@ -117,6 +124,13 @@ function clearCart() {
         x.inCart = null
     });
 }
+
+const totalPrice = computed(() => {
+    const itemsInCart = trainings.list.filter((x: any) => x.inCart == true)
+    return itemsInCart.reduce((previous: any, current: any) => {
+        return previous + parseInt(current.price)
+    }, 0)
+})
 
 function submitForm() {
     if (!field.name) {
@@ -146,6 +160,7 @@ function submitForm() {
         name: field.name,
         email: field.email,
         phone: field.phone,
+        total: totalPrice.value,
         company: !field.company ? null : field.company,
     }
 
@@ -153,7 +168,6 @@ function submitForm() {
 }
 
 async function sendRequest(req: object) {
-
     field.isSending = true
 
     try {

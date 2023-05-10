@@ -19,8 +19,6 @@ export const useTrainings = defineStore('Trainings', () => {
         loading.value = false
     }
 
-
-    // #############################################################
     return {
         list,
         loading,

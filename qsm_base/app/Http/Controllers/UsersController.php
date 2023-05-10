@@ -63,6 +63,12 @@ class UsersController extends BaseController
         return response()->json('saved', 200);
     }
 
+    public function sendDownloadRequest(Request $req)
+    {
+        $mat = new MaterialsController();
+        return $mat->sendDownloadRequest($req);
+    }
+
     public function newsLetterSub($email)
     {
         if (DB::table('tbl_newsletter')->where('email', $email)->exists()) {
@@ -83,7 +89,6 @@ class UsersController extends BaseController
     public function activeTrainings(Request $req)
     {
         $training = new TrainingsController();
-
         return $training->activeTrainings($req);
     }
 
@@ -91,42 +96,36 @@ class UsersController extends BaseController
     public function trainingRegistration(Request $req)
     {
         $training = new TrainingsController();
-
         return $training->trainingRegistration($req);
     }
 
     public function latestMaterials()
     {
         $mat = new MaterialsController();
-
         return $mat->latestMaterials();
     }
 
     public function materialsByName($name)
     {
         $mat = new MaterialsController();
-
         return $mat->materialsByName($name);
     }
 
     public function materialsByCategory($category_id)
     {
         $mat = new MaterialsController();
-
         return $mat->materialsByCategory($category_id);
     }
 
     public function downloadMaterial($code)
     {
         $mat = new MaterialsController();
-
         return $mat->downloadMaterial($code);
     }
 
     public function availableCategories()
     {
         $mat = new MaterialsController();
-
         return $mat->availableCategories();
     }
 }

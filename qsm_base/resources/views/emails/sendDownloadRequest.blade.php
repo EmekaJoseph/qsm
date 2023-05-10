@@ -26,16 +26,17 @@
 
 <body class="container">
     <section>
-        <div><b>New Message Alert.</b></div>
-        <div>You have a new message on qsmtrainingconsulting.com!</div>
+        <div><b>New Download Request.</b></div>
+        <div>You have a new Request on qsmtrainingconsulting.com!</div>
+        <div>A this user wants to download a material.</div>
     </section>
 
 
     <section>
-        <h5><b>Sender Information</b></h5>
-        <div><b>Name:</b> {{$name}}</div>
+        <h4><b>Sender Information:</b></h4>
         <div><b>Email:</b> {{$email}}</div>
-        <div><b>Message:</b> {{$message}}</div>
+        <div><b>Material:</b> {{$material['name']}}</div>
+        <div><b>Material-Code:</b> {{$material['material_code']}}</div>
     </section>
 </body>
 

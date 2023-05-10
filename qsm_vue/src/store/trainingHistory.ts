@@ -132,7 +132,7 @@ export const useTraningsHistory = defineStore('TraningsHistoty', () => {
         },
 
         {
-            title: `2nd Microbiology Training 2018 
+            title: `Microbiology Training -
             Covenant University In-conjunction with QSM Training & Consulting Ltd        `,
             list: [
                 {
@@ -277,7 +277,7 @@ export const useTraningsHistory = defineStore('TraningsHistoty', () => {
         },
 
         {
-            title: 'Onsite Training @ QSM Training center, 68, Randle Avenue. ',
+            title: 'Onsite Training @ QSM Training Palace, 1 Ekololu Street. ',
             list: [
                 {
                     name: 'Best Practices for Laboratory assistants',
@@ -299,84 +299,141 @@ export const useTraningsHistory = defineStore('TraningsHistoty', () => {
         },
 
         {
-            title: 'Onsite Training @ QSM Training center, 68, Randle Avenue. ',
+            title: 'Onsite Training @ QSM Training Palace, 1 Ekololu Street. ',
             list: [
                 {
                     name: 'Good Manufacturing Practice [Module 1],  and  Good Practices in Warehouse Management',
-                    date: 'October 2022'
-                }
-            ],
-        },
-
-        {
-            title: 'Onsite Training on @ QSM Training Palace, 1 Ekololu street.  ',
-            list: [
-                {
-                    name: 'Good Manufacturing Practice [Module 1]',
-                    date: 'November 2022'
-                }
-            ],
-        },
-
-        {
-            title: 'Onsite Training on @ QSM Training Palace, 1 Ekololu street.  ',
-            list: [
+                    date: 'October 2022; November, 2022 '
+                },
                 {
                     name: 'GMP in Pharmaceutical Manufacturing',
-                    date: 'December 2022'
+                    date: 'December, 2022; January, 2023'
                 }
             ],
         },
 
         {
-            title: 'Onsite Training on @ QSM Training Palace, 1 Ekololu street.  ',
-            list: [
-                {
-                    name: 'GMP in Pharmaceutical Manufacturing (module 1)',
-                    date: 'January, 2023'
-                }
-            ],
-        },
-
-        {
-            title: 'Onsite Training on @ QSM Training Palace, 1 Ekololu street.  ',
+            title: 'Onsite Training on @ QSM Training Palace, 1 Ekololu street for P.E.T ASSOCIATES LTD and UCM GLOBAL LTD. ',
             list: [
                 {
                     name: 'Water Quality Parameters and Water Treatment Module 1',
                     date: 'March 2023'
-                }
+                },
+
             ],
         },
 
         {
-            title: 'Onsite Training on @ QSM Training Palace, 1 Ekololu street.  ',
+            title: 'Onsite Training on @ QSM Training Palace, 1 Ekololu street for participants from GRACEJAY INVEST LTD, FOURSQUARE GOSPEL CHURCH and BELLIN BAKERY.',
             list: [
                 {
                     name: 'Good practice of Bookkeeping and Use of QuickBooks Accounting Software',
                     date: 'March 2023'
-                }
+                },
+
             ],
         },
 
         {
-            title: 'Onsite Training on @ QSM Training Palace, 1 Ekololu street.  ',
+            title: 'Onsite Training on @ QSM Training Palace, 1 Ekololu street for participants from METCEM LIMITED.',
             list: [
                 {
                     name: 'Good Manufacturing Practice',
                     date: 'April 2023'
-                }
+                },
+
             ],
         },
 
         {
-            title: 'Onsite Training on @ QSM Training Palace, 1 Ekololu street.',
+            title: 'Onsite Training on @ QSM Training Palace, 1 Ekololu street for participants from UNILAG, SLSL, and RICHYGOLD',
             list: [
                 {
                     name: 'Water Treatment And Pathogen Control, And Waste Water Treatment',
                     date: 'April 2023'
-                }
+                },
+
             ],
-        }
+        },
+
+
+
+
+
+
+
+
+
+
+        // {
+        //     title: 'Onsite Training on @ QSM Training Palace, 1 Ekololu street.  ',
+        //     list: [
+        //         {
+        //             name: 'Good Manufacturing Practice [Module 1]',
+        //             date: 'November 2022'
+        //         }
+        //     ],
+        // },
+
+        // {
+        //     title: 'Onsite Training on @ QSM Training Palace, 1 Ekololu street.  ',
+        //     list: [
+        //         {
+        //             name: 'GMP in Pharmaceutical Manufacturing',
+        //             date: 'December 2022'
+        //         }
+        //     ],
+        // },
+
+        // {
+        //     title: 'Onsite Training on @ QSM Training Palace, 1 Ekololu street.  ',
+        //     list: [
+        //         {
+        //             name: 'GMP in Pharmaceutical Manufacturing (module 1)',
+        //             date: 'January, 2023'
+        //         }
+        //     ],
+        // },
+
+        // {
+        //     title: 'Onsite Training on @ QSM Training Palace, 1 Ekololu street.  ',
+        //     list: [
+        //         {
+        //             name: 'Water Quality Parameters and Water Treatment Module 1',
+        //             date: 'March 2023'
+        //         }
+        //     ],
+        // },
+
+        // {
+        //     title: 'Onsite Training on @ QSM Training Palace, 1 Ekololu street.  ',
+        //     list: [
+        //         {
+        //             name: 'Good practice of Bookkeeping and Use of QuickBooks Accounting Software',
+        //             date: 'March 2023'
+        //         }
+        //     ],
+        // },
+
+        // {
+        //     title: 'Onsite Training on @ QSM Training Palace, 1 Ekololu street.  ',
+        //     list: [
+        //         {
+        //             name: 'Good Manufacturing Practice',
+        //             date: 'April 2023'
+        //         }
+        //     ],
+        // },
+
+        // {
+        //     title: 'Onsite Training on @ QSM Training Palace, 1 Ekololu street.',
+        //     list: [
+        //         {
+        //             name: 'Water Treatment And Pathogen Control, And Waste Water Treatment',
+        //             date: 'April 2023'
+        //         }
+        //     ],
+        // }
     ])
 
     return {

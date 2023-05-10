@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Str;
 
 use App\Models\MaterialModel;
+use stdClass;
 
 class MaterialsController extends BaseController
 {
@@ -280,6 +281,22 @@ class MaterialsController extends BaseController
         } else {
             return response()->json('code invalid', 203);
         }
+    }
+
+    public function sendDownloadRequest($req)
+    {
+        $material = MaterialModel::find($req->input('material_id'));
+        try {
+            $mailObj = new stdClass();
+            $mailObj->email = $req->input('email');
+            $mailObj->material = $material;
+
+            $mailer = new EmailController();
+            $mailer->sendDownloadRequest($mailObj);
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+        return response()->json('sent', 200);
     }
 
 

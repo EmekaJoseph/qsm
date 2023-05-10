@@ -28,6 +28,13 @@
                                         <QuillEditor content-type="html" toolbar="minimal"
                                             v-model:content="thisItem.info" />
                                     </div>
+
+                                    <div class="col-md-12">
+                                        <label>Price:</label>
+                                        <input v-model="thisItem.price" class="form-control" data-maska="9,99#"
+                                            data-maska-tokens="9:[0-9]:repeated" data-maska-reversed v-maska="maskaObj">
+                                    </div>
+
                                     <div class="col-md-12">
                                         <label>Venue:</label>
                                         <textarea v-model="thisItem.venue" class="form-control" rows="2"></textarea>
@@ -74,6 +81,9 @@ import { reactive, ref, watchEffect } from 'vue';
 import { onBeforeRouteLeave } from 'vue-router';
 import useFunction from '@/store/functions/useFunction';
 import { TrainingsAPI, hostURL } from '@/store/functions/axiosManager';
+import { vMaska } from "maska"
+
+const maskaObj: any = reactive({})
 
 const fxn = useFunction.fx
 const isSaving = ref(false)
@@ -91,6 +101,7 @@ const prop = defineProps({
 const thisItem = reactive({
     title: prop.item.title,
     info: prop.item.info,
+    price: prop.item.price,
     venue: prop.item.venue,
     start_date: prop.item.start_date,
     end_date: prop.item.end_date,
@@ -100,6 +111,7 @@ const thisItem = reactive({
 watchEffect(() => {
     thisItem.title = prop.item.title
     thisItem.info = prop.item.info
+    thisItem.price = prop.item.price
     thisItem.venue = prop.item.venue
     thisItem.start_date = prop.item.start_date
     thisItem.end_date = prop.item.end_date
@@ -112,7 +124,7 @@ function grabFile(e: any) {
 
 
 async function updateDetails() {
-    if (!thisItem.title || !thisItem.venue || !thisItem.info || !thisItem.start_date || !thisItem.end_date) {
+    if (!thisItem.title || !thisItem.venue || !thisItem.info || !thisItem.start_date || !thisItem.end_date || !thisItem.price) {
         fxn.Toast('check compulsory fields', 'warning')
         return;
     }
@@ -126,6 +138,7 @@ async function updateDetails() {
     obj.append('title', thisItem.title);
     obj.append('venue', thisItem.venue);
     obj.append('info', thisItem.info);
+    obj.append('price', maskaObj.unmasked)
     obj.append('start_date', thisItem.start_date);
     obj.append('end_date', thisItem.end_date);
     if (thisItem.image)

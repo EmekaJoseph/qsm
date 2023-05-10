@@ -18,31 +18,58 @@
                     <div class="modal-body p-sm-4">
                         <div v-if="!fileToDownLoad.length">
                             <!-- <div class="fw-bold">{{ item.name }}</div> -->
-                            <span class=" text-danger small fs-11">
-                                <div class="text-center">Enter One Time Code to download,</div>
-                                <div class="text-center"><b>Code can only be used once!</b></div>
-
-                            </span>
                             <div class="row mt-3">
                                 <div class="col-12">
-                                    <input v-model="code" type="text" class="form-control form-control-lg rounded-4"
-                                        placeholder="enter code">
-                                </div>
-                                <div class="col-12 mt-3">
-                                    <button @click="checkCode" v-if="!checking"
-                                        class="btn btn-lg rounded-4 w-100 theme-btn">
-                                        Validate
-                                    </button>
+                                    <div v-if="!isRequesting" class="card p-3">
+                                        <span class=" text-danger small fs-11">
+                                            <div class="text-center">Enter One Time Code to download,</div>
+                                            <div class="text-center"><b>Code can only be used once!</b></div>
 
-                                    <button v-else disabled class="btn theme-btn btn-lg  rounded-4 w-100">
-                                        Checking...
+                                        </span>
+                                        <div class="col-12">
+                                            <input v-model="code" type="text" class="form-control form-control-lg rounded-4"
+                                                placeholder="enter code">
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            <button @click="checkCode" v-if="!checking"
+                                                class="btn btn-lg rounded-4 w-100 theme-btn">
+                                                Submit
+                                            </button>
+
+                                            <button v-else disabled class="btn theme-btn btn-lg  rounded-4 w-100">
+                                                Checking...
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div v-else class="card">
+                                        <div class="card-header bg-white fw-bold">Request for Code</div>
+                                        <div class="card-body">
+                                            <div class="col-12">
+                                                <input v-model="email" type="text"
+                                                    class="form-control form-control-lg rounded-" placeholder="your email">
+                                            </div>
+
+                                            <div class="col-12 mt-2">
+                                                <button @click="sendDownloadRequest"
+                                                    class="btn btn-lg rounded- w-100 btn-dark">
+                                                    Send Request
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div v-show="!isRequesting" class="col-12 mt-4">
+                                    <button @click="isRequesting = true" class="btn btn-dark btn-lg  rounded-4 w-100">
+                                        Request for code
                                     </button>
                                 </div>
 
-                                <div class="col-12 mt-2">
+                                <div class="col-12 mt-4">
                                     <button @click="clearModal" ref="btnX" data-bs-dismiss="modal"
                                         class="btn btn-lg rounded-4 w-100 btn-light">
-                                        Cancel
+                                        close
                                     </button>
                                 </div>
                             </div>
@@ -78,7 +105,10 @@ const prop = defineProps({
 
 const checking = ref(false)
 
+const isRequesting = ref(false)
+
 const code = ref('')
+const email = ref('')
 const fileToDownLoad = ref('')
 const fxn = useFunction.fx
 
@@ -109,11 +139,25 @@ async function checkCode() {
 
 }
 
+async function sendDownloadRequest() {
+    btnX.value.click()
+    let obj = {
+        material_id: prop.item.id,
+        email: email.value
+    }
+
+    await users_api.sendDownloadRequest(obj)
+    email.value = ''
+    fxn.Toast('Request sent', 'success')
+}
+
 
 function clearModal() {
     code.value = ''
     fileToDownLoad.value = ''
     checking.value = false
+    isRequesting.value = false
+
 }
 
 

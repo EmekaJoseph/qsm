@@ -42,6 +42,18 @@ const fx = reactive({
         })
     },
 
+    ToastShort: (text: string) => {
+        Swal.fire({
+            toast: true,
+            text: `${text}`,
+            position: 'top-right',
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: false,
+            padding: 10,
+        })
+    },
+
     Confirm: (text: string, btnText: string) => {
         return Swal.fire({
             // title: `${title}`,
@@ -56,6 +68,12 @@ const fx = reactive({
             width: '300px',
         })
     },
+
+    AddCommas: (numb: number) => {
+        const str = !numb ? ['0'] : numb.toString().split(".");
+        str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return str.join(".");
+    }
 })
 
 export default {

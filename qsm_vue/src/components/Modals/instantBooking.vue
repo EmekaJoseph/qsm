@@ -16,14 +16,19 @@
 
                         <div class="row justify-content-center gy-3">
                             <div class="col-md-12">
-                                <div class="pt-3 card shadow-s rounded-0">
+                                <div class="py-3 p-1 card shadow-sm bg-light rounded-0">
                                     <div class="table-responsive">
-                                        <table class="table table-sm table-borderless">
+                                        <table style="font-size: 14px;" class="table table-sm">
                                             <tbody>
                                                 <tr>
-                                                    <th style="width: 10%;"><i class="bi bi-check-lg text-success"></i>
+                                                    <th><i class="bi bi-dot text-success"></i>
                                                     </th>
-                                                    <td style="width:80%">{{ item.title }}</td>
+                                                    <td>{{ item.title }}</td>
+                                                    <td class="text-end">N{{ fxn.AddCommas(item.price) }}</td>
+                                                </tr>
+                                                <tr class="bg-light">
+                                                    <th colspan="2" class="text-end">TOTAL:</th>
+                                                    <th class="text-end">N{{ fxn.AddCommas(item.price) }}</th>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -46,7 +51,8 @@
                                         </div>
                                         <div class="col-md-12 col-lg-6">
                                             <label>Phone <span class="text-danger">*</span></label>
-                                            <input v-model="field.phone" type="number" class="form-control " required>
+                                            <input v-maska data-maska="###########" v-model="field.phone" type="text"
+                                                class="form-control " required>
                                         </div>
                                         <div class="col-md-12 col-lg-6">
                                             <label>Company Name: </label>
@@ -85,6 +91,7 @@ import { ref, reactive } from 'vue';
 import { onBeforeRouteLeave } from 'vue-router';
 import { UsersAPI } from '@/store/functions/axiosManager';
 import useFunction from '@/store/functions/useFunction';
+import { vMaska } from "maska"
 
 
 
@@ -138,10 +145,9 @@ function submitForm() {
         name: field.name,
         email: field.email,
         phone: field.phone,
+        total: prop.item.price,
         company: !field.company ? null : field.company,
     }
-    console.log();
-
 
     sendRequest(obj)
 }

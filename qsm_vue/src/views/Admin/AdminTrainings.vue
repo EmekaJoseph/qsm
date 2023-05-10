@@ -22,6 +22,12 @@
                             </div>
 
                             <div class="col-md-12">
+                                <label>Price:</label>
+                                <input v-model="form.price" class="form-control" data-maska="9,99#"
+                                    data-maska-tokens="9:[0-9]:repeated" data-maska-reversed v-maska="maskaObj">
+                            </div>
+
+                            <div class="col-md-12">
                                 <label>Training Venue:</label>
                                 <textarea v-model="form.venue" class="form-control " rows="2"></textarea>
                             </div>
@@ -190,6 +196,9 @@ import { TrainingsAPI } from '@/store/functions/axiosManager';
 import editTraining from './_includes/modals/editTraining.vue';
 import regList from './_includes/modals/regList.vue';
 import { useClipboard } from '@vueuse/core'
+import { vMaska } from "maska"
+
+const maskaObj: any = reactive({})
 
 const { copy } = useClipboard()
 
@@ -200,8 +209,6 @@ onMounted(() => {
 
 async function getList() {
     let { data } = await training_api.list()
-    console.log(data);
-
     Trainings.active = data.active;
     Trainings.inActive = data.inActive;
     Trainings.loading = false
@@ -224,6 +231,7 @@ const openListBtn = ref<any>(null)
 const form: any = reactive({
     title: '',
     info: '',
+    price: '',
     venue: '',
     start_date: new Date().toISOString().split('T')[0],
     end_date: new Date().toISOString().split('T')[0],
@@ -238,7 +246,7 @@ function grabFile(e: any) {
 
 
 async function submitForm() {
-    if (!form.title || !form.venue || !form.info || !form.start_date || !form.end_date) {
+    if (!form.title || !form.venue || !form.info || !form.start_date || !form.end_date || !form.price) {
         fxn.Toast('Please complete the fields', 'warning')
         return
     }
@@ -252,6 +260,7 @@ async function submitForm() {
     obj.append('title', form.title);
     obj.append('venue', form.venue);
     obj.append('info', form.info);
+    obj.append('price', maskaObj.unmasked)
     obj.append('start_date', form.start_date);
     obj.append('end_date', form.end_date);
     if (form.image)
@@ -268,9 +277,10 @@ async function submitForm() {
         }
 
         form.title = ''
-        form.info = ''
-        form.end_date = ''
-        form.start_date = ''
+        // form.info = ''
+        form.price = ''
+        form.end_date = new Date().toISOString().split('T')[0]
+        form.start_date = new Date().toISOString().split('T')[0]
         form.venue = ''
         form.image = ''
         fxn.Toast('Added Successfully', 'success')

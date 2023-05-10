@@ -36,6 +36,7 @@ Route::controller(UsersController::class)->group(function () {
     Route::get('downloadMaterial/{code}',  'downloadMaterial');
     Route::get('availableCategories',  'availableCategories');
     Route::post('sendMessage',  'sendMessage');
+    Route::post('sendDownloadRequest',  'sendDownloadRequest');
     Route::post('newsLetterSub/{email}',  'newsLetterSub');
     Route::post('newsLetterUnsub/{email}',  'newsLetterUnSub');
 });

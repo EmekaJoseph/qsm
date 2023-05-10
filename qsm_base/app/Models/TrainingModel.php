@@ -16,13 +16,15 @@ class TrainingModel extends Authenticatable
 
     protected $table = 'tbl_trainings';
     protected $primaryKey = 'id';
+    protected $guarded = [];
 
-    protected $fillable = [
-        'title',
-        'info',
-        'image',
-        'start_date',
-        'end_date',
-        'venue',
-    ];
+    // protected $fillable = [
+    //     'title',
+    //     'info',
+    //     'price',
+    //     'image',
+    //     'start_date',
+    //     'end_date',
+    //     'venue',
+    // ];
 }

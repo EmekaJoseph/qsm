@@ -5,7 +5,10 @@
         </div>
         <div class="card-body px-4 list-scroll">
             <div class="mt-3 card p-3 ">
-                {{ list.toString() }}
+                <span v-for="(email, i) in list" :key="i">
+                    {{ email }},
+                </span>
+                <!-- {{ list.toString() }} -->
             </div>
         </div>
     </div>

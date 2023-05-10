@@ -66,6 +66,10 @@ class UsersAPI {
         return $instance.get(`downloadMaterial/${code}`)
     }
 
+    sendDownloadRequest(data: any) {
+        return $instance.post(`sendDownloadRequest`, JSON.stringify(data))
+    }
+
     availableCategories() {
         return $instance.get(`availableCategories`)
     }

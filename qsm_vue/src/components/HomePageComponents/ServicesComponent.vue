@@ -98,7 +98,7 @@
                                 <h2>Materials</h2>
                             </div>
                             <div class="services-content">
-                                <p>We provide course materials related to the courses we that teach. These materials are
+                                <p>We provide course materials related to the courses we teach. These materials are
                                     available for download.</p>
                             </div>
                             <div class="services-content-btn mt-lg-5">

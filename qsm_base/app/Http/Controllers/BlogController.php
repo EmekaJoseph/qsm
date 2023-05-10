@@ -95,6 +95,8 @@ class BlogController extends BaseController
             try {
 
                 // delete the image from clodinary ##############################
+                if ($thisBlog->image) Cloudinary::destroy($thisBlog->image);
+                // delete the image from clodinary ##############################
 
                 $result = $req->file('image')->storeOnCloudinaryAs('qsm_blog', 'blog_' . time());
                 $imagePath = $result->getSecurePath();

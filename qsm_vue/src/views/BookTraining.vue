@@ -34,18 +34,21 @@
             <div class="mt-3 small text-muted">
               <i class="bi bi-calendar"></i>
               {{ (new Date(training.start_date)).toDateString() }} -
-              {{ (new Date(training.end_date)).toDateString() }}
+              {{ (new Date(training.end_date)).toDateString() }} credit-card-2-front
             </div>
             <div class="text-muted mt-2 small"><i class="bi bi-geo-alt"></i> {{ training.venue }}</div>
+            <div class="text-muted mt-2 small fw-bold">
+              <i class="bi bi-credit-card-2-front"></i> N{{ fxn.AddCommas(training.price) }}
+            </div>
 
 
             <div class="row g-3 mt-5">
               <div class="col-md-5">
-                <button data-bs-toggle="modal" data-bs-target="#instantBooking" class="btn theme-btn w-100">Book
+                <button data-bs-toggle="modal" data-bs-target="#instantBooking" class="btn theme-btn w-100 btn-lg">Book
                   now</button>
               </div>
-              <div class="col-md-3">
-                <router-link class="btn btn-custom-light w-100" to="/trainings">Other trainings</router-link>
+              <div class="col-md-4">
+                <router-link class="btn btn-custom-light btn-lg w-100" to="/trainings">Other trainings</router-link>
               </div>
             </div>
           </div>
@@ -65,6 +68,7 @@ import { onMounted, ref } from 'vue'
 import instantBooking from '@/components/Modals/instantBooking.vue';
 import { useRoute, useRouter } from 'vue-router';
 import { TrainingsAPI, hostURL } from '@/store/functions/axiosManager';
+import useFunction from '@/store/functions/useFunction';
 
 const route = useRoute()
 const router = useRouter()
@@ -72,6 +76,7 @@ const training_api = new TrainingsAPI()
 const pageLoading = ref(false)
 
 const training = ref<any>({})
+const fxn = useFunction.fx
 
 onMounted(() => {
   window.scrollTo(0, 0);

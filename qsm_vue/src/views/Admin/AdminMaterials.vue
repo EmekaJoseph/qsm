@@ -56,7 +56,7 @@
                                     <button data-bs-toggle="modal" data-bs-target="#createPINModal"
                                         @click="material_id_forNewPIN = item.material_id"
                                         class="me-4 operation-icon btn btn-sm btn-outline-secondary  xsmall    p-0 px-2">
-                                        Generate
+                                        Create
                                     </button>
                                 </template>
 

@@ -10,11 +10,30 @@ class EmailController extends BaseController
 {
     function sendMessageAlert($obj)
     {
+        $data = [
+            'name' => $obj->name,
+            'email' => $obj->email,
+            'message' => $obj->message,
+        ];
 
         $template = 'emails/newMessageAlert';
         $topic = 'New Message';
         $to = 'qsmtrainingconsulting@gmail.com';
-        $this->sendEmail($topic, $template, [], $to);
+        $this->sendEmail($topic, $template, $data, $to);
+    }
+
+    function sendDownloadRequest($obj)
+    {
+        $data = [
+            'email' => $obj->email,
+            'material' => $obj->material,
+        ];
+
+        $template = 'emails/sendDownloadRequest';
+        $topic = 'Download Request';
+        // $to = 'qsmtrainingconsulting@gmail.com';
+        $to = $obj->email;
+        $this->sendEmail($topic, $template, $data, $to);
     }
 
     function autoResponse($obj)
@@ -24,6 +43,20 @@ class EmailController extends BaseController
             'email' => $obj->email,
         ];
         $template = 'emails/autoResponse';
+        $topic = 'no-reply';
+        $to = $obj->email;
+        $this->sendEmail($topic, $template, $data, $to);
+    }
+
+    function sendTrainingInvoice($obj)
+    {
+        $data = [
+            'name' => $obj->name,
+            'list' => $obj->trainingList,
+            'total' => $obj->total,
+        ];
+
+        $template = 'emails/sendTrainingInvoice';
         $topic = 'no-reply';
         $to = $obj->email;
         $this->sendEmail($topic, $template, $data, $to);

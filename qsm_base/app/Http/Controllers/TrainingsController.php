@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use Intervention\Image\ImageManagerStatic as Image;
 
 use App\Models\TrainingModel;
+use stdClass;
 
 class TrainingsController extends BaseController
 {
@@ -35,7 +36,6 @@ class TrainingsController extends BaseController
             'active' => $active,
             'inActive' => $inActive,
             'today_date' => $today,
-            'time_now' => Carbon::now()
         ];
 
         return response()->json($data, 200);
@@ -57,6 +57,7 @@ class TrainingsController extends BaseController
         $training->title = $title;
         $training->info = $req->input('info');
         $training->venue = $req->input('venue');
+        $training->price = $req->input('price');
         $training->start_date = $start->toDateString();
         $training->end_date = $end->toDateString();
 
@@ -97,6 +98,7 @@ class TrainingsController extends BaseController
         $training->title =  $req->input('title');
         $training->info = $req->input('info');
         $training->venue = $req->input('venue');
+        $training->price = $req->input('price');
         $training->start_date = $start->toDateString();
         $training->end_date = $end->toDateString();
 
@@ -193,6 +195,8 @@ class TrainingsController extends BaseController
         return response()->json('deleted', 200);
     }
 
+
+
     // users
     public function activeTrainings()
     {
@@ -209,12 +213,12 @@ class TrainingsController extends BaseController
     public function trainingRegistration(Request $req)
     {
         $ids = explode(',', $req->trainings);
+        $trainingList = TrainingModel::find($ids);
 
-        foreach ($ids as  $train_id) {
-            $trn = TrainingModel::find($train_id);
+        foreach ($trainingList as  $trn) {
             if ($trn) {
                 DB::table('tbl_registrations')->insert([
-                    'training' => $train_id,
+                    'training' => $trn->id,
                     'name' => $req->input('name'),
                     'email' => $req->input('email'),
                     'phone' => $req->input('phone'),
@@ -222,13 +226,26 @@ class TrainingsController extends BaseController
                     'expiry' => ' ',
                     'reg_date' => Carbon::now()
                 ]);
-                $trn->increment('reg_count');
+                TrainingModel::where('id', $trn->id)->increment('reg_count');
             }
         }
 
+        try {
+            $mailObj = new stdClass();
+            $mailObj->email = $req->input('email');
+            $mailObj->trainingList = $trainingList;
+            $mailObj->total = $req->input('total');
+            $mailObj->name = $req->input('name');
 
+            $mailer = new EmailController();
+            $mailer->sendTrainingInvoice($mailObj);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+
+
+        // old code ########################################################
         // $trainings = TrainingModel::whereIn('id', $ids)->pluck('end_date')->toArray();
-
         // $lastDate = Carbon::parse($trainings[0]);
         // foreach ($trainings as $tr) {
         //     $row = Carbon::parse($tr);
@@ -236,6 +253,7 @@ class TrainingsController extends BaseController
         //         $lastDate = $row;
         //     }
         // }
+        // old code ########################################################
 
         return response()->json('saved', 200);
     }

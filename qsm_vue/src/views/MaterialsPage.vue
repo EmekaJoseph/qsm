@@ -121,6 +121,7 @@
     </section>
 
     <downloadMaterialModal :item="toDownload" />
+
     <FooterComponent />
   </div>
 </template>

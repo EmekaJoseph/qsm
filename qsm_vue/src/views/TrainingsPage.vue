@@ -94,6 +94,7 @@
       </div>
     </div>
     <cartModal />
+    <whatsappChat />
     <FooterComponent />
   </div>
 </template>
@@ -107,7 +108,7 @@ import useFunction from '@/store/functions/useFunction';
 
 const fxn = useFunction.fx
 
-const trainings: any = useTrainings()
+const trainings = useTrainings()
 const router = useRouter()
 
 function updateInCart(training: any) {

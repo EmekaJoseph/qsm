@@ -74,7 +74,28 @@ class TrainingsController extends BaseController
         }
 
         $training->save();
-        return response()->json('saved', 200);
+
+        // delete old trainings more than 7days
+        return response()->json($this->deleteOldTrainings(), 200);
+    }
+
+    private function deleteOldTrainings()
+    {
+        $today = Carbon::today();
+        try {
+            $inActiveTrainings = TrainingModel::where('end_date', '<', $today)->get();
+
+            if ($inActiveTrainings) {
+                foreach ($inActiveTrainings as $record) {
+                    $end_date = Carbon::parse($record->end_date);
+                    if ($today->diffInDays($end_date) > 7) {
+                        $this->destroy($record->id);
+                    }
+                }
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 
     public function show($id)
@@ -240,7 +261,7 @@ class TrainingsController extends BaseController
             $mailer = new EmailController();
             $mailer->sendTrainingInvoice($mailObj);
         } catch (\Throwable $th) {
-            throw $th;
+            // throw $th;
         }
 
 

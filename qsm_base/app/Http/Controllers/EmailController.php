@@ -31,8 +31,7 @@ class EmailController extends BaseController
 
         $template = 'emails/sendDownloadRequest';
         $topic = 'Download Request';
-        // $to = 'qsmtrainingconsulting@gmail.com';
-        $to = $obj->email;
+        $to = 'qsmtrainingconsulting@gmail.com';
         $this->sendEmail($topic, $template, $data, $to);
     }
 

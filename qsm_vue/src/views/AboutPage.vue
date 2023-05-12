@@ -177,7 +177,7 @@
               <span class="fw-bold text-muted">{{ trn.title }}</span>
               <div>
                 <ol style="list-style: upper-roman;">
-                  <li v-for="list in trn.list" :key="list">
+                  <li v-for="(list, i) in trn.list" :key="i">
                     {{ list.name }} - <b>{{ list.date }}</b> </li>
                 </ol>
               </div>
@@ -473,7 +473,7 @@
       </div>
     </section>
 
-
+    <whatsappChat />
     <FooterComponent />
   </div>
 </template>

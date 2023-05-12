@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 import { TrainingsAPI } from './functions/axiosManager'
 
 export const useTrainings = defineStore('Trainings', () => {
-    const list = ref<any>([])
+    const list = ref<any[]>([])
     const loading = ref<boolean>(true)
     const detailsShow = ref<any>({})
 

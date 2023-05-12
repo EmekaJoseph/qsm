@@ -16,20 +16,22 @@
                 <div class="footer-about-social-icon">
                   <ul>
                     <li>
-                      <a href="https://web.facebook.com/qsm.qsm.902/">
+                      <a class="facebook-icon" href="https://web.facebook.com/qsm.qsm.902/">
                         <i class="bi bi-facebook"></i>
                       </a>
                     </li>
                     <li>
-                      <a href="https://www.linkedin.com/in/qsm-training-08138818a/recent-activity/">
-                        <i class="bi bi-linkedin"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://instagram.com/qsmtrainingandconsulting?igshid=ZGUzMzM3NWJiOQ==">
+                      <a class="instagram-icon"
+                        href="https://instagram.com/qsmtrainingandconsulting?igshid=ZGUzMzM3NWJiOQ==">
                         <i class="bi bi-instagram"></i>
                       </a>
                     </li>
+                    <li>
+                      <a class="linkedin-icon" href="https://www.linkedin.com/in/qsm-training-08138818a/recent-activity/">
+                        <i class="bi bi-linkedin"></i>
+                      </a>
+                    </li>
+
                     <li>
                       <!-- <a href="#"><i class="bi bi-pinterest"></i></a> -->
                     </li>
@@ -112,5 +114,23 @@ import { hostURL } from '@/store/functions/axiosManager';
 .active {
   background-color: transparent !important;
 }
+
+.facebook-icon {
+  background-color: #4267b2;
+}
+
+.linkedin-icon {
+  background-color: #0072b1;
+}
+
+.instagram-icon {
+  background-color: #c13584;
+  background-color: #e1306c;
+  /* background-color: #fd1d1d; */
+}
+
+/* .footer-about-social-icon:hover {
+  background-color: transparent;
+} */
 </style>
 

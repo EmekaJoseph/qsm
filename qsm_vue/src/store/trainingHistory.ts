@@ -2,7 +2,7 @@ import { ref, } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useTraningsHistory = defineStore('TraningsHistoty', () => {
-    const list = ref<any[]>([
+    const list = ref([
 
         {
             title: `Microbiology Training @Federal Place Hotel, Ikeja, Lagos`,

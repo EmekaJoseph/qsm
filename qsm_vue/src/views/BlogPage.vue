@@ -37,7 +37,8 @@
 
       </div>
     </section>
-
+    
+    <whatsappChat />
     <FooterComponent />
   </div>
 </template>

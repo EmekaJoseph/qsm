@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 import { UsersAPI } from './functions/axiosManager'
 
 export const useCourseMaterials = defineStore('CourseMaterials', () => {
-    const list = ref<any>([])
+    const list = ref<any[]>([])
     const categories = ref<any[]>([])
     const loading = ref<boolean>(true)
     const searchLoading = ref<boolean>(false)

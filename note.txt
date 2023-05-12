@@ -1,13 +1,14 @@
 - ALTER TABLE `tbl_trainings` ADD `price` VARCHAR(100) NULL AFTER `info`;
 - UPDATE `tbl_trainings` SET `price` = '30000' WHERE `tbl_trainings`.`id` = '01gyfkadayjm7g769s4gxv89h8';
 - UPDATE `tbl_trainings` SET `price` = '35000' WHERE `tbl_trainings`.`id` = '01gyfk66trwmz2wnppd57xmhvn';
-- BlogController
-- TrainingsController
-- EmailController
-- MaterialsController
-- UsersController
-- TrainingModel
-- newMessageAlert.blade
-- sendTrainingInvoice.blade
-- sendDownloadRequest.blade
-- api
+------ BlogController
+------ TrainingsController
+------- EmailController
+------- MaterialsController
+------- UsersController
+------ TrainingModel
+------ newMessageAlert.blade
+----- sendTrainingInvoice.blade
+----- sendDownloadRequest.blade
+------- api
+-------qsm_gallery (folder)

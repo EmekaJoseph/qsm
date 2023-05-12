@@ -49,6 +49,9 @@ app.component('EmptyListComponent', EmptyListComponent);
 import PageLoading from '@/components/PageLoading.vue';
 app.component('PageLoading', PageLoading);
 
+import whatsappChat from '@/components/whatsappChatComponent.vue';
+app.component('whatsappChat', whatsappChat);
+
 // npm install vue3-easy-data-table
 import Vue3EasyDataTable from 'vue3-easy-data-table';
 import 'vue3-easy-data-table/dist/style.css';

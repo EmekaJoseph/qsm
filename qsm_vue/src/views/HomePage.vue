@@ -15,12 +15,14 @@
       <BlogSectionComponent />
     </section>
 
+    <whatsappChat />
     <FooterComponent />
   </div>
 </template>
 
 
 <script setup lang="ts">
+
 import ContactHeadComponent from '@/components/HomePageComponents/ContactHeadComponent.vue';
 
 import HeroComponent from '@/components/HomePageComponents/HeroComponent.vue';
@@ -43,3 +45,5 @@ onMounted(async () => {
   await user_api.visitor()
 })
 </script>
+
+

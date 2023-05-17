@@ -20,8 +20,6 @@ import AdminBlog from '../views/Admin/AdminBlog.vue'
 
 import PageNotFound from '../views/PageNotFound.vue'
 
-
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
 
@@ -74,10 +72,6 @@ const router = createRouter({
         { path: 'blog', name: 'BlogEdit', component: AdminBlog },
       ],
     },
-
-
-
-
 
     {
       path: '/:pathMatch(.*)*',

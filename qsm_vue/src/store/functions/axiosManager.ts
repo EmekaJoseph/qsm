@@ -1,6 +1,5 @@
 import axios from 'axios'
 
-
 const hostURL = 'http://127.0.0.1:8000' //dev
 // const hostURL = '' //build
 
@@ -79,11 +78,11 @@ class UsersAPI {
     }
 
     newsLetterSub(email: string) {
-        return $instance.post(`newsLetterSub/${email}`)
+        return $instance.get(`newsLetterSub/${JSON.stringify(email)}`)
     }
 
     newsLetterUnsub(email: string) {
-        return $instance.post(`newsLetterUnsub/${email}`)
+        return $instance.get(`newsLetterUnsub/${JSON.stringify(email)}`)
     }
 }
 
@@ -245,8 +244,8 @@ class BlogAPI {
         return $instance.delete(`blog/${blog_id}`)
     }
 
-    blogDetails(blog_id: any) {
-        return $instance.get(`blog/${blog_id}`)
+    blogDetails(blog: any) {
+        return $instance.get(`blog/${blog}`)
     }
 }
 

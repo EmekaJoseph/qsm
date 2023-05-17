@@ -67,9 +67,9 @@ class BlogController extends BaseController
     }
 
 
-    public function show(string $id)
+    public function show(string $title)
     {
-        $blogPost = BlogModel::find($id);
+        $blogPost = BlogModel::where('title', $title)->first();
         if (!$blogPost)
             return response()->json('not found', 203);
         return response()->json($blogPost, 200);
@@ -93,11 +93,13 @@ class BlogController extends BaseController
 
         if ($req->file('image')) {
             try {
-
                 // delete the image from clodinary ##############################
                 if ($thisBlog->image) Cloudinary::destroy($thisBlog->image);
-                // delete the image from clodinary ##############################
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
 
+            try {
                 $result = $req->file('image')->storeOnCloudinaryAs('qsm_blog', 'blog_' . time());
                 $imagePath = $result->getSecurePath();
                 $imagePublicId = $result->getPublicId();

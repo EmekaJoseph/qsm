@@ -13,13 +13,21 @@ class EmailController extends BaseController
         $data = [
             'name' => $obj->name,
             'email' => $obj->email,
-            'message' => $obj->message,
+            'msg' => $obj->message,
         ];
 
         $template = 'emails/newMessageAlert';
         $topic = 'New Message';
         $to = 'qsmtrainingconsulting@gmail.com';
         $this->sendEmail($topic, $template, $data, $to);
+    }
+
+    function newRegistrationAlert()
+    {
+        $template = 'emails/newRegistrationAlert';
+        $topic = 'Training Registration';
+        $to = 'qsmtrainingconsulting@gmail.com';
+        $this->sendEmail($topic, $template, [], $to);
     }
 
     function sendDownloadRequest($obj)

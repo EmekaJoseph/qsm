@@ -26,7 +26,7 @@
         </div>
 
         <ul class="list-group list-group-flush mt-5">
-          <li @click="blogDetails(blog.blog_id)" v-for="blog in blogList" :key="blog"
+          <li @click="blogDetails(blog)" v-for="blog in blogList" :key="blog"
             class="list-group-item cate-list-item hover-tiltX shadow-sm mb-2">
             <div class="blogTopic"> {{ blog.title }}</div>
             <span class="xsmall fst-italic text-muted">
@@ -37,7 +37,7 @@
 
       </div>
     </section>
-    
+
     <whatsappChat />
     <FooterComponent />
   </div>
@@ -64,11 +64,12 @@ async function getBlogs() {
   blogList.value = data
 }
 
-function blogDetails(blog_id: any) {
+function blogDetails(blog: any) {
   router.push({
     path: `/blog`,
     query: {
-      blog: blog_id
+      t: blog.title.replaceAll(' ', '_'),
+      // d: blog.blog_id
     }
   })
 }

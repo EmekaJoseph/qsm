@@ -69,8 +69,9 @@ class UsersController extends BaseController
         return $mat->sendDownloadRequest($req);
     }
 
-    public function newsLetterSub($email)
+    public function newsLetterSub($em)
     {
+        $email = json_decode($em);
         if (DB::table('tbl_newsletter')->where('email', $email)->exists()) {
             return response()->json('exists', 203);
         }
@@ -80,8 +81,9 @@ class UsersController extends BaseController
         return response()->json('saved', 200);
     }
 
-    public function newsLetterUnSub($email)
+    public function newsLetterUnSub($em)
     {
+        $email = json_decode($em);
         DB::table('tbl_newsletter')->where('email', $email)->delete();
     }
 

@@ -225,7 +225,7 @@ class TrainingsController extends BaseController
 
         $active = TrainingModel::select('*')
             ->where('end_date', '>=', $today)
-            ->orderBy('created_at', 'desc')
+            ->orderBy('start_date', 'asc')
             ->get();
 
         return response()->json($active, 200);
@@ -260,6 +260,7 @@ class TrainingsController extends BaseController
 
             $mailer = new EmailController();
             $mailer->sendTrainingInvoice($mailObj);
+            $mailer->newRegistrationAlert();
         } catch (\Throwable $th) {
             // throw $th;
         }

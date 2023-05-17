@@ -26,16 +26,13 @@
 
 <body class="container">
     <section>
-        <div><b>New Message Alert.</b></div>
-        <div>You have a new message on qsmtrainingconsulting.com!</div>
+        <div><b>New Registration Alert.</b></div>
+        <div>Someone just registered for your training.</div>
     </section>
 
 
     <section>
-        <h5><b>Sender Information:</b></h5>
-        <div><b>Name:</b> {{$name}}</div>
-        <div><b>Email:</b> {{$email}}</div>
-        <div><b>Message:</b> {{$msg}}</div>
+        Please <a href="www.qsmtrainingconsulting.com/admin">login as admin</a> to view registrations.
     </section>
 </body>
 

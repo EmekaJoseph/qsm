@@ -28,8 +28,8 @@
                                             placeholder="Name">
                                     </div>
                                     <div class="col-lg-6">
-                                        <input class="form-control form-control-lg" v-model="person.phone" type="number"
-                                            placeholder="Phone Number">
+                                        <input v-maska data-maska="###########" class="form-control form-control-lg"
+                                            v-model="person.phone" type="text" placeholder="Phone Number">
                                     </div>
                                     <div class="col-lg-12">
                                         <textarea placeholder="Your message" v-model="person.message" class="form-control"
@@ -46,8 +46,6 @@
                                 </div>
                             </form>
                         </div>
-
-
                     </div>
                 </div>
             </div>
@@ -59,6 +57,7 @@
 import { reactive } from 'vue';
 import useFunction from '@/store/functions/useFunction';
 import { UsersAPI } from '@/store/functions/axiosManager';
+import { vMaska } from "maska"
 
 const user_api = new UsersAPI()
 
@@ -95,5 +94,4 @@ async function submitForm() {
         person.isSending = false
     }
 }
-
 </script>

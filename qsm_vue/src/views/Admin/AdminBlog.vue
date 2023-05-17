@@ -25,10 +25,10 @@
                                 <QuillEditor placeholder="type here.." content-type="html" toolbar="minimal"
                                     v-model:content="form.body" />
                             </div>
-                            <div class="col-12 mt-4">
+                            <!-- <div class="col-12 mt-4">
                                 <label>Category</label>
                                 <input v-model="form.category" type="text" class="form-control" />
-                            </div>
+                            </div> -->
 
                             <div v-if="fileURL" class="col-12 mt-3">
                                 <span v-if="newFile" @click="fileFormR"

@@ -30,14 +30,7 @@
             <newsLetterForm />
           </div>
         </div>
-
-
-
-
       </div>
-
-
-
     </section>
 
     <FooterComponent />
@@ -61,11 +54,11 @@ onMounted(() => {
   getBlogDetails()
 })
 
-
-
 async function getBlogDetails() {
-  let blog_id: any = route.query.blog
-  let resp = await blog_api.blogDetails(blog_id)
+  let blog: any = route.query.t
+  let blogString = blog.replaceAll('_', ' ')
+  let resp = await blog_api.blogDetails(blogString)
+
   if (resp.status == 203) {
     router.replace({
       path: `/blog-home`,

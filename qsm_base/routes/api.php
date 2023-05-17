@@ -37,8 +37,8 @@ Route::controller(UsersController::class)->group(function () {
     Route::get('availableCategories',  'availableCategories');
     Route::post('sendMessage',  'sendMessage');
     Route::post('sendDownloadRequest',  'sendDownloadRequest');
-    Route::post('newsLetterSub/{email}',  'newsLetterSub');
-    Route::post('newsLetterUnsub/{email}',  'newsLetterUnSub');
+    Route::get('newsLetterSub/{email}',  'newsLetterSub');
+    Route::get('newsLetterUnsub/{email}',  'newsLetterUnSub');
 });
 
 Route::post('login', [AdminController::class, 'login']);

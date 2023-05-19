@@ -41,12 +41,14 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label>Start:</label>
-                                        <input v-model="thisItem.start_date" type="date" class="form-control">
+                                        <input :min="thisItem.today" v-model="thisItem.start_date" type="date"
+                                            class="form-control">
                                     </div>
 
                                     <div class="col-md-6">
                                         <label>End:</label>
-                                        <input v-model="thisItem.end_date" type="date" class="form-control">
+                                        <input :min="thisItem.start_date" v-model="thisItem.end_date" type="date"
+                                            class="form-control">
                                     </div>
                                     <div class="col-md-12">
                                         <span v-if="item.image">Change Image:</span>
@@ -103,6 +105,7 @@ const thisItem = reactive({
     info: prop.item.info,
     price: prop.item.price,
     venue: prop.item.venue,
+    today: new Date().toISOString().split('T')[0],
     start_date: prop.item.start_date,
     end_date: prop.item.end_date,
     image: '',

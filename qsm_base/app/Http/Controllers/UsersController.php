@@ -88,10 +88,16 @@ class UsersController extends BaseController
     }
 
 
-    public function activeTrainings(Request $req)
+    public function activeTrainings()
     {
         $training = new TrainingsController();
-        return $training->activeTrainings($req);
+        return $training->activeTrainings();
+    }
+
+    public function nextComingTraining()
+    {
+        $training = new TrainingsController();
+        return $training->nextComingTraining();
     }
 
 

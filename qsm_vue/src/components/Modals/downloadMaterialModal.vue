@@ -43,7 +43,8 @@
                                     </div>
 
                                     <div v-else class="card">
-                                        <div class="card-header bg-white fw-bold">Request for Code</div>
+                                        <div class="card-header bg-white fw-bold border-0 text-center">Request for Code
+                                        </div>
                                         <div class="card-body">
                                             <div class="col-12">
                                                 <input v-model="email" type="text"
@@ -60,17 +61,21 @@
                                     </div>
                                 </div>
 
-                                <div v-show="!isRequesting" class="col-12 mt-4">
-                                    <button @click="isRequesting = true" class="btn btn-dark btn-lg  rounded-4 w-100">
-                                        Request for code
-                                    </button>
-                                </div>
+                                <div class="d-flex justify-content-between mt-4">
+                                    <div v-show="!isRequesting">
+                                        <button @click="isRequesting = true"
+                                            class="btn btn-outline-dark xsmall  rounded-4 w-10">
+                                            Request for code
+                                        </button>
+                                    </div>
+                                    <div></div>
 
-                                <div class="col-12 mt-4">
-                                    <button @click="clearModal" ref="btnX" data-bs-dismiss="modal"
-                                        class="btn btn-lg rounded-4 w-100 btn-light">
-                                        close
-                                    </button>
+                                    <div>
+                                        <button @click="clearModal" ref="btnX" data-bs-dismiss="modal"
+                                            class="btn rounded-4 w-100 btn-light xsmall">
+                                            close
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

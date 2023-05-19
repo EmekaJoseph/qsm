@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2023 at 01:17 AM
+-- Generation Time: May 20, 2023 at 12:07 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -82,9 +82,9 @@ CREATE TABLE `personal_access_tokens` (
 
 INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
 (25, 'App\\Models\\AccountModel', '01gw4dva5ta971t2ncdgawvke3', 'qsm_token', '83db93e636635f065ba6f8de78e2a2740d769f3f9b98f09b7c8fa2ac8c785042', '[\"*\"]', '2023-03-30 08:52:29', NULL, '2023-03-29 08:56:16', '2023-03-30 08:52:29'),
-(26, 'App\\Models\\AccountModel', '01gw4dva5ta971t2ncdgawvke3', 'qsm_token', '5622d22d82382c8fe25f70210d05a033161532beff34daf9f233a55ebfd5e19f', '[\"*\"]', '2023-05-10 08:56:09', NULL, '2023-03-29 11:33:42', '2023-05-10 08:56:09'),
+(26, 'App\\Models\\AccountModel', '01gw4dva5ta971t2ncdgawvke3', 'qsm_token', '5622d22d82382c8fe25f70210d05a033161532beff34daf9f233a55ebfd5e19f', '[\"*\"]', '2023-05-18 05:29:20', NULL, '2023-03-29 11:33:42', '2023-05-18 05:29:20'),
 (28, 'App\\Models\\AccountModel', '01gw4dva5ta971t2ncdgawvke3', 'qsm_token', '8e38df3589437c41d501f945f78e715627d14c5b116a247e77b8aa78103f6775', '[\"*\"]', '2023-04-04 11:49:57', NULL, '2023-04-04 11:46:21', '2023-04-04 11:49:57'),
-(33, 'App\\Models\\AccountModel', '01gw4dva5ta971t2ncdgawvke3', 'qsm_token', '507052278b9a6768012a50643b34056483f795d1dbb72e6aed2332513e6885ce', '[\"*\"]', '2023-05-10 22:17:05', NULL, '2023-05-09 12:04:12', '2023-05-10 22:17:05');
+(34, 'App\\Models\\AccountModel', '01gw4dva5ta971t2ncdgawvke3', 'qsm_token', 'dbfbb9d320800ec5680495ee0eb10947d6186c293b1a877de9a05447f24f6949', '[\"*\"]', '2023-05-19 11:22:31', NULL, '2023-05-16 14:12:13', '2023-05-19 11:22:31');
 
 -- --------------------------------------------------------
 
@@ -105,7 +105,7 @@ CREATE TABLE `tbl_account` (
 --
 
 INSERT INTO `tbl_account` (`id`, `username`, `password`, `last_login`, `role`) VALUES
-('01gw4dva5ta971t2ncdgawvke3', 'qsm', '$2y$10$uZ57DtQHJkcoONsqEOjgjeXg8hji8KAT.2nbVtwzg./tH9pMBGrhe', '2023-05-09 13:04:12', 'admin');
+('01gw4dva5ta971t2ncdgawvke3', 'qsm', '$2y$10$uZ57DtQHJkcoONsqEOjgjeXg8hji8KAT.2nbVtwzg./tH9pMBGrhe', '2023-05-16 15:12:13', 'admin');
 
 -- --------------------------------------------------------
 
@@ -143,6 +143,14 @@ CREATE TABLE `tbl_blog` (
   `created_at` varchar(100) NOT NULL,
   `updated_at` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_blog`
+--
+
+INSERT INTO `tbl_blog` (`blog_id`, `title`, `body`, `category`, `image`, `imagePublicId`, `created_at`, `updated_at`) VALUES
+('992ec724-6f66-49bd-8a63-d9113230da65', 'emeka is a boy', '<p>emeka</p>', NULL, NULL, NULL, '2023-05-16 18:31:26', '2023-05-16 18:31:48'),
+('99324f29-ce52-4663-854f-120e3cc960dc', 'wwww', '<p>asasas</p>', NULL, NULL, NULL, '2023-05-18 12:39:16', '2023-05-18 12:39:16');
 
 -- --------------------------------------------------------
 
@@ -247,7 +255,29 @@ CREATE TABLE `tbl_newsletter` (
 INSERT INTO `tbl_newsletter` (`id`, `email`) VALUES
 (1, 'fogy@mailinator.com'),
 (2, 'vikyvunyv@mailinator.com'),
-(3, 'bexoty@mailinator.com');
+(3, 'bexoty@mailinator.com'),
+(4, 'emeka@mail.com'),
+(5, 'emeka@mail.co'),
+(6, 'emka@gmail.com'),
+(7, 'emeka@ddd.com'),
+(8, 'sammy@mail.com'),
+(9, 'ee@email.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_newsletters`
+--
+
+CREATE TABLE `tbl_newsletters` (
+  `id` int(100) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `doc` varchar(255) NOT NULL,
+  `created_at` varchar(100) NOT NULL,
+  `updated_at` varchar(100) NOT NULL,
+  `category` varchar(100) DEFAULT NULL,
+  `downloads` int(100) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -279,7 +309,10 @@ INSERT INTO `tbl_registrations` (`id`, `training`, `name`, `email`, `phone`, `co
 (36, '01gyfkadayjm7g769s4gxv89h8', 'Eum enim quidem nisi', 'tejaha@mailinator.com', '3455', 'Accusamus error dist', ' ', '2023-05-10 21:50:48'),
 (37, '01gyfkadayjm7g769s4gxv89h8', 'Ut aute nisi et dolo', 'josephiwuji@gmail.com', '090', 'Excepturi consectetu', ' ', '2023-05-10 21:52:39'),
 (38, '01gyfk66trwmz2wnppd57xmhvn', 'Duis velit laborum i', 'josephiwuji@gmail.com', '090', 'Voluptatibus tempore', ' ', '2023-05-10 22:02:54'),
-(39, '01gyfkadayjm7g769s4gxv89h8', 'Duis velit laborum i', 'josephiwuji@gmail.com', '090', 'Voluptatibus tempore', ' ', '2023-05-10 22:02:55');
+(39, '01gyfkadayjm7g769s4gxv89h8', 'Duis velit laborum i', 'josephiwuji@gmail.com', '090', 'Voluptatibus tempore', ' ', '2023-05-10 22:02:55'),
+(40, '01gyfk66trwmz2wnppd57xmhvn', 'Nostrud perferendis', 'sevunyfov@mailinator.com', '08098767834', 'Fugiat duis vero ass', ' ', '2023-05-11 03:14:21'),
+(41, '01gyfk66trwmz2wnppd57xmhvn', 'Nostrud perferendis', 'sevunyfov@mailinator.com', '08098767834', 'Fugiat duis vero ass', ' ', '2023-05-11 03:15:50'),
+(42, '01gyfk66trwmz2wnppd57xmhvn', 'Nostrud perferendis', 'sevunyfov@mailinator.com', '08098767834', 'Fugiat duis vero ass', ' ', '2023-05-11 03:16:27');
 
 -- --------------------------------------------------------
 
@@ -306,8 +339,10 @@ CREATE TABLE `tbl_trainings` (
 --
 
 INSERT INTO `tbl_trainings` (`id`, `title`, `info`, `price`, `image`, `start_date`, `end_date`, `venue`, `reg_count`, `created_at`, `updated_at`) VALUES
-('01gyfk66trwmz2wnppd57xmhvn', 'QA in Pharmaceuticals - Module 6', '<ul><li>Cleaning validation</li></ul><p><br></p><p><strong>Bank Details: </strong></p><p>QSM Training &amp; Consulting Ltd.</p><p>GTBank (0240416491)</p>', '35000', 'training-1682003139.jpg', '2023-05-16', '2023-05-17', 'QSM Training Palace - No 1, Ekololu street, Off Itire Road, Oposite Mobile Filling Station', 4, '2023-04-20 15:05:39', '2023-05-10 22:02:54'),
-('01gyfkadayjm7g769s4gxv89h8', 'QA In Pharmaceuticals - Module 5', '<ul><li>Application of HACCP in <strong style=\"color: rgba(33, 37, 41, 0.75);\">&nbsp;</strong><span style=\"color: rgba(33, 37, 41, 0.75);\">Pharmaceuticals</span></li></ul><p><br></p><p><strong>Bank Details: </strong>QSM Training &amp; Consulting Ltd., GTBank (0240416491)</p><p><strong>Fee:  </strong>N30, 000</p>', '30000', 'training-1682003277.jpg', '2023-05-18', '2023-05-18', 'QSM Training Palace - No 1, Ekololu street, Off Itire Road, Oposite Mobile Filling Station', 5, '2023-04-20 15:07:57', '2023-05-10 22:02:55');
+('01gyfk66trwmz2wnppd57xmhvn', 'QA in Pharmaceuticals - Module 6', '<ul><li>Cleaning validation</li></ul><p><br></p><p><strong>Bank Details: </strong></p><p>QSM Training &amp; Consulting Ltd.</p><p>GTBank (0240416491)</p>', '35000', 'training-1682003139.jpg', '2023-05-16', '2023-05-17', 'QSM Training Palace - No 1, Ekololu street, Off Itire Road, Oposite Mobile Filling Station', 7, '2023-04-20 15:05:39', '2023-05-11 03:16:27'),
+('01gyfkadayjm7g769s4gxv89h8', 'QA In Pharmaceuticals - Module 5', '<ul><li>Application of HACCP in <strong style=\"color: rgba(33, 37, 41, 0.75);\">&nbsp;</strong><span style=\"color: rgba(33, 37, 41, 0.75);\">Pharmaceuticals</span></li></ul><p><br></p><p><strong>Bank Details: </strong>QSM Training &amp; Consulting Ltd., GTBank (0240416491)</p><p><strong>Fee:  </strong>N30, 000</p>', '30000', 'training-1682003277.jpg', '2023-05-30', '2023-06-10', 'QSM Training Palace - No 1, Ekololu street, Off Itire Road, Oposite Mobile Filling Station', 5, '2023-04-20 15:07:57', '2023-05-18 06:14:52'),
+('01h0pqwy515cmfpf0n1gmng8ks', 'Consequatur Ea arch', '<p>In numquam dolorem e.</p>', '340000', 'training-1684390439.jpg', '2023-05-19', '2023-06-10', 'Modi porro est sed c', 0, '2023-05-18 06:14:03', '2023-05-19 07:51:45'),
+('01h0ps1cmhcmshcd3ezz2g1ka6', 'Quasi quam expedita', '<p>Aliquam consequuntur.</p>', '20000', NULL, '2023-05-23', '2023-05-31', 'Iste eiusmod aute ir', 0, '2023-05-18 06:33:57', '2023-05-18 10:02:20');
 
 -- --------------------------------------------------------
 
@@ -326,7 +361,7 @@ CREATE TABLE `tbl_visitors` (
 --
 
 INSERT INTO `tbl_visitors` (`id`, `ip_addr`, `visit_date`) VALUES
-(1, '127.0.0.1', '2023-05-10 21:26:42');
+(1, '127.0.0.1', '2023-05-19 08:39:46');
 
 --
 -- Indexes for dumped tables
@@ -402,6 +437,12 @@ ALTER TABLE `tbl_newsletter`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_newsletters`
+--
+ALTER TABLE `tbl_newsletters`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_registrations`
 --
 ALTER TABLE `tbl_registrations`
@@ -439,7 +480,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `tbl_archives`
@@ -469,19 +510,25 @@ ALTER TABLE `tbl_material_otp`
 -- AUTO_INCREMENT for table `tbl_messages`
 --
 ALTER TABLE `tbl_messages`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `tbl_newsletter`
 --
 ALTER TABLE `tbl_newsletter`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `tbl_newsletters`
+--
+ALTER TABLE `tbl_newsletters`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_registrations`
 --
 ALTER TABLE `tbl_registrations`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `tbl_visitors`

@@ -8,7 +8,7 @@
         <div class="container">
           <div class="row gx-4">
             <div class="col-lg-6 col-sm-10">
-              <h1 class="main-title animate__animated animate__slideInLeft"><span class="text-muted">QSM</span>
+              <h1 class="main-title animate__animated animate__slideInLeft"><span class="text-muted">Upcoming</span>
                 Trainings</h1>
             </div>
 
@@ -80,7 +80,8 @@
       </div>
     </section>
 
-    <div v-if="trainings.cart.length" class="fixed-bottom-btn">
+    <!-- for desktop -->
+    <div v-if="trainings.cart.length" class="floating-btn d-none d-md-block">
       <div data-bs-toggle="modal" data-bs-target="#cartModal" class="justify-content-end floatPanel">
         <a @click.prevent="" href="#"
           class="position-relative shadow animate__heartBeat animate__infinite animate__slower">
@@ -93,8 +94,18 @@
 
       </div>
     </div>
+
+    <!-- for mobile -->
+    <div v-if="trainings.cart.length" class="fixed-bottom-btn d-md-none">
+      <div data-bs-toggle="modal" data-bs-target="#cartModal"
+        class="text-mute animate__animated animate__slideInUp m-cart-open fw-bold text-success">
+        <i class="bi bi-cart3"></i>&nbsp;View cart ({{ trainings.cart.length }})
+      </div>
+    </div>
+
+
     <cartModal />
-    <whatsappChat />
+    <whatsappChat v-show="!trainings.cart.length" />
     <FooterComponent />
   </div>
 </template>
@@ -139,11 +150,25 @@ function gotoTrainingPage(id: any) {
 </script>
 
 <style scoped>
-.fixed-bottom-btn {
+.floating-btn {
   position: fixed;
   bottom: 0;
   right: 0;
 
+}
+
+.fixed-bottom-btn {
+  position: fixed;
+  bottom: 0;
+}
+
+.m-cart-open {
+  width: 100vw;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  padding-block: 15px;
+  border-top: 1px solid var(--bs-success-bg-subtle);
 }
 
 

@@ -10,6 +10,7 @@ use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\MaterialsController;
 use App\Http\Controllers\TrainingsController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\NewsLetterController;
 use App\Http\Controllers\SettingsController;
 
 /*
@@ -28,6 +29,7 @@ use App\Http\Controllers\SettingsController;
 Route::controller(UsersController::class)->group(function () {
     Route::post('visitor',  'visitor');
     Route::get('activeTrainings',  'activeTrainings');
+    Route::get('nextComingTraining',  'nextComingTraining');
     Route::post('trainings/register',  'trainingRegistration');
 
     Route::get('latestMaterials',  'latestMaterials');
@@ -43,6 +45,7 @@ Route::controller(UsersController::class)->group(function () {
 
 Route::post('login', [AdminController::class, 'login']);
 Route::resource('blog', BlogController::class)->only(['index', 'show']);
+Route::resource('newsletter', NewsLetterController::class)->only(['index']);
 Route::resource('trainings', TrainingsController::class)->only(['show']);
 
 
@@ -91,4 +94,5 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::resource('blog', BlogController::class)->except(['index', 'show']);
     Route::resource('trainings', TrainingsController::class)->except(['show']);
+    Route::resource('newsletter', NewsLetterController::class)->except(['index']);
 });

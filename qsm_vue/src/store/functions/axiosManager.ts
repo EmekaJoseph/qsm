@@ -134,6 +134,10 @@ class TrainingsAPI {
         return $instance.get(`activeTrainings`)
     }
 
+    nextComingTraining() {
+        return $instance.get(`nextComingTraining`)
+    }
+
     addNew(form: FormData) {
         return $instanceForm.post(`trainings`, form)
     }
@@ -249,6 +253,28 @@ class BlogAPI {
     }
 }
 
+class NewsLetterAPI {
+    create(data: any) {
+        return $instanceForm.post(`newsletter`, data)
+    }
+
+    list() {
+        return $instance.get(`newsletter`)
+    }
+
+    updateNewsletter(id: string, data: any) {
+        return $instance.put(`newsletter/${id}`, data)
+    }
+
+    remove(id: any) {
+        return $instance.delete(`newsletter/${id}`)
+    }
+
+    details(id: any) {
+        return $instance.get(`newsletter/${id}`)
+    }
+}
+
 
 export {
     hostURL,
@@ -257,5 +283,6 @@ export {
     TrainingsAPI,
     MaterialsAPI,
     ArchiveAPI,
-    BlogAPI
+    BlogAPI,
+    NewsLetterAPI
 }

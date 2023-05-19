@@ -120,6 +120,10 @@ class MaterialsController extends BaseController
 
     public function update($material_id, Request $req)
     {
+        if (MaterialModel::whereNot('material_id', $material_id)->where('name', $req->input('name'))->exists()) {
+            return response()->json('exists', 203);
+        }
+
         $material = MaterialModel::find($material_id);
 
         $material->category_id = $req->input('category_id');

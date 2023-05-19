@@ -31,7 +31,7 @@
                                     <ul class="sub-menu">
 
                                         <li><router-link to="/about">About Us</router-link> </li>
-                                        <li><router-link to="/trainings">Contact</router-link></li>
+                                        <li><router-link to="/contact">Contact Us</router-link></li>
                                         <!-- <li>
                                             <router-link :to="{ path: '/about', hash: '#history' }">History</router-link>
                                         </li> -->
@@ -39,8 +39,21 @@
                                 </li>
 
                                 <li>
-                                    <router-link class="a-text" to="/blog-home">Newsletters</router-link>
+                                    <a href="#" class="a-text">Blog<i class="bi bi-chevron-down"></i><span><i
+                                                class="fas fa-angle-right"></i></span></a>
+                                    <ul class="sub-menu">
+
+                                        <li><router-link to="/newsletters">Newsletters</router-link></li>
+                                        <li><router-link to="/blog-home">Useful tips</router-link> </li>
+                                        <!-- <li>
+                                            <router-link :to="{ path: '/about', hash: '#history' }">History</router-link>
+                                        </li> -->
+                                    </ul>
                                 </li>
+
+                                <!-- <li>
+                                    <router-link class="a-text" to="/blog-home">Newsletters</router-link>
+                                </li> -->
                             </ul>
                             <div class="nav-btn  d-sm-none d-md-none d-lg-inline-block">
                                 <router-link class="fw-light fs-6" :to="{ path: '/', hash: '#instantform' }">Get

@@ -9,8 +9,8 @@
         <div class="container">
           <div class="row gx-4">
             <div class="col-lg-6 col-sm-10">
-              <h1 class="main-title animate__animated animate__slideInLeft"><span class="text-muted">About</span> Quality
-                System Management (QSM)</h1>
+              <h1 class="main-title animate__animated animate__slideInLeft"><span class="text-muted">About</span>
+                Us</h1>
             </div>
 
             <!-- <div class="col-md-6 d-none d-lg-block">
@@ -162,6 +162,10 @@
             <li> Nando Herbs Ltd</li>
             <li> Gonat International Ventures Ltd</li>
             <li> Dr. Nwakor 7 Keys Nigeria Limited</li>
+            <li>P.E.T ASSOCIATES LTD</li>
+            <li>UCM GLOBAL LTD</li>
+            <li>METCEM LIMITED</li>
+            <li>Lagos Chamber of Commerce & Industry</li>
 
           </ol>
         </section>

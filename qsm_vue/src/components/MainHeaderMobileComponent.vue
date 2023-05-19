@@ -6,32 +6,42 @@
                     <img src="@/assets/images/logo2w.png" width="40" alt="qsm-logo">
                 </a>
 
-                <div data-bs-toggle="offcanvas" data-bs-target="#offcanvas" class="menu-icon">
+                <div ref="btnOpenCanvas" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" class="menu-icon">
                     <i class=" bi bi-list"></i>
                 </div>
             </div>
         </nav>
 
 
-        <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
             <div class="offcanvas-header pb-0">
                 <h5 class="offcanvas-title" id="offcanvasLabel"></h5>
                 <button ref="btnClose" type="button" class="btn-close fs-4" data-bs-dismiss="offcanvas"
                     aria-label="Close"></button>
             </div>
-            <div class="offcanvas-body">
+            <div class="offcanvas-body small">
                 <div class="card border-0">
                     <div class="card-body pt-2">
                         <!-- <ul data-bs-dismiss="offcanvas"> -->
                         <ul>
                             <li> <router-link to="/"><i class="bi bi-dash-lg"></i> Home</router-link> </li>
-                            <li> <router-link to="/about"><i class="bi bi-dash-lg"></i> About us</router-link> </li>
-                            <li><router-link to="/materials"><i class="bi bi-dash-lg"></i> Materials</router-link></li>
-                            <li><router-link to="/trainings"><i class="bi bi-dash-lg"></i> Trainings</router-link></li>
-                            <li><router-link to="/blog-home"><i class="bi bi-dash-lg"></i> Blog</router-link></li>
+                            <li> <router-link to="/about"><i class="bi bi-dash-lg"></i> About Us</router-link> </li>
+                            <li> <router-link to="/contact"><i class="bi bi-dash-lg"></i> Contact Us</router-link> </li>
+                            <li><router-link to="/trainings"><i class="bi bi-dash-lg"></i> Upcoming Trainings</router-link>
+                            </li>
+                            <li><router-link to="/materials"><i class="bi bi-dash-lg"></i> Course Materials</router-link>
+                            </li>
+                            <li><router-link to="/newsletters"><i class="bi bi-dash-lg"></i> Newletters</router-link></li>
+                            <li><router-link to="/blog-home"><i class="bi bi-dash-lg"></i>Useful tips</router-link></li>
                         </ul>
+
+
                     </div>
                 </div>
+            </div>
+            <div ref="btnOpenCanvas" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
+                class="closer bg-light  text-center fw-bold">
+                close <i class="bi bi-arrow-right"></i>
             </div>
         </div>
     </div>
@@ -43,6 +53,7 @@ import { useRoute } from 'vue-router';
 
 const route = useRoute()
 const btnClose = ref<any>()
+const btnOpenCanvas = ref<any>()
 
 watch(() => route.path, () => {
     btnClose.value.click()
@@ -64,8 +75,8 @@ watch(() => route.path, () => {
 }
 
 .offcanvas {
-    min-height: 55vh !important;
-    /* padding-left: 10px; */
+    /* min-height: 60vh !important; */
+    width: 80%;
 }
 
 
@@ -90,5 +101,15 @@ watch(() => route.path, () => {
     color: #111 !important;
     font-weight: normal;
     font-size: 16px;
+}
+
+.closer {
+    position: fixed;
+    bottom: 0;
+    padding: 20px;
+    /* display: flex;
+    justify-content: center; */
+    /* text-align: center; */
+    width: 100%;
 }
 </style>

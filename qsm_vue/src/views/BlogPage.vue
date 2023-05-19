@@ -10,7 +10,7 @@
           <div class="row gx-4">
             <div class="col-lg-6 col-sm-10">
               <h1 class="main-title animate__animated animate__slideInLeft"><span class="text-muted">Company's</span>
-                Blog</h1>
+                Useful tips</h1>
               <div class="animate__animated animate__slideInLeft animate__delay-1s">Latest news and Updates</div>
             </div>
 
@@ -22,12 +22,12 @@
       <div class="container py-5 animate__animated animate__fadeIn text-black">
 
         <div class="col-12 text-muted2 mb-sm-2 small" style="letter-spacing: 0.2rem;">
-          BLOGS LIST
+          USEFUL TIPS:
         </div>
 
         <ul class="list-group list-group-flush mt-5">
           <li @click="blogDetails(blog)" v-for="blog in blogList" :key="blog"
-            class="list-group-item cate-list-item hover-tiltX shadow-sm mb-2">
+            class="list-group-item cate-list-item hover-tiltX mb-2">
             <div class="blogTopic"> {{ blog.title }}</div>
             <span class="xsmall fst-italic text-muted">
               posted {{ blog.created }}

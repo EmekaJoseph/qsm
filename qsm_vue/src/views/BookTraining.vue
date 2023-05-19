@@ -2,7 +2,7 @@
   <div>
     <MainHeaderComponent />
 
-    <section class="body-section">
+    <section class="body-section mt-5">
 
       <!-- <div class="other-page-hero">
         <div class="container">
@@ -44,7 +44,8 @@
 
             <div class="row g-3 mt-5">
               <div class="col-md-5">
-                <button data-bs-toggle="modal" data-bs-target="#instantBooking" class="btn theme-btn w-100 btn-lg">Book
+                <button data-bs-toggle="modal" data-bs-target="#instantBooking"
+                  class="btn theme-btn w-100 btn-lg">Register
                   now</button>
               </div>
               <div class="col-md-4">

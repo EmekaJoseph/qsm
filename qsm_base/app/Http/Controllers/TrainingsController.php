@@ -222,13 +222,16 @@ class TrainingsController extends BaseController
     public function activeTrainings()
     {
         $today = Carbon::now()->toDateString();
-
-        $active = TrainingModel::select('*')
-            ->where('end_date', '>=', $today)
-            ->orderBy('start_date', 'asc')
-            ->get();
-
+        $active = TrainingModel::select('*')->where('end_date', '>=', $today)->orderBy('start_date')->get();
         return response()->json($active, 200);
+    }
+
+    public function nextComingTraining()
+    {
+        $today = Carbon::now()->toDateString();
+        $nextComing = TrainingModel::where('end_date', '>=', $today)->orderBy('start_date')->first();
+        $nextComing->daysToGo = round(Carbon::now()->floatDiffInDays(Carbon::parse($nextComing->start_date)));
+        return response()->json($nextComing, 200);
     }
 
     public function trainingRegistration(Request $req)

@@ -67,11 +67,18 @@ class BlogController extends BaseController
     }
 
 
-    public function show(string $title)
+    public function show(string $val)
     {
-        $blogPost = BlogModel::where('title', $title)->first();
-        if (!$blogPost)
+
+        $byTitle = BlogModel::where('title', $val)->first();
+        $byId = BlogModel::find($val);
+        $blogPost = !$byTitle ? $byId : $byTitle;
+
+        if (!$blogPost) {
             return response()->json('not found', 203);
+        }
+
+
         return response()->json($blogPost, 200);
     }
 
@@ -122,6 +129,7 @@ class BlogController extends BaseController
         $blogPost = BlogModel::find($id);
         try {
             //    delete image from cloudinary #####################################
+            Cloudinary::destroy($blogPost->image);
         } catch (\Throwable $th) {
             //throw $th;
         }

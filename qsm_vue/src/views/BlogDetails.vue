@@ -2,7 +2,7 @@
   <div>
     <MainHeaderComponent />
 
-    <section class="body-section">
+    <section class="body-section mt-5">
       <div class="container pt-5">
 
         <div class="row gy-4">

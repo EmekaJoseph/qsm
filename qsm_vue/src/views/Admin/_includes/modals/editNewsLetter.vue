@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="modal fade" id="editMaterial" tabindex="-1" aria-hidden="true">
+        <div class="modal fade" id="editBlog" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm">
                 <div class="modal-content">
                     <div class="modal-header border-0 bg-light">
@@ -15,34 +15,25 @@
                             <div class="col-md-12 ">
                                 <form class="row g-3">
                                     <div class="col-md-12">
-                                        <label>Name:</label>
-                                        <textarea v-model="thisItem.name" class="form-control" rows="3"></textarea>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label>Pages:</label>
-                                        <input v-model="thisItem.pages" type="text" class="form-control">
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label>Category:</label>
-                                        <select v-model="thisItem.category_id" class="form-control  form-select">
-                                            <option v-for="option in categories" :value="option.category_id" :key="option">
-                                                {{ option.category_name }}
-                                            </option>
-                                        </select>
+                                        <label>Title:</label>
+                                        <textarea v-model="thisItem.title" class="form-control" rows="2"></textarea>
                                     </div>
 
-                                    <div class="col-md-12 mt-4">
-                                        <button type="button" v-if="!isSaving" data-bs-dismiss="modal"
-                                            class="float-end btn btn-custom-light ms-3 ">
-                                            Cancel
-                                        </button>
+                                    <!-- <div class="col-md-12">
+                                        <label>Category:</label>
+                                        <input v-model="thisItem.category" type="text" class="form-control">
+                                    </div> -->
+
+                                    <div class="col-md-12 mt-3">
                                         <button v-if="!isSaving" @click.prevent="updateDetails"
-                                            class="float-end theme-btn btn-custom-secondary btn">Update
+                                            class="float-end theme-btn btn-custom-secondary btn">
+                                            Update
                                         </button>
                                         <button v-else class="float-end theme-btn btn" disabled>Updating...</button>
                                     </div>
                                 </form>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -55,58 +46,48 @@
 import { reactive, ref, watchEffect } from 'vue';
 import { onBeforeRouteLeave } from 'vue-router';
 import useFunction from '@/store/functions/useFunction';
-import { MaterialsAPI } from '@/store/functions/axiosManager';
+import { NewsLetterAPI } from '@/store/functions/axiosManager';
 
 const fxn = useFunction.fx
 const isSaving = ref(false)
 const emit = defineEmits(['done'])
-const material_api = new MaterialsAPI()
+const nLetter_api = new NewsLetterAPI()
+const inputFileEl = ref<any>(null)
 
 const prop = defineProps({
     item: {
-        type: Object,
-        required: true
-    },
-
-    categories: {
         type: Object,
         required: true
     }
 })
 
 const thisItem = reactive({
-    name: prop.item.name,
-    pages: prop.item.pages,
-    category_id: prop.item.category_id,
-
+    title: prop.item.title,
 })
 
 watchEffect(() => {
-    thisItem.name = prop.item.name
-    thisItem.pages = prop.item.pages
-    thisItem.category_id = prop.item.category_id
+    thisItem.title = prop.item.title
 })
 
 
 
 
 async function updateDetails() {
-    if (!thisItem.name || !thisItem.pages || !thisItem.category_id) {
-        fxn.Toast('some fields are empty', 'warning')
+    if (!thisItem.title) {
+        fxn.Toast('field is empty', 'warning')
         return;
     }
 
-    isSaving.value = true
-    let obj = {
-        name: thisItem.name,
-        pages: thisItem.pages,
-        category_id: thisItem.category_id,
+    const obj = {
+        title: thisItem.title
     }
 
+    isSaving.value = true
     try {
-        let resp = await material_api.updateDetails(prop.item.material_id, obj)
+        let resp = await nLetter_api.updateNewsletter(prop.item.id, obj)
+        console.log(resp);
         if (resp.status == 203) {
-            fxn.Toast('Name already exists', 'warning')
+            fxn.Toast('Title already exists', 'warning')
             isSaving.value = false
             return
         }
@@ -114,7 +95,10 @@ async function updateDetails() {
         emit('done')
         isSaving.value = false
         btnX.value.click()
+        inputFileEl.value = ''
     } catch (error) {
+        console.log(error);
+
         fxn.Toast('internet error', 'error')
         isSaving.value = false
     }

@@ -9,7 +9,7 @@
                                 <div class="header-top-left-icon">
                                     <span>
                                         <i class="bi bi-envelope"></i>
-                                        qsmtrainingconsulting@gmail.com
+                                        <a href="mailto:qsmtrainingconsulting@gmail.com">qsmtrainingconsulting@gmail.com</a>
                                     </span>
                                 </div>
                             </a>
@@ -20,7 +20,7 @@
                                 <div class="header-top-left-icon">
                                     <span>
                                         <i class="bi bi-phone"></i>
-                                        +234 816 308 3253
+                                        <a href="tel:+2347089695583">+2347089695583</a>
                                     </span>
                                 </div>
                             </a>

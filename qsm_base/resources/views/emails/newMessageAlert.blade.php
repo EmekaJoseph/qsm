@@ -35,6 +35,7 @@
         <h5><b>Sender Information:</b></h5>
         <div><b>Name:</b> {{$name}}</div>
         <div><b>Email:</b> {{$email}}</div>
+        <div><b>Phone:</b> {{$phoneN}}</div>
         <div><b>Message:</b> {{$msg}}</div>
     </section>
 </body>

@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use App\Http\Controllers\TrainingsController;
 use App\Http\Controllers\MaterialsController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\NewsLetterController;
 use stdClass;
 
 class UsersController extends BaseController
@@ -52,6 +53,7 @@ class UsersController extends BaseController
             $mailObj->name = $req->input('name');
             $mailObj->email = $req->input('email');
             $mailObj->message = $req->input('message');
+            $mailObj->phone = $req->input('phone');
 
             $mailer = new EmailController();
             $mailer->autoResponse($mailObj);
@@ -129,6 +131,12 @@ class UsersController extends BaseController
     {
         $mat = new MaterialsController();
         return $mat->downloadMaterial($code);
+    }
+
+    public function downloadNewsLetter($id)
+    {
+        $dn = new NewsLetterController();
+        return $dn->downloadNewsLetter($id);
     }
 
     public function availableCategories()

@@ -24,7 +24,7 @@
                 {{ nextTraining ? nextTraining.daysToGo : '' }}
                 {{ nextTraining.daysToGo == 1 ? 'day' : 'days' }} to go!
               </h5>
-              <div>
+              <div class="my-4">
                 <router-link @click="alertShown = '1'" class="btn btn-custom-secondary" :to="`${reglink()}`">Register
                   Now!</router-link>
               </div>

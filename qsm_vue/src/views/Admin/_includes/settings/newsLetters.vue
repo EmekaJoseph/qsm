@@ -5,10 +5,14 @@
         </div>
         <div class="card-body px-4 list-scroll">
             <div class="mt-3 card p-3 ">
-                <span v-for="(email, i) in list" :key="i">
-                    {{ email }},
+                <span v-for="({ email, id }, i) in list" :key="i">
+                    {{ email }} <span>
+                        <button @click="removeEmail(id)"
+                            class="btn btn-link  btn-sm text-danger text-decoration-none m-0 p-0 ms-1 ">
+                            X
+                        </button>
+                    </span>,
                 </span>
-                <!-- {{ list.toString() }} -->
             </div>
         </div>
     </div>
@@ -31,6 +35,12 @@ async function getNewslettersList() {
     list.value = data
 }
 
+async function removeEmail(id: string) {
+    if (confirm('Delete this Email?, WARNING: This cannot be undone!')) {
+        await admin_api.deleteNewslettersList(id)
+        getNewslettersList()
+    }
+}
 
 let interval = setInterval(() => {
     getNewslettersList()

@@ -20,7 +20,7 @@ class NewsLetterController extends BaseController
 
     public function index()
     {
-        $list =  NewsLetterModel::select('id', 'title', 'created_at', 'category', 'doc')->orderByDesc('created_at')->limit(20)->get();
+        $list =  NewsLetterModel::select('id', 'title', 'created_at', 'category', 'doc', 'downloads')->orderByDesc('created_at')->limit(20)->get();
         if (sizeof($list) > 0) {
             foreach ($list as $li) {
                 $li->created = (Carbon::parse($li->created_at))->diffForHumans();
@@ -84,6 +84,11 @@ class NewsLetterController extends BaseController
         return response()->json('updated', 200);
     }
 
+    public function downloadNewsLetter($id)
+    {
+        $material = NewsLetterModel::find($id);
+        $material->increment('downloads');
+    }
 
     public function destroy(string $id)
     {

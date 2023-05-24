@@ -1,7 +1,7 @@
 <template>
     <div class="row g-3">
 
-        <!-- NEW BLOG FORM ###################################### -->
+        <!-- NEW  FORM ###################################### -->
         <div class="col-md-5">
             <div class="card rounded-4 h-100">
                 <div class="card-header bg-transparent fw-bold  border-0 p-3">
@@ -113,6 +113,8 @@ onMounted(() => {
 // ######## TABLE START ############# //
 async function getList() {
     let { data } = await nLetter_api.list()
+    console.log(data);
+
     listToShow.value = data
     listIsLoading.value = false
 }
@@ -122,8 +124,9 @@ const searchValue = ref('');
 
 const headers: Header[] = [
     { text: "TITLE", value: "title" },
-    { text: "", value: "created" },
+    { text: "UPLOADED", value: "created" },
     // { text: "CATEGORY", value: "category" },
+    { text: "DOWNLOADS", value: "downloads" },
     { text: "", value: "operation" },
 ];
 

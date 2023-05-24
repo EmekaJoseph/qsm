@@ -36,6 +36,7 @@ Route::controller(UsersController::class)->group(function () {
     Route::get('materialsByName/{name}',  'materialsByName');
     Route::get('materialsByCategory/{category_id}',  'materialsByCategory');
     Route::get('downloadMaterial/{code}',  'downloadMaterial');
+    Route::get('downloadNewsLetter/{id}',  'downloadNewsLetter');
     Route::get('availableCategories',  'availableCategories');
     Route::post('sendMessage',  'sendMessage');
     Route::post('sendDownloadRequest',  'sendDownloadRequest');
@@ -62,6 +63,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::delete('deleteMessage/{id}',  'deleteMessage');
         Route::post('sendNewsletter',  'sendNewsletter');
         Route::get('newslettersList',  'newslettersList');
+        Route::delete('deleteNewslettersList/{id}',  'deleteNewslettersList');
     });
 
     Route::controller(SettingsController::class)->group(function () {

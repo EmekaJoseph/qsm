@@ -125,8 +125,14 @@ class AdminController extends BaseController
 
     public function newslettersList()
     {
-        $emails =  DB::table('tbl_newsletter')->pluck('email')->toArray();
+        // $emails =  DB::table('tbl_newsletter')->pluck('email')->toArray();
+        $emails =  DB::table('tbl_newsletter')->get();
         return response()->json($emails, 200);
+    }
+
+    public function deleteNewslettersList($id)
+    {
+        DB::table('tbl_newsletter')->where('id', $id)->delete();
     }
 
 

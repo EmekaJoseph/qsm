@@ -118,6 +118,10 @@ class AdminAPI {
     newslettersList() {
         return $instance.get(`newslettersList`)
     }
+
+    deleteNewslettersList(id: any) {
+        return $instance.delete(`deleteNewslettersList/${id}`,)
+    }
 }
 
 
@@ -272,6 +276,10 @@ class NewsLetterAPI {
 
     details(id: any) {
         return $instance.get(`newsletter/${id}`)
+    }
+
+    downloadNewsLetter(id: string) {
+        return $instance.get(`downloadNewsLetter/${id}`)
     }
 }
 

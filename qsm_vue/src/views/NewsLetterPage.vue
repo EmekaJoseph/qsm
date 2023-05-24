@@ -49,7 +49,8 @@
                     </div>
                   </div>
                   <div class="card-footer border-0 bg-transparent pb-3">
-                    <a class="float-end btn btn-sm xsmall btn-custom-secondary rounded-2 fs-11 hover-tiltY"
+                    <a @click="registerDownload(id)"
+                      class="float-end btn btn-sm xsmall btn-custom-secondary rounded-2 fs-11 hover-tiltY"
                       :href="`${hostURL}/course_materials/${doc}`" download>
                       <i class="bi bi-cloud-download"></i> download
                     </a>
@@ -73,13 +74,11 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { NewsLetterAPI, hostURL } from '@/store/functions/axiosManager';
-import { useRouter } from 'vue-router';
 
 
 const _api = new NewsLetterAPI()
 const List = ref<any[]>([])
 const searchField = ref<string>('')
-const router = useRouter()
 
 onMounted(() => {
   getList()
@@ -87,9 +86,11 @@ onMounted(() => {
 
 async function getList() {
   let { data } = await _api.list()
-  console.log(data);
-
   List.value = data
+}
+
+async function registerDownload(id: string) {
+  await _api.downloadNewsLetter(id)
 }
 
 

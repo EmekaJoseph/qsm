@@ -24,7 +24,7 @@
         </div>
 
         <div v-else class="row gy-4 mt-2">
-          <h5 class="text-center text-muted2 mb-4">Book Training:</h5>
+          <!-- <h5 class="text-center text-muted2 mb-4">Book Training:</h5> -->
           <div v-if="training.image" class="col-md-5">
             <img class="img-fluid" :src="`${hostURL}/trainings_images/${training.image}`" alt="QSM-Training">
           </div>
@@ -33,8 +33,7 @@
             <div class="v-html" v-html="training.info"></div>
             <div class="mt-3 small text-muted">
               <i class="bi bi-calendar"></i>
-              {{ (new Date(training.start_date)).toDateString() }} -
-              {{ (new Date(training.end_date)).toDateString() }} credit-card-2-front
+              {{ (new Date(training.start_date)).toDateString() }} - {{ (new Date(training.end_date)).toDateString() }}
             </div>
             <div class="text-muted mt-2 small"><i class="bi bi-geo-alt"></i> {{ training.venue }}</div>
             <div class="text-muted mt-2 small fw-bold">

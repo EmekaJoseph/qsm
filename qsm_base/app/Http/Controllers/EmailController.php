@@ -14,6 +14,7 @@ class EmailController extends BaseController
             'name' => $obj->name,
             'email' => $obj->email,
             'msg' => $obj->message,
+            'phoneN' => $obj->phone,
         ];
 
         $template = 'emails/newMessageAlert';

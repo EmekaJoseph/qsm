@@ -4,8 +4,11 @@
         <div v-show="form.text" class="xsmall" :class="'text-' + form.texype">{{ form.text }}
         </div>
         <form @submit.prevent="subscribe" class="input-group search-form">
-            <input v-model="form.email" type="text" class="form-control" placeholder="your email">
-            <span @click="subscribe" class="input-group-text btn theme-btn"> <i class="bi bi-arrow-right"></i></span>
+            <input :disabled="form.isSaving" v-model.trim="form.email" type="text" class="form-control bg-white"
+                placeholder="your email">
+            <button v-if="!form.isSaving" @click="subscribe" class="input-group-text btn theme-btn"> <i
+                    class="bi bi-arrow-right"></i></button>
+            <button v-else class="input-group-text btn theme-btn"> <i class="bi bi-hourglass-bottom"></i></button>
         </form>
     </div>
 </template>

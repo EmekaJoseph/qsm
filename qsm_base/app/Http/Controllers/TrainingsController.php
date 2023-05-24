@@ -216,8 +216,6 @@ class TrainingsController extends BaseController
         return response()->json('deleted', 200);
     }
 
-
-
     // users
     public function activeTrainings()
     {

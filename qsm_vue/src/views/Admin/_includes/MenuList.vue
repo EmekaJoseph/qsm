@@ -39,7 +39,7 @@
             <li class="list-group-item" :class="{ 'gActive': (route.name == 'News-Letters') }">
                 <router-link :to="{ name: 'News-Letters' }">
                     <i class="bi bi-file-earmark"></i>&nbsp;
-                    Newletters
+                    Newsletters
                 </router-link>
             </li>
 

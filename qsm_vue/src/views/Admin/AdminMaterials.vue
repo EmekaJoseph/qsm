@@ -52,6 +52,20 @@
                             <EasyDataTable alternating v-model:items-selected="selected" :headers="headers"
                                 :items="materials" show-index :sort-by="sortBy" :sort-type="sortType" buttons-pagination
                                 :search-field="searchField" :search-value="searchValue">
+
+                                <template #header-no_of_downloads>
+                                    <div class="customize-header">
+                                        <i class="bi bi-download"></i>
+                                    </div>
+                                </template>
+                                <template #header-category>
+                                    <div class="customize-header">
+                                        <i class="bi bi-tag"></i>
+                                    </div>
+                                </template>
+
+
+
                                 <template #item-pin="item">
                                     <button data-bs-toggle="modal" data-bs-target="#createPINModal"
                                         @click="material_id_forNewPIN = item.material_id"
@@ -314,7 +328,7 @@ const headers: Header[] = [
     { text: "NAME", value: "name", sortable: true },
     { text: "CATEGORY", value: "category" },
     { text: "DOWNLOADS", value: "no_of_downloads" },
-    { text: "ACCESS", value: "pin" },
+    { text: "PIN", value: "pin" },
     { text: "", value: "operation" },
 ];
 

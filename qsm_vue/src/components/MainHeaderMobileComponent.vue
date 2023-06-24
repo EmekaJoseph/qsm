@@ -31,10 +31,33 @@
                             </li>
                             <li><router-link to="/materials"><i class="bi bi-dash-lg"></i> Course Materials</router-link>
                             </li>
-                            <li><router-link to="/newsletters"><i class="bi bi-dash-lg"></i> Newletters</router-link></li>
-                            <li><router-link to="/blog-home"><i class="bi bi-dash-lg"></i>Useful tips</router-link></li>
-                        </ul>
+                            <!-- <li><router-link to="/newsletters"><i class="bi bi-dash-lg"></i> Newsletters</router-link></li> -->
+                            <!-- <li><router-link to="/blog-home"><i class="bi bi-dash-lg"></i>Useful tips</router-link></li> -->
 
+                            <li class="accordion accordion-flush bg-transparent" id="accordionFlushExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                            aria-controls="flush-collapseOne">
+                                            Blog
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            <ul>
+                                                <li><router-link to="/newsletters"><i class="bi bi-dash-lg"></i>
+                                                        Newsletters</router-link></li>
+                                                <li><router-link to="/blog-home"><i class="bi bi-dash-lg"></i>Useful
+                                                        tips</router-link></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
+                        </ul>
 
                     </div>
                 </div>

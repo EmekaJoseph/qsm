@@ -10,8 +10,8 @@
           <div class="row gx-4">
             <div class="col-lg-10">
               <h1 class="main-title animate__animated animate__slideInLeft"><span class="text-muted">Company's</span>
-                Newletters</h1>
-              <div class="animate__animated animate__slideInLeft animate__delay-1s">Download our Newletters</div>
+                Newsletters</h1>
+              <div class="animate__animated animate__slideInLeft animate__delay-1s">Download our Newsletters</div>
             </div>
 
           </div>

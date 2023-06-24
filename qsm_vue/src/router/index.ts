@@ -55,7 +55,6 @@ const router = createRouter({
 
 
     {
-
       path: '/admin',
       beforeEnter: (to, from, next) => {
         const account = useAccount()

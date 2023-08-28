@@ -1,3 +1,3 @@
-cpanel: dJPAuqXJ&rtU
+cpanel-username: qsmtrain
+cpanel-password: dJPAuqXJ&rtU
 ---------------------------------------------------
-

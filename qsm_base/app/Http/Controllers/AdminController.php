@@ -24,15 +24,33 @@ class AdminController extends BaseController
     public function overview()
     {
         $today = Carbon::now()->toDateString();
+        $sevenDaysBeforeNow = Carbon::now()->subDays(7)->toDateString();
+        $inActiveTrainings = TrainingModel::where('end_date', '<', $today)->get();
+        $activeTrainings = TrainingModel::where('end_date', '>=', $today)->get();
+        $visitors = DB::table('tbl_visitors')->get();
+
+        $trainings_thisMonth = [];
+        if (sizeof($activeTrainings) > 0) {
+            $filtered = (collect($activeTrainings))->filter(function ($value, $key) {
+                return Carbon::parse($value->start_date)->month == Carbon::now()->month;
+            });
+            $trainings_thisMonth = $filtered->all();
+        }
+
+        $visitors_thisMonth = (collect($visitors))->filter(function ($value, $key) {
+            return Carbon::parse($value->visit_date)->month == Carbon::now()->month;
+        });
+
         $overview = [
             'materials' => MaterialModel::all()->count(),
-            'trainings' =>  [
-                'inActive' => TrainingModel::where('end_date', '<', $today)->count(),
-                'active' => TrainingModel::where('end_date', '>=', $today)->count(),
-            ],
+            'trainings_active' => sizeof($activeTrainings),
+            'trainings_inActive' => sizeof($inActiveTrainings),
+            'trainings_thisMonth' => sizeof($trainings_thisMonth),
             'registrations' => DB::table('tbl_registrations')->get()->count(),
             'archives' => DB::table('tbl_archives')->get()->count(),
-            'visitors' => DB::table('tbl_visitors')->get()->count(),
+            'visitors_total' => DB::table('tbl_visitors')->get()->count(),
+            'visitors_thisMonth' => sizeof($visitors_thisMonth->all()),
+            'visitors_inSevenDays' => DB::table('tbl_visitors')->where('visit_date',  '>=', $sevenDaysBeforeNow)->count(),
             'messages' => DB::table('tbl_messages')->get()->count(),
             // 'blog_posts' => DB::table('tbl_blog')->get()->count()
         ];
@@ -109,12 +127,12 @@ class AdminController extends BaseController
     public function getMessages()
     {
         $messages = DB::table('tbl_messages')->orderByDesc('sent_date')->get();
-
         if (sizeof($messages) > 0) {
             foreach ($messages as $mes) {
                 $mes->sent = (Carbon::parse($mes->sent_date))->diffForHumans();
             }
         }
+
         return response()->json($messages, 200);
     }
 

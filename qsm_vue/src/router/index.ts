@@ -12,7 +12,7 @@ import MaterialsPage from '../views/MaterialsPage.vue'
 
 import AdminLogin from '../views/Admin/AdminLogin.vue'
 import AdminLayout from '../views/Admin/AdminLayout.vue'
-import AdminDashboard from '../views/Admin/AdminDashboard.vue'
+import AdminOverview from '../views/Admin/AdminOverview.vue'
 import AdminTrainings from '../views/Admin/AdminTrainings.vue'
 import AdminArchive from '../views/Admin/AdminArchive.vue'
 import AdminMaterials from '../views/Admin/AdminMaterials.vue'
@@ -67,7 +67,7 @@ const router = createRouter({
       },
       component: AdminLayout,
       children: [
-        { path: 'dashboard', name: 'Dashboard', component: AdminDashboard },
+        { path: 'overview', name: 'Overview', component: AdminOverview },
         { path: 'trainings', name: 'Trainings', component: AdminTrainings },
         { path: 'archives', name: 'Archives', component: AdminArchive },
         { path: 'materials', name: 'Materials', component: AdminMaterials },

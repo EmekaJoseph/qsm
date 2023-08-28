@@ -37,7 +37,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </template>
@@ -74,7 +73,6 @@ async function login() {
         return;
     }
 
-
     let obj = {
         username: admin.username,
         password: admin.password
@@ -93,7 +91,7 @@ async function login() {
         admin.username = ''
         account.state = resp.data
         account.token = resp.data.token
-        router.replace({ path: '/admin/trainings' })
+        router.replace({ path: '/admin/overview' })
         admin.loading = false
 
     } catch (error) {
@@ -101,7 +99,6 @@ async function login() {
         admin.loading = false
     }
 }
-
 
 </script>
 

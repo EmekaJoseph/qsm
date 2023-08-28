@@ -99,6 +99,10 @@ class AdminAPI {
         return $instance.post(`overview`, JSON.stringify(data))
     }
 
+    getOverView() {
+        return $instance.get(`overview`,)
+    }
+
     newUser(data: object) {
         return $instance.post(`newUser`, JSON.stringify(data))
     }

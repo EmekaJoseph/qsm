@@ -22,8 +22,6 @@ import './assets/template/default.css'
 import './assets/main.css'
 import 'animate.css';
 
-
-
 import vSelect from "vue-select";
 import "vue-select/dist/vue-select.css";
 app.component('vSelect', vSelect);

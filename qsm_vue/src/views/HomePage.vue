@@ -16,11 +16,8 @@
             <div class="content-text">
               <h5 class="text-muted">Upcoming training:</h5>
               <h4>{{ nextTraining ? nextTraining.title : '' }}</h4>
-              <h5 v-if="nextTraining.daysToGo == 0" class="text-success">
-                Today!
-              </h5>
 
-              <h5 v-else class="text-success">
+              <h5 class="text-success">
                 {{ nextTraining ? nextTraining.daysToGo : '' }}
                 {{ nextTraining.daysToGo == 1 ? 'day' : 'days' }} to go!
               </h5>

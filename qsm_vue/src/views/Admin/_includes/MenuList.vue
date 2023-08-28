@@ -8,6 +8,13 @@
                 </router-link>
             </li> -->
 
+            <li class="list-group-item" :class="{ 'gActive': (route.name == 'Overview') }">
+                <router-link :to="{ name: 'Overview' }">
+                    <i class="bi bi-window-desktop"></i>&nbsp;
+                    Overview
+                </router-link>
+            </li>
+
             <li class="list-group-item" :class="{ 'gActive': (route.name == 'Trainings') }">
                 <router-link :to="{ name: 'Trainings' }">
                     <i class="bi bi-file-earmark-easel"></i>&nbsp;
